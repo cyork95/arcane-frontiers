@@ -53,6 +53,8 @@ $MODS = @(
     @{ slug="create-dragons-plus";                      client="required"; server="required" }
     @{ slug="create-mechanical-botany";                 client="required"; server="required" }
     @{ slug="create-deco";                              client="required"; server="required" }
+    @{ slug="create-enchantment-industry";              client="required"; server="required" }
+    @{ slug="create-diesel-generators";                 client="required"; server="required" }
     @{ slug="bellsandwhistles";                         client="required"; server="required" }
 
     # ── Equipment — Silent Gear ───────────────────────────────────

@@ -2494,5 +2494,225 @@
 			dependencies: ["000C003A"]
 		}
 
+		// ── 2.14 CREATE: ENCHANTMENT INDUSTRY ────────────────────────
+		{
+			id: "000C003C"
+			group: ""
+			order_index: 0
+			filename: "ch2_enchant_industry_1"
+			title: "Enchanting Engine"
+			icon: "create_enchantment_industry:enchantment_applicator"
+			x: 80.0d
+			y: 20.0d
+			shape: "circle"
+			description: [
+				"§fCreate: Enchantment Industry replaces the §6enchanting table§f with"
+				"§frotary-powered machines — no more gambling on random enchants."
+				""
+				"§eCore machines:§r"
+				"§7• §6Enchantment Applicator§7 — applies a specific enchantment from"
+				"§7  a book directly onto a tool or armour piece"
+				"§7• §6Enchantment Extractor§7 — strips enchantments off items into books"
+				"§7• §6Enchantment Purifier§7 — upgrades enchantment levels"
+				""
+				"§eCraft and power an Enchantment Applicator:§r"
+				"§7Connect it to a shaft running at medium RPM."
+				"§7Feed it the target item + an enchanted book via Funnels."
+			]
+			tasks: [{
+				id: "000C2087"
+				type: "checkmark"
+				title: "Build and power an Enchantment Applicator"
+			}]
+			rewards: [
+				{id: "000C2088" type: "item" item: "minecraft:enchanted_book" count: 3}
+				{id: "000C2089" type: "xp" xp: 60}
+			]
+			subtitle: "Precision enchanting, no more guesswork"
+			dependencies: ["000C0001"]
+		}
+		{
+			id: "000C003D"
+			group: ""
+			order_index: 0
+			filename: "ch2_enchant_industry_2"
+			title: "Disenchant & Salvage"
+			icon: "create_enchantment_industry:enchantment_extractor"
+			x: 80.0d
+			y: 24.0d
+			shape: "circle"
+			description: [
+				"§fThe §6Enchantment Extractor§f lets you strip enchantments from"
+				"§funwanted gear and recycle them into books for later use."
+				""
+				"§eWorkflow:§r"
+				"§71. Feed old enchanted gear into the Extractor."
+				"§72. It outputs §6Enchanted Books§7 + the stripped item."
+				"§73. Sort books into §6Sophisticated Storage§7 barrels by enchantment."
+				"§74. Pull the right book when you need to enchant a new piece."
+				""
+				"§aTip: Combine with §6Silent Gear§7 — when a gear reaches the end"
+				"§aof its durability, extract its enchantments before discarding it."
+				"§aNothing wasted."
+			]
+			tasks: [{
+				id: "000C208A"
+				type: "checkmark"
+				title: "Extract an enchantment from an item using the Enchantment Extractor"
+			}]
+			rewards: [
+				{id: "000C208B" type: "item" item: "create:brass_funnel" count: 4}
+				{id: "000C208C" type: "xp" xp: 75}
+			]
+			subtitle: "Every enchant is precious"
+			dependencies: ["000C003C"]
+		}
+		{
+			id: "000C003E"
+			group: ""
+			order_index: 0
+			filename: "ch2_enchant_industry_3"
+			title: "Enchantment Factory ★"
+			icon: "minecraft:bookshelf"
+			x: 80.0d
+			y: 28.0d
+			shape: "circle"
+			description: [
+				"§fAutomate your §6full enchantment pipeline§f so gear always comes"
+				"§fout perfectly enchanted with zero manual steps."
+				""
+				"§eThe full loop:§r"
+				"§71. §6Enchantment Extractor§7 strips loot gear from dungeon runs."
+				"§72. §6Sophisticated Storage§7 sorts books by enchantment type."
+				"§73. §6Enchantment Purifier§7 upgrades low-level enchants to max tier."
+				"§74. §6Enchantment Applicator§7 applies the chosen enchant to new gear."
+				"§75. §6Silent Gear§7 tools come out the other end battle-ready."
+				""
+				"§aTip: Link your dungeon loot chest (Ch 7) to the Extractor input"
+				"§awith a Mechanical Arm — every adventure feeds the factory."
+			]
+			tasks: [{
+				id: "000C208D"
+				type: "checkmark"
+				title: "Build an automated extract → sort → apply enchantment pipeline"
+			}]
+			rewards: [
+				{id: "000C208E" type: "item" item: "minecraft:mending" count: 1}
+				{id: "000C208F" type: "xp" xp: 150}
+			]
+			subtitle: "The enchanting table is obsolete"
+			dependencies: ["000C003D"]
+		}
+
+		// ── 2.15 CREATE: DIESEL GENERATORS ───────────────────────────
+		{
+			id: "000C003F"
+			group: ""
+			order_index: 0
+			filename: "ch2_diesel_gen_1"
+			title: "First Generator"
+			icon: "create_diesel_generators:diesel_generator"
+			x: 88.0d
+			y: 20.0d
+			shape: "circle"
+			description: [
+				"§fCreate: Diesel Generators adds §6fuel-burning generators§f that"
+				"§fproduce RF/FE power — bridging Create's kinetics with Forge Energy."
+				""
+				"§eHow it works:§r"
+				"§7• Generators burn §6Biodiesel§7 (or other fuels) to produce FE."
+				"§7• FE powers §6Create: New Age§7 motors and electric machines."
+				"§7• This gives you a §6fuel-based§7 alternative to windmills and waterwheels."
+				""
+				"§eCraft and run your first Diesel Generator:§r"
+				"§7You'll need fuel — even basic plant oil works to start."
+				"§7Pipe it in via a §6Fluid Pipe§7 and connect FE cables to your machines."
+			]
+			tasks: [{
+				id: "000C2090"
+				type: "checkmark"
+				title: "Build and run a Diesel Generator with fuel piped in"
+			}]
+			rewards: [
+				{id: "000C2091" type: "item" item: "create:fluid_pipe" count: 8}
+				{id: "000C2092" type: "xp" xp: 60}
+			]
+			subtitle: "Power from fuel, not friction"
+			dependencies: ["000C0001"]
+		}
+		{
+			id: "000C0040"
+			group: ""
+			order_index: 0
+			filename: "ch2_diesel_gen_2"
+			title: "Biodiesel Refinery"
+			icon: "create:basin"
+			x: 88.0d
+			y: 24.0d
+			shape: "circle"
+			description: [
+				"§fBiodiesel is the §6most efficient fuel§f for Diesel Generators"
+				"§fand is made entirely within Create's own machines."
+				""
+				"§eBiodiesel recipe:§r"
+				"§71. §6Press seeds or plant matter§7 in a Mechanical Press over a Basin"
+				"§7   to extract §6Plant Oil§7."
+				"§72. Mix Plant Oil + §6Blaze Cake§7 in a Mixing Basin to get §6Biodiesel§7."
+				"§73. Pipe Biodiesel into your Diesel Generator."
+				""
+				"§aTip: Your §6Mechanical Botany§7 crop farm feeds directly into this"
+				"§apipeline — press the surplus seeds for oil instead of discarding them."
+				"§7Every harvest becomes fuel."
+			]
+			tasks: [{
+				id: "000C2093"
+				type: "checkmark"
+				title: "Produce Biodiesel using plant oil and supply it to a Diesel Generator"
+			}]
+			rewards: [
+				{id: "000C2094" type: "item" item: "create:mechanical_press" count: 1}
+				{id: "000C2095" type: "xp" xp: 100}
+			]
+			subtitle: "Your farm is also a fuel plant"
+			dependencies: ["000C003F"]
+		}
+		{
+			id: "000C0041"
+			group: ""
+			order_index: 0
+			filename: "ch2_diesel_gen_3"
+			title: "Power Plant ★"
+			icon: "create_diesel_generators:large_diesel_generator"
+			x: 88.0d
+			y: 28.0d
+			shape: "circle"
+			description: [
+				"§fScale up to a §6full Biodiesel Power Plant§f — a self-sustaining"
+				"§ffuel production and generation loop."
+				""
+				"§eThe complete system:§r"
+				"§71. §6Mechanical Botany§7 farm produces surplus crops."
+				"§72. §6Mechanical Press§7 extracts Plant Oil from seeds."
+				"§73. §6Mixing Basin§7 refines oil into Biodiesel."
+				"§74. §6Tank§7 buffers Biodiesel supply."
+				"§75. §62+ Diesel Generators§7 consume fuel and output FE."
+				"§76. §6Create: New Age§7 motors run off that FE."
+				""
+				"§aThis closes the loop — your farm powers your factory"
+				"§awhich grows your farm. Infinite energy from sunlight and soil."
+			]
+			tasks: [{
+				id: "000C2096"
+				type: "checkmark"
+				title: "Run 2+ Diesel Generators from a self-sustaining Biodiesel production loop"
+			}]
+			rewards: [
+				{id: "000C2097" type: "item" item: "create_new_age:electric_motor" count: 2}
+				{id: "000C2098" type: "xp" xp: 150}
+			]
+			subtitle: "Sunlight, soil, and infinite power"
+			dependencies: ["000C0040"]
+		}
+
 	]
 }

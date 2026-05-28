@@ -42,6 +42,8 @@
 | **Create: Dragons Plus** | — | [Modrinth](https://modrinth.com/mod/create-dragons-plus) |
 | **Create: Mechanical Botany** | — | [Modrinth](https://modrinth.com/mod/create-mechanical-botany) |
 | **Create: Deco** | — | [Modrinth](https://modrinth.com/mod/create-deco) |
+| **Create: Enchantment Industry** | — | [Modrinth](https://modrinth.com/mod/create-enchantment-industry) |
+| **Create: Diesel Generators** | — | [Modrinth](https://modrinth.com/mod/create-diesel-generators) |
 | **Bells and Whistles** | — | [Modrinth](https://modrinth.com/mod/bellsandwhistles) |
 
 ---
