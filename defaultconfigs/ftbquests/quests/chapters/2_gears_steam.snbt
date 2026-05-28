@@ -2597,7 +2597,7 @@
 				title: "Build an automated extract → sort → apply enchantment pipeline"
 			}]
 			rewards: [
-				{id: "000C208E" type: "item" item: "minecraft:mending" count: 1}
+				{id: "000C208E" type: "item" item: "minecraft:enchanted_book" count: 1 nbt: "{StoredEnchantments:[{id:\"minecraft:mending\",lvl:1s}]}"}
 				{id: "000C208F" type: "xp" xp: 150}
 			]
 			subtitle: "The enchanting table is obsolete"
