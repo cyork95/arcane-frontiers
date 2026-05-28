@@ -1,8 +1,4 @@
 <p align="center">
-  <img src="pack.png" width="128" alt="Arcane Frontiers pack icon"/>
-</p>
-
-<p align="center">
   <img src="assets/arcane-frontiers-border-image.png" alt="Arcane Frontiers banner" width="100%"/>
 </p>
 
