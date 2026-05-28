@@ -1595,7 +1595,7 @@
 		}
 
 		// ============================================================
-		// 2.7  EQUIPMENT & GEAR — TETRA WORKSHOP
+		// 2.7  EQUIPMENT & GEAR — SILENT GEAR
 		// ============================================================
 
 		{
@@ -1605,39 +1605,38 @@
 			tasks: [{
 				id: "000C1026"
 				type: "item"
-				item: "tetra:modular_workbench"
+				item: "silentgear:gear_smithing_table"
 				count: 1L
 				consume_items: false
 			}]
 			rewards: [
-				{id: "000C2048" type: "item" item: "tetra:modular_workbench" count: 1}
+				{id: "000C2048" type: "item" item: "silentgear:gear_smithing_table" count: 1}
 				{id: "000C2049" type: "xp" xp: 35}
 			]
-			title: "Modular Workbench"
-			icon: "tetra:modular_workbench"
+			title: "Gear Smithing Table"
+			icon: "silentgear:gear_smithing_table"
 			description: [
-				"§fTetra replaces vanilla tool crafting with a §6modular system§7 — every"
-				"§ftool is assembled from separate components that you can replace,"
-				"§fupgrade, and specialise independently."
+				"§fSilent Gear replaces vanilla tool crafting with a §6material-grade system§f —"
+				"§fevery tool is crafted from parts that inherit stats from whatever material"
+				"§fyou use to make them. Better materials = better tools. Automatically."
 				""
-				"§eThe Modular Workbench:§r"
-				"§7• This is where you assemble, disassemble, and upgrade all Tetra tools."
-				"§7• Each tool slot shows its §6Head§7, §6Hilt§7, and §6Handle§7 separately."
-				"§7• Clicking a component allows you to swap it for a different material."
-				"§7• Higher-tier materials (Brass, Andesite Alloy from Create) unlock"
-				"§7  special §epas bonuses§7 — speed near machines, durability in combat."
+				"§eThe Gear Smithing Table:§r"
+				"§7• Main workstation for crafting, upgrading, and repairing Silent Gear tools."
+				"§7• Place it anywhere — right-click to open the crafting interface."
+				"§7• Tools are built from §6parts§7 (blades, rods, bindings) + a §6blueprint§7."
 				""
-				"§eTool types available:§r"
-				"§7• §6Modular Sword§7 — main combat weapon, upgradeable to late-game tier."
-				"§7• §6Modular Pickaxe§7 — primary mining tool, components affect speed."
-				"§7• §6Modular Axe§7 — utility and combat, Andesite head is excellent."
-				"§7• §6Modular Shovel§7 — terrain work with terrain-specific bonuses."
-				"§7• §6Modular Bow§7 — ranged, upgradeable draw speed and damage."
+				"§eGetting started:§r"
+				"§71. §eCraft a Blueprint§7 for the tool type you want (check JEI: §esilentgear§7)."
+				"§72. §eCraft the parts§7 — a Sword Blade and Rod from Iron, for example."
+				"§73. §ePlace Blueprint + Parts§7 in the Smithing Table → your tool appears."
+				"§74. §eHover the tool§7 — Silent Gear shows §egrade, stats, and material tier§7."
 				""
-				"§eTip:§r §7Check §6Jade§7 on any Tetra tool — it shows current component"
-				"§7stats and experience towards the next level."
+				"§eCreate mod integration:§r"
+				"§7• §eBrass Ingot§7, §eAndesite Alloy§7, §eZinc Ingot§7 all work as Silent Gear"
+				"§7  materials out of the box — no extra mod needed."
+				"§7• Higher Create tier = better Silent Gear tool stats."
 				""
-				"§a► Task: Have 1 Tetra Modular Workbench. Not consumed."
+				"§a► Have 1 Gear Smithing Table. Not consumed."
 			]
 			dependencies: ["000C000A"]
 		}
@@ -1649,38 +1648,33 @@
 			tasks: [{
 				id: "000C102A"
 				type: "checkmark"
-				title: "Any vanilla tool disassembled and components reassigned on the Modular Workbench"
+				title: "Craft your first Silent Gear tool from a blueprint and material parts"
 			}]
 			rewards: [
 				{id: "000C204A" type: "item" item: "minecraft:iron_ingot" count: 16}
 				{id: "000C204B" type: "xp" xp: 40}
 			]
-			title: "First Upgrade"
-			icon: "tetra:modular_workbench"
+			title: "First Blueprint"
+			icon: "silentgear:gear_smithing_table"
 			description: [
-				"§fThe first thing to do with the Modular Workbench is disassemble a"
-				"§fvanilla tool — this teaches the assembly/disassembly loop and"
-				"§frecycles the components into usable materials."
+				"§fThe §6Blueprint§f tells the Gear Smithing Table what tool to build."
+				"§fThe §6Parts§f tell it what material to build it from."
+				"§fChange the material, get a different tool — same blueprint forever."
 				""
-				"§eHow to disassemble:§r"
-				"§7  1. Place any vanilla sword, pickaxe, or axe in the Workbench."
-				"§7  2. The Workbench shows its components in slots."
-				"§7  3. Click §eDisassemble§7 — the tool breaks into its head and handle parts."
-				"§7  4. These parts are now Tetra components — usable in any Tetra tool."
+				"§eCrafting your first Silent Gear tool:§r"
+				"§7  1. Open §eJEI§7 and search §esilentgear§7 — browse available blueprints."
+				"§7  2. §eCraft a Blueprint§7 for a sword or pickaxe."
+				"§7  3. §eCraft a Main Part§7 (Blade for sword, Head for pickaxe) from any material."
+				"§7  4. §eCraft a Rod§7 from any rod material (Stick, Bone, Iron Rod...)."
+				"§7  5. §ePlace Blueprint + Parts§7 in the Gear Smithing Table."
+				"§7  6. §eTake your tool§7 — hover it to see its stats and §egrade§7 (E through S)."
 				""
-				"§eHow to assemble a Tetra tool from scratch:§r"
-				"§7  1. Place a §6Tetra base tool item§7 (e.g., §etetra:modular_sword§7) in"
-				"§7     the Workbench. Craft modular items from JEI first — they start blank."
-				"§7  2. Click the §eHead§7 slot — choose a material (Iron, Copper, Brass...)."
-				"§7  3. Click the §eHilt§7 slot — choose a hilt material."
-				"§7  4. Click §eAssemble§7 — the tool is built with those properties."
-				"§7  5. Hover the finished tool to see its §estats panel§7 — damage,"
-				"§7     durability, speed, and any material bonuses."
+				"§eMaterial grades:§r"
+				"§7• §eE§7 (entry) → §eS§7 (supreme) — determined by material quality."
+				"§7• §eIron§7 tools grade B–C. §eCreate metals§7 (Brass, Refined Zinc) grade A–S."
+				"§7• Grade affects damage, durability, enchantability, mining speed."
 				""
-				"§aTip:§r §7You can upgrade one component at a time without rebuilding"
-				"§7the whole tool. Swap just the blade when better materials arrive."
-				""
-				"§a► Task: Checkmark when you have disassembled a tool on the Workbench."
+				"§a► Craft any Silent Gear tool from blueprint + parts. Mark done."
 			]
 			dependencies: ["000C0025"]
 		}
@@ -1692,7 +1686,7 @@
 			tasks: [{
 				id: "000C102B"
 				type: "item"
-				item: "tetra:modular_sword"
+				item: "silentgear:sword"
 				count: 1L
 				consume_items: false
 			}]
@@ -1700,34 +1694,31 @@
 				{id: "000C204C" type: "item" item: "create:brass_ingot" count: 8}
 				{id: "000C204D" type: "xp" xp: 55}
 			]
-			title: "Brass Blade ★"
-			icon: "tetra:modular_sword"
-			subtitle: "Tetra Pak × Create integration"
+			title: "Brass-Forged Sword ★"
+			icon: "silentgear:sword"
+			subtitle: "Silent Gear × Create integration"
 			description: [
-				"§fTetra Pak adds §6Create material support§7 to the Tetra Modular Workbench."
-				"§fBrass Ingots appear automatically in the component material list"
-				"§fas soon as you've crafted them — no config required."
+				"§fCreate §6Brass Ingots§f are one of the best early-to-mid Silent Gear§f"
+				"§fmaterials — they produce a §egrade A sword§f with high attack speed"
+				"§fand a unique §eKnockback Resistance§f bonus on the blade."
 				""
-				"§eBrass Hilt bonus (Tetra Pak):§r"
-				"§7Equipping a sword with a §6Brass Hilt§7 component gives a §emovement"
-				"§7speed buff§7 while the sword is in your hand."
-				"§7Combined with §6Ars Nouveau's Haste glyph§7 — fastest movement in the pack."
+				"§eCrafting a Brass Sword:§r"
+				"§7  1. §eCraft a Sword Blade Blueprint§7 (check JEI)."
+				"§7  2. §eCraft a Brass Sword Blade§7 — Blueprint + 2 Brass Ingots."
+				"§7  3. §eCraft a Rod§7 — wood stick or iron rod for best result."
+				"§7  4. §ePlace all parts + blueprint§7 in the Gear Smithing Table."
+				"§7  5. §eTake the Brass Sword§7 — check its grade in the tooltip."
 				""
-				"§eCrafting the Brass Hilt:§r"
-				"§7  1. Open your Modular Workbench with a modular sword placed inside."
-				"§7  2. Click the §eHilt§7 slot."
-				"§7  3. In the material list, select §6Brass§7."
-				"§7  4. Confirm — the Workbench consumes the Brass Ingot and"
-				"§7     assembles the brass hilt onto your sword."
-				"§7  5. The tool stats panel updates immediately — check the speed bonus."
+				"§eBrass Sword stats vs Iron:§r"
+				"§7• §6Iron§7: 6 damage, B grade, standard durability."
+				"§7• §6Brass§7: 7 damage, A grade, +10% attack speed, knockback resist."
+				"§7  The speed bonus stacks with §eArs Nouveau Haste§7."
 				""
-				"§eBrass vs Iron hilt stats:§r"
-				"§7• §6Iron Hilt§7: balanced, no bonus."
-				"§7• §6Brass Hilt (Tetra Pak)§7: +0.2 movement speed while wielding,"
-				"§7  +10% attack speed, slightly lower base damage than iron."
-				"§7  Best for agile fighters who value mobility over raw damage."
+				"§eRepairing Silent Gear tools:§r"
+				"§7• Use the §eGear Smithing Table§7 with the tool + matching material."
+				"§7• Or craft a §eRepair Kit§7 for field repairs without a bench."
 				""
-				"§a► ★ Requires Create Brass. Not consumed."
+				"§a► ★ Requires Create Brass Ingots. Not consumed."
 			]
 			dependencies: ["000C0026" "000C000A"]
 		}
@@ -1739,7 +1730,7 @@
 			tasks: [{
 				id: "000C102C"
 				type: "item"
-				item: "tetra:modular_pickaxe"
+				item: "silentgear:pickaxe"
 				count: 1L
 				consume_items: false
 			}]
@@ -1747,31 +1738,29 @@
 				{id: "000C204E" type: "item" item: "create:andesite_alloy" count: 8}
 				{id: "000C204F" type: "xp" xp: 55}
 			]
-			title: "Andesite Edge ★"
-			icon: "tetra:modular_pickaxe"
-			subtitle: "Tetra Pak × Create integration"
+			title: "Andesite Pick ★"
+			icon: "silentgear:pickaxe"
+			subtitle: "Silent Gear × Create integration"
 			description: [
-				"§fTetra Pak also adds §6Andesite Alloy§7 as a Tetra Modular Workbench"
-				"§fmaterial. The §6Andesite Alloy Tool Head§7 gives a unique passive bonus"
-				"§fthat synergises with being near Create machines."
+				"§fCreate §6Andesite Alloy§f makes a grade B+ pickaxe with excellent§f"
+				"§fdurability and a §emining speed§f bonus that outperforms vanilla diamond"
+				"§ffor bulk stone and ore work."
 				""
-				"§eAndesite Alloy Head bonus (Tetra Pak):§r"
-				"§7A modular pickaxe with an §6Andesite Alloy head§7 gains §e+15% mining"
-				"§7speed§7 while §owithin 8 blocks of an active Create machine§7."
-				"§7Inside your factory floor, this pickaxe outperforms diamond."
-				"§7In the open world, it performs like a good iron pickaxe."
+				"§eCrafting an Andesite Pickaxe:§r"
+				"§7  1. §eCraft a Pickaxe Head Blueprint§7 (check JEI)."
+				"§7  2. §eCraft an Andesite Alloy Pickaxe Head§7 — Blueprint + 3 Andesite Alloy."
+				"§7  3. §eCraft a Rod§7 — Andesite Rod gives best mining speed synergy."
+				"§7  4. §eAssemble§7 in the Gear Smithing Table."
 				""
-				"§eWhen to use:§r"
-				"§7• §eMining in or near your factory§7 (wall expansions, ore processing bay)."
-				"§7• §eDemolishing Create contraptions§7 — fast disassembly."
-				"§7• §eMining near the colony§7 (colony is near your Create supply depot)."
+				"§eAndesite Alloy stats:§r"
+				"§7• §eMining Speed§7 — ~8.5 (between Iron and Diamond)."
+				"§7• §eDurability§7 — 900+ (roughly Diamond level)."
+				"§7• §eMaterial trait§7 — §eMagnetic§7: items mined occasionally auto-collect."
 				""
-				"§eCrafting:§r"
-				"§7Same process as the Brass Blade — open Modular Workbench with"
-				"§7a modular pickaxe, click the §eHead§7 slot, select §6Andesite Alloy§7."
-				""
-				"§aTip:§r §7Carry both the Brass Sword and the Andesite Pickaxe."
-				"§7Together they cover combat mobility + factory mining in one inventory."
+				"§eWhen Andesite beats Diamond:§r"
+				"§7• Andesite Alloy is §eeasier to mass-produce§7 (Create autocraft, no fortune)."
+				"§7• The Magnetic trait makes quarry runs §efaster§7 — less item pickup time."
+				"§7• You'll make §emultiple§7 Andesite Alloy picks before finding enough diamonds."
 				""
 				"§a► ★ Requires Andesite Alloy (Create). Not consumed."
 			]
@@ -1785,7 +1774,7 @@
 			tasks: [{
 				id: "000C102D"
 				type: "checkmark"
-				title: "A Farmer's Delight Knife is upgraded on the Tetra Modular Workbench"
+				title: "Craft a Silent Gear knife from a Farmer's Delight Knife Blueprint"
 			}]
 			rewards: [
 				{id: "000C2050" type: "item" item: "farmersdelight:iron_knife" count: 1}
@@ -1794,33 +1783,29 @@
 			]
 			title: "The Chef's Edge ★"
 			icon: "farmersdelight:iron_knife"
-			subtitle: "Tetra's Delight — the kitchen-forge bridge"
+			subtitle: "Silent Gear × Farmer's Delight integration"
 			description: [
-				"§fTetra's Delight registers §6Farmer's Delight Knives§7 as valid modular"
-				"§ftools on the Tetra Workbench. The same knife you use at a Cutting Board"
-				"§fcan now have a §6Brass Handle§7 or §6Andesite Blade§7 upgrade."
+				"§fSilent Gear registers §6Farmer's Delight Knife§f as a valid tool type."
+				"§fA Silent Gear knife made with §eBrass§f or §eRefined Radiance§f materials"
+				"§foutperforms vanilla knives at the Cutting Board while also working as"
+				"§fa capable early-game weapon."
 				""
-				"§eWhy this matters:§r"
-				"§7Normally cooking knives and combat tools are separate progressions."
-				"§7Tetra's Delight merges them — your §obest kitchen knife is also"
-				"§fyour best early-game weapon§7, using materials you already produce."
-				"§7No extra grinding. No separate resource chain."
+				"§eCrafting the Chef's Edge:§r"
+				"§7  1. §eCraft a Knife Blueprint§7 — check JEI for §esilentgear:knife§7."
+				"§7  2. §eCraft a Knife Blade§7 from §eBrass Ingot§7 (or better material)."
+				"§7  3. §eCraft a Rod§7 from any rod material."
+				"§7  4. §eAssemble§7 in the Gear Smithing Table."
 				""
-				"§eUpgrading your knife:§r"
-				"§7  1. Place any §6Farmer's Delight Knife§7 (Iron, Gold, Diamond — all work)"
-				"§7     in the §6Tetra Modular Workbench§7."
-				"§7  2. The Workbench shows the knife's §eHandle§7 and §eBlade§7 slots."
-				"§7  3. Replace the Handle with §6Brass§7 → speed bonus while slicing."
-				"§7  4. Or replace the Blade with §6Andesite Alloy§7 → efficiency bonus."
-				"§7  5. The upgraded knife §ostill works on Cutting Boards§7 — cooking"
-				"§7     function is completely unchanged. Only combat stats improve."
+				"§eWhy use it on the Cutting Board:§r"
+				"§7• §eBrass blade§7 — same cutting function, §e+15% durability§7."
+				"§7• §eHigher grade§7 knife = §eextra chance§7 for bonus food output when cutting."
+				"§7• §eThe same knife§7 also works as a weapon — dual-use, one hotbar slot."
 				""
-				"§eHotbar tip:§r §7Keep your upgraded knife on slot 1."
-				"§7It works in cooking recipes and as a weapon — dual-use means one slot"
-				"§7does the job of two tools."
+				"§eDeployer integration:§r"
+				"§7• A Silent Gear knife in a §eDeployer§7 (Ch 2.2) for the Auto Slicer"
+				"§7  (Ch 4.3) lasts significantly longer than an iron knife before breaking."
 				""
-				"§a► ★ Requires Tetra's Delight mod + Create Brass or Andesite Alloy."
-				"§a► Task: Checkmark when any Farmer's Delight Knife is upgraded."
+				"§a► ★ Craft any Silent Gear knife. Mark done."
 			]
 			dependencies: ["000C0026"]
 		}
@@ -1832,44 +1817,42 @@
 			tasks: [{
 				id: "000C102E"
 				type: "checkmark"
-				title: "Any Tetra tool — sword, pickaxe, or knife — levelled to max via use"
+				title: "Any Silent Gear tool reaches grade S — supreme material quality"
 			}]
 			rewards: [
 				{id: "000C2053" type: "item" item: "minecraft:diamond" count: 8}
 				{id: "000C2054" type: "item" item: "minecraft:diamond" count: 8}
 				{id: "000C2055" type: "xp" xp: 500}
 			]
-			title: "Veteran Tools"
-			icon: "tetra:modular_sword"
+			title: "Flawless Grade"
+			icon: "silentgear:sword"
 			description: [
-				"§fTetra tools gain §6experience§7 through use — mining, combat, or cooking."
-				"§fMaxing a tool's experience tier unlocks §emaintenance options§7 and"
-				"§freveals §6hidden material bonuses§7 that only appear at max level."
+				"§fSilent Gear's §6grade S§f tier requires the highest-quality materials"
+				"§f— Late-game metals, Netherite components, or rare alloyed parts."
+				"§fA grade S tool is the best non-magical gear in the pack."
 				""
-				"§eHow Tetra tool levelling works:§r"
-				"§7• Every use of the tool with its main function earns XP."
-				"§7  (Sword = killing; Pickaxe = mining; Knife = cutting/cooking.)"
-				"§7• Check current level: hover the tool and read the §eProgress bar§7"
-				"§7  in the tooltip (requires F3+H advanced tooltips)."
-				"§7• When the bar fills, the tool reaches a new tier — stats improve."
-				"§7• §6Maintenance§7 unlocks at certain levels: apply §eoil, sharpen, reinforce§7"
-				"§7  to extend durability and unlock tier-locked bonuses."
+				"§eMaterials that reach grade S:§r"
+				"§7• §eNetherite§7 — classic. Grade S sword is a powerful weapon."
+				"§7• §eRefined Radiance§7 (Silent Lib) — special crafted material, grade S."
+				"§7• §eAzurite§7 or §eTyrian Steel§7 — Silent Lib special alloys."
+				"§7• §eEnd-tier Create metals§7 (Brass + Netherite blend) — grade A–S depending."
 				""
-				"§eMax level unlocks:§r"
-				"§7• §6Brass Hilt max§7 → speed bonus increases to +0.3 (stacks with Haste)."
-				"§7• §6Andesite Pickaxe max§7 → factory proximity bonus increases to +25%."
-				"§7• §6Upgraded Knife max§7 → cooking output chance increases (extra item)."
+				"§eGrade S benefits:§r"
+				"§7• §eHighest base stats§7 — damage, speed, durability all at cap."
+				"§7• §eBetter enchant levels§7 — grade S tools accept higher enchantments."
+				"§7• §eUnique material traits§7 — some grade S materials add special on-hit effects."
 				""
-				"§aTip:§r §7Use the §6Deployer§7 (Ch 2.2) to auto-use tools — mount it on"
-				"§7a contraption, put the tool in its hand, and let it farm XP automatically."
+				"§eChecking your grade:§r"
+				"§7• §eHover the tool§7 — grade letter is shown in the tooltip with colour coding."
+				"§7• Or open the §eGear Smithing Table§7 with the tool to see full stats breakdown."
 				""
-				"§a► Task: Checkmark when any Tetra tool reaches maximum level."
+				"§a► Reach grade S on any Silent Gear tool. Mark done."
 			]
 			dependencies: ["000C0027" "000C0028"]
 		}
 
 		// ============================================================
-		// 2.8  WATER LOGISTICS — LITTLE LOGISTICS
+		// 2.8  WATER LOGISTICS — SMALL SHIPS
 		// ============================================================
 
 		{
@@ -1879,7 +1862,7 @@
 			tasks: [{
 				id: "000C102F"
 				type: "item"
-				item: "littlelogistics:tugboat"
+				item: "smallships:cog"
 				count: 1L
 				consume_items: false
 			}]
@@ -1887,30 +1870,31 @@
 				{id: "000C2056" type: "item" item: "minecraft:oak_planks" count: 32}
 				{id: "000C2057" type: "xp" xp: 40}
 			]
-			title: "First Tugboat"
-			icon: "littlelogistics:tugboat"
+			title: "First Sail"
+			icon: "smallships:cog"
 			description: [
-				"§fLittle Logistics adds §6motorised tugboats§7 and §6cargo barges§7 that"
-				"§ftravel existing river and ocean channels — no tracks required."
+				"§fSmall Ships adds §6fully pilotable wooden ships§f that sail rivers,"
+				"§fcoastal waters, and open oceans — far more capable than boats."
 				""
-				"§eWhy tugboats alongside trains?§r"
+				"§eWhy ships alongside trains?§r"
 				"§7• §6Trains§7: high-volume inter-base cargo on purpose-built rail lines."
-				"§7• §6Tugboats§7: early supply lines through rivers, island biomes,"
-				"§7  coast routes, anywhere a rail bridge would be impractical."
-				"§7• §oThey are additive, not competing§7 — both can feed the same warehouse."
+				"§7• §6Ships§7: exploration, island biomes, ocean dungeons, coastal supply runs."
+				"§7• §oThey are additive, not competing§7 — ships reach places trains can't."
 				""
-				"§eCraft and launch your Tugboat:§r"
-				"§7  1. Craft a §6Tugboat§7 (see JEI — uses Oak Planks + Iron)."
-				"§7  2. Find a §eflowing river§7 of at least 2 blocks width."
-				"§7  3. Right-click the water surface to place the Tugboat."
-				"§7  4. Right-click the Tugboat to enter its GUI — set destination and cargo."
-				"§7  5. The Tugboat drives automatically along the river channel."
+				"§eShip types (smallest to largest):§r"
+				"§7• §6Cog§7 — smallest, cheapest. 1 sail. Perfect first ship."
+				"§7• §6Brigg§7 — medium, 2 sails. Faster, with cargo hold."
+				"§7• §6Galley§7 — oar-powered, works in calm waters without wind."
+				"§7• §6Drakkar§7 — aggressive design, fastest in open water."
+				"§7• §6Schooner§7 — large, 3 sails. Best cargo capacity."
 				""
-				"§eTip:§r §7Terralith generates beautiful meandering rivers through diverse"
-				"§7biomes. Plot a river route between two interesting biomes early —"
-				"§7it doubles as a scenic exploration corridor."
+				"§eCrafting and launching:§r"
+				"§7  1. §eCraft a Cog§7 (check JEI — oak planks + iron + sail cloth)."
+				"§7  2. §eRight-click water§7 to place it."
+				"§7  3. §eRight-click the helm§7 to board and steer."
+				"§7  4. §eW§7 = forward, §eA/D§7 = turn. §eShift§7 to disembark."
 				""
-				"§a► Task: Have 1 Tugboat. Not consumed."
+				"§a► Have 1 Cog. Not consumed."
 			]
 			dependencies: ["000C000A"]
 		}
@@ -1922,35 +1906,36 @@
 			tasks: [{
 				id: "000C1030"
 				type: "checkmark"
-				title: "A Cargo Barge is attached to the Tugboat with at least 1 item stack loaded"
+				title: "Load chests or cargo onto a Small Ship and sail it to a new location"
 			}]
 			rewards: [
 				{id: "000C2058" type: "item" item: "sophisticatedstorage:iron_chest" count: 2}
 				{id: "000C2059" type: "xp" xp: 40}
 			]
-			title: "Loaded Barge"
-			icon: "littlelogistics:tugboat"
+			title: "At Full Sail"
+			icon: "smallships:cog"
 			description: [
-				"§fA §6Cargo Barge§7 attached to your Tugboat gives it real cargo capacity."
-				"§fWithout a Barge, the Tugboat only carries what its tiny engine chest holds."
-				"§fWith a Barge, you can ship significant resource loads between points."
+				"§fSmall Ships can carry §6chests and storage§f placed on deck —"
+				"§fyour cargo travels with the ship. Unload at the destination,"
+				"§fno automation required."
 				""
-				"§eAttaching a Barge:§r"
-				"§7  1. Craft a §6Cargo Barge§7 (see JEI)."
-				"§7  2. Place it on water §odirectly behind§7 a placed Tugboat."
-				"§7  3. Right-click the Barge — it connects to the Tugboat automatically."
-				"§7  4. Open the Barge's GUI to load items into its cargo slots."
-				"§7  5. The Tugboat now pulls the Barge as one unit along the river."
+				"§eLoading cargo:§r"
+				"§7  1. §eBoard§7 your ship at the helm."
+				"§7  2. §ePlace chests§7 directly on the ship deck — they attach."
+				"§7  3. §eFill the chests§7 with your cargo before sailing."
+				"§7  4. §eSail§7 to your destination."
+				"§7  5. §eUnload§7 — the chests detach when the ship docks."
 				""
-				"§eCargo Barge capacity:§r"
-				"§7• 1 Barge: 27 item slots (one chest's worth)."
-				"§7• Multiple Barges: chain up to §e4 Barges§7 behind one Tugboat."
-				"§7  Each adds 27 more slots — 108 total for a full train of barges."
+				"§eCargo tips:§r"
+				"§7• §eSophisticated Storage Chests§7 (quest reward) hold more and filter items."
+				"§7• §eA Schooner§7 with 3 Sophisticated Chests = one trip from mine to colony."
+				"§7• §eIron Chest§7 (reward) — a solid starting cargo chest for the Cog deck."
 				""
-				"§eTip:§r §7Load §6Sophisticated Storage Chests§7 into the Barge for"
-				"§7self-contained organised cargo — items stay sorted during transport."
+				"§eFamily logistics:§r"
+				"§7• One person sails, one person loads/unloads — natural co-op workflow."
+				"§7• §eWaystones§7 near docks mean everyone can reach the ship quickly."
 				""
-				"§a► Task: Checkmark when the Barge is attached and has a stack loaded."
+				"§a► Load cargo and sail to a new location. Mark done."
 			]
 			dependencies: ["000C002B"]
 		}
@@ -1962,35 +1947,34 @@
 			tasks: [{
 				id: "000C1031"
 				type: "checkmark"
-				title: "Tugboat completed an automated delivery run to a set destination"
+				title: "Sail a ship across open ocean or a river to reach a distant biome or dungeon"
 			}]
 			rewards: [
 				{id: "000C205A" type: "item" item: "minecraft:map" count: 4}
 				{id: "000C205B" type: "xp" xp: 50}
 			]
-			title: "River Route"
+			title: "Open Waters"
 			icon: "minecraft:map"
 			description: [
-				"§fWith destination set, the Tugboat pilots itself — no player driving."
-				"§fThis is your §6first autonomous water delivery line§7."
+				"§fSailing to a destination you couldn't easily reach on foot§f"
+				"§fis what Small Ships are for. The ocean is enormous —"
+				"§fand that's the point."
 				""
-				"§eSetting a destination:§r"
-				"§7  1. Right-click your §6Tugboat§7 to open its GUI."
-				"§7  2. In the §eDestination§7 field, enter the name of a placed"
-				"§7     §6Little Logistics Waypoint§7 downstream."
-				"§7  3. (Craft a Waypoint and place it at the bank of your destination.)"
-				"§7  4. Click §6Depart§7 — the Tugboat navigates the river automatically."
-				"§7  5. It stops at the destination, waits, then returns."
+				"§eGood first voyage targets:§r"
+				"§7• §eA Seven Seas ocean dungeon§7 (Ch 7) — sail there directly."
+				"§7• §eA Terralith island biome§7 — Skylands, Volcanic Peaks, Deep Ocean."
+				"§7• §eA distant YUNG's coastal structure§7 — lighthouses, harbors."
+				"§7• §eA When Dungeons Arise shore fort§7 — accessible only by water."
 				""
-				"§eFull one-way delivery loop:§r"
-				"§7  Base dock (load) → set destination → Tugboat departs"
-				"§7  → arrives at waypoint → wait condition met (timer or cargo check)"
-				"§7  → Tugboat returns to base for reloading."
+				"§eNavigation tools:§r"
+				"§7• §eXaero's World Map§7 (M) — see explored coastline, mark destinations."
+				"§7• §eExplorer's Compass§7 (Ch 7) — point toward a target structure."
+				"§7• §eTraveler's Compass§7 (Ch 7) — point toward a target biome."
 				""
-				"§eTip:§r §7Place §6Waystones§7 near your river docks — family members can"
-				"§7warp to any dock and hand-load the Barge between automated runs."
+				"§eTip:§r §7Bring a §eComforts sleeping bag§7 on long voyages — set your"
+				"§7spawn on the ship deck before sleeping."
 				""
-				"§a► Task: Checkmark when the Tugboat arrives at a destination autonomously."
+				"§a► Sail to a biome or dungeon you wouldn't have reached on foot. Mark done."
 			]
 			dependencies: ["000C002C"]
 		}
@@ -2002,30 +1986,30 @@
 			tasks: [{
 				id: "000C1032"
 				type: "checkmark"
-				title: "A round-trip barge route crosses at least one Terralith biome boundary"
+				title: "Complete a round-trip ship voyage crossing at least one Terralith biome boundary"
 			}]
 			rewards: [
 				{id: "000C205C" type: "item" item: "waystones:warp_stone" count: 2}
 				{id: "000C205D" type: "xp" xp: 75}
 			]
-			title: "Two-Way Trade ★"
+			title: "Trade Fleet ★"
 			icon: "waystones:warp_stone"
-			subtitle: "Barge route × Terralith biomes"
+			subtitle: "Ship route × Terralith biomes"
 			description: [
-				"§fA round-trip barge route that crosses a §6Terralith biome boundary§7"
-				"§fis more than a logistics milestone — it is a scenic journey that"
+				"§fA round-trip ship voyage crossing a §6Terralith biome boundary§7"
+				"§fis more than a logistics milestone — it's a scenic journey that"
 				"§fconnects two worlds the family might otherwise keep separate."
 				""
-				"§eWhat 'crossing a biome boundary' means:§r"
-				"§7Your route must start in one biome and arrive in a §edifferent§7"
-				"§fTerralith biome. The river crossing the boundary counts — even"
-				"§7if you never walk through the second biome yourself."
+				"§eWhat counts:§r"
+				"§7Your voyage must start in one biome and dock in a §edifferent§7"
+				"§7Terralith biome. The water crossing counts — even if you never"
+				"§7walk through the second biome itself."
 				""
-				"§eFinding a good cross-biome river route:§r"
+				"§eFinding a good cross-biome sea route:§r"
 				"§7  1. Open §6Xaero's World Map§7 (§eM§7) and enable §eBiome overlay§7."
-				"§7  2. Look for rivers that snake between two or more biome colours."
-				"§7  3. Trace the route from your base to a distant interesting biome."
-				"§7  4. Place §6Waypoints§7 at both ends."
+				"§7  2. Look for coastal biome transitions — cliffs meeting tropical shores."
+				"§7  3. Trace your route from home dock to a destination dock."
+				"§7  4. Place §6Waystones§7 at both ends for fast return trips."
 				"§7  5. Set the Tugboat on a loop schedule between them."
 				""
 				"§eSuggested trade commodities per biome:§r"

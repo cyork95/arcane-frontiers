@@ -3,8 +3,8 @@
 	group: ""
 	order_index: 7
 	filename: "7_twilight"
-	title: "Chapter 7: The Twilight Adventure"
-	icon: "twilightforest:magic_map"
+	title: "Chapter 7: Dungeons & Beyond"
+	icon: "minecraft:filled_map"
 	default_quest_shape: ""
 	default_hide_dependency_lines: false
 	// ================================================================
@@ -12,15 +12,11 @@
 	//
 	// IDs this chapter USES from other chapters:
 	//   000D001C = Ch 3 "Dragon Slayer ✦" — gear-check gate
-	//              → prereq for 00120001 (Twilight Portal ◆)
+	//              → prereq for 00120001 (Beyond the Map ◆)
 	//
 	// IDs this chapter EXPORTS:
 	//   0012000B = "Arcane Frontiers ✦" — FINAL modpack completion gate
 	//              (no downstream deps — this is the end)
-	//
-	// TROPHY DISPLAY NOTE:
-	//   The "Ch 7.3 Twilight Explorer" quest referenced in tooltips is:
-	//   quest 0012000A — display all 6 Twilight boss trophies.
 	// ================================================================
 	quests: [
 
@@ -36,45 +32,39 @@
 			tasks: [{
 				id: "00121001"
 				type: "checkmark"
-				title: "Build a Twilight Forest portal and enter the Twilight Forest dimension"
+				title: "Loot your first When Dungeons Arise dungeon — collect any unique dungeon chest item"
 			}]
 			rewards: [
-				{id: "00122001" type: "item" item: "twilightforest:magic_map" count: 1}
+				{id: "00122001" type: "item" item: "explorerscompass:explorers_compass" count: 1}
 				{id: "00122002" type: "xp" xp: 100}
 			]
-			title: "Twilight Portal"
-			icon: "twilightforest:magic_map"
-			subtitle: "A forest that never sees full daylight"
+			title: "Beyond the Map"
+			icon: "explorerscompass:explorers_compass"
+			subtitle: "The world is bigger than it looks"
 			description: [
-				"§6The Twilight Forest§f is a dimension of eternal twilight —"
-				"§fperpetual dusk, ancient trees, and six bosses arranged in a"
-				"§flinear progression. Each boss unlocks the next."
+				"§6You cleared the End. You've earned the right to go deeper.§r"
+				"§fThe overworld holds structures your early-game self couldn't handle —"
+				"§fmassive procedural dungeons from §eWhen Dungeons Arise§f,"
+				"§fcompletely rebuilt vanilla structures from the §eYUNG's§f suite,"
+				"§fand hidden dimensions waiting for End-tier gear."
 				""
 				"§ePrerequisite:§r"
-				"§7• §6Dragon Slayer ✦§7 (Ch 3) confirmed — you have End-tier gear."
-				"§7• §6Archmage Spellbook§7 recommended — Ars spells shine in TF."
-				"§7• §6Tetra§7 upgraded weapons (Ch 2.7) — Brass and Andesite gear holds well."
+				"§7• §6Dragon Slayer ✦§7 (Ch 3) — you have End-tier armor and weapons."
+				"§7• §6Archmage Spellbook§7 (Ch 1) recommended — spells are strong in dungeons."
+				"§7• §6Silent Gear max-grade tools§7 (Ch 2.7) — durability matters."
 				""
-				"§eBuilding the portal:§r"
-				"§71. §eDig a 2×2 hole§7 in the ground, 1 block deep."
-				"§72. §eFill§7 the hole with §ewater§7."
-				"§73. §eSurround§7the water with any §eflowers§7 (12 flowers for 2×2 pool)."
-				"§74. §eThrow a§7 §eDiamond§7 into the water pool."
-				"§75. The portal §eactivates§7 — lightning strikes the pool."
-				"§76. §eEnter§7 the glowing vortex."
+				"§eExplorer's Compass (reward):§r"
+				"§7• §eRight-click§7 → select a structure type to search for."
+				"§7• Shows distance and direction to the nearest matching structure."
+				"§7• §eUse it§7 to find When Dungeons Arise targets and YUNG's structures."
 				""
-				"§eMagic Map (reward):§r"
-				"§7• §eRight-click§7 in the Twilight Forest → generates a map of the biomes."
-				"§7• §eBoss locations§7 show as icons on the Magic Map."
-				"§7• §eTreasure Map§7 (in TF chests) marks specific boss lairs."
-				""
-				"§a► Build the portal and enter. Mark done on arrival in the Twilight Forest."
+				"§a► Loot your first WDA dungeon. Mark done."
 			]
 			dependencies: ["000D001C"]
 		}
 
 		// ============================================================
-		// 7.2  BOSS PROGRESSION
+		// 7.2  STRUCTURAL EXPLORATION
 		// ============================================================
 
 		{
@@ -83,388 +73,387 @@
 			id: "00120002"
 			tasks: [{
 				id: "00121002"
-				type: "item"
-				item: "twilightforest:naga_trophy"
-				count: 1L
-				consume_items: false
+				type: "checkmark"
+				title: "Clear a YUNG's redesigned structure — Stronghold, Dungeon, Mineshaft, or Desert Temple"
 			}]
 			rewards: [
-				{id: "00122003" type: "item" item: "twilightforest:naga_scale" count: 8}
-				{id: "00122004" type: "xp" xp: 150}
+				{id: "00122003" type: "item" item: "travelerscompass:travelers_compass" count: 1}
+				{id: "00122004" type: "xp" xp: 125}
 			]
-			title: "The Naga — Boss 1/6"
-			icon: "twilightforest:naga_trophy"
+			title: "YUNG's Handiwork"
+			icon: "travelerscompass:travelers_compass"
 			description: [
-				"§6The Naga§f is the first Twilight Forest boss and the gate to all others."
-				"§fDefeat it to unlock the §eLich Towers§f."
+				"§6YUNG's mods replace nearly every vanilla structure with a handcrafted§r"
+				"§6redesign — more rooms, better loot, actual architecture.§r"
 				""
-				"§eFinding the Naga:§r"
-				"§7• The Naga spawns in §eNaga Courtyards§7 — circular stone structures"
-				"§7  in the §eForest§7 biome. Check your Magic Map for courtyard icons."
+				"§eAll YUNG's structures in the pack:§r"
+				"§7• §eBetter Dungeons§7 — each dungeon type has 4+ layout variants."
+				"§7• §eBetter Strongholds§7 — multi-wing maze with real boss rooms."
+				"§7• §eBetter Mineshafts§7 — branching tunnels with cave-in setpieces."
+				"§7• §eBetter Desert Temples§7 — actual traps that can kill you."
+				"§7• §eBetter Jungle Temples§7 — redesigned with lore rooms."
+				"§7• §eBetter Witch Huts§7 — expanded with crafting rooms and ingredient storage."
+				"§7• §eBetter Nether Fortresses§7 — wider corridors, better spawner placement."
+				"§7• §eBetter Ocean Monuments§7 — cleaner Guardian arenas."
+				"§7• §eBetter End Island§7 — the outer End islands are restructured."
+				"§7• §eCave Biomes§7 — full cave biomes underground (lush, dripstone overhaul)."
+				"§7• §eBridges§7 — procedural bridges across ravines and rivers."
+				"§7• §eExtras§7 — wells, ruins, small camps across all biomes."
 				""
-				"§eFight strategy:§r"
-				"§7• The Naga is a §elong serpent§7 — attack the §ehead§7 for damage."
-				"§7• §eCircle the arena§7 — the Naga coils and charges in straight lines."
-				"§7• §eArs Nouveau§7 Projectile + Harm + Amplify — hits the head for 10+ damage."
-				"§7• §eBow§7 ranged fire from the courtyard wall is the safest approach."
+				"§7Use §eExplorer's Compass§7 (quest reward above) to target a specific type."
 				""
-				"§eDrops:§r"
-				"§7• §eNaga Trophy§7 — display in Trophy Room for Ch 7.3."
-				"§7• §eNaga Scale§7 — crafting material for Naga Scale armor (high defense)."
-				""
-				"§a► Defeat the Naga and collect the Trophy."
+				"§a► Clear any YUNG's redesigned structure. Mark done."
 			]
 			dependencies: ["00120001"]
 		}
 
 		{
-			x: 0.0d
+			x: -8.0d
 			y: 16.0d
 			id: "00120003"
 			tasks: [{
 				id: "00121003"
-				type: "item"
-				item: "twilightforest:lich_trophy"
-				count: 1L
-				consume_items: false
+				type: "checkmark"
+				title: "Reach the final floor of a large When Dungeons Arise dungeon (Thornborn Towers, Shiraz Palace, or equivalent)"
 			}]
 			rewards: [
-				{id: "00122005" type: "item" item: "twilightforest:magic_map_focus" count: 3}
+				{id: "00122005" type: "item" item: "minecraft:ender_eye" count: 4}
 				{id: "00122006" type: "xp" xp: 200}
 			]
-			title: "Twilight Lich — Boss 2/6"
-			icon: "twilightforest:lich_trophy"
+			title: "When Dungeons Arise"
+			icon: "minecraft:iron_door"
 			description: [
-				"§6The Twilight Lich§f is a powerful undead mage atop a §eLich Tower§f."
-				"§fDefeating it unlocks the §eLabyrinth§f (Minoshroom)."
+				"§6When Dungeons Arise generates massive multi-floor dungeons§r"
+				"§6scattered across the overworld — each one is a full adventure.§r"
 				""
-				"§eFinding the Lich Tower:§r"
-				"§7• Large gothic tower visible from across the forest."
-				"§7• Check §eMagic Map§7 — Lich Towers appear after Naga is defeated."
+				"§eDungeon types (largest to smallest):§r"
+				"§7• §eThornborn Towers§7 — tall spired fortresses, 6–8 floors, elite loot."
+				"§7• §eShiraz Palace§7 — wide desert palace with trap corridors."
+				"§7• §eFrozen Lighthouse§7 — coastal structure with ice and undead."
+				"§7• §eForgotten Wastelands§7 — open ruined complex, many mob types."
+				"§7• §eSmaller WDA dungeons§7 — scattered outposts, each with a loot room."
 				""
-				"§eFight — three phases:§r"
-				"§71. §ePhase 1§7 — three §eGolden Shields§7 orbit the Lich."
-				"§7   Destroy all three shields before the Lich takes damage."
-				"§7   §eShields are one-shot each§7 — any hit destroys them."
-				"§72. §ePhase 2§7 — Lich teleports and summons zombie minions."
-				"§7   Focus the Lich directly, ignore minions."
-				"§73. §ePhase 3§7 — Lich fires ender pearls and shadow bolts rapidly."
-				"§7   §eShield + dodge§7. Ars Nouveau Orbit + Shield covers all angles."
+				"§eFinding them:§r"
+				"§7• §eExplorer's Compass§7 — search for 'when_dungeons_arise' structure tags."
+				"§7• §eTraveler's Compass§7 — navigate to discovered POI coordinates."
+				"§7• §eXaero's World Map§7 — WDA dungeons appear as icons after discovery."
 				""
-				"§eDrops:§r"
-				"§7• §eLich Trophy§7 — Ch 7.3 display."
-				"§7• §eMagic Map Focus§7 — crafts Orb Maps that show boss locations."
-				"§7• §eScepters§7 (random) — powerful wands, especially §eLifedrain Scepter§7."
+				"§ePreparation:§r"
+				"§7• §eFull armor§7 — these dungeons scale mob difficulty."
+				"§7• §eArs Nouveau§7 Blink glyph — escape trap rooms instantly."
+				"§7• §eComforts sleeping bag§7 — set spawn inside the dungeon."
 				""
-				"§a► Defeat the Twilight Lich and collect the Trophy."
+				"§a► Reach the final floor (deepest loot room). Mark done."
 			]
 			dependencies: ["00120002"]
 		}
 
 		{
-			x: 0.0d
-			y: 24.0d
+			x: 8.0d
+			y: 16.0d
 			id: "00120004"
 			tasks: [{
 				id: "00121004"
 				type: "checkmark"
-				title: "Defeat the Minoshroom boss in the Twilight Forest Labyrinth and collect its Meef Stroganoff"
+				title: "Loot a When Dungeons Arise: Seven Seas ocean dungeon"
 			}]
 			rewards: [
-				{id: "00122007" type: "item" item: "twilightforest:meef_stroganoff" count: 4}
-				{id: "00122008" type: "xp" xp: 175}
+				{id: "00122007" type: "item" item: "minecraft:heart_of_the_sea" count: 1}
+				{id: "00122008" type: "xp" xp: 150}
 			]
-			title: "The Labyrinth — Boss 3/6"
-			icon: "twilightforest:minoshroom"
+			title: "Seven Seas"
+			icon: "minecraft:heart_of_the_sea"
 			description: [
-				"§6The Minoshroom§f guards the center of the §eTwilight Labyrinth§f —"
-				"§fa massive underground maze. Defeating it opens the §eHydra Lair§f."
+				"§6When Dungeons Arise: Seven Seas adds ocean-based dungeons§r"
+				"§6— shipwrecks, underwater ruins, and sea fortresses far larger§r"
+				"§6than anything vanilla generates.§r"
 				""
-				"§eFinding the Labyrinth:§r"
-				"§7• Large hedge-maze structure. Use §eMagic Map§7 after Lich defeat."
-				"§7• §eMaze Map§7 (craftable) reveals the Labyrinth interior layout."
+				"§eStructure types:§r"
+				"§7• §eSunken Ships§7 — multi-deck wrecks with cargo holds."
+				"§7• §eOcean Fortresses§7 — partially submerged bases with Drowned elite spawners."
+				"§7• §eCoastal Outposts§7 — above-water pirate camps near shore."
+				"§7• §eUnderwater Temples§7 — fully submerged with guardian variants."
 				""
-				"§eNavigating the Labyrinth:§r"
-				"§7• §eLight torches§7 as you go — the maze is enormous and dark."
-				"§7• §eMaze Wafer§7 item (found in maze chests) gives Labyrinth map info."
-				"§7• §eMinotaurs§7 patrol the halls — hostile, deal moderate damage."
-				"§7• §eCentral chamber§7 has the Minoshroom — large mushroom-headed bull."
+				"§ePreparing for ocean dungeons:§r"
+				"§7• §ePotion of Water Breathing§7 — at least 8 minutes."
+				"§7• §ePotion of Night Vision§7 — visibility in deep ocean structures."
+				"§7• §eArs Nouveau§7 Aqua Affinity glyph — fast mining underwater."
+				"§7• §eSophisticated Backpack§7 — the loot is worth carrying."
 				""
-				"§eFight:§r"
-				"§7• §eMinoshroom§7 charges and stomps. High health, moderate damage."
-				"§7• §eKeep moving§7 — charge attacks are telegraphed, easy to sidestep."
-				"§7• §eArs Nouveau§7 Projectile + Harm + Pierce + Amplify hits from safe range."
+				"§eFinding them:§r"
+				"§7• §eExplorer's Compass§7 → search ocean structure types."
+				"§7• §eSmall Ships§7 (Ch 2.8) — sail the coastline and let the horizon reveal them."
 				""
-				"§eDrops:§r"
-				"§7• §eMeef Stroganoff§7 — the most nutritious Farmer's Delight-adjacent meal"
-				"§7  in the pack. Grants Strength I for 30 seconds when eaten."
-				"§7• §eTrophy§7 (Minoshroom Head) — for the trophy room."
-				""
-				"§a► Defeat the Minoshroom and collect Meef Stroganoff. Mark done."
+				"§a► Loot a Seven Seas ocean dungeon. Mark done."
 			]
-			dependencies: ["00120003"]
+			dependencies: ["00120002"]
 		}
+
+		// ============================================================
+		// 7.3  ANCIENT CITIES & DEEPER DARKNESS
+		// ============================================================
 
 		{
 			x: 0.0d
-			y: 32.0d
+			y: 24.0d
 			id: "00120005"
 			tasks: [{
 				id: "00121005"
-				type: "item"
-				item: "twilightforest:hydra_trophy"
-				count: 1L
-				consume_items: false
+				type: "checkmark"
+				title: "Loot the central chest room of a Deeper and Darker Ancient City without triggering the Warden"
 			}]
 			rewards: [
-				{id: "00122009" type: "item" item: "twilightforest:fiery_blood" count: 4}
+				{id: "00122009" type: "item" item: "minecraft:swift_sneak" count: 1}
 				{id: "0012200A" type: "xp" xp: 250}
 			]
-			title: "The Hydra — Boss 4/6"
-			icon: "twilightforest:hydra_trophy"
+			title: "Ancient Terror"
+			icon: "minecraft:sculk_shrieker"
 			description: [
-				"§6The Hydra§f is the most visually impressive Twilight boss — a"
-				"§fmulti-headed fire-breathing serpent in a §eFire Swamp§f lair."
-				"§fDefeating it unlocks the §eDark Tower§f (Ur-Ghast)."
+				"§6Deeper and Darker massively expands Ancient City content —§r"
+				"§6new rooms, new blocks, and the Warden reworked into a true§r"
+				"§6stealth challenge.§r"
 				""
-				"§eFinding the Hydra Lair:§r"
-				"§7• Large circular burned clearing in the §eFire Swamp§7 biome."
-				"§7• §eFireflies§7 from Alex's Mobs mark the swamp edge at night."
+				"§eWhat Deeper and Darker adds to Ancient Cities:§r"
+				"§7• §eOtherside Portal§7 — a dimension portal found in the deepest Ancient City rooms."
+				"§7• §eNew sculk structures§7 — sculk libraries, echo shard deposits, reinforced walls."
+				"§7• §eNew blocks§7 — Sculk Bone, Gloom, Reinforced Deepslate variants."
+				"§7• §eWarder variants§7 — additional mob types guarding deeper sections."
 				""
-				"§eFight strategy:§r"
-				"§7• §eMultiple heads§7 — each fires fire breath or lunges to bite."
-				"§7• §eShoot open mouths§7 with arrows/spells when heads rear back to fire."
-				"§7  Open mouth = vulnerable for ~1 second. That's your window."
-				"§7• §eDo not use fire§7 — the Hydra is immune. Projectile + Harm + Amplify."
-				"§7• §eSever a head§7 — it regrows as two. Only destroy heads when you can"
-				"§7  kill two replacements — or §enever sever§7 heads and just whittle health."
-				"§7• §ePotion of Fire Resistance§7 — mandatory. The swamp floor is on fire."
+				"§eSurviving the Ancient City:§r"
+				"§7• §eSneaking only§7 — no sprinting, no falling damage, no mob aggro."
+				"§7• §eArs Nouveau Silence glyph§7 — reduces your noise radius significantly."
+				"§7• §eWool blocks§7 in your hotbar — cover Shriekers before approaching."
+				"§7• §eNight Vision§7 — the City is pitch dark. Wool-covered torches work."
+				"§7• §eIf the Warden spawns§7 — use Blink glyph to escape, don't fight it."
 				""
-				"§eDrops:§r"
-				"§7• §eHydra Trophy§7 — Ch 7.3 display."
-				"§7• §eFiery Blood§7 (reward) — required for Fiery Ingot crafting (next quest)."
+				"§eSwift Sneak enchant (reward):§r"
+				"§7• Move at full crouch speed — essential for future City runs."
 				""
-				"§a► Defeat the Hydra and collect the Trophy."
+				"§a► Loot the central chest room without summoning the Warden. Mark done."
 			]
-			dependencies: ["00120004"]
+			dependencies: ["00120002"]
 		}
 
+		// ============================================================
+		// 7.4  THE BUMBLEZONE
+		// ============================================================
+
 		{
-			x: 0.0d
-			y: 40.0d
+			x: -8.0d
+			y: 32.0d
 			id: "00120006"
 			tasks: [{
 				id: "00121006"
-				type: "item"
-				item: "twilightforest:ur_ghast_trophy"
-				count: 1L
-				consume_items: false
+				type: "checkmark"
+				title: "Enter The Bumblezone dimension and collect a piece of Bumblezone Honeycomb"
 			}]
 			rewards: [
-				{id: "0012200B" type: "item" item: "twilightforest:carminite" count: 8}
-				{id: "0012200C" type: "xp" xp: 275}
+				{id: "0012200B" type: "item" item: "minecraft:honey_bottle" count: 8}
+				{id: "0012200C" type: "xp" xp: 150}
 			]
-			title: "Ur-Ghast — Boss 5/6"
-			icon: "twilightforest:ur_ghast_trophy"
+			title: "Into the Hive"
+			icon: "minecraft:beehive"
 			description: [
-				"§6The Ur-Ghast§f is a colossal Ghast-like creature atop the §eDark Tower§f."
-				"§fDefeating it unlocks the §eGlacier§f and §eSnow Queen§f."
+				"§6The Bumblezone is a bee-themed dimension — a vast honeycomb§r"
+				"§6world filled with bee structures, honey lakes, pollen fields,§r"
+				"§6and unique bee-based mobs not found anywhere else.§r"
 				""
-				"§eFinding the Dark Tower:§r"
-				"§7• An enormous black tower visible from far away in §eDarkwood§7 biome."
-				"§7• Multiple floors of Carminite-powered traps and Ghast spawners."
-				"§7• §eClimb carefully§7 — each floor has new trap mechanics."
+				"§eHow to enter The Bumblezone:§r"
+				"§7• §eBuild§7 a 3×3 §eHoneycomb Block§7 frame (no corners needed)."
+				"§7• §ePlace§7ony Honey Block in the center."
+				"§7• §eRight-click§7 the Honey Block with a §eBee§7 in your hand."
+				"§7• The portal activates — step through."
 				""
-				"§eDark Tower interior:§r"
-				"§7• §eCarminite Golem§7 rooms — large constructs, high HP."
-				"§7• §eGhastling§7 spawners — mini-ghasts that deal significant damage."
-				"§7• §eCarminite Traps§7 — explode when stepped on. §eDeactivate with redstone§7."
-				"§7• §eRooftop§7 — where the Ur-Ghast spawns."
+				"§eAlternative entry:§r"
+				"§7• A naturally-occurring portal can sometimes be found inside§7"
+				"§7  §elarge bee nests§7 in Terralith biomes. Rare but real."
 				""
-				"§eFight strategy:§r"
-				"§7• §eReflect§7 Ur-Ghast fireballs back with a §esword swing§7 (like vanilla Ghast)."
-				"§7• §eOr use a Bow§7 — Power V bow deals massive damage to its large hitbox."
-				"§7• §eArs Nouveau§7 Projectile + Harm + Amplify → 15+ damage per cast."
+				"§eWhat you'll find:§r"
+				"§7• §eHoneycomb terrain§7 — navigable tunnels of massive wax honeycomb."
+				"§7• §eBumble Bee mobs§7 — passive giant bees that aggro if attacked."
+				"§7• §ePollen fields§7 — unique blocks with crafting uses."
+				"§7• §eBumblezone Honey§7 — better healing than vanilla honey bottles."
+				"§7• §eHive Castles§7 — structured dungeons guarded by elite bee mobs."
 				""
-				"§eDrops:§r"
-				"§7• §eUr-Ghast Trophy§7 — Ch 7.3 display."
-				"§7• §eCarminite§7 — crafting material for Dark Tower building blocks."
-				""
-				"§a► Defeat the Ur-Ghast and collect the Trophy."
+				"§a► Enter The Bumblezone and collect any Bumblezone Honeycomb. Mark done."
 			]
-			dependencies: ["00120005"]
+			dependencies: ["00120002"]
 		}
 
 		{
-			x: 0.0d
-			y: 48.0d
+			x: -8.0d
+			y: 40.0d
 			id: "00120007"
 			tasks: [{
 				id: "00121007"
-				type: "item"
-				item: "twilightforest:snow_queen_trophy"
-				count: 1L
-				consume_items: false
+				type: "checkmark"
+				title: "Loot a Hive Castle in The Bumblezone and defeat its guardian"
 			}]
 			rewards: [
-				{id: "0012200D" type: "item" item: "twilightforest:ice_bomb" count: 8}
-				{id: "0012200E" type: "xp" xp: 350}
+				{id: "0012200D" type: "item" item: "minecraft:golden_apple" count: 4}
+				{id: "0012200E" type: "xp" xp: 250}
 			]
-			title: "Snow Queen — Boss 6/6"
-			icon: "twilightforest:snow_queen_trophy"
-			subtitle: "The final boss of the Twilight Forest"
+			title: "Queen's Domain"
+			icon: "minecraft:honeycomb"
 			description: [
-				"§6The Snow Queen§f rules the §eAurora Palace§f — a towering ice cathedral"
-				"§fat the heart of the §eGlacier§f biome. She is the final Twilight Forest boss."
+				"§6Hive Castles are The Bumblezone's major structures —§r"
+				"§6large wax-and-comb fortresses guarded by elite bee mobs§r"
+				"§6and containing the dimension's best loot.§r"
 				""
-				"§eFinding the Aurora Palace:§r"
-				"§7• §eGlacier biome§7 — white ice fields and towering aurora spires."
-				"§7• The Palace is the largest structure in the Glacier. Hard to miss."
-				"§7• §eNavigate§7 through ice rooms and Penguin mob chambers to reach her throne."
+				"§eFinding a Hive Castle:§r"
+				"§7• §eExplorer's Compass§7 → search for Bumblezone structure types."
+				"§7• §eNavigate§7 the honeycomb tunnels — Castles are visible from elevated terrain."
+				"§7• §eLook for§7 the distinctive §ewax spire§7 towers."
 				""
 				"§eFight strategy:§r"
-				"§7• §eSnow Queen§7 hovers and fires ice bolts, ice bombs, and frost rays."
-				"§7• §eIce bombs§7 freeze you in place — §ebreak free§7 by swinging rapidly."
-				"§7• §eFrost ray§7 deals sustained cold damage — §edodge sideways§7."
-				"§7• §eHigh mobility§7 wins this fight. §eElytra§7 (Ch 3.5) is excellent here."
-				"§7• §eArs Nouveau§7 Projectile + Harm + Amplify + Burst works well."
-				"§7• §eFire damage§7 does bonus damage — §eFire Aspect§7 sword or §eIgnite glyph§7."
+				"§7• §eBee mobs§7 inflict Poison — bring Antidote potions or §eBee Sting Resistance§7."
+				"§7• §eArs Nouveau§7 Projectile + Harm + Amplify hits flying mobs reliably."
+				"§7• §eClear the exterior§7 before entering — fewer mobs to corner you."
+				"§7• §eCentral chamber§7 has the guardian — take it slow."
 				""
-				"§eDrops:§r"
-				"§7• §eSnow Queen Trophy§7 — Ch 7.3 display. §eThis completes all 6.§7"
-				"§7• §eIce Bombs§7 — throw to freeze mobs on contact. Excellent utility."
-				"§7• §eIce Crystal§7 — crafting material for Ice Crystal tools."
+				"§eLoot highlights:§r"
+				"§7• §eBumblezone Honey Slab§7 — best food item in the dimension."
+				"§7• §eWax-coated armor§7 — unique Bumblezone armor set."
+				"§7• §ePollen Dust§7 — crafting material for bee-themed blocks."
 				""
-				"§a► Defeat the Snow Queen and collect the final Trophy."
+				"§a► Loot the Hive Castle and defeat its guardian. Mark done."
 			]
 			dependencies: ["00120006"]
 		}
 
 		// ============================================================
-		// 7.3  TWILIGHT EXPLORER
+		// 7.5  EXPLORER'S TOOLS & ALEX'S CAVES
 		// ============================================================
 
 		{
-			x: -6.0d
-			y: 56.0d
+			x: 8.0d
+			y: 32.0d
 			id: "00120008"
-			tasks: [{
-				id: "00121008"
-				type: "item"
-				item: "twilightforest:fiery_ingot"
-				count: 4L
-				consume_items: false
-			}]
+			tasks: [
+				{
+					id: "00121008"
+					type: "item"
+					item: "explorerscompass:explorers_compass"
+					count: 1L
+					consume_items: false
+				}
+				{
+					id: "00121009"
+					type: "item"
+					item: "travelerscompass:travelers_compass"
+					count: 1L
+					consume_items: false
+				}
+			]
 			rewards: [
-				{id: "0012200F" type: "item" item: "twilightforest:fiery_ingot" count: 4}
-				{id: "00122010" type: "xp" xp: 200}
+				{id: "0012200F" type: "item" item: "waystones:warp_stone" count: 2}
+				{id: "00122010" type: "xp" xp: 100}
 			]
-			title: "Fiery Forge"
-			icon: "twilightforest:fiery_ingot"
+			title: "Explorer's Toolkit"
+			icon: "travelerscompass:travelers_compass"
 			description: [
-				"§6Fiery Ingots§f are the premier crafting material from the Twilight Forest."
-				"§fThey enable §eFiery Armor§f and §eFiery Sword§f — fire-immune gear."
+				"§6Two compasses, two jobs — together they cover everything.§r"
 				""
-				"§eCrafting Fiery Ingots:§r"
-				"§7• §eFiery Blood§7 (from Hydra, quest reward above) + §eIron Ingot§7"
-				"§7  = §eFiery Ingot§7 (check JEI for exact ratio)."
-				"§7• §e4 Fiery Blood§7 from the Hydra fight = §e4+ Fiery Ingots§7."
+				"§eExplorer's Compass:§r"
+				"§7• §eRight-click§7 → choose a §estructure type§7 from a scrollable list."
+				"§7• Shows the §edistance and direction§7 to the nearest instance."
+				"§7• Supports §eWhen Dungeons Arise§7, §eYUNG's§7, §eBumblezone§7, and all vanilla structures."
+				"§7• Reusable — change the target any time."
 				""
-				"§eFiery gear:§r"
-				"§7• §eFiery Sword§7 — §eFire Aspect§7 built-in, sets mobs ablaze on hit."
-				"§7  Excellent against Snow Queen (fire bonus damage)."
-				"§7• §eFiery Armor§7 — grants §eFire Immunity§7 while wearing full set."
-				"§7  Essential for the Fire Swamp and Dark Tower revisits."
+				"§eTraveler's Compass:§r"
+				"§7• Right-click → select a §ebiome§7 instead of a structure."
+				"§7• Replaces §eNature's Compass§7 for cases when you want biome + structure together."
+				"§7• Useful for finding §eTerralith rare biomes§7 with specific WDA or YUNG's spawns."
 				""
-				"§eTetra upgrade note:§r"
-				"§7• §eFiery Ingot§7 can be used as a Tetra component on the"
-				"§7  §eModular Workbench§7 (Ch 2.7) — adds fire resistance modifier"
-				"§7  to any Tetra tool blade or head slot."
+				"§eCombined workflow:§r"
+				"§7  1. §eTraveler's Compass§7 → find the biome you want."
+				"§7  2. §eExplorer's Compass§7 → find the dungeon type in that biome."
+				"§7  3. §eSmall Ships§7 (Ch 2.8) → travel to it in style."
 				""
-				"§a► Craft 4 Fiery Ingots using Fiery Blood from the Hydra."
-			]
-			dependencies: ["00120005"]
-		}
-
-		{
-			x: 6.0d
-			y: 56.0d
-			id: "00120009"
-			tasks: [{
-				id: "00121009"
-				type: "checkmark"
-				title: "Find and read the Twilight Forest magic map journal to unlock dimension lore entries"
-			}]
-			rewards: [
-				{id: "00122011" type: "item" item: "twilightforest:magic_map" count: 2}
-				{id: "00122012" type: "xp" xp: 100}
-			]
-			title: "Twilight Lore"
-			icon: "twilightforest:magic_map_focus"
-			description: [
-				"§6The Twilight Forest§f has deep lore woven into its biomes,"
-				"§fboss encounters, and hidden structures."
-				""
-				"§eHow to access TF lore:§r"
-				"§7• §eCraft a Magic Map§7 (Magic Map Focus + Paper, check JEI)."
-				"§7• §eRight-click§7 in TF to fill it — boss icons, biome colors, structures."
-				"§7• §eBook entries§7 appear as you defeat bosses — Twilight Forest adds"
-				"§7  contextual guidebook pages after each boss victory."
-				"§7• §eJEI§7 — search §etwilight§7 for all 200+ Twilight Forest items and recipes."
-				""
-				"§eHidden structures:§r"
-				"§7• §eHollow Hills§7 — mound structures hiding gem deposits inside."
-				"§7• §eGoblin Stronghold§7 — underground hostile camp with loot chests."
-				"§7• §eCloud Cottage§7 — high-altitude peaceful cottage with good loot."
-				"§7• §eVigilant Minotaur§7 camps — guarded loot scattered in the forest."
-				""
-				"§a► Use a Magic Map and explore enough TF to reveal several biome sections."
-				"§a► Mark done when you have a good overview of the dimension."
+				"§a► Have both compasses. Neither consumed."
 			]
 			dependencies: ["00120002"]
 		}
 
 		{
-			x: 0.0d
-			y: 64.0d
-			id: "0012000A"
+			x: 8.0d
+			y: 40.0d
+			id: "00120009"
 			tasks: [{
 				id: "0012100A"
 				type: "checkmark"
-				title: "Display all 6 Twilight Forest boss trophies in your Trophy Room (Ch 7.3 Twilight Explorer)"
+				title: "Discover an Alex's Caves rare cave biome (Primordial Caves, Magnetic Caves, Toxic Caves, or equivalent)"
 			}]
 			rewards: [
-				{id: "00122013" type: "item" item: "minecraft:glow_item_frame" count: 6}
-				{id: "00122014" type: "xp" xp: 300}
+				{id: "00122011" type: "item" item: "minecraft:diamond" count: 8}
+				{id: "00122012" type: "xp" xp: 200}
 			]
-			title: "Twilight Explorer"
-			subtitle: "All six. Done."
+			title: "Deep Geology"
+			icon: "minecraft:amethyst_shard"
 			description: [
-				"§6This is the Ch 7.3 'Twilight Explorer' quest§f referenced on all"
-				"§fTwilight Forest boss trophy tooltips."
-				"§fDisplay all §e6 trophies§f in your Trophy Room (built in Ch 4.4)."
+				"§6Alex's Caves adds rare cave biomes deep underground —§r"
+				"§6each with unique geology, mobs, blocks, and hazards§r"
+				"§6that vanilla caving never delivers.§r"
 				""
-				"§eThe six trophies:§r"
-				"§7  1. §eNaga Trophy§7 — §6Boss 1§7 — Naga Courtyard"
-				"§7  2. §eLich Trophy§7 — §6Boss 2§7 — Lich Tower"
-				"§7  3. §eMinoshroom Head§7 — §6Boss 3§7 — Labyrinth center"
-				"§7  4. §eHydra Trophy§7 — §6Boss 4§7 — Fire Swamp lair"
-				"§7  5. §eUr-Ghast Trophy§7 — §6Boss 5§7 — Dark Tower rooftop"
-				"§7  6. §eSnow Queen Trophy§7 — §6Boss 6§7 — Aurora Palace throne"
+				"§eCave biomes to discover:§r"
+				"§7• §ePrimordial Caves§7 — prehistoric jungle underground. Giant ferns, amber."
+				"§7  Unique mobs: §ePrimordial Scarabs§7, §eMushroom Walkers§7."
+				"§7• §eMagnetic Caves§7 — floating magnetite formations. Pulls metal items."
+				"§7  Navigate without iron armor — everything gets yanked sideways."
+				"§7• §eToxic Caves§7 — poisonous sludge pools, mutant mobs."
+				"§7  Bring Antidote potions or a full Ars Nouveau §eCure§7 glyph."
+				"§7• §eAbyssal Chasms§7 — bottomless vertical shafts with abyssal mobs."
+				"§7• §eMushroomic Caves§7 — giant mushroom forests underground."
 				""
-				"§eDisplay tips:§r"
-				"§7• §eGlow Item Frames§7 (reward) — trophies glow without light source."
-				"§7• Mount all six in a §erow or arc§7 in your Trophy Room (Ch 4.4)."
-				"§7• §eSupplementaries Pedestals§7 spin the trophies as rotating displays."
-				"§7• §eLighting:§7 use §eDecorativeBlocks Chandeliers§7 above the display row."
+				"§eFinding them:§r"
+				"§7• §eDigging down in the right biome§7 increases rare cave biome spawn rates."
+				"§7• §eXaero's World Map§7 shows cave biomes when you enter them."
+				"§7• Alex's Caves biomes tend to cluster near specific Terralith surface biomes."
 				""
-				"§eThis is it.§r"
-				"§7Every boss in the Twilight Forest has fallen."
-				"§7One quest remains."
-				""
-				"§a► Mount all 6 trophies in the Trophy Room. Mark done."
+				"§a► Enter any Alex's Caves rare biome. Mark done."
 			]
-			dependencies: ["00120007" "00120008" "00120009"]
+			dependencies: ["00120001"]
+		}
+
+		// ============================================================
+		// 7.6  MASTER GATE
+		// ============================================================
+
+		{
+			x: 0.0d
+			y: 48.0d
+			shape: "hexagon"
+			id: "0012000A"
+			tasks: [{
+				id: "0012100B"
+				type: "checkmark"
+				title: "Complete: WDA dungeon final floor, Ancient City looted, Bumblezone Hive Castle cleared"
+			}]
+			rewards: [
+				{id: "00122013" type: "item" item: "minecraft:glow_item_frame" count: 8}
+				{id: "00122014" type: "xp" xp: 400}
+			]
+			title: "Master Explorer ✦"
+			subtitle: "Every dungeon. Every depth."
+			description: [
+				"§6This gate confirms you've seen the full depth of this world.§r"
+				""
+				"§eRequired milestones:§r"
+				"§7• §eWhen Dungeons Arise§7 — deepest floor looted."
+				"§7• §eAncient City§7 (Deeper Darker) — central chest room cleared."
+				"§7• §eBumblezone Hive Castle§7 — guardian defeated."
+				""
+				"§eOptional but worth doing before this:§r"
+				"§7• §eSeven Seas§7 ocean dungeon looted."
+				"§7• §eYUNG's Stronghold§7 — the End Portal room redesigned by YUNG's Better Strongholds."
+				"§7• §eAlex's Caves§7 — at least two rare biome types discovered."
+				"§7• §eAll compasses§7 in your hotbar — Explorer's + Traveler's + Nature's."
+				""
+				"§eOne quest remains.§r"
+				""
+				"§a► Confirm all three major milestones. Mark done."
+			]
+			dependencies: ["00120003" "00120005" "00120007"]
 		}
 
 		// ============================================================
@@ -474,13 +463,13 @@
 
 		{
 			x: 0.0d
-			y: 72.0d
+			y: 56.0d
 			shape: "hexagon"
 			id: "0012000B"
 			tasks: [{
-				id: "0012100B"
+				id: "0012100C"
 				type: "checkmark"
-				title: "Arcane Frontiers complete — all six pillars mastered, all gates cleared"
+				title: "Arcane Frontiers complete — all seven pillars mastered, all gates cleared"
 			}]
 			rewards: [
 				{id: "00122015" type: "item" item: "create:creative_motor" count: 1}
@@ -492,19 +481,20 @@
 			description: [
 				"§6This is the end of the Arcane Frontiers quest journey.§r"
 				""
-				"§eAll six pillars:§r"
+				"§eAll seven pillars:§r"
 				"§7• §6✔ Magic§7 — Archmage Spellbook, Source Dynamo, ritual automation."
-				"§7• §6✔ Technology§7 — Create power grid, nuclear energy, Tetra gear."
-				"§7• §6✔ Exploration§7 — Twilight conquered, End cleared, Wither defeated."
+				"§7• §6✔ Technology§7 — Create power grid, nuclear energy, Silent Gear mastered."
+				"§7• §6✔ Exploration§7 — End cleared, Wither defeated, dungeons conquered."
 				"§7• §6✔ Home§7 — Central Kitchen running, Trophy Room built."
 				"§7• §6✔ Colony§7 — Kingdom ✦ standing, 50+ citizens, T5 Town Hall."
 				"§7• §6✔ Synthesis§7 — magic and technology unified. One machine."
+				"§7• §6✔ Dungeons§7 — WDA, Ancient Cities, Bumblezone, all cleared."
 				""
 				"§eAll chapter gates:§r"
 				"§7• §eCh 0§7 Tutorial complete. §eCh 1§7 Archmage path climbed."
 				"§7• §eCh 2§7 Power Grid online. §eCh 3§7 Dragon Slayer earned."
 				"§7• §eCh 4§7 Hearth & Home. §eCh 5§7 Arcane Synthesis."
-				"§7• §eCh 6§7 Kingdom built. §eCh 7§7 Twilight conquered."
+				"§7• §eCh 6§7 Kingdom built. §eCh 7§7 Dungeons conquered."
 				""
 				"§eThe rewards:§r"
 				"§7• §eSecond Creative Motor§7 (capped 256 RPM) — because you earned it twice."

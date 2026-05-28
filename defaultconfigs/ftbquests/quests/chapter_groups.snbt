@@ -66,8 +66,8 @@
 		{
 			id: "0008"
 			order_index: 7
-			title: "Twilight"
-			icon: "twilightforest:magic_map"
+			title: "Dungeons"
+			icon: "minecraft:filled_map"
 			chapters: [
 				"00120000"
 			]
