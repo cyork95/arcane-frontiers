@@ -1,0 +1,2043 @@
+{
+	id: "000C0000"
+	group: ""
+	order_index: 2
+	filename: "2_gears_steam"
+	title: "Chapter 2: Gears & Steam"
+	icon: "create:brass_ingot"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	// ================================================================
+	// CROSS-CHAPTER DEPENDENCY REFERENCE
+	//
+	//   000B000F = Ch 1 "Source Network ✦" gate
+	//              → depended on by quest 000C000A (Brass Handshake)
+	//
+	//   000C000A = THIS FILE'S "Brass Handshake ✦" gate
+	//              → depended on by Ch 1 quest 000B0010 (Mage Spellbook)
+	//              → confirm this ID matches when building Ch 1 mods
+	//
+	//   000C0024 = THIS FILE'S "Power Grid ✦" gate
+	//              → depended on by Ch 3 quest 000D000E (End Portal Key)
+	//              → confirm this ID matches when building Ch 3 file
+	// ================================================================
+	quests: [
+
+		// ============================================================
+		// 2.1  FIRST ROTATION
+		// ============================================================
+
+		{
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			id: "000C0001"
+			tasks: [{
+				id: "000C1001"
+				type: "item"
+				item: "create:handbook"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C2001" type: "item" item: "create:andesite_alloy" count: 16}
+				{id: "000C2002" type: "xp" xp: 25}
+			]
+			title: "The Kinetic Handbook"
+			icon: "create:handbook"
+			subtitle: "Your engineering education begins"
+			description: [
+				"§6Create§f is the technology system at the heart of this pack."
+				"§fEverything is visual — you will watch your factory move in real time."
+				""
+				"§eGet the Create Handbook:§r"
+				"§7Craft §e1 Book§7 at any crafting table → the Handbook appears."
+				"§7It documents every Create block, recipe, and mechanic."
+				"§7Press §eR§7 on any Create item in JEI to see its recipe."
+				""
+				"§eThe two numbers that drive everything:§r"
+				"§7• §6RPM (Rotations Per Minute):§r speed of a kinetic network."
+				"§7  Waterwheels give ~16 RPM. Windmills scale with sail count."
+				"§7• §6SU (Stress Units):§r capacity of a kinetic network."
+				"§7  Each source produces SU; each consumer costs SU."
+				"§7  If consumers exceed producers, everything stalls."
+				""
+				"§eKey hotkeys:§r"
+				"§7• §eRight-click§7 shaft blocks with a Wrench to adjust direction."
+				"§7• §eHold Ctrl + right-click§7 a machine to see its stress cost in Jade."
+				"§7• §eF3+H§7 shows internal registry IDs — useful when setting up quests."
+				""
+				"§7Pack SU cap note: §6Creative Motor§7 (Ch 5 reward) is capped at"
+				"§7256 RPM / 512 SU. Use §ewindmills and the Ch 2.6 reactor§7 for real power."
+				""
+				"§a► Gate quest: completing this unlocks all Chapter 2 quests."
+			]
+			dependencies: []
+		}
+
+		{
+			x: -8.0d
+			y: 4.0d
+			id: "000C0002"
+			tasks: [{
+				id: "000C1002"
+				type: "checkmark"
+				title: "A Windmill Bearing with 8+ Sail blocks is spinning and generating SU"
+			}]
+			rewards: [
+				{id: "000C2003" type: "item" item: "create:cogwheel" count: 8}
+				{id: "000C2004" type: "xp" xp: 20}
+			]
+			title: "First Windmill"
+			icon: "create:sail_frame"
+			description: [
+				"§fA Windmill Bearing converts rotating sails into kinetic power."
+				"§fMore sails = more SU. Minimum 8 sails for useful output."
+				""
+				"§eBuild sequence:§r"
+				"§7  1. Craft a §6Windmill Bearing§7 and place it on the side of a block."
+				"§7  2. Place §6Sail Frames§7 in a cross or plus shape attached to the Bearing."
+				"§7  3. Right-click Sail Frames with wool to add sails (colour = aesthetic only)."
+				"§7  4. Right-click the Bearing with a Wrench to start rotation."
+				"§7  5. Attach a §6Shaft§7 extending from the Bearing's axis to distribute SU."
+				""
+				"§eSU output scaling:§r"
+				"§7• 8 sails → ~32 SU (barely enough for one Mechanical Press)."
+				"§7• 16 sails → ~64 SU (comfortable early base)."
+				"§7• Build §e4 Windmills§7 early rather than one giant one — redundancy matters."
+				""
+				"§eWindmill placement tip:§r"
+				"§7Windmills need open air on all sides to spin freely."
+				"§7If another block is within the sail sweep radius, the bearing stalls."
+				"§7Check with Jade — hover the Bearing to see if it reports stall."
+				""
+				"§a► Task: Checkmark when your Windmill is spinning and producing SU."
+			]
+			dependencies: ["000C0001"]
+		}
+
+		{
+			x: -4.0d
+			y: 4.0d
+			id: "000C0003"
+			tasks: [{
+				id: "000C1003"
+				type: "item"
+				item: "create:water_wheel"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C2005" type: "item" item: "create:shaft" count: 4}
+			]
+			title: "Water Power"
+			icon: "create:water_wheel"
+			description: [
+				"§fA Waterwheel mounted in flowing water is your most reliable early power"
+				"§fsource — no sail management, no open-air requirements."
+				""
+				"§eBuild sequence:§r"
+				"§7  1. Find or create a §eflowing water§7 channel (1–2 blocks wide)."
+				"§7  2. Place the §6Water Wheel§7 block with its rotation axis perpendicular"
+				"§7     to water flow. The wheel faces the water current direction."
+				"§7  3. The wheel spins automatically in flowing water — no wrench needed."
+				"§7  4. Attach a §6Shaft§7 to the wheel's axis to carry SU to your machines."
+				""
+				"§eOutput:§r"
+				"§7• Standard Waterwheel: ~16 RPM, ~32 SU in flowing water."
+				"§7• Large Waterwheel (Create 0.5+): higher SU — check JEI if available."
+				"§7• §eStack multiple Waterwheels§7 on the same shaft for combined output."
+				""
+				"§eTip:§r §7Build your first base next to a river. Waterwheels + windmills"
+				"§7= enough SU to run a Mechanical Press, Mixer, and early automation"
+				"§7through the entire brass age before you need a boiler."
+				""
+				"§a► Task: Have a Water Wheel in your inventory. Not consumed."
+			]
+			dependencies: ["000C0001"]
+		}
+
+		{
+			x: 0.0d
+			y: 4.0d
+			id: "000C0004"
+			tasks: [{
+				id: "000C1004"
+				type: "item"
+				item: "create:mechanical_press"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C2006" type: "item" item: "create:andesite_casing" count: 4}
+				{id: "000C2007" type: "xp" xp: 25}
+			]
+			title: "Mechanical Press"
+			icon: "create:mechanical_press"
+			description: [
+				"§fThe Mechanical Press is your first automated crafting machine."
+				"§fIt presses items from above into items below — ore → ingot, ingot → sheet,"
+				"§fandesite → Andesite Alloy, and dozens of other transformations."
+				""
+				"§eSetup:§r"
+				"§7  1. Place the Mechanical Press above a §6Basin§7 (or a §6Belt§7 for"
+				"§7     continuous item feeding)."
+				"§7  2. Connect a §6Shaft§7 to the Press's side — it needs RPM to run."
+				"§7  3. Drop items into the Basin or deliver them via a Funnel."
+				"§7  4. The Press descends, presses the item, result stays in the Basin."
+				""
+				"§eKey early Press recipes:§r"
+				"§7• §eAndesite Alloy:§7 Andesite + Iron Nugget → Andesite Alloy."
+				"§7• §eIron Sheet:§7 Iron Ingot → Iron Sheet (for train tracks later)."
+				"§7• §eCrushed Ore:§7 Raw Ore → Crushed Ore (×2 output vs smelting!)."
+				""
+				"§eTip:§r §7Put a §6Funnel§7 on the side of the Basin to auto-input items"
+				"§7from a chest. Put another Funnel on the other side to auto-output"
+				"§7results. The Press becomes fully automated from day one."
+				""
+				"§a► Task: Have a Mechanical Press in your inventory. Not consumed."
+			]
+			dependencies: ["000C0001"]
+		}
+
+		{
+			x: 4.0d
+			y: 4.0d
+			id: "000C0005"
+			tasks: [{
+				id: "000C1005"
+				type: "checkmark"
+				title: "A Mechanical Drill is mounted on a moving Contraption"
+			}]
+			rewards: [
+				{id: "000C2008" type: "item" item: "create:mechanical_drill" count: 2}
+				{id: "000C2009" type: "xp" xp: 30}
+			]
+			title: "Drill for the Future"
+			icon: "create:mechanical_drill"
+			description: [
+				"§fA Contraption is a collection of blocks that §omoves together§f —"
+				"§fthe beating heart of Create's engineering. A Drill on a"
+				"§fContraption is a mechanical miner that breaks blocks automatically."
+				""
+				"§eSimplest Contraption setup:§r"
+				"§7  1. Craft a §6Mechanical Piston§7 and place it pointing into a wall."
+				"§7  2. Attach a §6Mechanical Drill§7 to the front face of the Piston."
+				"§7  3. Place a §6Piston Extension Pole§7 behind the Piston."
+				"§7  4. Connect SU to the Piston via Shaft."
+				"§7  5. The Piston extends, the Drill moves forward and mines everything"
+				"§7     in its path — drops go to a chest via Funnel on the Piston."
+				""
+				"§eAlternative — Drill on a Cart Assembler:§r"
+				"§7Attach the Drill to a §6Minecart§7 assembled into a contraption."
+				"§7The cart drives down tracks, the Drill mines. Perfect for tunnel boring."
+				""
+				"§ePack tip:§r §7The §6Schematicannon§7 (JEI: search it) lets you save"
+				"§7and paste contraption blueprints. Build a Drill contraption once,"
+				"§7schematic it, and paste copies anywhere. Invaluable for mining arrays."
+				""
+				"§a► Task: Checkmark when a Mechanical Drill is mounted and moving."
+			]
+			dependencies: ["000C0004"]
+		}
+
+		{
+			x: 8.0d
+			y: 4.0d
+			id: "000C0006"
+			tasks: [{
+				id: "000C1006"
+				type: "item"
+				item: "create:crushed_raw_iron"
+				count: 8L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C200A" type: "item" item: "create:crushed_raw_gold" count: 8}
+				{id: "000C200B" type: "xp" xp: 35}
+			]
+			title: "Ore Doubling"
+			icon: "create:crushed_raw_iron"
+			description: [
+				"§fCreate's ore processing chain produces §e2× the ingots§f from raw ore"
+				"§fcompared to direct smelting. This alone makes a Create base permanently"
+				"§fmore resource-efficient than any vanilla mine."
+				""
+				"§eThe crushing chain:§r"
+				"§7  1. §6Millstone§7 (Andesite Alloy + Stone base) — slow, no power needed."
+				"§7     Drop raw ore on top → crushed ore output. Starter option."
+				"§7  2. §6Mechanical Crusher§7 (requires Crushing Wheels) — fast, needs SU."
+				"§7     Feed raw ore in → crushed ore out at belt speed."
+				"§7  3. Smelt or wash crushed ore → §e2× ingots§7 per raw ore block."
+				""
+				"§eWashing crushed ore (bonus output):§r"
+				"§7Build an §6Encased Fan§7 facing a water source with crushed ore items"
+				"§7flowing through the water stream — ores wash into extra drops"
+				"§7(flint, clay, gold nuggets from iron ore, etc.)."
+				"§7This is §eCh 2.2's 'Encased Fan'§7 quest — come back after Brass Age."
+				""
+				"§eTip:§r §7You only need 8 Crushed Iron Ore to complete this quest."
+				"§7But set up the full chain — doubling all your ore output is fundamental"
+				"§7to having enough Brass, Steel, and Zinc for the rest of Chapter 2."
+				""
+				"§a► Task: Have 8 Crushed Raw Iron in inventory. Not consumed."
+				"§7(Crushed raw copper, gold, zinc also useful — crush those too.)"
+			]
+			dependencies: ["000C0004"]
+		}
+
+		// ============================================================
+		// 2.2  THE BRASS AGE
+		// ============================================================
+
+		{
+			x: 0.0d
+			y: 8.0d
+			id: "000C0007"
+			tasks: [{
+				id: "000C1007"
+				type: "item"
+				item: "create:mechanical_mixer"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C200C" type: "item" item: "create:basin" count: 2}
+				{id: "000C200D" type: "xp" xp: 30}
+			]
+			title: "Build the Mixer"
+			icon: "create:mechanical_mixer"
+			description: [
+				"§fThe Mechanical Mixer is Create's liquid and alloy crafting station."
+				"§fYou cannot progress to Brass — or magic's Mage Spellbook — without it."
+				""
+				"§eRecipe:§r"
+				"§7Craft the Mechanical Mixer from §6Andesite Alloy + Shafts + Iron Ingots§7."
+				"§7(Exact recipe in JEI — search 'Mechanical Mixer'.)"
+				""
+				"§eSetup:§r"
+				"§7  1. Place the §6Mechanical Mixer§7 above a §6Basin§7 (required — the Mixer"
+				"§7     needs a Basin directly below it to function)."
+				"§7  2. Connect a §6Shaft§7 to the Mixer's top — it needs at least 32 RPM."
+				"§7  3. Deliver ingredients to the Basin via Funnels or manually."
+				"§7  4. When all ingredients are in the Basin, the Mixer starts automatically."
+				""
+				"§eWhat the Mixer is used for:§r"
+				"§7• §eBrass§7 (Copper + Zinc → Brass Ingots) — entire Brass Age."
+				"§7• §eElectrum§7 (Gold + Silver → Electrum) — Create: New Age components."
+				"§7• §ePotion mixing§7 (water + ingredients → splash potions for Wixie supply)."
+				"§7• §eChocolate§7 (Cocoa + Sugar → for Farmer's Delight baking recipes)."
+				""
+				"§a► Task: Have a Mechanical Mixer in your inventory. Not consumed."
+			]
+			dependencies: ["000C0006"]
+		}
+
+		{
+			x: -4.0d
+			y: 12.0d
+			id: "000C0008"
+			tasks: [
+				{
+					id: "000C1008"
+					type: "item"
+					item: "minecraft:copper_ingot"
+					count: 16L
+					consume_items: false
+				}
+				{
+					id: "000C1009"
+					type: "item"
+					item: "create:zinc_ingot"
+					count: 16L
+					consume_items: false
+				}
+			]
+			rewards: [
+				{id: "000C200E" type: "item" item: "create:crushed_raw_zinc" count: 8}
+			]
+			title: "Copper & Zinc"
+			icon: "create:zinc_ingot"
+			description: [
+				"§fBrass requires two Create-relevant metals: §eCopper§f and §eZinc§f."
+				"§fBoth generate naturally in the Overworld. Find them before the Mixer."
+				""
+				"§eCopper:§r"
+				"§7• Generates as §6Copper Ore§7 at Y=48 and below (common)."
+				"§7• Also common in §6YUNG's dungeons§7 and §6Lootr§7 chest loot."
+				"§7• Crush raw Copper in the Millstone → Crushed Copper → smelt → ingots."
+				"§7• With ore doubling: 1 Raw Copper → 2 Copper Ingots."
+				""
+				"§eZinc:§r"
+				"§7• §6Create's Zinc Ore§7 generates at Y=10–70 (less common than copper)."
+				"§7• Has a §6blueish-white§7 texture distinct from iron ore."
+				"§7• Use §6Nature's Compass§7 + cave exploration for veins."
+				"§7• Crush → smelt → Zinc Ingots using the same ore doubling chain."
+				""
+				"§eTip:§r §7Set up automated crushing for both ores before this quest."
+				"§7You will need 32+ Brass Ingots for machines, tools, and the Mage Spellbook."
+				"§7Stock up now rather than making repeated trips to the mine later."
+				""
+				"§a► Task: Have 16 Copper Ingots AND 16 Zinc Ingots. Neither consumed."
+			]
+			dependencies: ["000C0007"]
+		}
+
+		{
+			x: 0.0d
+			y: 12.0d
+			id: "000C0009"
+			tasks: [{
+				id: "000C100A"
+				type: "item"
+				item: "create:brass_ingot"
+				count: 16L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C200F" type: "item" item: "create:brass_ingot" count: 16}
+				{id: "000C2010" type: "xp" xp: 50}
+			]
+			title: "Mixing It Up"
+			icon: "create:brass_ingot"
+			description: [
+				"§fBrass is the alloy that defines Create's mid-game. It is used in"
+				"§fevery precision mechanism, every smart machine, every train component,"
+				"§fand even the §6Mage Spellbook§7 upgrade in Chapter 1."
+				""
+				"§eMixing recipe:§r"
+				"§7In the §6Mechanical Mixer + Basin§7 setup:"
+				"§7  • Place §e1 Copper Ingot + 1 Zinc Ingot§7 in the Basin."
+				"§7  • The Mixer blends them into §e1 Brass Ingot§7."
+				"§7  • Run at §e32+ RPM§7 for reliable mixing speed."
+				""
+				"§eAutomating the Mixer:§r"
+				"§7  1. Add §6Funnels§7 on both sides of the Basin — input and output."
+				"§7  2. Feed §6Copper§7 from one chest and §6Zinc§7 from another via funnels."
+				"§7  3. Output Brass to a §6Sophisticated Storage Chest§7 via output funnel."
+				"§7  4. Set §6Smart Funnels§7 to filter — copper funnel only passes copper, etc."
+				"§7  → The Mixer runs indefinitely, producing Brass without player input."
+				""
+				"§ePack note:§r §7The §6Mage Spellbook§7 recipe uses §e2 Brass Ingots§7."
+				"§7Once you have 16+ Brass and complete the Brass Handshake gate below,"
+				"§7return to Chapter 1's 'Mage Spellbook 🔒' quest — it will unlock."
+				""
+				"§a► Task: Have 16 Brass Ingots. Not consumed."
+			]
+			dependencies: ["000C0008"]
+		}
+
+		{
+			x: 0.0d
+			y: 16.0d
+			shape: "hexagon"
+			id: "000C000A"
+			tasks: [{
+				id: "000C100B"
+				type: "item"
+				item: "create:brass_casing"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C2011" type: "item" item: "create:precision_mechanism" count: 3}
+				{id: "000C2012" type: "xp" xp: 100}
+			]
+			title: "Brass Handshake ✦"
+			icon: "create:brass_casing"
+			subtitle: "Magic meets machinery"
+			description: [
+				"§fYou have reached the §6Brass Age§f. This gate marks the bidirectional"
+				"§fhandshake between magic and technology — and unlocks the Mage Spellbook."
+				""
+				"§eBrass Casing:§r"
+				"§7Craft by wrapping a §6Log§7 with Brass Ingots at a crafting table."
+				"§7(JEI: search 'Brass Casing' for exact recipe.)"
+				"§7Brass Casings are used in every precision machine from here on."
+				""
+				"§eWhat this gate unlocks:§r"
+				"§7  §a✦§7 §6Chapter 2.2§7 remaining quests: Precision Work, Encased Fan,"
+				"§7      Funnel & Depot, Deployer, and Kitchen Automation."
+				"§7  §a✦§7 §6Chapter 2.3§7: Sophisticated Storage progression."
+				"§7  §a✦§7 §6Chapter 2.4§7: Create: Connected QoL machines."
+				"§7  §a✦§7 §6Chapter 2.7§7: Tetra modular gear workshop."
+				"§7  §a✦§7 §6Chapter 1 — Mage Spellbook 🔒§7: the magic upgrade that"
+				"§7      requires Brass Ingots. Return to Ch 1 now to craft it!"
+				""
+				"§eThe cross-mod loop this gate represents:§r"
+				"§7  Magic (Ch 1) built a Source Network → unlocked this gate."
+				"§7  Technology (Ch 2) built Brass → unlocked the Mage Spellbook."
+				"§7  Each system required the other's milestone to advance."
+				"§7  §oThis is the design of the entire pack§7 — no branch is skippable."
+				""
+				"§a► Gate quest: this requires Ch 1's 'Source Network ✦' to be complete."
+				"§a► Completing this retroactively unlocks Ch 1's 'Mage Spellbook 🔒'."
+			]
+			dependencies: ["000C0009" "000B000F"]
+		}
+
+		{
+			x: -8.0d
+			y: 20.0d
+			id: "000C000B"
+			tasks: [{
+				id: "000C100C"
+				type: "item"
+				item: "create:precision_mechanism"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C2013" type: "item" item: "create:sequenced_gearshift" count: 1}
+				{id: "000C2014" type: "xp" xp: 45}
+			]
+			title: "Precision Work"
+			icon: "create:precision_mechanism"
+			description: [
+				"§fThe Precision Mechanism is Create's mid-game crafting ingredient for"
+				"§feverything that moves — train engines, speed controllers, Deployers."
+				"§fYou cannot progress past the Brass Age without a supply of them."
+				""
+				"§eHow to craft:§r"
+				"§7The Precision Mechanism is crafted in the §6Mechanical Crafter§7"
+				"§7(a 3×3 of individually-geared crafting blocks — build one before attempting)."
+				"§7Recipe uses: Brass Casing + Iron Cogwheels + Gold Sheets + Electron Tube."
+				"§7(JEI: search 'Precision Mechanism' and click the Mechanical Crafter recipe.)"
+				""
+				"§eAutomating Precision Mechanisms:§r"
+				"§7Precision Mechanisms are always needed in quantity — never craft just one."
+				"§7Build a §6Mechanical Crafter array§7 with auto-input Funnels feeding each"
+				"§7slot from sorted Sophisticated Storage chests."
+				"§7A 3×3 Crafter array with Funnel inputs is a Tier 1 'smart factory'."
+				""
+				"§eThis quest rewards a §6Sequenced Gearshift§7 — use it to program"
+				"§7timed RPM sequences. Essential for train scheduling in §e2.5§7."
+				""
+				"§a► Task: Have 1 Precision Mechanism. Not consumed."
+			]
+			dependencies: ["000C000A"]
+		}
+
+		{
+			x: -4.0d
+			y: 20.0d
+			id: "000C000C"
+			tasks: [{
+				id: "000C100D"
+				type: "item"
+				item: "create:encased_fan"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C2015" type: "item" item: "create:encased_fan" count: 2}
+				{id: "000C2016" type: "xp" xp: 35}
+			]
+			title: "Encased Fan"
+			icon: "create:encased_fan"
+			description: [
+				"§fThe Encased Fan blows or sucks air — and that air, when aimed at"
+				"§ffire, water, or lava, processes items flowing through the airstream."
+				""
+				"§eCore Fan processing:§r"
+				"§7• §eFan → Water stream§7 = Washing (crushed ore → extra drops)."
+				"§7• §eFan → Fire / Lava§7 = Smelting (items smelt mid-air, no furnace)."
+				"§7• §eFan → Soul Fire§7 = Smoking (Farmer's Delight cooked foods)."
+				""
+				"§eSetup for ore washing (best early value):§r"
+				"§7  1. Place a §6Water Source§7 block in a 1-wide channel."
+				"§7  2. Place Encased Fan at one end pointing into the channel."
+				"§7  3. Connect SU to the Fan's side — higher RPM = more throughput."
+				"§7  4. Drop §6Crushed Ores§7 into the stream from above via Funnel."
+				"§7  5. Items wash and drop at the far end — collect into Sophisticated Storage."
+				""
+				"§eTip:§r §7Washing Iron Ore gives random §6Gold Nuggets§7 and §6Flint§7 as bonus."
+				"§7Washing Copper gives §6Clay§7. Keep a Fan Washer running passively."
+				""
+				"§a► Task: Have 1 Encased Fan. Not consumed."
+			]
+			dependencies: ["000C000A"]
+		}
+
+		{
+			x: 0.0d
+			y: 20.0d
+			id: "000C000D"
+			tasks: [{
+				id: "000C100E"
+				type: "item"
+				item: "create:brass_funnel"
+				count: 2L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C2017" type: "item" item: "create:filter" count: 4}
+				{id: "000C2018" type: "xp" xp: 40}
+			]
+			title: "Funnel & Depot"
+			icon: "create:brass_funnel"
+			description: [
+				"§fFunnels are the input/output arms of Create logistics — they move"
+				"§fitems between chests, machines, and belts automatically."
+				"§fBrass Funnels add §6Smart Filtering§7: they only pass specific items."
+				""
+				"§eKey Funnel types:§r"
+				"§7• §6Andesite Funnel§7 — unfiltered pass-through (any item)."
+				"§7• §6Brass Funnel§7 — accepts a §eFilter§7 to restrict what passes."
+				"§7• §6Smart Chute§7 — vertical funnel, passes items down into machines."
+				""
+				"§eSetting up a filter:§r"
+				"§7  1. Craft a §6Filter§7 item (Andesite Alloy + Iron Bars)."
+				"§7  2. Right-click a Brass Funnel with the Filter to configure it."
+				"§7  3. Place items in the Filter grid — only those items pass through."
+				"§7  4. A §6Attribute Filter§7 (Brass Funnel upgrade) filters by tag"
+				"§7     (e.g., '#c:ingots' passes ALL ingots from ALL mods at once)."
+				""
+				"§eDepot:§r"
+				"§7A §6Depot§7 is a stationary landing pad for item manipulation."
+				"§7Place a §6Mechanical Arm§7 above a Depot to pick up and move items"
+				"§7between multiple Depots or machines. The Arm's range = the core"
+				"§7of your automated sorting and crafting setup."
+				""
+				"§a► Task: Have 2 Brass Funnels. Not consumed."
+			]
+			dependencies: ["000C000A"]
+		}
+
+		{
+			x: 4.0d
+			y: 20.0d
+			id: "000C000E"
+			tasks: [{
+				id: "000C100F"
+				type: "item"
+				item: "create:deployer"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C2019" type: "item" item: "create:deployer" count: 2}
+				{id: "000C201A" type: "xp" xp: 40}
+			]
+			title: "Deployer"
+			icon: "create:deployer"
+			description: [
+				"§fThe Deployer is a mechanical arm that performs player-like"
+				"§fright-click and left-click actions automatically — anywhere you"
+				"§fcan mount it, it can interact with the world or items."
+				""
+				"§eWhat the Deployer can do:§r"
+				"§7• §eRight-click§7 a block with an item → plants seeds, places blocks,"
+				"§7  fires a dispenser, opens a chest, uses a tool."
+				"§7• §eLeft-click§7 with a tool → breaks blocks, harvests crops."
+				"§7• On a §eMoving Contraption§7 → plants whole fields, mines tunnels,"
+				"§7  or builds walls in a single sweep."
+				""
+				"§ePractical early uses:§r"
+				"§7  1. §6Auto-Farmer:§7 Deployer on a cart contraption with a Hoe in hand"
+				"§7     tills soil in one pass. Add a second Deployer with seeds for planting."
+				"§7  2. §6Auto-Crafter:§7 Deployer right-clicking a Crafting Table with"
+				"§7     a crafting recipe item = automated crafting from belts."
+				"§7  3. §6Auto-Enchanter:§7 Deployer + Enchanting Table + Lapis = mass"
+				"§7     enchanting of tools for the colony's workforce."
+				""
+				"§a► Task: Have 1 Deployer. Not consumed."
+			]
+			dependencies: ["000C000A"]
+		}
+
+		{
+			x: 8.0d
+			y: 20.0d
+			id: "000C000F"
+			tasks: [{
+				id: "000C1010"
+				type: "checkmark"
+				title: "A Create: Central Kitchen Cooking Pot is connected to a Mechanical Arm"
+			}]
+			rewards: [
+				{id: "000C201B" type: "item" item: "farmersdelight:cooked_rice" count: 16}
+				{id: "000C201C" type: "item" item: "farmersdelight:cooked_rice" count: 16}
+				{id: "000C201D" type: "xp" xp: 50}
+			]
+			title: "Kitchen Automation ★"
+			icon: "farmersdelight:cooking_pot"
+			subtitle: "Create × Farmer's Delight integration"
+			description: [
+				"§fCreate: Central Kitchen bridges Create's §6Mechanical Arms§f and"
+				"§fFunnels directly into a §6Farmer's Delight Cooking Pot§f — the first"
+				"§fmajor cross-mod integration in Chapter 2."
+				""
+				"§eWhat Central Kitchen adds:§r"
+				"§7• A §6Cooking Pot§7 that accepts item delivery from Mechanical Arms."
+				"§7• Output goes to a §6Serving Tray§7 or directly to a chest via Funnel."
+				"§7• Recipes from Farmer's Delight run automatically without player input."
+				""
+				"§eSetup:§r"
+				"§7  1. Place the §6Cooking Pot§7 (Central Kitchen version — check JEI)."
+				"§7  2. Add a §6Mechanical Arm§7 above it with reach to input chests."
+				"§7  3. Configure the Arm's §6I/O selectors§7 to pick ingredients from"
+				"§7     separate Sophisticated Storage chests and deliver to the Pot."
+				"§7  4. Add a §6Funnel§7 to the Pot's output side → chest of cooked meals."
+				"§7  5. The kitchen runs indefinitely. Meals for dungeon runs, colony citizens,"
+				"§7     and the Wixie ingredient supply chain — all automated."
+				""
+				"§eTip:§r §7Stock the kitchen with Farmer's Delight crops from your"
+				"§7Whirlisprig farm (Ch 1). Magic grows the crops; Create cooks the food."
+				""
+				"§a► ★ Integration quest: requires Ch 1 familiars AND Ch 2 Brass Age."
+				"§a► Task: Checkmark when Mechanical Arm is delivering to Cooking Pot."
+			]
+			dependencies: ["000C000A"]
+		}
+
+		// ============================================================
+		// 2.3  SOPHISTICATED STORAGE
+		// ============================================================
+
+		{
+			x: -16.0d
+			y: 24.0d
+			id: "000C0010"
+			tasks: [{
+				id: "000C1011"
+				type: "item"
+				item: "sophisticatedstorage:iron_chest"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C201E" type: "item" item: "sophisticatedstorage:iron_chest" count: 2}
+				{id: "000C201F" type: "xp" xp: 30}
+			]
+			title: "First Iron Chest"
+			icon: "sophisticatedstorage:iron_chest"
+			description: [
+				"§fSophisticated Storage is the pack's main storage system."
+				"§fIts chests accept §6Upgrade cards§7 that add sorting, filtering,"
+				"§fcompaction, and even crafting — all in one block."
+				""
+				"§eWhy Sophisticated Storage over vanilla chests:§r"
+				"§7• §eUpgrade slots§7 in every chest — filter what goes in and out."
+				"§7• §eSort Upgrade§7 keeps contents alphabetically organised automatically."
+				"§7• §eCompacting Upgrade§7 auto-converts items to storage blocks and back."
+				"§7• §eCraft Upgrade§7 lets you craft directly from the chest's contents."
+				"§7• Integrates with §6Create Mechanical Arms§7 — Arms read the filter"
+				"§7  slots and deliver items to the correct chest automatically."
+				""
+				"§eFirst chest setup:§r"
+				"§7Craft an §6Iron Chest§7 (Iron Ingots surround a Chest — see JEI)."
+				"§7Place it as your §ecombined resource storage§7. Add a §6Sort Upgrade§7"
+				"§7to auto-organise contents. This becomes your 'main bus' chest"
+				"§7that Create delivers everything into."
+				""
+				"§a► Task: Have 1 Sophisticated Storage Iron Chest. Not consumed."
+			]
+			dependencies: ["000C000A"]
+		}
+
+		{
+			x: -16.0d
+			y: 28.0d
+			id: "000C0011"
+			tasks: [{
+				id: "000C1012"
+				type: "item"
+				item: "sophisticatedstorage:filter_upgrade"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C2020" type: "item" item: "sophisticatedstorage:filter_upgrade" count: 2}
+				{id: "000C2021" type: "xp" xp: 35}
+			]
+			title: "Filtered Storage"
+			icon: "sophisticatedstorage:filter_upgrade"
+			description: [
+				"§fThe §6Filter Upgrade§7 transforms a Sophisticated Storage chest from"
+				"§fa random pile into a §ededicated category bin§f — only the items you"
+				"§fspecify can enter or leave."
+				""
+				"§eHow to use:§r"
+				"§7  1. Craft a §6Filter Upgrade§7 (Brass Ingot + Paper — see JEI)."
+				"§7  2. Open any Sophisticated Storage Chest and click an upgrade slot."
+				"§7  3. Insert the Filter Upgrade — a §6Filter panel§7 opens."
+				"§7  4. Place the items you want to allow in the filter grid."
+				"§7  5. §6Allow/Deny toggle§7: allow only these items, or deny only these items."
+				""
+				"§eRecommended storage layout:§r"
+				"§7• §6'Metals' chest§7: filter for ingots — iron, copper, zinc, brass, gold."
+				"§7• §6'Ores' chest§7: filter for raw ores and crushed ores."
+				"§7• §6'Food' chest§7: filter for Farmer's Delight cooked meals."
+				"§7• §6'Magic' chest§7: filter for Source Gems, Awakened Wood, glyph items."
+				"§7• §6'Overflow' chest§7: no filter — catches everything else."
+				""
+				"§7Create Mechanical Arms read these filters automatically."
+				"§7The Arm delivers items to whichever chest accepts them."
+				""
+				"§a► Task: Have 1 Filter Upgrade. Not consumed."
+			]
+			dependencies: ["000C0010"]
+		}
+
+		{
+			x: -12.0d
+			y: 28.0d
+			id: "000C0012"
+			tasks: [{
+				id: "000C1013"
+				type: "item"
+				item: "sophisticatedstorage:compacting_upgrade"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C2022" type: "item" item: "sophisticatedstorage:compacting_upgrade" count: 2}
+				{id: "000C2023" type: "xp" xp: 35}
+			]
+			title: "Compacting Power"
+			icon: "sophisticatedstorage:compacting_upgrade"
+			description: [
+				"§fThe §6Compacting Upgrade§7 automates the most tedious inventory task:"
+				"§fconverting loose items into storage blocks and back as needed."
+				""
+				"§eWhat it does:§r"
+				"§7• When a chest reaches §e9+ of any item§7 that has a block form,"
+				"§7  the Compacting Upgrade automatically compresses it into a block."
+				"§7• §eEx:§7 9 Iron Ingots → 1 Iron Block (stored, takes less space)."
+				"§7• §eEx:§7 9 Cobblestone → 1 Compressed Cobblestone."
+				"§7• When you §eextract§7 an item that only exists as a block, the upgrade"
+				"§7  decompresses it back automatically."
+				""
+				"§eWhy this matters:§r"
+				"§7Without compaction, a high-throughput Create ore-doubling line"
+				"§7fills chests in minutes. With compaction, the same chest holds"
+				"§7effectively §e9× more§7 — your storage scales with your production."
+				""
+				"§eBest chest to install this in:§r"
+				"§7The §6'Metals' chest§7 — your highest-volume item category."
+				"§7Iron, Copper, and Zinc production from an automated ore line"
+				"§7fills fast. Compaction keeps it manageable."
+				""
+				"§a► Task: Have 1 Compacting Upgrade. Not consumed."
+			]
+			dependencies: ["000C0011"]
+		}
+
+		{
+			x: -8.0d
+			y: 28.0d
+			id: "000C0013"
+			tasks: [{
+				id: "000C1014"
+				type: "item"
+				item: "sophisticatedbackpacks:gold_backpack"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C2024" type: "item" item: "sophisticatedbackpacks:gold_backpack" count: 1}
+				{id: "000C2025" type: "xp" xp: 50}
+			]
+			title: "Gold Backpack ★"
+			icon: "sophisticatedbackpacks:gold_backpack"
+			subtitle: "Backpack upgrade — Brass Age tier"
+			description: [
+				"§fThe §6Gold-tier Sophisticated Backpack§7 is a major quality-of-life"
+				"§fupgrade — more slots, more upgrade spaces, and a larger inventory"
+				"§fthan the starter Iron backpack from Chapter 0."
+				""
+				"§eHow to upgrade your backpack:§r"
+				"§7  1. Craft a §6Gold Backpack§7 directly (JEI: 'Gold Backpack')."
+				"§7     OR open your existing Iron Backpack and find the §6Upgrade slot§7."
+				"§7  2. Craft a §6Gold Upgrade Smithing Template§7 and use it on a"
+				"§7     Smithing Table with Gold Ingots to convert your Iron Backpack."
+				"§7     (Check JEI for the exact upgrade path in your version.)"
+				""
+				"§eUseful Gold Backpack upgrades:§r"
+				"§7• §6Sort Upgrade§7 — press a hotkey to auto-sort all backpack contents."
+				"§7• §6Restock Upgrade§7 — when a hotbar item depletes, auto-refills from"
+				"§7  the backpack. Never run out of torches mid-cave again."
+				"§7• §6Magnet Upgrade§7 — attracts nearby item drops into the backpack."
+				"§7• §6Filter Upgrade§7 — backpack auto-picks up specific items only."
+				""
+				"§7★ This is an integration quest — Brass Age tier opens at Ch 2 Brass Handshake."
+				""
+				"§a► Task: Have 1 Gold Backpack. Not consumed."
+			]
+			dependencies: ["000C0012"]
+		}
+
+		{
+			x: -8.0d
+			y: 32.0d
+			id: "000C0014"
+			tasks: [{
+				id: "000C1015"
+				type: "item"
+				item: "sophisticatedbackpacks:diamond_backpack"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C2026" type: "item" item: "sophisticatedbackpacks:diamond_backpack" count: 1}
+				{id: "000C2027" type: "xp" xp: 75}
+			]
+			title: "Diamond Backpack"
+			icon: "sophisticatedbackpacks:diamond_backpack"
+			description: [
+				"§fThe §6Diamond-tier Sophisticated Backpack§7 is your end-game"
+				"§fpersonal storage — it holds enough for a full dungeon run, a"
+				"§ftrain expedition, and a colony supply run without emptying."
+				""
+				"§eDiamond Backpack stats:§r"
+				"§7• §e6+ rows of item slots§7 (vs 3 for Iron, 4 for Gold)."
+				"§7• §e9 upgrade slots§7 — fill them all for maximum automation."
+				"§7• Significantly heavier crafting cost — needs §eDiamond + Gold§7."
+				""
+				"§eRecommended Diamond Backpack upgrade loadout:§r"
+				"§7  Slot 1: §6Sort Upgrade§7 (auto-organise on demand)."
+				"§7  Slot 2: §6Restock Upgrade§7 (never run dry mid-fight)."
+				"§7  Slot 3: §6Magnet Upgrade§7 (auto-collect mob drops)."
+				"§7  Slot 4: §6Filter Upgrade§7 (block junk items like gravel/dirt)."
+				"§7  Slot 5: §6Tank Upgrade§7 (carry a fluid tank — e.g., Source for spells)."
+				"§7  Slot 6+: §6Extra Inventory§7 upgrades for more storage rows."
+				""
+				"§aTip:§r §7Name your Diamond Backpack in an Anvil"
+				"§7('Combat Pack', 'Mining Pack') — the name shows in your inventory."
+				""
+				"§a► Task: Have 1 Diamond Backpack. Not consumed."
+			]
+			dependencies: ["000C0013"]
+		}
+
+		{
+			x: -12.0d
+			y: 32.0d
+			id: "000C0015"
+			tasks: [{
+				id: "000C1016"
+				type: "item"
+				item: "sophisticatedstorage:diamond_chest"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C2028" type: "item" item: "sophisticatedstorage:diamond_chest" count: 2}
+				{id: "000C2029" type: "xp" xp: 60}
+			]
+			title: "Diamond Chest"
+			icon: "sophisticatedstorage:diamond_chest"
+			description: [
+				"§fThe §6Diamond-tier Sophisticated Storage Chest§7 holds 216+ items"
+				"§fper chest with 12 upgrade slots. A small wall of Diamond Chests"
+				"§fwith sorted filters §oreplace an entire AE2 ME system§7 for this pack's needs."
+				""
+				"§eUpgrade priority for Diamond Chests in your main storage wall:§r"
+				"§7• §6Filter + Sort§7 — every chest knows what it holds and holds only that."
+				"§7• §6Compacting§7 — on metal chests, this is essential."
+				"§7• §6Crafting Upgrade§7 — turns the chest into a crafting terminal:"
+				"§7  right-click the chest, access recipes that use its contents directly."
+				"§7  You can craft from storage without emptying chests into your inventory."
+				""
+				"§eFull storage wall design:§r"
+				"§7Place §e8–12 Diamond Chests§7 side-by-side on a wall."
+				"§7Label signs on the wall above each chest (§6Supplementaries§7 has"
+				"§7hanging signs for this)."
+				"§7Feed the wall with §6Create Mechanical Arms§7 from your Ore Doubling,"
+				"§7Mixer, and Fan Washer — everything arrives pre-sorted."
+				""
+				"§a► Task: Have 1 Diamond Chest. Not consumed."
+			]
+			dependencies: ["000C0012"]
+		}
+
+		{
+			x: -16.0d
+			y: 32.0d
+			id: "000C0016"
+			tasks: [{
+				id: "000C1017"
+				type: "checkmark"
+				title: "A Create Mechanical Arm is delivering sorted items into Sophisticated Storage"
+			}]
+			rewards: [
+				{id: "000C202A" type: "item" item: "create:mechanical_arm" count: 2}
+				{id: "000C202B" type: "xp" xp: 60}
+			]
+			title: "Create Delivery"
+			icon: "create:mechanical_arm"
+			description: [
+				"§fThis quest marks the completion of your §6Create × Sophisticated Storage§f"
+				"§fintegration — your factory producing items and delivering them directly"
+				"§finto filtered, organised chests without player involvement."
+				""
+				"§eMechanical Arm setup:§r"
+				"§7  1. Craft a §6Mechanical Arm§7 (Brass + Iron + Precision Mechanism)."
+				"§7  2. Place it on a §6Shaft§7 or §6Cogwheel§7 — it needs RPM to operate."
+				"§7  3. Right-click with a Wrench → §6I/O selector panel§7 opens."
+				"§7  4. Click §6Green§7 on each INPUT block (machines that produce items)."
+				"§7  5. Click §6Orange§7 on each OUTPUT block (chests to deliver into)."
+				"§7  6. The Arm picks up from inputs and sorts to outputs automatically."
+				""
+				"§eArm range:§r"
+				"§75 blocks by default. Extended by §6Arm Range Upgrade§7 cards up to 10+."
+				"§7Plan your factory floor so machines and storage are within arm range."
+				""
+				"§eThe final automation loop (target state):§r"
+				"§7  Ore Mine → Crusher → Fan Washer → Smelter"
+				"§7  → Mechanical Arm → Filtered Diamond Chest Wall"
+				"§7  → Mechanical Mixer (Brass) → Mechanical Crafter (Mechanisms)"
+				"§7  → Mechanical Arm → Output Chest"
+				""
+				"§a► Task: Checkmark when your Arm is actively delivering sorted items."
+			]
+			dependencies: ["000C0015"]
+		}
+
+		// ============================================================
+		// 2.4  CREATE: CONNECTED
+		// ============================================================
+
+		{
+			x: -4.0d
+			y: 24.0d
+			id: "000C0017"
+			tasks: [{
+				id: "000C1018"
+				type: "checkmark"
+				title: "A Create: Connected Clutch is installed and pausing a kinetic line"
+			}]
+			rewards: [
+				{id: "000C202C" type: "item" item: "create:cogwheel" count: 4}
+				{id: "000C202D" type: "xp" xp: 30}
+			]
+			title: "Better Clutch"
+			icon: "create:cogwheel"
+			description: [
+				"§fCreate: Connected fills the quality-of-life gaps Create left behind:"
+				"§fkinetic flow control, logic circuits, and better logistics."
+				""
+				"§eThe Clutch (Create: Connected):§r"
+				"§7A §6Clutch§7 sits on any shaft line. When it receives a §eredstone signal§7,"
+				"§7it disconnects — stopping all rotation downstream without stopping"
+				"§7the power source itself."
+				""
+				"§ePractical uses:§r"
+				"§7• §ePause a Mechanical Press§7 when the output chest is full."
+				"§7• §eStop a Train§7 at a station without cutting engine power."
+				"§7• §eToggle a Drill Contraption§7 on/off from a distant control point."
+				"§7• §eGate a Mixer§7 — only runs when both ingredient Funnels have stock."
+				""
+				"§eHow to build with a Clutch:§r"
+				"§7  1. Craft a §6Clutch§7 (see JEI, mod: Create: Connected)."
+				"§7  2. Place it inline on a §6Shaft§7 between power source and consumer."
+				"§7  3. Wire a §6Redstone Torch or Lever§7 to the Clutch's side."
+				"§7  4. When the redstone is ON, Clutch disconnects → downstream stops."
+				""
+				"§a► Task: Checkmark when a Clutch is installed and responding to redstone."
+			]
+			dependencies: ["000C000A"]
+		}
+
+		{
+			x: -4.0d
+			y: 28.0d
+			id: "000C0018"
+			tasks: [{
+				id: "000C1019"
+				type: "checkmark"
+				title: "A Create: Connected Redstone Transmitter is wired to control a contraption"
+			}]
+			rewards: [
+				{id: "000C202E" type: "item" item: "create:redstone_link" count: 2}
+				{id: "000C202F" type: "xp" xp: 35}
+			]
+			title: "Redstone Logic"
+			icon: "create:redstone_link"
+			description: [
+				"§fCreate: Connected's §6Redstone Transmitter§7 sends wireless redstone signals"
+				"§facross your base — no redstone wire sprawling across the floor."
+				""
+				"§eHow the Transmitter works:§r"
+				"§7  1. Craft a §6Redstone Transmitter§7 (receiver) and §6Redstone Emitter§7"
+				"§7     (sender) pair — they communicate on matching §6frequency codes§7."
+				"§7  2. Place the Emitter at a §esignal source§7 (lever, button, observer)."
+				"§7  3. Place the Receiver next to the §emachine you want to control§7."
+				"§7  4. Set both to the same frequency — the receiver mirrors the emitter's state."
+				""
+				"§ePractical automation uses:§r"
+				"§7• §eRemote kill switch§7: one lever in your control room turns off any"
+				"§7  machine anywhere in the base."
+				"§7• §eInventory signal§7: Comparator reads chest fullness → Transmitter"
+				"§7  → Clutch stops the machine when the output is full."
+				"§7• §eTrain signal§7: Train at station → Emitter → Transmitter → station"
+				"§7  platform doors open automatically."
+				""
+				"§a► Task: Checkmark when a Transmitter is controlling a contraption."
+			]
+			dependencies: ["000C0017"]
+		}
+
+		{
+			x: 0.0d
+			y: 28.0d
+			id: "000C0019"
+			tasks: [{
+				id: "000C101A"
+				type: "checkmark"
+				title: "A Create: Connected Rotated Vault is placed and storing items"
+			}]
+			rewards: [
+				{id: "000C2030" type: "item" item: "create:item_vault" count: 2}
+				{id: "000C2031" type: "xp" xp: 30}
+			]
+			title: "Rotated Vault"
+			icon: "create:item_vault"
+			description: [
+				"§fCreate: Connected adds §6Rotated Vaults§7 — Create Item Vaults that can"
+				"§fbe placed on their sides and upside-down. This sounds trivial but"
+				"§funderlies most compact factory designs where vertical space is limited."
+				""
+				"§eWhat a Create Item Vault does:§r"
+				"§7A §6Create Item Vault§7 holds §e one item type in very large quantities§7"
+				"§7(thousands of items). Funnels and Arms interact with it normally."
+				"§7It is the 'bulk bin' for high-throughput single-item storage."
+				""
+				"§eWhere Rotated Vaults shine:§r"
+				"§7• §eCobblestone generator§7: Vault below the generator oriented horizontally"
+				"§7  — no vertical drop needed, catches output directly."
+				"§7• §eTrain cargo loading§7: Vault mounted sideways under a rail platform."
+				"§7• §eCompact sorting line§7: Multiple side-mounted Vaults below a belt."
+				""
+				"§eTip:§r §7Combined with Sophisticated Storage for filtered items + Create"
+				"§7Vaults for bulk items = no wasted space in your storage room."
+				""
+				"§a► Task: Checkmark when a Rotated Vault is placed and working."
+			]
+			dependencies: ["000C0018"]
+		}
+
+		{
+			x: -2.0d
+			y: 32.0d
+			id: "000C001A"
+			tasks: [{
+				id: "000C101B"
+				type: "checkmark"
+				title: "A contraption uses Clutch + Transmitter + Rotated Vault together"
+			}]
+			rewards: [
+				{id: "000C2032" type: "item" item: "create:precision_mechanism" count: 2}
+				{id: "000C2033" type: "xp" xp: 50}
+			]
+			title: "Connected Network"
+			icon: "create:andesite_casing"
+			description: [
+				"§fThis quest asks you to combine all three Create: Connected tools into"
+				"§fone working contraption — the foundation of intelligent factory control."
+				""
+				"§eExample setup that satisfies all three:§r"
+				"§7  Build an automated ore processing bay:"
+				"§7  • §6Clutch§7 on the Crusher's shaft — stops when output is full."
+				"§7  • §6Redstone Transmitter§7 wired from a Comparator on the output"
+				"§7    Vault — signals the Clutch when the Vault is filling up."
+				"§7  • §6Rotated Vault§7 mounted sideways under the output belt — stores"
+				"§7    crushed ore without needing a tall vertical chute."
+				""
+				"§eWhy this matters at the pack level:§r"
+				"§7Without these three tools, factories either overproduce (wasting"
+				"§7resources) or need constant babysitting. With them, your base"
+				"§7runs intelligently while you're exploring, dungeon-raiding, or"
+				"§7working on the MineColonies colony."
+				""
+				"§aTip:§r §7The Schematicannon (search JEI) can save this whole setup as"
+				"§7a schematic and paste copies at other mining sites instantly."
+				""
+				"§a► Task: Checkmark when all three are working together in one build."
+			]
+			dependencies: ["000C0019"]
+		}
+
+		// ============================================================
+		// 2.5  STEAM 'N' RAILS
+		// ============================================================
+
+		{
+			x: 12.0d
+			y: 8.0d
+			id: "000C001B"
+			tasks: [{
+				id: "000C101C"
+				type: "checkmark"
+				title: "A Train Station and a working locomotive exist in the world"
+			}]
+			rewards: [
+				{id: "000C2034" type: "item" item: "railways:track" count: 64}
+				{id: "000C2035" type: "xp" xp: 50}
+			]
+			title: "All Aboard"
+			icon: "railways:train_station"
+			description: [
+				"§fSteam 'n' Rails adds §6full locomotive trains§7 — stations, schedules,"
+				"§fautomated cargo loading, and signal systems. This quest gets your"
+				"§ffirst train running end-to-end."
+				""
+				"§eBuild a Train Station:§r"
+				"§7  1. Craft a §6Train Station§7 block (Railways mod — check JEI)."
+				"§7  2. Place it next to a §6Rail Track§7 segment."
+				"§7  3. Right-click the Station to name it."
+				"§7  4. Stations are where trains stop, load, and unload."
+				""
+				"§eBuild a Locomotive:§r"
+				"§7  1. Craft a §6Locomotive§7 (engine block — check JEI)."
+				"§7  2. Place it on a rail. The engine sits on the track like a minecart."
+				"§7  3. Right-click to open the engine GUI — add §6fuel or SU connection§7."
+				"§7  4. Connect §6Bogey§7 components under passenger/cargo cars."
+				""
+				"§eTip:§r §7Lay your first rail line between your base and your ore mine."
+				"§7Even a short 50-block line saves enormous time when carrying heavy loads."
+				"§7Terralith's varied terrain makes §erailroad route planning§7 itself"
+				"§7a satisfying engineering puzzle."
+				""
+				"§a► Task: Checkmark when a Train Station and locomotive both exist."
+			]
+			dependencies: ["000C000B"]
+		}
+
+		{
+			x: 12.0d
+			y: 12.0d
+			id: "000C001C"
+			tasks: [{
+				id: "000C101D"
+				type: "checkmark"
+				title: "Your Train Station is decorated with 3+ Bells & Whistles elements"
+			}]
+			rewards: [
+				{id: "000C2036" type: "item" item: "minecraft:oak_planks" count: 64}
+				{id: "000C2037" type: "xp" xp: 40}
+			]
+			title: "Station Details ★"
+			icon: "create:andesite_casing"
+			subtitle: "Bells & Whistles integration"
+			description: [
+				"§fBells and Whistles adds §6decorative rail infrastructure§7 — the visual"
+				"§fdetails that make your train station feel like a real station, not"
+				"§fjust a track block with a label."
+				""
+				"§eBells and Whistles elements for this quest:§r"
+				"§7• §6Platform Steps§7 — raised platform edges that travellers step onto."
+				"§7• §6Signal Lights§7 — red/green signals that respond to train position."
+				"§7• §6Grab Rails§7 — handrails along platform edges."
+				"§7• §6Ornamental Arches§7 — decorative station entrance arches."
+				"§7• §6Platform Signs§7 — destination boards with route names."
+				"§7• §6Conductor Poles§7 — classic station lampposts."
+				""
+				"§eWhy bother with decoration?§r"
+				"§7This is a family pack — aesthetic pride in builds is part of the fun."
+				"§7A beautiful train station is a landmark the whole family uses daily."
+				"§7The kids can decorate stations while the adults run the signalling systems."
+				""
+				"§eTip:§r §7Use §6Macaw's Bridges§7 (Ch 4.1) to build roof covers over your"
+				"§7station platform. §6Macaw's Furniture§7 adds benches for waiting passengers."
+				""
+				"§a► ★ Side quest — does not gate further progression."
+				"§a► Task: Checkmark when 3+ B&W elements are placed at your station."
+			]
+			dependencies: ["000C001B"]
+		}
+
+		{
+			x: 16.0d
+			y: 12.0d
+			id: "000C001D"
+			tasks: [{
+				id: "000C101E"
+				type: "checkmark"
+				title: "A train has a Schedule set and is running an automated route"
+			}]
+			rewards: [
+				{id: "000C2038" type: "item" item: "railways:schedule" count: 1}
+				{id: "000C2039" type: "xp" xp: 50}
+			]
+			title: "Train Schedule"
+			icon: "railways:schedule"
+			description: [
+				"§fA §6Train Schedule§7 (Steam 'n' Rails) turns a manually-driven train"
+				"§finto a §ofully autonomous§f service — visiting stations in order,"
+				"§floading and unloading cargo, and returning on timer."
+				""
+				"§eCreating a Schedule:§r"
+				"§7  1. Craft a §6Schedule§7 item and right-click your Train Station."
+				"§7  2. In the Schedule GUI, add §6Destination§7 entries — each is a station"
+				"§7     the train visits in order."
+				"§7  3. For each stop, add §6Conditions§7:"
+				"§7     • §eWait for time§7 — stay X seconds before leaving."
+				"§7     • §eWait for cargo§7 — leave only when cargo car is full."
+				"§7     • §eWait for empty§7 — leave only when cargo car is empty."
+				"§7  4. Click §6Loop§7 to make the train repeat the schedule forever."
+				"§7  5. Click §6Done§7 and the train runs autonomously."
+				""
+				"§eTip:§r §7Use §6'Wait for cargo'§7 at your ore mine station and"
+				"§7§6'Wait for empty'§7 at your base station. The train only leaves"
+				"§7when it's worth the trip — no empty runs, no waiting for nothing."
+				""
+				"§a► Task: Checkmark when a train is running a scheduled route."
+			]
+			dependencies: ["000C001B"]
+		}
+
+		{
+			x: 20.0d
+			y: 12.0d
+			id: "000C001E"
+			tasks: [{
+				id: "000C101F"
+				type: "checkmark"
+				title: "200+ Rail blocks placed spanning at least 2 different Terralith biomes"
+			}]
+			rewards: [
+				{id: "000C203A" type: "item" item: "railways:track" count: 128}
+				{id: "000C203B" type: "xp" xp: 75}
+			]
+			title: "Rails Across Terralith"
+			icon: "railways:track"
+			description: [
+				"§fTerralith generates 95+ biomes — dramatic landscapes that beg to be"
+				"§fconnected by rail. §6200 rail blocks§7 spanning two biomes is the"
+				"§fminimum that makes the network feel like a §orailroad§f, not a test track."
+				""
+				"§eRail line tips for Terralith terrain:§r"
+				"§7• §6Mountain tunnels:§7 Use a Drill Contraption to bore through hills."
+				"§7  (This is why Drill for the Future was an early quest!)"
+				"§7• §6River crossings:§7 Use §6Macaw's Bridges§7 (Ch 4.1) as rail bridges."
+				"§7• §6Steep grades:§7 Trains handle inclines up to ~45°. Above that,"
+				"§7  use switchbacks or bore a tunnel through."
+				"§7• §6Long flat routes:§7 Create a straight east-west highway and branch"
+				"§7  lines off it to reach specific family bases and the colony."
+				""
+				"§eFamily railroad planning:§r"
+				"§7Assign one family member as §6'Railroad Engineer'§7 — they design"
+				"§7routes while others build stations at their respective bases."
+				"§7By end-game, every family base should be connected to the main line."
+				""
+				"§a► Task: Checkmark when 200+ rail blocks span 2+ Terralith biomes."
+			]
+			dependencies: ["000C001D"]
+		}
+
+		{
+			x: 20.0d
+			y: 16.0d
+			id: "000C001F"
+			tasks: [{
+				id: "000C1020"
+				type: "checkmark"
+				title: "A Cargo Car is attached and auto-loading via Create Funnels"
+			}]
+			rewards: [
+				{id: "000C203C" type: "item" item: "railways:cargo_car" count: 2}
+				{id: "000C203D" type: "xp" xp: 75}
+			]
+			title: "Cargo Train"
+			icon: "railways:cargo_car"
+			description: [
+				"§fA §6Cargo Car§7 attached to your locomotive turns the train from a"
+				"§fpassenger service into a §ofull logistics network§f — items travel"
+				"§fautomatically from mine to base, base to colony, across Terralith."
+				""
+				"§eSetup:§r"
+				"§7  1. Craft §6Cargo Cars§7 and attach them behind the locomotive."
+				"§7  2. Each Cargo Car has §einternal inventory slots§7."
+				"§7  3. At the loading station, place §6Create Funnels§7 facing into the"
+				"§7     Cargo Car's side — they load items from adjacent chests as the"
+				"§7     train sits at the platform."
+				"§7  4. At the unloading station, Funnels on the other side unload."
+				"§7  5. Add Schedule condition §6'Wait until full'§7 at load station,"
+				"§7     §6'Wait until empty'§7 at unload station."
+				""
+				"§eThe full logistics stack:§r"
+				"§7  Ore Mine → Fan Washer → Vault"
+				"§7  → Create Funnel → Cargo Car → Train → Unload Station"
+				"§7  → Create Funnel → Sophisticated Storage Wall at Base"
+				""
+				"§aTip:§r §7Use separate Cargo Cars for different material categories."
+				"§7Label them with §6Name Tags§7 on an Anvil."
+				""
+				"§a► Task: Checkmark when a Cargo Car is loading/unloading via Funnels."
+			]
+			dependencies: ["000C001E"]
+		}
+
+		// ============================================================
+		// 2.6  CREATE: NEW AGE
+		// ============================================================
+
+		{
+			x: 24.0d
+			y: 8.0d
+			id: "000C0020"
+			tasks: [{
+				id: "000C1021"
+				type: "item"
+				item: "create_new_age:solar_panel"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C203E" type: "item" item: "create_new_age:solar_panel" count: 2}
+				{id: "000C203F" type: "xp" xp: 40}
+			]
+			title: "First Solar Panel"
+			icon: "create_new_age:solar_panel"
+			description: [
+				"§fCreate: New Age adds advanced power systems to Create — solar, wind,"
+				"§fand nuclear. It also converts between §6SU§7 (Create's Stress Units)"
+				"§fand §6FE§7 (Forge Energy used by other mods) for cross-mod compatibility."
+				""
+				"§eSolar Panel:§r"
+				"§7• Placed outdoors on any solid surface with sky access."
+				"§7• Generates §eFE§7 during daylight. No FE at night or underground."
+				"§7• Connect to a §6Motor§7 to convert FE → SU for Create machines."
+				"§7• Low upfront cost — Iron + Glass. Good for running lights and small farms."
+				""
+				"§eHow to convert Solar FE → Create SU:§r"
+				"§7  1. Place Solar Panels on your roof."
+				"§7  2. Connect them to a §6Create: New Age Electric Motor§7 with §eWire§7."
+				"§7  3. The Motor converts FE input → SU output on its shaft."
+				"§7  4. Connect that shaft to your kinetic network."
+				""
+				"§eFE vs SU reminder:§r"
+				"§7• §6FE§7 = universal power currency (most mods use this)."
+				"§7• §6SU§7 = Create's physical stress/torque system."
+				"§7• Create: New Age's Motors bridge between them."
+				""
+				"§a► Task: Have 1 Solar Panel. Not consumed."
+			]
+			dependencies: ["000C000A"]
+		}
+
+		{
+			x: 24.0d
+			y: 12.0d
+			id: "000C0021"
+			tasks: [{
+				id: "000C1022"
+				type: "checkmark"
+				title: "A Wind Turbine is built outdoors at height and generating FE"
+			}]
+			rewards: [
+				{id: "000C2040" type: "item" item: "create_new_age:solar_panel" count: 4}
+				{id: "000C2041" type: "xp" xp: 45}
+			]
+			title: "Wind Turbine"
+			icon: "create_new_age:solar_panel"
+			description: [
+				"§fCreate: New Age's §6Wind Turbine§7 is a multi-block structure that"
+				"§fgenerates significantly more FE than solar — and works day and night."
+				""
+				"§eBuild requirements:§r"
+				"§7  1. Craft the §6Wind Turbine Frame§7 blocks (see JEI)."
+				"§7  2. Build the turbine structure according to the mod's multi-block"
+				"§7     layout (check JEI or the Create: New Age in-game guide)."
+				"§7  3. Place it §eat height§7 (Y=100+) with nothing blocking the blades."
+				"§7  4. Higher altitude = more wind exposure = more FE output."
+				"§7  5. Connect via wire to a §6Cable§7 network leading to your Electric Motor."
+				""
+				"§eOutput comparison:§r"
+				"§7• Solar Panel: ~40 FE/tick in full daylight."
+				"§7• Wind Turbine: ~120 FE/tick at Y=150+, day and night."
+				"§7• Nuclear Reactor (Ch 2.6): ~2,000+ FE/tick."
+				""
+				"§eTip:§r §7Build the Wind Turbine on the roof of your main base."
+				"§7Combined with Solar Panels below, you have 24/7 base power for"
+				"§7automation without touching the reactor until late game."
+				""
+				"§a► Task: Checkmark when your Wind Turbine is generating FE at height."
+			]
+			dependencies: ["000C0020"]
+		}
+
+		{
+			x: 24.0d
+			y: 16.0d
+			id: "000C0022"
+			tasks: [{
+				id: "000C1023"
+				type: "item"
+				item: "create_new_age:electric_motor"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C2042" type: "item" item: "create_new_age:electric_motor" count: 2}
+				{id: "000C2043" type: "xp" xp: 50}
+			]
+			title: "Electric Motor"
+			icon: "create_new_age:electric_motor"
+			description: [
+				"§fThe §6Electric Motor§7 is the bridge block between §eFE§7 (from Solar,"
+				"§fWind, Nuclear) and §eSU§7 (Create's kinetic network). Without it,"
+				"§fCreate: New Age power stays in the FE world and cannot drive gears."
+				""
+				"§eHow it works:§r"
+				"§7  1. Craft the §6Electric Motor§7 (see JEI)."
+				"§7  2. Connect an §6FE Cable§7 to the Motor's input face."
+				"§7  3. Connect a §6Shaft§7 to the Motor's output face."
+				"§7  4. The Motor converts FE → SU on the shaft at a set RPM."
+				"§7  5. Feed that shaft into your kinetic network — adds to your total SU."
+				""
+				"§eSU output from one Electric Motor:§r"
+				"§7• Input: ~256 FE/tick → Output: ~512 SU at 16 RPM."
+				"§7  (Values depend on version — check Jade tooltip on the Motor for live output.)"
+				"§7• Stack §e2–3 Electric Motors§7 from different power sources on the same"
+				"§7  shaft network for redundancy."
+				""
+				"§ePack note:§r §7The §6Creative Motor§7 (Ch 5 reward) is capped at 512 SU."
+				"§7An Electric Motor fed by the nuclear reactor §oeasily exceeds this§7."
+				"§7The Ch 5 reward is decorative/symbolic — your real power comes from here."
+				""
+				"§a► Task: Have 1 Electric Motor. Not consumed."
+			]
+			dependencies: ["000C0021"]
+		}
+
+		{
+			x: 24.0d
+			y: 20.0d
+			id: "000C0023"
+			tasks: [{
+				id: "000C1024"
+				type: "checkmark"
+				title: "The Nuclear Reactor is built and producing FE"
+			}]
+			rewards: [
+				{id: "000C2044" type: "item" item: "create_new_age:electric_motor" count: 4}
+				{id: "000C2045" type: "xp" xp: 250}
+			]
+			title: "⚛ Nuclear Future 🔒"
+			icon: "create_new_age:electric_motor"
+			description: [
+				"§cThis is the most complex build in Chapter 2. Read fully before starting.§r"
+				""
+				"§fCreate: New Age's §6Fission Reactor§7 is a multi-block structure that"
+				"§fproduces §e2,000+ FE/tick§7 — far more than any renewable source."
+				"§fIt unlocks maximum Create SU and ends all power scarcity."
+				""
+				"§e⚠ Safety first:§r"
+				"§7The reactor requires:"
+				"§7  • §6Uranium Fuel Rods§7 (mine Uranium ore deep underground)."
+				"§7  • §6Steel Casings§7 around the reactor core (blast-resistant)."
+				"§7  • §6Coolant fluid§7 (water or cryotheum) circulating through pipes."
+				"§7  • A §6Control Rod§7 to regulate output and prevent meltdown."
+				""
+				"§eBuild steps:§r"
+				"§7  1. Mine §6Uranium Ore§7 (Create: New Age generates it deep — Y=-40 to 20)."
+				"§7  2. Process Uranium ore → Fuel Rods via the Mechanical Press + Mixer."
+				"§7  3. Build the reactor multi-block per the §6Create: New Age Handbook§7"
+				"§7     (found via JEI → search 'Fission' → click the guide page icon)."
+				"§7  4. Fill coolant pipes with §6Water§7 from a fluid pipe or pump."
+				"§7  5. Insert Fuel Rods and activate the §6Fission Reactor Controller§7."
+				"§7  6. Connect output §6FE Cables§7 to your Electric Motor network."
+				""
+				"§eTip:§r §7Build the reactor in a §6dedicated underground chamber§7 away"
+				"§7from your base. Label it clearly for family members."
+				""
+				"§a► Task: Checkmark when the reactor is producing FE actively."
+			]
+			dependencies: ["000C0022"]
+		}
+
+		{
+			x: 24.0d
+			y: 24.0d
+			shape: "hexagon"
+			id: "000C0024"
+			tasks: [{
+				id: "000C1025"
+				type: "checkmark"
+				title: "3 separate power sources (solar, wind, reactor) feed one kinetic network"
+			}]
+			rewards: [
+				{id: "000C2046" type: "item" item: "create_new_age:electric_motor" count: 4}
+				{id: "000C2047" type: "xp" xp: 200}
+			]
+			title: "Power Grid ✦"
+			icon: "create_new_age:electric_motor"
+			subtitle: "Peak Create power — Ch 3 End now accessible"
+			description: [
+				"§fYour kinetic network is now fed by §e3 independent power sources§f."
+				"§fThis is the pinnacle of Create engineering in this pack."
+				""
+				"§eVerify your power grid:§r"
+				"§7  §a✦§7 §6Solar Panels§7 (FE → Electric Motor) — daylight generation."
+				"§7  §a✦§7 §6Wind Turbine§7 (FE → Electric Motor) — 24/7 generation at height."
+				"§7  §a✦§7 §6Nuclear Reactor§7 (FE → Electric Motor) — maximum output."
+				"§7  All three Motor shafts connect to §yone shared kinetic network§7."
+				""
+				"§eThis gate unlocks §6Chapter 3: The End§r"
+				"§7The §eEnd Portal Key§7 quest (Ch 3.5) requires both:"
+				"§7  • This §6Power Grid ✦§7 gate (Ch 2)."
+				"§7  • Ch 1's §6Arcane Automation ✦§7 gate."
+				"§7Neither technology alone earns The End — both magic and tech must mature."
+				""
+				"§eNow go build:§r"
+				"§7  □ Connect all three Electric Motors to one shared shaft or cogwheel."
+				"§7  □ Check Jade on the motors — combined SU should be 2,000+ SU."
+				"§7  □ Test the network under load (run all machines simultaneously)."
+				"§7  □ If SU is insufficient under load, add another Wind Turbine or"
+				"§7    increase reactor size per the Create: New Age guide."
+				""
+				"§a► Gate quest: completes the Ch 2 power arc, unlocks Ch 3 End progression."
+			]
+			dependencies: ["000C0023"]
+		}
+
+		// ============================================================
+		// 2.7  EQUIPMENT & GEAR — TETRA WORKSHOP
+		// ============================================================
+
+		{
+			x: 8.0d
+			y: 24.0d
+			id: "000C0025"
+			tasks: [{
+				id: "000C1026"
+				type: "item"
+				item: "tetra:modular_workbench"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C2048" type: "item" item: "tetra:modular_workbench" count: 1}
+				{id: "000C2049" type: "xp" xp: 35}
+			]
+			title: "Modular Workbench"
+			icon: "tetra:modular_workbench"
+			description: [
+				"§fTetra replaces vanilla tool crafting with a §6modular system§7 — every"
+				"§ftool is assembled from separate components that you can replace,"
+				"§fupgrade, and specialise independently."
+				""
+				"§eThe Modular Workbench:§r"
+				"§7• This is where you assemble, disassemble, and upgrade all Tetra tools."
+				"§7• Each tool slot shows its §6Head§7, §6Hilt§7, and §6Handle§7 separately."
+				"§7• Clicking a component allows you to swap it for a different material."
+				"§7• Higher-tier materials (Brass, Andesite Alloy from Create) unlock"
+				"§7  special §epas bonuses§7 — speed near machines, durability in combat."
+				""
+				"§eTool types available:§r"
+				"§7• §6Modular Sword§7 — main combat weapon, upgradeable to late-game tier."
+				"§7• §6Modular Pickaxe§7 — primary mining tool, components affect speed."
+				"§7• §6Modular Axe§7 — utility and combat, Andesite head is excellent."
+				"§7• §6Modular Shovel§7 — terrain work with terrain-specific bonuses."
+				"§7• §6Modular Bow§7 — ranged, upgradeable draw speed and damage."
+				""
+				"§eTip:§r §7Check §6Jade§7 on any Tetra tool — it shows current component"
+				"§7stats and experience towards the next level."
+				""
+				"§a► Task: Have 1 Tetra Modular Workbench. Not consumed."
+			]
+			dependencies: ["000C000A"]
+		}
+
+		{
+			x: 8.0d
+			y: 28.0d
+			id: "000C0026"
+			tasks: [{
+				id: "000C102A"
+				type: "checkmark"
+				title: "Any vanilla tool disassembled and components reassigned on the Modular Workbench"
+			}]
+			rewards: [
+				{id: "000C204A" type: "item" item: "minecraft:iron_ingot" count: 16}
+				{id: "000C204B" type: "xp" xp: 40}
+			]
+			title: "First Upgrade"
+			icon: "tetra:modular_workbench"
+			description: [
+				"§fThe first thing to do with the Modular Workbench is disassemble a"
+				"§fvanilla tool — this teaches the assembly/disassembly loop and"
+				"§frecycles the components into usable materials."
+				""
+				"§eHow to disassemble:§r"
+				"§7  1. Place any vanilla sword, pickaxe, or axe in the Workbench."
+				"§7  2. The Workbench shows its components in slots."
+				"§7  3. Click §eDisassemble§7 — the tool breaks into its head and handle parts."
+				"§7  4. These parts are now Tetra components — usable in any Tetra tool."
+				""
+				"§eHow to assemble a Tetra tool from scratch:§r"
+				"§7  1. Place a §6Tetra base tool item§7 (e.g., §etetra:modular_sword§7) in"
+				"§7     the Workbench. Craft modular items from JEI first — they start blank."
+				"§7  2. Click the §eHead§7 slot — choose a material (Iron, Copper, Brass...)."
+				"§7  3. Click the §eHilt§7 slot — choose a hilt material."
+				"§7  4. Click §eAssemble§7 — the tool is built with those properties."
+				"§7  5. Hover the finished tool to see its §estats panel§7 — damage,"
+				"§7     durability, speed, and any material bonuses."
+				""
+				"§aTip:§r §7You can upgrade one component at a time without rebuilding"
+				"§7the whole tool. Swap just the blade when better materials arrive."
+				""
+				"§a► Task: Checkmark when you have disassembled a tool on the Workbench."
+			]
+			dependencies: ["000C0025"]
+		}
+
+		{
+			x: 12.0d
+			y: 28.0d
+			id: "000C0027"
+			tasks: [{
+				id: "000C102B"
+				type: "item"
+				item: "tetra:modular_sword"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C204C" type: "item" item: "create:brass_ingot" count: 8}
+				{id: "000C204D" type: "xp" xp: 55}
+			]
+			title: "Brass Blade ★"
+			icon: "tetra:modular_sword"
+			subtitle: "Tetra Pak × Create integration"
+			description: [
+				"§fTetra Pak adds §6Create material support§7 to the Tetra Modular Workbench."
+				"§fBrass Ingots appear automatically in the component material list"
+				"§fas soon as you've crafted them — no config required."
+				""
+				"§eBrass Hilt bonus (Tetra Pak):§r"
+				"§7Equipping a sword with a §6Brass Hilt§7 component gives a §emovement"
+				"§7speed buff§7 while the sword is in your hand."
+				"§7Combined with §6Ars Nouveau's Haste glyph§7 — fastest movement in the pack."
+				""
+				"§eCrafting the Brass Hilt:§r"
+				"§7  1. Open your Modular Workbench with a modular sword placed inside."
+				"§7  2. Click the §eHilt§7 slot."
+				"§7  3. In the material list, select §6Brass§7."
+				"§7  4. Confirm — the Workbench consumes the Brass Ingot and"
+				"§7     assembles the brass hilt onto your sword."
+				"§7  5. The tool stats panel updates immediately — check the speed bonus."
+				""
+				"§eBrass vs Iron hilt stats:§r"
+				"§7• §6Iron Hilt§7: balanced, no bonus."
+				"§7• §6Brass Hilt (Tetra Pak)§7: +0.2 movement speed while wielding,"
+				"§7  +10% attack speed, slightly lower base damage than iron."
+				"§7  Best for agile fighters who value mobility over raw damage."
+				""
+				"§a► ★ Requires Create Brass. Not consumed."
+			]
+			dependencies: ["000C0026" "000C000A"]
+		}
+
+		{
+			x: 16.0d
+			y: 28.0d
+			id: "000C0028"
+			tasks: [{
+				id: "000C102C"
+				type: "item"
+				item: "tetra:modular_pickaxe"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C204E" type: "item" item: "create:andesite_alloy" count: 8}
+				{id: "000C204F" type: "xp" xp: 55}
+			]
+			title: "Andesite Edge ★"
+			icon: "tetra:modular_pickaxe"
+			subtitle: "Tetra Pak × Create integration"
+			description: [
+				"§fTetra Pak also adds §6Andesite Alloy§7 as a Tetra Modular Workbench"
+				"§fmaterial. The §6Andesite Alloy Tool Head§7 gives a unique passive bonus"
+				"§fthat synergises with being near Create machines."
+				""
+				"§eAndesite Alloy Head bonus (Tetra Pak):§r"
+				"§7A modular pickaxe with an §6Andesite Alloy head§7 gains §e+15% mining"
+				"§7speed§7 while §owithin 8 blocks of an active Create machine§7."
+				"§7Inside your factory floor, this pickaxe outperforms diamond."
+				"§7In the open world, it performs like a good iron pickaxe."
+				""
+				"§eWhen to use:§r"
+				"§7• §eMining in or near your factory§7 (wall expansions, ore processing bay)."
+				"§7• §eDemolishing Create contraptions§7 — fast disassembly."
+				"§7• §eMining near the colony§7 (colony is near your Create supply depot)."
+				""
+				"§eCrafting:§r"
+				"§7Same process as the Brass Blade — open Modular Workbench with"
+				"§7a modular pickaxe, click the §eHead§7 slot, select §6Andesite Alloy§7."
+				""
+				"§aTip:§r §7Carry both the Brass Sword and the Andesite Pickaxe."
+				"§7Together they cover combat mobility + factory mining in one inventory."
+				""
+				"§a► ★ Requires Andesite Alloy (Create). Not consumed."
+			]
+			dependencies: ["000C0026"]
+		}
+
+		{
+			x: 12.0d
+			y: 32.0d
+			id: "000C0029"
+			tasks: [{
+				id: "000C102D"
+				type: "checkmark"
+				title: "A Farmer's Delight Knife is upgraded on the Tetra Modular Workbench"
+			}]
+			rewards: [
+				{id: "000C2050" type: "item" item: "farmersdelight:iron_knife" count: 1}
+				{id: "000C2051" type: "item" item: "farmersdelight:mixed_salad" count: 8}
+				{id: "000C2052" type: "xp" xp: 60}
+			]
+			title: "The Chef's Edge ★"
+			icon: "farmersdelight:iron_knife"
+			subtitle: "Tetra's Delight — the kitchen-forge bridge"
+			description: [
+				"§fTetra's Delight registers §6Farmer's Delight Knives§7 as valid modular"
+				"§ftools on the Tetra Workbench. The same knife you use at a Cutting Board"
+				"§fcan now have a §6Brass Handle§7 or §6Andesite Blade§7 upgrade."
+				""
+				"§eWhy this matters:§r"
+				"§7Normally cooking knives and combat tools are separate progressions."
+				"§7Tetra's Delight merges them — your §obest kitchen knife is also"
+				"§fyour best early-game weapon§7, using materials you already produce."
+				"§7No extra grinding. No separate resource chain."
+				""
+				"§eUpgrading your knife:§r"
+				"§7  1. Place any §6Farmer's Delight Knife§7 (Iron, Gold, Diamond — all work)"
+				"§7     in the §6Tetra Modular Workbench§7."
+				"§7  2. The Workbench shows the knife's §eHandle§7 and §eBlade§7 slots."
+				"§7  3. Replace the Handle with §6Brass§7 → speed bonus while slicing."
+				"§7  4. Or replace the Blade with §6Andesite Alloy§7 → efficiency bonus."
+				"§7  5. The upgraded knife §ostill works on Cutting Boards§7 — cooking"
+				"§7     function is completely unchanged. Only combat stats improve."
+				""
+				"§eHotbar tip:§r §7Keep your upgraded knife on slot 1."
+				"§7It works in cooking recipes and as a weapon — dual-use means one slot"
+				"§7does the job of two tools."
+				""
+				"§a► ★ Requires Tetra's Delight mod + Create Brass or Andesite Alloy."
+				"§a► Task: Checkmark when any Farmer's Delight Knife is upgraded."
+			]
+			dependencies: ["000C0026"]
+		}
+
+		{
+			x: 16.0d
+			y: 32.0d
+			id: "000C002A"
+			tasks: [{
+				id: "000C102E"
+				type: "checkmark"
+				title: "Any Tetra tool — sword, pickaxe, or knife — levelled to max via use"
+			}]
+			rewards: [
+				{id: "000C2053" type: "item" item: "minecraft:diamond" count: 8}
+				{id: "000C2054" type: "item" item: "minecraft:diamond" count: 8}
+				{id: "000C2055" type: "xp" xp: 500}
+			]
+			title: "Veteran Tools"
+			icon: "tetra:modular_sword"
+			description: [
+				"§fTetra tools gain §6experience§7 through use — mining, combat, or cooking."
+				"§fMaxing a tool's experience tier unlocks §emaintenance options§7 and"
+				"§freveals §6hidden material bonuses§7 that only appear at max level."
+				""
+				"§eHow Tetra tool levelling works:§r"
+				"§7• Every use of the tool with its main function earns XP."
+				"§7  (Sword = killing; Pickaxe = mining; Knife = cutting/cooking.)"
+				"§7• Check current level: hover the tool and read the §eProgress bar§7"
+				"§7  in the tooltip (requires F3+H advanced tooltips)."
+				"§7• When the bar fills, the tool reaches a new tier — stats improve."
+				"§7• §6Maintenance§7 unlocks at certain levels: apply §eoil, sharpen, reinforce§7"
+				"§7  to extend durability and unlock tier-locked bonuses."
+				""
+				"§eMax level unlocks:§r"
+				"§7• §6Brass Hilt max§7 → speed bonus increases to +0.3 (stacks with Haste)."
+				"§7• §6Andesite Pickaxe max§7 → factory proximity bonus increases to +25%."
+				"§7• §6Upgraded Knife max§7 → cooking output chance increases (extra item)."
+				""
+				"§aTip:§r §7Use the §6Deployer§7 (Ch 2.2) to auto-use tools — mount it on"
+				"§7a contraption, put the tool in its hand, and let it farm XP automatically."
+				""
+				"§a► Task: Checkmark when any Tetra tool reaches maximum level."
+			]
+			dependencies: ["000C0027" "000C0028"]
+		}
+
+		// ============================================================
+		// 2.8  WATER LOGISTICS — LITTLE LOGISTICS
+		// ============================================================
+
+		{
+			x: 24.0d
+			y: 28.0d
+			id: "000C002B"
+			tasks: [{
+				id: "000C102F"
+				type: "item"
+				item: "littlelogistics:tugboat"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000C2056" type: "item" item: "minecraft:oak_planks" count: 32}
+				{id: "000C2057" type: "xp" xp: 40}
+			]
+			title: "First Tugboat"
+			icon: "littlelogistics:tugboat"
+			description: [
+				"§fLittle Logistics adds §6motorised tugboats§7 and §6cargo barges§7 that"
+				"§ftravel existing river and ocean channels — no tracks required."
+				""
+				"§eWhy tugboats alongside trains?§r"
+				"§7• §6Trains§7: high-volume inter-base cargo on purpose-built rail lines."
+				"§7• §6Tugboats§7: early supply lines through rivers, island biomes,"
+				"§7  coast routes, anywhere a rail bridge would be impractical."
+				"§7• §oThey are additive, not competing§7 — both can feed the same warehouse."
+				""
+				"§eCraft and launch your Tugboat:§r"
+				"§7  1. Craft a §6Tugboat§7 (see JEI — uses Oak Planks + Iron)."
+				"§7  2. Find a §eflowing river§7 of at least 2 blocks width."
+				"§7  3. Right-click the water surface to place the Tugboat."
+				"§7  4. Right-click the Tugboat to enter its GUI — set destination and cargo."
+				"§7  5. The Tugboat drives automatically along the river channel."
+				""
+				"§eTip:§r §7Terralith generates beautiful meandering rivers through diverse"
+				"§7biomes. Plot a river route between two interesting biomes early —"
+				"§7it doubles as a scenic exploration corridor."
+				""
+				"§a► Task: Have 1 Tugboat. Not consumed."
+			]
+			dependencies: ["000C000A"]
+		}
+
+		{
+			x: 24.0d
+			y: 32.0d
+			id: "000C002C"
+			tasks: [{
+				id: "000C1030"
+				type: "checkmark"
+				title: "A Cargo Barge is attached to the Tugboat with at least 1 item stack loaded"
+			}]
+			rewards: [
+				{id: "000C2058" type: "item" item: "sophisticatedstorage:iron_chest" count: 2}
+				{id: "000C2059" type: "xp" xp: 40}
+			]
+			title: "Loaded Barge"
+			icon: "littlelogistics:tugboat"
+			description: [
+				"§fA §6Cargo Barge§7 attached to your Tugboat gives it real cargo capacity."
+				"§fWithout a Barge, the Tugboat only carries what its tiny engine chest holds."
+				"§fWith a Barge, you can ship significant resource loads between points."
+				""
+				"§eAttaching a Barge:§r"
+				"§7  1. Craft a §6Cargo Barge§7 (see JEI)."
+				"§7  2. Place it on water §odirectly behind§7 a placed Tugboat."
+				"§7  3. Right-click the Barge — it connects to the Tugboat automatically."
+				"§7  4. Open the Barge's GUI to load items into its cargo slots."
+				"§7  5. The Tugboat now pulls the Barge as one unit along the river."
+				""
+				"§eCargo Barge capacity:§r"
+				"§7• 1 Barge: 27 item slots (one chest's worth)."
+				"§7• Multiple Barges: chain up to §e4 Barges§7 behind one Tugboat."
+				"§7  Each adds 27 more slots — 108 total for a full train of barges."
+				""
+				"§eTip:§r §7Load §6Sophisticated Storage Chests§7 into the Barge for"
+				"§7self-contained organised cargo — items stay sorted during transport."
+				""
+				"§a► Task: Checkmark when the Barge is attached and has a stack loaded."
+			]
+			dependencies: ["000C002B"]
+		}
+
+		{
+			x: 28.0d
+			y: 32.0d
+			id: "000C002D"
+			tasks: [{
+				id: "000C1031"
+				type: "checkmark"
+				title: "Tugboat completed an automated delivery run to a set destination"
+			}]
+			rewards: [
+				{id: "000C205A" type: "item" item: "minecraft:map" count: 4}
+				{id: "000C205B" type: "xp" xp: 50}
+			]
+			title: "River Route"
+			icon: "minecraft:map"
+			description: [
+				"§fWith destination set, the Tugboat pilots itself — no player driving."
+				"§fThis is your §6first autonomous water delivery line§7."
+				""
+				"§eSetting a destination:§r"
+				"§7  1. Right-click your §6Tugboat§7 to open its GUI."
+				"§7  2. In the §eDestination§7 field, enter the name of a placed"
+				"§7     §6Little Logistics Waypoint§7 downstream."
+				"§7  3. (Craft a Waypoint and place it at the bank of your destination.)"
+				"§7  4. Click §6Depart§7 — the Tugboat navigates the river automatically."
+				"§7  5. It stops at the destination, waits, then returns."
+				""
+				"§eFull one-way delivery loop:§r"
+				"§7  Base dock (load) → set destination → Tugboat departs"
+				"§7  → arrives at waypoint → wait condition met (timer or cargo check)"
+				"§7  → Tugboat returns to base for reloading."
+				""
+				"§eTip:§r §7Place §6Waystones§7 near your river docks — family members can"
+				"§7warp to any dock and hand-load the Barge between automated runs."
+				""
+				"§a► Task: Checkmark when the Tugboat arrives at a destination autonomously."
+			]
+			dependencies: ["000C002C"]
+		}
+
+		{
+			x: 32.0d
+			y: 32.0d
+			id: "000C002E"
+			tasks: [{
+				id: "000C1032"
+				type: "checkmark"
+				title: "A round-trip barge route crosses at least one Terralith biome boundary"
+			}]
+			rewards: [
+				{id: "000C205C" type: "item" item: "waystones:warp_stone" count: 2}
+				{id: "000C205D" type: "xp" xp: 75}
+			]
+			title: "Two-Way Trade ★"
+			icon: "waystones:warp_stone"
+			subtitle: "Barge route × Terralith biomes"
+			description: [
+				"§fA round-trip barge route that crosses a §6Terralith biome boundary§7"
+				"§fis more than a logistics milestone — it is a scenic journey that"
+				"§fconnects two worlds the family might otherwise keep separate."
+				""
+				"§eWhat 'crossing a biome boundary' means:§r"
+				"§7Your route must start in one biome and arrive in a §edifferent§7"
+				"§fTerralith biome. The river crossing the boundary counts — even"
+				"§7if you never walk through the second biome yourself."
+				""
+				"§eFinding a good cross-biome river route:§r"
+				"§7  1. Open §6Xaero's World Map§7 (§eM§7) and enable §eBiome overlay§7."
+				"§7  2. Look for rivers that snake between two or more biome colours."
+				"§7  3. Trace the route from your base to a distant interesting biome."
+				"§7  4. Place §6Waypoints§7 at both ends."
+				"§7  5. Set the Tugboat on a loop schedule between them."
+				""
+				"§eSuggested trade commodities per biome:§r"
+				"§7• §6Terralith Highlands§7 → stone varieties, rare flowers, cave crystals."
+				"§7• §6Terralith Jungle§7 → exotic wood, Farmer's Delight tropical crops."
+				"§7• §6Terralith Tundra§7 → ice blocks, powder snow, frozen logs."
+				""
+				"§a► ★ Contributes to Ch 5 Arcane Synthesis cross-mod integration."
+				"§a► Task: Checkmark when round-trip completes across a biome boundary."
+			]
+			dependencies: ["000C002D"]
+		}
+
+	]
+}

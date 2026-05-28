@@ -1,0 +1,112 @@
+#================================================================
+# waystones-common.toml — Arcane Frontiers
+# Mod: Waystones by BlayTheNinth
+# Purpose: Zero-cost fast travel for family play across
+#          Terralith's vast biome spread.
+#
+# Design decision: XP cost for warping is disabled entirely.
+# Rationale: Terralith generates biomes that can be 2,000–5,000
+# blocks apart. A family session where a younger player is stuck
+# in a Nether cave and can't teleport home because they lack
+# XP is a fun-killer. Fast travel is a quality-of-life feature,
+# not a progression gate in this pack.
+#
+# The quest gates (Ch 1 Source Network + Ch 2 Brass Handshake)
+# are the real progression locks. Waystones just move you around.
+#================================================================
+
+[server]
+
+    #---------------------------------------------------------
+    # COST SETTINGS
+    #---------------------------------------------------------
+
+    blocksPerXPLevel = 0
+    # XP levels consumed per block of distance when warping.
+    # 0 = completely free teleportation.
+    # Default value is 500 (one XP level per 500 blocks).
+    # At zero cost, family members can freely regroup and
+    # reach each other's bases without XP grinding first.
+    #
+    # If you want a small cost to maintain some weight to fast
+    # travel, set to 200-300 (one level per ~200-300 blocks).
+    # For most Terralith biome hops, that's still only 1-2 levels.
+
+    xpCostPerBlock = 0
+    # Legacy key kept for backward compatibility with some
+    # Waystones 1.21 builds. Set to 0 to match blocksPerXPLevel.
+
+    inventoryButtonCooldown = 0
+    # Cooldown in seconds for the inventory Return button
+    # (the shortcut to warp home from anywhere in your inventory).
+    # 0 = no cooldown. This is the most-used warp on a family
+    # server — "I need to get home fast" is the most common call.
+
+    warpStoneCooldown = 300
+    # Cooldown in seconds for Warp Stone items after use.
+    # 300 = 5 minutes. The Warp Stone is a craftable item players
+    # carry for warping to any known waystone. A 5-minute cooldown
+    # prevents it from completely replacing base-to-base travel
+    # while still being useful in emergencies.
+    # Set to 0 for no cooldown if even this feels too restrictive.
+
+    #---------------------------------------------------------
+    # DIMENSION SETTINGS
+    #---------------------------------------------------------
+
+    dimensionalWarp = true
+    # Allow warping between dimensions (Overworld ↔ Nether ↔ End).
+    # ENABLED. Needed for two specific workflows:
+    #   1. Players who place a Nether Waystone (Ch 3.4 quest)
+    #      can warp directly from their Overworld base to the
+    #      Nether without manually finding their portal.
+    #   2. Ch 7 Twilight Forest players can waystone in/out
+    #      of the dimension between boss fights.
+    #
+    # If you find cross-dimension warping breaks immersion,
+    # set to false — players must use their portals manually.
+
+    dimensionalWarpTarget = "all"
+    # Which dimensions allow dimensional warp.
+    # "all" = any registered dimension.
+    # Accepts a comma-separated list of dimension IDs if you
+    # want to restrict (e.g., "minecraft:overworld,minecraft:the_nether").
+
+    #---------------------------------------------------------
+    # WORLD GENERATION
+    #---------------------------------------------------------
+
+    generatesInVillages = true
+    # Waystones spawn naturally in generated villages.
+    # ENABLED. This gives the family a natural early fast-travel
+    # network as they discover villages across Terralith.
+    # Create: Dynamic Village structures also count —
+    # discovering a CDV settlement grants an early warp point
+    # before the player has crafted their own Waystones.
+
+    overworldWaystoneSpawnChance = 1.0
+    # Probability (0.0–1.0) that any generated village or
+    # hamlet contains a waystone. 1.0 = every village has one.
+    # Terralith + Dungeons and Taverns scatter enough settlements
+    # that this creates a generous but not overwhelming network.
+
+    #---------------------------------------------------------
+    # SHARING & MULTIPLAYER
+    #---------------------------------------------------------
+
+    globalWaystoneVisibility = "global"
+    # Who can see a player-placed Waystone in the warp menu.
+    # "global" = all players on the server see all waystones.
+    # "player" = only the player who placed it sees it.
+    # "all_players" = variant of global used in some versions.
+    #
+    # Use "global" for family play — the whole family benefits
+    # from every waystone any member places. This is core to
+    # the Bonus chapter "Waystones Everywhere" quest.
+
+    inventoryButtonMode = "RETURN_TO_ANY"
+    # What the inventory Return button does.
+    # "RETURN_TO_ANY" = opens waystone selection menu.
+    # "RETURN_TO_NEAREST" = warps to nearest known waystone.
+    # "RETURN_TO_LAST" = warps to last-used waystone.
+    # RETURN_TO_ANY gives the family the most flexibility.

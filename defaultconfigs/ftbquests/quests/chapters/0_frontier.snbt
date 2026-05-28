@@ -1,0 +1,837 @@
+{
+	id: "000A0000"
+	group: ""
+	order_index: 0
+	filename: "0_frontier"
+	title: "Chapter 0: A New Frontier"
+	icon: "minecraft:grass_block"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	quests: [
+		{
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			id: "000A0001"
+			tasks: [{
+				id: "000A1001"
+				type: "checkmark"
+				title: "Open your inventory (E) to claim your starter reward"
+			}]
+			rewards: [
+				{id: "000A2001" type: "item" item: "ars_nouveau:worn_notebook" count: 1}
+				{id: "000A2002" type: "item" item: "minecraft:bread" count: 16}
+				{id: "000A2003" type: "item" item: "minecraft:compass" count: 1}
+				{id: "000A2004" type: "xp" xp: 100}
+			]
+			title: "Welcome to the Frontier"
+			subtitle: "Every journey starts here"
+			description: [
+				"§ePress E§r to open your inventory, then click the reward chest."
+				""
+				"§fYou have arrived in §6Arcane Frontiers§f — a world built around four pillars"
+				"§fthat feed into each other: magic, technology, exploration, and colony."
+				""
+				"§7Your starter rewards:"
+				"§7• §eWorn Notebook§7 — your complete §6Ars Nouveau§7 magic guidebook."
+				"§7  Keep it in your hotbar. It auto-fills as you unlock new spells."
+				"§7• §eBread ×16§7 — enough food to get through the first few nights."
+				"§7• §eCompass§7 — upgrade it to a Nature's Compass in the quest below."
+				""
+				"§eAbout this quest system:§r"
+				"§7• Press §eP§7 to open the quest book at any time."
+				"§7• Quests guide — they do not force. You can explore freely."
+				"§7• §6Gate quests§7 (hexagon shape) unlock the next chapter when complete."
+				"§7• §6★ Integration quests§7 require progress in multiple chapters at once."
+				"§7• Rewards are bonuses — you can progress without them."
+				""
+				"§a► This quest unlocks all other Chapter 0 quests simultaneously."
+				"§a► Chapter 0 quests run in parallel — complete them in any order."
+			]
+			dependencies: []
+		}
+		{
+			x: -8.0d
+			y: 3.0d
+			id: "000A0002"
+			tasks: [{
+				id: "000A1002"
+				type: "checkmark"
+				title: "Hover any item in your inventory or the JEI panel, then press R"
+			}]
+			rewards: [
+				{id: "000A2005" type: "item" item: "minecraft:torch" count: 8}
+			]
+			title: "Know Your Recipes"
+			icon: "minecraft:crafting_table"
+			description: [
+				"§6Just Enough Items (JEI)§f is the pack's recipe browser."
+				"§fIt shows you how to make or use everything in all 66 mods."
+				""
+				"§eThe JEI panel:§r"
+				"§7• Open your inventory (§eE§7). On the right side you will see a scrollable"
+				"§7  list of every item in the pack. This is the JEI item browser."
+				"§7• §eCtrl+F§7 or click the search bar at the bottom to search by name."
+				""
+				"§eCore hotkeys:§r"
+				"§7• §eR§7 (hover item) = Show all crafting recipes for that item."
+				"§7• §eU§7 (hover item) = Show all uses of that item in other recipes."
+				"§7• §eA§7 (hover item) = Cheat-give in creative mode (admins only)."
+				""
+				"§eAdvanced tooltips:§r"
+				"§7• Press §eF3+H§7 to toggle advanced tooltips on."
+				"§7• Every item now shows its §6internal registry ID§7 at the bottom"
+				"§7  (e.g. §ecreate:brass_ingot§7, §ears_nouveau:source_gem§7)."
+				"§7• You need these IDs when editing SNBT quest files or KubeJS scripts."
+				""
+				"§eRecipe types to know:§r"
+				"§7• §6Crafting Table§7 — standard recipes."
+				"§7• §6Mechanical Mixer§7 — Create mixing recipes (Brass, Electrum, etc.)."
+				"§7• §6Cooking Pot§7 — Farmer's Delight meals."
+				"§7• §6Modular Workbench§7 — Tetra component assembly."
+				"§7• §6Ritual§7 — Ars Nouveau ritual recipes."
+				""
+				"§a► Task: Hover any item and press R. When the recipe screen opens, mark done."
+			]
+			dependencies: ["000A0001"]
+		}
+		{
+			x: -4.0d
+			y: 3.0d
+			id: "000A0003"
+			tasks: [{
+				id: "000A1003"
+				type: "checkmark"
+				title: "Look at any block or creature — see the Jade tooltip appear at top of screen"
+			}]
+			rewards: [
+				{id: "000A2006" type: "item" item: "minecraft:oak_planks" count: 8}
+			]
+			title: "What's That Block?"
+			icon: "minecraft:glass"
+			description: [
+				"§6Jade§f adds a small floating tooltip at the top of your screen showing"
+				"§freal-time information about whatever you are looking at."
+				""
+				"§eWhat Jade shows by default:§r"
+				"§7• Block or entity name and which mod added it."
+				"§7• §6Create§7 machines: current speed (RPM), stress load, and what they are doing."
+				"§7• §6Ars Nouveau§7 Source Jars: current Source level and capacity."
+				"§7• §6Alex's Mobs§7 creatures: health, hunger, tame status, and mood."
+				"§7• §6MineColonies§7 citizens: name, profession, and current task."
+				"§7• §6Sophisticated Storage§7: contents preview for chests."
+				"§7• §6Farmer's Delight§7 Cooking Pot: what is currently cooking and progress."
+				""
+				"§eCustomising Jade:§r"
+				"§7• While in-game: hold §eU§7 then press §eC§7 to open the Jade config screen."
+				"§7• Toggle individual information modules on or off."
+				"§7• Reduce clutter: disable modules you never use (e.g. block hardness info)."
+				"§7• Change the tooltip §eposition§7 to any screen corner via the config."
+				""
+				"§7Jade is installed on both client and server — information is accurate"
+				"§7for both singleplayer and multiplayer sessions."
+				""
+				"§a► Task: Look at any block. When the name tooltip appears at the top of"
+				"§ayour screen, mark this quest complete."
+			]
+			dependencies: ["000A0001"]
+		}
+		{
+			x: 0.0d
+			y: 3.0d
+			id: "000A0004"
+			tasks: [{
+				id: "000A1004"
+				type: "item"
+				item: "minecraft:enchanted_book"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000A2007" type: "item" item: "minecraft:enchanted_book" count: 2}
+			]
+			title: "Read the Fine Print"
+			icon: "minecraft:enchanted_book"
+			description: [
+				"§6Enchantment Descriptions§f adds plain-English tooltips to every enchanted"
+				"§fbook and enchanted item so you know exactly what each enchantment does."
+				""
+				"§eWithout this mod:§r §7Hover a book — you see '§eSharpness III§7'."
+				"§eWith this mod:§r §7'§eSharpness III§7 — Increases melee attack damage."
+				"§7  Adds 1.5 extra damage per level (4.5 extra at Sharpness III)."
+				"§7  Can be applied to swords and axes.'"
+				""
+				"§eWhy it matters for this pack:§r"
+				"§7• §6Ars Nouveau§7 adds unique enchantments for spell amplification and"
+				"§7  Source regen. Without descriptions, new players have no idea what they do."
+				"§7• §6Create: New Age§7 adds electrical efficiency enchantments for motors."
+				"§7• §6Alex's Mobs§7 adds weapon enchantments for rare creature drops."
+				"§7• §6Enigmatic Legacy§7 charms (Ch 3.3) have passive perk text."
+				"§7• §6Tetra§7 modular components also carry enchantable properties."
+				""
+				"§eHow to get an enchanted book for this task:§r"
+				"§7• Loot §6any chest§7 in a YUNG's dungeon, village library, or bastion."
+				"§7• Trade with a §6Librarian villager§7 (best source for specific enchants)."
+				"§7• Build an §6Enchanting Table§7 and enchant a plain book with XP."
+				"§7• The §6Lootr§7 mod gives every family member their own loot roll in"
+				"§7  dungeon chests — enchanted books are very common drops."
+				""
+				"§7Note: Enchantment Descriptions is §eclient-side only§7. It is not installed"
+				"§7on the server — it only works while you are playing on your own machine."
+				""
+				"§a► Task: Have any enchanted book in your inventory. It is not consumed."
+			]
+			dependencies: ["000A0002"]
+		}
+		{
+			x: 4.0d
+			y: 3.0d
+			id: "000A0005"
+			tasks: [{
+				id: "000A1005"
+				type: "checkmark"
+				title: "Press B to place a waypoint at your current location"
+			}]
+			rewards: [
+				{id: "000A2008" type: "item" item: "minecraft:filled_map" count: 1}
+				{id: "000A2009" type: "item" item: "minecraft:glass" count: 4}
+			]
+			title: "Your First Map"
+			icon: "minecraft:map"
+			description: [
+				"§6Xaero's Minimap§f displays a live corner minimap with waypoints,"
+				"§fmob dots, player positions, and cave mode when underground."
+				""
+				"§eCore controls:§r"
+				"§7• §eB§7 = Place or manage waypoints."
+				"§7• §eY§7 = Open Minimap settings (zoom level, mob display, rotation lock)."
+				"§7• Minimap position: configurable — drag it to any corner of your screen."
+				""
+				"§eWaypoints in detail:§r"
+				"§7• Press §eB§7 to open the waypoint menu → click §eNew§7."
+				"§7• Name it something useful: 'Home', 'Nether Portal', 'Colony Hill'."
+				"§7• Assign a §ecolour§7 and §eicon§7 — named waypoints appear as"
+				"§7  coloured markers floating in the world at distance."
+				"§7• Waypoints are shared automatically with §6Xaero's World Map§7."
+				"§7• In multiplayer, use §eShare§7 to send a waypoint to all family members."
+				""
+				"§eCave Mode:§r"
+				"§7• The minimap detects when you go underground and switches to §eCave Mode§7."
+				"§7• Cave mode shows horizontal terrain slices, updated as you move."
+				"§7• §6Alex's Caves§7 biomes become navigable with Cave Mode."
+				"§7• Configure the underground detection depth threshold in §eY§7 → settings."
+				""
+				"§eMob dots:§r"
+				"§7• Red dots = hostile mobs. White dots = passive. Yellow = neutral."
+				"§7• Toggle mob display on/off in §eY§7 → minimap settings."
+				"§7• Disable if TPS is tight — mob tracking has a small client cost."
+				""
+				"§a► Task: Press B, create a waypoint named anything. Mark complete."
+			]
+			dependencies: ["000A0001"]
+		}
+		{
+			x: 8.0d
+			y: 3.0d
+			id: "000A0006"
+			tasks: [{
+				id: "000A1006"
+				type: "checkmark"
+				title: "Press M to open Xaero's World Map"
+			}]
+			rewards: [
+				{id: "000A2010" type: "item" item: "minecraft:compass" count: 1}
+				{id: "000A2011" type: "xp" xp: 50}
+			]
+			title: "The World in Your Hand"
+			icon: "minecraft:filled_map"
+			description: [
+				"§6Xaero's World Map§f opens a full-screen map of every chunk you have"
+				"§fexplored, updated live as you move."
+				""
+				"§eCore controls:§r"
+				"§7• §eM§7 = Open / close the World Map."
+				"§7• §eScroll wheel§7 = Zoom in and out."
+				"§7• §eLeft-click§7 anywhere on the map = Place a waypoint at that spot."
+				"§7• §eRight-click§7 a waypoint = Edit, rename, or delete."
+				"§7• §eCtrl+Click§7 drag = Pan the map view."
+				""
+				"§eMultiplayer — Sharing Waypoints:§r"
+				"§7• Press §eM§7 → click the §eWaypoints§7 button."
+				"§7• Select any waypoint → §eShare§7 → all online family members receive it."
+				"§7• Shared waypoints sync instantly — if someone marks a rare biome,"
+				"§7  everyone gets the marker without needing to find it themselves."
+				""
+				"§eTrack your exploration progress:§r"
+				"§7• §6Terralith§7 generates a world 6,000+ blocks across with rare biomes."
+				"§7• The World Map shows exactly which areas are §emapped§7 (brighter)"
+				"§7  and which are §6unexplored§7 (dimmer/black)."
+				"§7• §eCh 3.1 quest 'Cartographer's Pride'§7 asks you to reveal a 2,000×2,000"
+				"§7  area — start mapping now, every walked chunk counts."
+				""
+				"§7Tip: When building a railroad (Ch 2.5), open the World Map first to"
+				"§7plan your route and mark station locations before laying a single rail."
+				""
+				"§a► Task: Press M once. The World Map opens. Mark complete."
+			]
+			dependencies: ["000A0005"]
+		}
+		{
+			x: -8.0d
+			y: 0.0d
+			id: "000A0007"
+			tasks: [{
+				id: "000A1007"
+				type: "advancement"
+				advancement: "minecraft:adventure/sleep_in_bed"
+				criterion: ""
+			}]
+			rewards: [
+				{id: "000A2012" type: "item" item: "minecraft:book" count: 2}
+			]
+			title: "Home Sweet Home"
+			icon: "minecraft:white_bed"
+			description: [
+				"§fSleep through your first night in a bed."
+				""
+				"§eCrafting a Bed:§r"
+				"§7• Recipe: 3× §eWool§7 (any colour, top row) + 3× §eWood Planks§7 (bottom row)."
+				"§7• The wool colour determines the bed colour — all are functionally identical."
+				"§7• Place the bed indoors with at least 2 clear blocks above it."
+				""
+				"§eWhen can you sleep?§r"
+				"§7• Right-click the bed after §esunset§7 (the sky darkens to dusk colours)."
+				"§7• On a multiplayer server: all online players must sleep simultaneously"
+				"§7  to skip the night — or one player uses a §6Sleeping Bag§7 (Comforts)"
+				"§7  which skips the night alone without needing everyone in bed."
+				""
+				"§eSets your respawn point:§r"
+				"§7• Sleeping in a bed sets your §espawn point§7 to that bed's location."
+				"§7• If you die, you respawn at the last bed you slept in."
+				"§7• §6Sleeping Bags§7 (Comforts, see below) §cdo not§7 change your spawn."
+				"§7  Use Sleeping Bags for expeditions; keep your home bed for your spawn."
+				""
+				"§7This quest detects the vanilla §6Sweet Dreams§7 advancement automatically."
+				"§7You do not need to manually mark it — it completes when you sleep."
+			]
+			dependencies: ["000A0001"]
+		}
+		{
+			x: -8.0d
+			y: 6.0d
+			id: "000A0008"
+			tasks: [{
+				id: "000A1008"
+				type: "item"
+				item: "sophisticatedbackpacks:backpack"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000A2013" type: "item" item: "minecraft:leather" count: 16}
+			]
+			title: "Backpack Time"
+			icon: "sophisticatedbackpacks:backpack"
+			description: [
+				"§6Sophisticated Backpacks§f gives you a wearable inventory extension."
+				"§fUpgrade it from Leather all the way to Netherite tier."
+				""
+				"§eCrafting the Leather Backpack:§r"
+				"§7• Recipe: 7× §eLeather§7 arranged around a §eChest§7 in a crafting table."
+				"§7• Wear it in the §eChest§7 equipment slot for extra inventory rows,"
+				"§7  or hold it in your §eoff-hand§7 to access it without equipping."
+				"§7• (Press §eR§7 on the backpack in JEI for exact layout.)"
+				""
+				"§eTier progression:§r"
+				"§7• §fLeather§7 → §fIron§7 → §fGold§7 (Ch 2.3) → §fDiamond§7 (Ch 2.3) → §fNetherite"
+				"§7• Upgrade: put current backpack in crafting table, surround with tier material."
+				"§7• §6Contents are preserved§7 during upgrades — never unpack it."
+				""
+				"§eUpgrade slots (unlocked per tier):§r"
+				"§7• §eFilter Upgrade§7 — specify which items auto-go into this backpack."
+				"§7  Example: Set to 'ores and raw metals' → mining auto-deposits ore."
+				"§7• §eSort Upgrade§7 — press R with backpack open to auto-sort all items."
+				"§7• §ePickup Upgrade§7 — auto-collects items matching the filter from ground."
+				"§7• §eRestock Upgrade§7 — refills empty hotbar slots from the backpack."
+				"§7• §eVoid Upgrade§7 — deletes items matching the filter (for bulk mining)."
+				""
+				"§a► Task: Have the Leather Backpack in your inventory. Not consumed."
+			]
+			dependencies: ["000A0001"]
+		}
+		{
+			x: -8.0d
+			y: 9.0d
+			id: "000A0009"
+			tasks: [{
+				id: "000A1009"
+				type: "item"
+				item: "sophisticatedbackpacks:iron_backpack"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000A2014" type: "item" item: "sophisticatedbackpacks:filter_upgrade" count: 1}
+				{id: "000A2015" type: "item" item: "sophisticatedbackpacks:sort_upgrade" count: 1}
+			]
+			title: "Iron Upgrade"
+			icon: "sophisticatedbackpacks:iron_backpack"
+			description: [
+				"§fUpgrade your Leather Backpack to Iron tier for more space and upgrade slots."
+				""
+				"§eHow to upgrade:§r"
+				"§7• Place your §eLeather Backpack§7 in the centre of a crafting table."
+				"§7• Fill all 8 surrounding slots with §eIron Ingots§7."
+				"§7• The Iron Backpack appears in the output — §6contents fully preserved§7."
+				"§7• (Press R on the Iron Backpack in JEI if you need the exact layout.)"
+				""
+				"§eYour rewards — Filter and Sort Upgrades:§r"
+				"§7• §6Filter Upgrade§7:"
+				"§7  Open the backpack → click an empty upgrade slot → insert Filter Upgrade."
+				"§7  Right-click the upgrade to configure which items it accepts."
+				"§7  Use §eitem tags§7 for broad filters: §e#forge:ores§7 captures all ore types,"
+				"§7  §e#forge:raw_materials§7 captures all raw metals."
+				"§7  Perfect setup: one filtered backpack for ores, one for building blocks,"
+				"§7  one for food. Each auto-collects its category without hotbar interference."
+				""
+				"§7• §6Sort Upgrade§7:"
+				"§7  Insert into an upgrade slot → press §eR§7 while the backpack is open."
+				"§7  All items inside sort automatically by type and alphabetically."
+				""
+				"§eContinue upgrading:§r"
+				"§7• Ch 2.3 quests: §eGold Backpack§7 and §eDiamond Backpack§7 await."
+				"§7• Late game: §eNetherite Backpack§7 — the final tier, enormous capacity."
+				""
+				"§a► Task: Have the Iron Backpack in your inventory. Not consumed."
+			]
+			dependencies: ["000A0008"]
+		}
+		{
+			x: -4.0d
+			y: 6.0d
+			id: "000A0010"
+			tasks: [{
+				id: "000A1010"
+				type: "checkmark"
+				title: "Hover any food item — AppleSkin adds a green saturation bar to the tooltip"
+			}]
+			rewards: [
+				{id: "000A2016" type: "item" item: "minecraft:cooked_chicken" count: 16}
+			]
+			title: "See What You Eat"
+			icon: "minecraft:apple"
+			description: [
+				"§6AppleSkin§f makes the hidden hunger saturation system visible on every"
+				"§ffood item tooltip — so you finally know why cooked meals matter."
+				""
+				"§eThe hunger system explained:§r"
+				"§7• The §eFood Bar§7 (drumsticks, bottom of screen) is what you can see."
+				"§7• §eSaturation§7 is an invisible second meter that depletes first."
+				"§7• When saturation is full, the food bar never drains."
+				"§7• When saturation hits zero, the food bar starts draining normally."
+				"§7• §fHigh-saturation food§7 = you stay full much longer between meals."
+				""
+				"§eAppleSkin additions:§r"
+				"§7• §eGreen bar§7 on food tooltips = saturation value (longer = better)."
+				"§7• Hover food while hungry = §epredicted§7 food bar state shown on tooltip."
+				"§7• Small §esaturation shimmer§7 on the HUD when saturation is high."
+				""
+				"§ePractical comparison in this pack:§r"
+				"§7• §fBread§7: 2.5 hunger + 6.0 saturation."
+				"§7• §fCooked Chicken§7: 3.0 hunger + 7.2 saturation."
+				"§7• §6Farmer's Delight Stew§7: 3.0 hunger + §e12.0 saturation§7."
+				"§7  A Farmer's Delight meal keeps you full §e2× longer§7 at the same"
+				"§7  hunger cost. This is why the Cooking Pot is worth building early."
+				""
+				"§7AppleSkin is §eclient-side only§7 — not installed on the server."
+				""
+				"§a► Task: Hover any food item in your inventory or JEI panel."
+				"§aWhen the tooltip shows the green saturation bar, mark complete."
+			]
+			dependencies: ["000A0001"]
+		}
+		{
+			x: -4.0d
+			y: 9.0d
+			id: "000A0011"
+			tasks: [{
+				id: "000A1011"
+				type: "item"
+				item: "farmersdelight:cooking_pot"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000A2017" type: "item" item: "farmersdelight:mixed_salad" count: 4}
+				{id: "000A2018" type: "item" item: "farmersdelight:bacon_and_eggs" count: 4}
+			]
+			title: "Survival Cooking"
+			icon: "farmersdelight:cooking_pot"
+			description: [
+				"§6Farmer's Delight§f overhauls Minecraft cooking with a Cooking Pot,"
+				"§fa Cutting Board, new crops, and dozens of high-saturation meal recipes."
+				""
+				"§eCrafting the Cooking Pot:§r"
+				"§7• 3× §eIron Ingot§7 bottom row + 2× §eWooden Slab§7 middle sides + 1× §eIron Ingot§7 top."
+				"§7• Press §eR§7 on the Cooking Pot in JEI for the exact layout."
+				"§7• Place it on top of a §eCampfire§7 — that is the heat source."
+				""
+				"§eUsing the Cooking Pot:§r"
+				"§7• Right-click to open the GUI (6 ingredient slots + 1 container slot)."
+				"§7• Put a §eBowl§7 or §eWater Bucket§7 in the bottom-right container slot."
+				"§7• Add ingredients for any recipe (search 'Cooking Pot' in JEI)."
+				"§7• Heat source below = the pot bubbles and cooks automatically."
+				"§7• Finished meals go into the bowl slot — right-click to collect."
+				""
+				"§eNew crops to find and grow:§r"
+				"§7• §eTomatoes§7 — found in village farms, grow like carrots."
+				"§7• §eOnions§7 — village farms, used in most savoury recipes."
+				"§7• §eRice§7 — grows in water-adjacent soil, used in many stews."
+				"§7• §eCabbage§7 — village farms and sometimes in chest loot."
+				"§7• §eSeeds§7 for all of these drop from wild grass or can be bought from"
+				"§7  §6Farmer villagers§7 and §6Create: Dynamic Village§7 merchant carts."
+				""
+				"§eAutomation later:§r"
+				"§7• §6Create: Central Kitchen§7 automates the entire cooking chain."
+				"§7• Mechanical Arms fill the Cooking Pot; Funnels distribute meals."
+				"§7• Covered in §eCh 2.2 'Kitchen Automation'§7 — a mid-game upgrade."
+				""
+				"§a► Task: Craft a Cooking Pot and have it in your inventory."
+				"§7Not consumed — keep it and start cooking when you are ready."
+			]
+			dependencies: ["000A0010"]
+		}
+		{
+			x: 0.0d
+			y: 6.0d
+			id: "000A0012"
+			tasks: [{
+				id: "000A1012"
+				type: "item"
+				item: "waystones:waystone"
+				count: 1L
+				consume_items: true
+			}]
+			rewards: [
+				{id: "000A2019" type: "item" item: "waystones:warp_stone" count: 1}
+				{id: "000A2020" type: "xp" xp: 100}
+			]
+			title: "Mark Your Home"
+			icon: "waystones:waystone"
+			description: [
+				"§6Waystones§f are your fast travel network. Place one, name it, and"
+				"§fevery family member can teleport to it from anywhere in the world."
+				""
+				"§eCrafting a Waystone:§r"
+				"§7• 2× §eLodestone§7 (top two slots) + 4× §ePolished Stone§7 (middle sides)"
+				"§7  + 1× §eChest§7 (centre) + 2× §eStone Bricks§7 (bottom sides)."
+				"§7• Press §eR§7 on the Waystone in JEI for exact layout."
+				"§7• §6Free alternative§7: villages and §6Create: Dynamic Village§7 settlements"
+				"§7  spawn Waystones naturally. Discovering one gives you a free warp point."
+				""
+				"§ePlacing and naming:§r"
+				"§7• Place the Waystone on solid flat ground — it is two blocks tall."
+				"§7• Right-click to open the naming GUI. Name it clearly:"
+				"§7  'Home Base', 'Nether Gate', 'Colony Town Hall', 'Mountain Forge'."
+				"§7• The name appears in every family member's teleport menu immediately."
+				""
+				"§eFast travel settings on this server:§r"
+				"§7• §eXP cost: FREE§7 — zero levels consumed per teleport."
+				"§7• §eDimensional warp: ON§7 — teleport between Overworld, Nether, End,"
+				"§7  and Twilight Forest (Ch 7)."
+				"§7• §eWarp Stone cooldown: 5 minutes§7 after each use of the Warp Stone item."
+				"§7• §eInventory return button: NO COOLDOWN§7 — always accessible in inventory."
+				""
+				"§eYour reward — the Warp Stone:§r"
+				"§7• A craftable item that opens the teleport menu from anywhere."
+				"§7• Hold it → right-click → select destination → teleport."
+				"§7• Carries a 5-minute cooldown per use."
+				"§7• The §einventory return button§7 (Waystones UI in your inventory screen)"
+				"§7  works the same way with no cooldown — use that for daily travel."
+				""
+				"§a► Task: Submit 1 Waystone. Craft two — place one, submit the other."
+			]
+			dependencies: ["000A0001"]
+		}
+		{
+			x: 0.0d
+			y: 9.0d
+			id: "000A0013"
+			tasks: [{
+				id: "000A1013"
+				type: "checkmark"
+				title: "Teleport to any Waystone using a Warp Stone or the inventory return button"
+			}]
+			rewards: [
+				{id: "000A2021" type: "item" item: "waystones:waystone" count: 1}
+				{id: "000A2022" type: "xp" xp: 50}
+			]
+			title: "First Waypoint"
+			icon: "waystones:warp_stone"
+			description: [
+				"§fTeleport to a Waystone for the first time."
+				""
+				"§eTwo ways to teleport:§r"
+				"§71. §eWarp Stone item§7 (from your §eMark Your Home§7 reward):"
+				"§7   Hold it in your hand → right-click → menu opens → select destination."
+				"§7   5-minute cooldown starts after use."
+				""
+				"§72. §eInventory return button§7 (no cooldown — the better daily option):"
+				"§7   Open inventory (§eE§7) → look for the Waystones icon in the UI."
+				"§7   Click it to open the destination menu. Cooldown-free."
+				""
+				"§eBuilding your network over time:§r"
+				"§7• Place Waystones at every important location:"
+				"§7  Home base, Nether portal, active mine, colony Town Hall,"
+				"§7  each train station (Ch 2.5), each railroad endpoint."
+				"§7• §6All family members see all Waystones§7 — name them clearly."
+				"§7• §eCh Bonus quest 'Waystones Everywhere'§7: family goal of 10 placed"
+				"§7  named Waystones across the world — unlocks a fast travel trophy."
+				""
+				"§7Tip: Waystones can be placed in the Nether and the End. A Nether"
+				"§7Waystone is one of the best early investments — teleporting into the"
+				"§7Nether saves building and navigating a dedicated Nether hub."
+				""
+				"§a► Task: Use any method to teleport to your placed Waystone, then mark done."
+			]
+			dependencies: ["000A0012"]
+		}
+		{
+			x: 4.0d
+			y: 6.0d
+			id: "000A0014"
+			tasks: [{
+				id: "000A1014"
+				type: "item"
+				item: "#comforts:sleeping_bags"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000A2023" type: "item" item: "comforts:sleeping_bag_cyan" count: 1}
+				{id: "000A2024" type: "item" item: "minecraft:bread" count: 4}
+				{id: "000A2025" type: "item" item: "minecraft:torch" count: 8}
+			]
+			title: "Sleeping Bag"
+			icon: "comforts:sleeping_bag_green"
+			description: [
+				"§6Comforts§f adds §6Sleeping Bags§f — portable one-use beds that skip the"
+				"§fnight without changing your respawn point. Pack one on every expedition."
+				""
+				"§eCrafting a Sleeping Bag:§r"
+				"§7• 3× §eWool§7 (same colour) in a horizontal row in the middle of a crafting table."
+				"§7• 1× §eStick§7 in the bottom centre slot."
+				"§7• That is all — it is intentionally cheap to craft."
+				"§7• Available in all §e16 wool colours§7. Colour-code by purpose:"
+				"§7  §aGreen§7 = exploration pack | §cRed§7 = combat/raid bag | §9Blue§7 = ocean expedition."
+				""
+				"§eHow to use:§r"
+				"§7• Place the Sleeping Bag on any solid surface (right-click to place)."
+				"§7• Right-click the placed bag to sleep."
+				"§7• §6One player in a Sleeping Bag skips the night for everyone§7 on the server."
+				"§7  Unlike beds, teammates do not need to also sleep simultaneously."
+				"§7• §eShift + Right-click§7 the placed bag to pick it back up undamaged."
+				"§7• §cNever sets your spawn point§7 — your home bed respawn is always safe."
+				""
+				"§eComforts also adds Hammocks:§r"
+				"§7• Place a Hammock between two fence posts."
+				"§7• Sleep in it to skip the §eday§7 (skips to night) instead of night."
+				"§7• Useful for families who prefer exploring at night or fighting"
+				"§7  §6Alex's Mobs§7 nocturnal creatures."
+				""
+				"§a► Task: Craft any colour Sleeping Bag and have it in your inventory."
+				"§7(The §e#comforts:sleeping_bags§7 tag accepts all colour variants.)"
+			]
+			dependencies: ["000A0001"]
+		}
+		{
+			x: 4.0d
+			y: 9.0d
+			id: "000A0015"
+			tasks: [{
+				id: "000A1015"
+				type: "checkmark"
+				title: "Place a Sleeping Bag away from your base, sleep in it to skip the night"
+			}]
+			rewards: [
+				{id: "000A2026" type: "item" item: "minecraft:cooked_porkchop" count: 8}
+				{id: "000A2027" type: "item" item: "minecraft:torch" count: 16}
+				{id: "000A2028" type: "item" item: "minecraft:arrow" count: 16}
+			]
+			title: "Night on the Road"
+			icon: "comforts:sleeping_bag_cyan"
+			description: [
+				"§fSleep in a Sleeping Bag during an expedition — away from your home base."
+				""
+				"§eTips for safe expedition camping:§r"
+				"§7• Find a sheltered spot: a cliff overhang, cave mouth, or dugout hollow."
+				"§7• §ePlace your bag indoors or under cover§7 — mobs will not spawn inside"
+				"§7  a properly enclosed shelter even if you are asleep."
+				"§7• Placing torches around the sleeping spot before lying down prevents"
+				"§7  mob spawns near you during the skip."
+				""
+				"§eAfter waking up:§r"
+				"§7• §eShift + Right-click§7 your Sleeping Bag to pick it back up."
+				"§7• It takes zero durability damage — the same bag works indefinitely."
+				"§7• Your home bed spawn is completely unchanged."
+				""
+				"§eMultiplayer reminder:§r"
+				"§7• §6One Sleeping Bag is enough to skip the night for the entire server.§7"
+				"§7  The player furthest from home on an expedition can skip the night"
+				"§7  for everyone without disrupting teammates at the base."
+				"§7• This is one of the biggest multiplayer quality-of-life wins in the pack."
+				""
+				"§a► Task: Go at least 200 blocks from your base. Place a Sleeping Bag."
+				"§aSleep in it to skip the night. Pick it back up. Mark complete."
+			]
+			dependencies: ["000A0014"]
+		}
+		{
+			x: 8.0d
+			y: 6.0d
+			id: "000A0016"
+			tasks: [{
+				id: "000A1016"
+				type: "item"
+				item: "naturescompass:natures_compass"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000A2029" type: "item" item: "minecraft:compass" count: 4}
+				{id: "000A2030" type: "xp" xp: 100}
+			]
+			title: "Compass of Biomes"
+			icon: "naturescompass:natures_compass"
+			description: [
+				"§6Nature's Compass§f points toward any biome you choose."
+				"§fWith Terralith's 95+ biomes, this is the only way to find rare ones."
+				""
+				"§eCrafting:§r"
+				"§7• 4× §eArcanite Dust§7 (around the edges) + 1× §eCompass§7 (centre)."
+				"§7• §eArcanite Dust§7 comes from §6Ars Nouveau§7 — craft it from §eSource Gems§7"
+				"§7  at a crafting table (Source Gems → grind into dust)."
+				"§7• Source Gems drop from §6magical creatures§7 or grow from §6Source Berry§7 plants."
+				"§7• If you have not started Ch 1 yet: explore near the spawn area and"
+				"§7  look for §6Archwood Trees§7 or a §6Starbuncle§7 creature to find early gems."
+				""
+				"§eUsing the Compass:§r"
+				"§7• Right-click → biome search GUI opens."
+				"§7• Type any biome name — autocomplete shows all matches including Terralith."
+				"§7• Select a biome → the compass needle points toward the nearest instance."
+				"§7• Walk in that direction — the needle updates live."
+				"§7• Biomes can be 500–5,000 blocks away in a large Terralith world."
+				"§7  Take a §6Steam 'n' Rails§7 train when one is built — saves time."
+				""
+				"§eBiomes worth hunting:§r"
+				"§7• §6Moonlit Grove§7 — Archwood Trees spawn most densely here (Ch 1 magic)."
+				"§7• §6Skylands§7 or §6Skylands Autumn§7 — floating islands, dramatic build spots."
+				"§7• §6Volcanic Peaks§7 — unique underground resources in Alex's Caves below."
+				"§7• §6Glacial Chasm§7 — connects thematically to Twilight Forest Snow Queen."
+				"§7• §6Scarlet Mountains§7 — stunning red landscape for base aesthetics."
+				""
+				"§a► Task: Craft a Nature's Compass and have it in your inventory."
+			]
+			dependencies: ["000A0006"]
+		}
+		{
+			x: 12.0d
+			y: 6.0d
+			shape: "hexagon"
+			id: "000A0017"
+			tasks: [{
+				id: "000A1017"
+				type: "checkmark"
+				title: "Visit 5 different Terralith biomes (check Jade for biome names), then mark done"
+			}]
+			rewards: [
+				{id: "000A2031" type: "xp" xp: 500}
+				{id: "000A2032" type: "item" item: "minecraft:golden_apple" count: 2}
+			]
+			title: "Brave New World"
+			subtitle: "Gate Quest — unlocks Chapters 1, 2, 3, and 4"
+			description: [
+				"§fVisit 5 different biomes. Terralith generates them immediately around spawn."
+				""
+				"§eHow to identify a new biome:§r"
+				"§7• §6Jade§7 (the top-of-screen tooltip) shows the current biome name."
+				"§7• §6Xaero's Minimap§7 colours chunks by biome type on the map."
+				"§7• Each unique name in Jade = a new biome."
+				""
+				"§eYour first 5 biomes (typical spawn area):§r"
+				"§71. Walk from your starting point — you will cross a biome within 200 blocks."
+				"§72. §6Terralith Biomes§7 have distinct names: §eAncient Sands§7, §eSakura Grove§7,"
+				"§7   §eAutumn Woods§7, §eMeadow§7, §eGrasslands§7, §ePine Barrens§7..."
+				"§7   Any name you do not recognise from vanilla Minecraft is a Terralith biome."
+				"§73. Each biome has different sky colours, trees, and terrain. You will"
+				"§7   see the shift clearly — Terralith's transitions are dramatic."
+				""
+				"§e§l★ This is a Gate Quest ★§r"
+				"§7Completing this quest unlocks all four main chapters simultaneously:"
+				""
+				"§6📗 Chapter 1: The Arcane Path§7 — Ars Nouveau magic system"
+				"§6📘 Chapter 2: Gears & Steam§7 — Create technology system"
+				"§6📙 Chapter 3: The Wide World§7 — Exploration and dimensions"
+				"§6🏠 Chapter 4: Hearth & Home§7 — Building and farming"
+				""
+				"§7You do NOT need to complete every Chapter 0 quest before unlocking these."
+				"§7Only §eBrave New World§7 is the gate. Other Ch 0 quests run in parallel."
+				""
+				"§7§oCh 6 (Colony) and Ch 7 (Twilight Forest) unlock separately"
+				"§7§oand are fully optional additions to the main progression."
+				""
+				"§a► Task: Walk through 5 different biomes. Check Jade at each one for the"
+				"§aname. When you have 5 unique names, mark this complete."
+			]
+			dependencies: ["000A0016"]
+		}
+		{
+			x: 4.0d
+			y: 0.0d
+			id: "000A0018"
+			tasks: [{
+				id: "000A1018"
+				type: "checkmark"
+				title: "Shift+right-click any placed chest or block to pick it up — then put it back"
+			}]
+			rewards: [
+				{id: "000A2033" type: "item" item: "minecraft:chest" count: 2}
+			]
+			title: "Pack It Up"
+			icon: "minecraft:chest"
+			description: [
+				"§6Carry On§f lets you pick up any placed tile entity and carry it in your"
+				"§fhands — with all its contents intact — and place it somewhere else.",
+				""
+				"§eHow to use:§r"
+				"§7• §eShift + Right-Click§7 any block to pick it up."
+				"§7• You hold it in both hands — visible above your head while carrying."
+				"§7• You walk slowly while carrying. You cannot sprint, attack, or use items."
+				"§7• §eRight-click§7 any solid surface to place it down."
+				"§7• §eContents are fully preserved§7 — nothing drops out."
+				""
+				"§eWhat you can pick up:§r"
+				"§7• §6Vanilla§7: chests, barrels, furnaces, hoppers, dispensers."
+				"§7• §6Sophisticated Storage§7: all chest tiers with filter upgrades intact."
+				"§7• §6Create§7: vaults, funnels, depots (detach safely from contraptions)."
+				"§7• §6Ars Nouveau§7: Source Jars, Relay blocks."
+				"§7• §6MineColonies§7: supply items before the colony is founded."
+				"§7• §6Farmer's Delight§7: Cooking Pots (with active ingredients inside)."
+				""
+				"§ePractical uses:§r"
+				"§7• Moving your entire base storage to a new location without unpacking."
+				"§7• Repositioning a Create Mixer mid-factory without draining its contents."
+				"§7• Carrying a fully-stocked Sophisticated Storage chest to a new wing."
+				"§7• Relocating a colony supply chest after placing it in the wrong spot."
+				""
+				"§7Note: You cannot pick up blocks while wearing specific Curios accessories"
+				"§7that fill the hands or body slot — remove accessories first if needed."
+				""
+				"§a► Task: Shift+right-click any placed chest. Pick it up, walk two steps,"
+				"§aput it back down. Mark complete. No item submission needed."
+			]
+			dependencies: ["000A0001"]
+		}
+	]
+	images: []
+}

@@ -1,0 +1,128 @@
+#================================================================
+# yungs-better-dungeons.toml — Arcane Frontiers
+# Mod: YUNG's Better Dungeons (NeoForge 1.21.1)
+# Purpose: Increase underground dungeon spacing to prevent
+#          cave exploration from feeling like an obstacle course
+#          of back-to-back dungeon rooms.
+#
+# YUNG's Better Dungeons replaces vanilla 3x3 spawner rooms
+# with elaborate multi-room structures:
+#   - Catacombs (skeleton-themed, multiple levels, large footprint)
+#   - Spider Dens (web-filled cavern systems)
+#   - Skeleton Forts (fortified underground keeps)
+#
+# At default spacing these structures can overlap with Alex's
+# Caves biomes and each other, which at best feels chaotic and
+# at worst produces corrupt chunk boundaries.
+#
+# Our config increases spacing by ~25-33% from defaults to
+# ensure each dungeon is a standalone discovery event.
+#================================================================
+
+[dungeon_settings]
+
+    #---------------------------------------------------------
+    # CATACOMBS
+    # The largest YUNG dungeon — multi-level skeleton complex.
+    # Needs the most spacing to avoid overlapping other structures.
+    #---------------------------------------------------------
+
+    catacombs_spacing = 36
+    # Default: ~24. Increased to 36 (1.5x default).
+    # Catacombs are the dungeon the Ch 3.3 "Catacomb Cleared"
+    # quest targets. At spacing 36 (~576 blocks average spread),
+    # players will encounter roughly one per major underground
+    # expedition rather than stumbling through several in a row.
+
+    catacombs_separation = 14
+    # Minimum chunk gap between any two Catacomb structures.
+    # Must be less than catacombs_spacing.
+
+    generateCatacombs = true
+    # Keep enabled — Ch 3.3 "Catacomb Cleared" quest requires
+    # finding and clearing one.
+
+    #---------------------------------------------------------
+    # SPIDER DENS
+    # Medium-sized web cavern systems. More common than Catacombs.
+    #---------------------------------------------------------
+
+    spider_den_spacing = 30
+    # Default: ~20. Increased to 30.
+    # Spider Dens are the Ch 3.3 "Spider's Nest" quest target.
+    # At spacing 30, they appear every ~480 blocks on average —
+    # reachable within a focused underground session.
+
+    spider_den_separation = 12
+    # Must be less than spider_den_spacing.
+
+    generateSpiderDens = true
+    # Keep enabled — Ch 3.3 "Spider's Nest" requires one.
+
+    #---------------------------------------------------------
+    # SKELETON FORTS
+    # Fortified underground military structures.
+    #---------------------------------------------------------
+
+    skeleton_fort_spacing = 32
+    # Default: ~22. Increased to 32.
+    # Skeleton Forts appear in Terralith cave systems and are
+    # visually distinct from Catacombs — stone fortifications
+    # rather than tomb corridors. Part of the Ch 3.3 dungeon arc.
+
+    skeleton_fort_separation = 12
+    # Must be less than skeleton_fort_spacing.
+
+    generateSkeletonForts = true
+    # Keep enabled.
+
+    #---------------------------------------------------------
+    # GENERAL DUNGEON SETTINGS
+    #---------------------------------------------------------
+
+    dungeon_loot_multiplier = 1.0
+    # Multiplier applied to all dungeon loot tables.
+    # Default: 1.0. Leave unchanged.
+    # Lootr (#37) already instances the loot per player —
+    # that solves the "empty chest on arrival" problem entirely.
+    # Increasing loot via multiplier would make dungeons feel
+    # like loot vending machines rather than dangerous delves.
+
+    max_dungeon_depth = -20
+    # Maximum Y level where dungeons can generate.
+    # Default: around Y -20. Keep at default.
+    # This ensures YUNG's dungeons appear in the deep underground
+    # layers where Alex's Caves biomes also generate, creating
+    # encounters where players discover a dungeon inside an
+    # Abyssal Chasm — exactly the kind of layered discovery
+    # the Ch 3.3 "Into the Deep" quest is designed for.
+
+    min_dungeon_depth = -64
+    # Minimum Y level (bedrock layer).
+    # Dungeons in the deepest layers are the most dangerous
+    # and most rewarding. Enigmatic Legacy charms (Ch 3.3
+    # "Charm Seeker") drop from the deepest dungeon chests.
+
+    allow_surface_dungeons = false
+    # Prevent YUNG's dungeons from breaching the surface.
+    # YUNG's occasionally generates structures that poke through
+    # the ground. Disabling this keeps the surface clean for
+    # Terralith biome aesthetics and avoids conflicts with
+    # Dungeons and Taverns surface structures.
+
+[compatibility]
+
+    avoid_alex_caves_biomes = false
+    # Allow YUNG's dungeons to generate inside Alex's Caves
+    # biomes. ENABLED (false = don't avoid them).
+    # Rationale: A Skeleton Fort discovered inside the Primordial
+    # Caves biome is exactly the layered exploration the pack
+    # is designed for. Avoiding these biomes would reduce the
+    # richest underground content.
+
+    respect_lootr_integration = true
+    # If Lootr is detected, use Lootr-compatible loot tables
+    # for dungeon chests. REQUIRED for the "Your Loot, Not Mine"
+    # quest (Ch 3.3) to work correctly on a multiplayer server.
+    # With this enabled, each family member opens the same
+    # dungeon chest and gets their own full loot roll.

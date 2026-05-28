@@ -1,0 +1,133 @@
+#================================================================
+# ars_nouveau-common.toml — Arcane Frontiers
+# Mod: Ars Nouveau (NeoForge 1.21.1)
+# Purpose: Gently tune the Source (mana) economy and spell
+#          crafting to be more accessible for beginners while
+#          keeping the depth that makes the mod great.
+#
+# Design philosophy: Ars Nouveau's defaults are reasonable for
+# experienced players. For a family pack, we make two changes:
+#   1. Slightly reduce spell casting cost (0.9x)
+#   2. Give the Apprentice Spellbook one extra glyph slot
+# Everything else stays default — the mod is already
+# well-balanced and the quest system guides players through it.
+#================================================================
+
+[Spells]
+
+    #---------------------------------------------------------
+    # SOURCE COST TUNING
+    #---------------------------------------------------------
+
+    source_cost_multiplier = 0.9
+    # Multiplier applied to the Source (mana) cost of all spells.
+    # Default: 1.0 (100% of base cost)
+    # Set to: 0.9 (90% of base cost — a 10% discount)
+    #
+    # Rationale: The early game Source economy requires players
+    # to build Source Jars and Relays before they can cast freely.
+    # A 10% cost reduction means:
+    #   - Apprentice Spellbooks don't feel empty after 3 casts
+    #   - Players experiment more freely, discovering combinations
+    #     that make magic feel creative rather than rationed
+    #   - The Source infrastructure quests (Ch 1.2) feel like
+    #     power upgrades, not catch-up mechanics
+    # This is NOT enough to trivialise late-game scaling.
+    # A 5-glyph spell at tier 3 still costs significant Source.
+
+    #---------------------------------------------------------
+    # SPELLBOOK SLOT CONFIGURATION
+    #---------------------------------------------------------
+
+    apprentice_spell_slots = 4
+    # Number of glyph slots in the Apprentice Spellbook (Tier 1).
+    # Default: 3
+    # Set to: 4
+    #
+    # Rationale: With 3 slots, the Apprentice Spellbook can only
+    # hold simple two-glyph spells (e.g., Projectile + Fire).
+    # A 4th slot lets beginners build a three-glyph spell
+    # (Projectile + Fire + Amplify) and feel the magic system's
+    # potential before investing in Tier 2 materials.
+    # This makes the "Your First Glyph" and "A Touch of Magic"
+    # quests feel genuinely rewarding, not limiting.
+    # The Mage Spellbook gate (Ch 1.3) still requires Brass and
+    # meaningful progression to reach — the extra slot doesn't
+    # shortcut the progression arc.
+
+    mage_spell_slots = 6
+    # Default: 5. One extra slot for Mage Spellbook owners.
+    # Mage Spellbook is gated behind Ch 2 "Brass Handshake"
+    # (requires Create Brass) — earning it by mid-game means
+    # players should have access to complex spell compositions.
+    # 6 slots enables Projectile + Form + Effect + Effect + Amplify
+    # + Area combinations that make the magic feel epic.
+
+    archmage_spell_slots = 10
+    # Default: 10. Keep at default — the Archmage Spellbook
+    # (Ch 1.4) is already locked behind Nether materials and
+    # Ch 3 "End Portal Key". Its power level is earned.
+
+    #---------------------------------------------------------
+    # FAMILIAR SETTINGS
+    #---------------------------------------------------------
+
+    starbuncle_item_move_speed = 0.5
+    # How fast Starbuncle familiars move items between Source
+    # network nodes. Default 0.5. Fine for most Source farms.
+    # Increase to 1.0 only if a large late-game Source network
+    # feels sluggish (rarely needed before Ch 5).
+
+    drygmy_loot_cap = 8
+    # Maximum items a Drygmy familiar generates per cycle from
+    # nearby passive mobs. Default 8.
+    # The Ch 1.2 quest "Second Familiar" can involve a Drygmy
+    # for passive mob drops. This cap prevents a Drygmy farm
+    # from generating too many items near MineColonies
+    # Cowhand/Shepherd buildings where mob counts are high.
+
+    whirlisprig_plant_cap = 64
+    # Maximum plants a Whirlisprig will grow in one area.
+    # Relevant to Ch 6.7 "Arcane Forestry" quest:
+    # a Whirlisprig placed near the Lumberjack's Hut
+    # regenerates felled trees, preventing clear-cutting.
+    # 64 plants is enough to maintain a full tree farm
+    # without the Whirlisprig overrunning the colony grounds.
+
+    #---------------------------------------------------------
+    # WORLD GENERATION
+    #---------------------------------------------------------
+
+    generate_archwood_trees = true
+    # Archwood Trees spawn naturally in select Terralith biomes.
+    # KEEP ENABLED. The Ch 1.1 "Awakened Wood" quest requires
+    # finding a naturally generated Archwood Tree.
+    # Archwood comes in four variants (Cascading, Blazing,
+    # Flourishing, Vexing) — each tied to a different element.
+    # Terralith's magical biomes (Moonlit Grove, Enchanted
+    # Volcanic Islands) spawn these most frequently.
+
+    generate_source_gem_clusters = true
+    # Source Crystal Clusters generate underground in cave biomes.
+    # Required for Ch 1.4 "Source Crystal Cluster" quest.
+    # Alex's Caves makes underground biomes rich and varied —
+    # Source Clusters add a magical reason to go spelunking.
+
+    #---------------------------------------------------------
+    # SOURCE NETWORK PERFORMANCE
+    #---------------------------------------------------------
+
+    max_source_jar_capacity = 10000
+    # Maximum Source a single jar can hold.
+    # Default: 10000. Fine for the pack.
+    # A large late-game Source network (Ch 1.3 "Arcane Automation"
+    # requires 5+ connected jars) will consume Source quickly
+    # during rituals. This cap means players always need to
+    # maintain and expand their network — not just build one jar.
+
+    source_per_tick_from_environment = 1
+    # Ambient Source gained per tick by jars placed outdoors.
+    # Default: 1. This is intentionally slow — players should
+    # build Source Berry farms and Relays rather than relying
+    # on ambient generation. Keep at default to maintain
+    # the progression pressure in Ch 1.2.

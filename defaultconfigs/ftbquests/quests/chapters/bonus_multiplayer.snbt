@@ -1,0 +1,284 @@
+{
+	id: "00100000"
+	group: ""
+	order_index: 8
+	filename: "bonus_multiplayer"
+	title: "Bonus: Family & Community"
+	icon: "minecraft:player_head"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	// ================================================================
+	// BONUS CHAPTER — Multiplayer & Community
+	//
+	// This chapter has NO hard dependencies and NO progression gates.
+	// It runs in parallel from the start — any quest can be completed
+	// at any time. These are social and cooperative milestones.
+	//
+	// The quests here are intentionally silly, warm, and low-stakes.
+	// They reward playing together, not playing optimally.
+	// ================================================================
+	quests: [
+
+		{
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			id: "00100001"
+			tasks: [{
+				id: "00101001"
+				type: "checkmark"
+				title: "All family members on the server have joined the colony (Town Hall → Join Colony)"
+			}]
+			rewards: [
+				{id: "00102001" type: "item" item: "minecraft:firework_rocket" count: 16}
+				{id: "00102002" type: "xp" xp: 100}
+			]
+			title: "We're All Here"
+			icon: "minecolonies:blockHutTownHall"
+			description: [
+				"§6The colony belongs to everyone.§f"
+				"§fEvery family member who joins the colony can:"
+				""
+				"§7• §eManage citizens§7 — assign jobs, rename citizens, give orders."
+				"§7• §eRequest builds§7 — queue construction from any Builder's Hut."
+				"§7• §eDeposit and withdraw§7 from the Warehouse."
+				"§7• §eReceive colony alerts§7 (raids, low food, etc.)."
+				""
+				"§eHow to join:§r"
+				"§7• Walk to the §eTown Hall§7 block."
+				"§7• §eRight-click§7 → §eJoin Colony§7."
+				"§7• Your name appears in the colony members list."
+				""
+				"§a► Confirm all active players have joined. Mark done."
+			]
+			dependencies: []
+		}
+
+		{
+			x: -8.0d
+			y: 8.0d
+			id: "00100002"
+			tasks: [{
+				id: "00101002"
+				type: "checkmark"
+				title: "Give another player a chest full of useful items they didn't ask for"
+			}]
+			rewards: [
+				{id: "00102003" type: "xp" xp: 75}
+			]
+			title: "Surprise Delivery"
+			icon: "minecraft:chest"
+			description: [
+				"§6The best gift is one nobody asked for.§r"
+				""
+				"§7• Place a §eChest§7 near another player's base or workstation."
+				"§7• Fill it with something §eactually useful§7 to them right now."
+				"§7  Examples: 64 iron, a stack of food, a full set of arrows, a Waystone."
+				"§7• §eName the chest§7 with an Anvil so they know it's for them."
+				""
+				"§7This quest is honor-system. Mark done after you deliver it."
+				"§7The recipient is not required to say thank you."
+				"§7(But they will.)"
+				""
+				"§a► Fill a chest with useful items for a teammate. Mark done."
+			]
+			dependencies: []
+		}
+
+		{
+			x: 0.0d
+			y: 8.0d
+			id: "00100003"
+			tasks: [{
+				id: "00101003"
+				type: "checkmark"
+				title: "Two or more players work on the same building or project simultaneously"
+			}]
+			rewards: [
+				{id: "00102004" type: "item" item: "minecraft:cake" count: 2}
+				{id: "00102005" type: "xp" xp: 75}
+			]
+			title: "Building Together"
+			icon: "minecraft:bricks"
+			description: [
+				"§6Some things build faster with two sets of hands.§r"
+				""
+				"§7Suggestions:§r"
+				"§7• §eColony walls§7 — each person takes a quadrant."
+				"§7• §eTrophy Room§7 — one person places frames while another crafts displays."
+				"§7• §eCreate contraption§7 — one handles gears, one handles chassis."
+				"§7• §eBase exterior§7 — one does CopyCat cladding, one adds lighting."
+				""
+				"§7Mark done when you've legitimately worked on the same thing together."
+				"§7A cake for the occasion."
+				""
+				"§a► Work on a project simultaneously with another player. Mark done."
+			]
+			dependencies: []
+		}
+
+		{
+			x: 8.0d
+			y: 8.0d
+			id: "00100004"
+			tasks: [{
+				id: "00101004"
+				type: "checkmark"
+				title: "Each active family member has a self-declared specialty in the colony (Miner, Mage, Builder, Chef, Explorer, etc.)"
+			}]
+			rewards: [
+				{id: "00102006" type: "item" item: "supplementaries:sign_post" count: 4}
+				{id: "00102007" type: "xp" xp: 75}
+			]
+			title: "Colony Roles"
+			icon: "supplementaries:sign_post"
+			description: [
+				"§6Arcane Frontiers plays best when everyone has a role they own.§r"
+				""
+				"§eSuggested roles:§r"
+				"§7• §6The Mage§7 — runs Ch 1, manages Source network and rituals."
+				"§7• §6The Engineer§7 — owns Ch 2, keeps the Create grid humming."
+				"§7• §6The Explorer§7 — leads Ch 3 biome runs and dungeon clears."
+				"§7• §6The Chef§7 — runs Ch 4 Central Kitchen, keeps everyone fed."
+				"§7• §6The Governor§7 — manages Ch 6 colony builds and citizen jobs."
+				"§7• §6The Architect§7 — handles base aesthetics, CopyCats, Framed Blocks."
+				""
+				"§eSign Posts (reward):§r"
+				"§7• Place them around the colony to label each person's area."
+				"§7• A Sign Post at the kitchen entrance with the Chef's name."
+				"§7• A Sign Post at the Magic Lab entrance with the Mage's name."
+				""
+				"§7Discuss roles out loud and agree on them. Mark done."
+				"§7Rules can change. Roles are starting points."
+				""
+				"§a► Agree on colony roles. Mark done."
+			]
+			dependencies: []
+		}
+
+		{
+			x: -8.0d
+			y: 16.0d
+			id: "00100005"
+			tasks: [{
+				id: "00101005"
+				type: "checkmark"
+				title: "Fight a major boss (Wither, Ender Dragon, Hydra, or Twilight boss) with the full family group"
+			}]
+			rewards: [
+				{id: "00102008" type: "item" item: "minecraft:golden_apple" count: 4}
+				{id: "00102009" type: "xp" xp: 150}
+			]
+			title: "Boss Rush"
+			icon: "minecraft:wither_skeleton_skull"
+			description: [
+				"§6Some fights are better together.§r"
+				""
+				"§eQualifying bosses:§r"
+				"§7• §eWither§7 (Ch 3 Nether) — fast, manageable with 2+ players."
+				"§7• §eEnder Dragon§7 (Ch 3 End) — iconic. Everyone should see it."
+				"§7• §eHydra§7 (Ch 7 Twilight) — multiple heads, multiple fronts."
+				"§7• §eSnow Queen§7 (Ch 7) — excellent final group fight."
+				"§7• §eUr-Ghast§7 (Ch 7) — rooftop spectacle."
+				""
+				"§eCo-op strategy:§r"
+				"§7• §eMage§7: Projectile + Harm spell spam."
+				"§7• §eEngineer§7: Deploy auto-crossbow contraption if you have one."
+				"§7• §eExplorer§7: Bow + Power V, call out phase changes."
+				"§7• §eChef§7: Carry food for everyone, be the healer."
+				""
+				"§7Every player must be online and physically present at the fight."
+				"§7Watching from spawn doesn't count. Probably."
+				""
+				"§a► Fight a major boss together. Mark done."
+			]
+			dependencies: []
+		}
+
+		{
+			x: 0.0d
+			y: 16.0d
+			id: "00100006"
+			tasks: [{
+				id: "00101006"
+				type: "checkmark"
+				title: "Build a small memorial or marker commemorating a memorable moment (funny death, first base, first boss)"
+			}]
+			rewards: [
+				{id: "0010200A" type: "item" item: "supplementaries:pedestal" count: 1}
+				{id: "0010200B" type: "xp" xp: 50}
+			]
+			title: "The Memorial"
+			icon: "minecraft:stone_bricks"
+			description: [
+				"§6Every world has moments worth remembering.§r"
+				""
+				"§eIdeas:§r"
+				"§7• §eFirst Death Grave§7 — a small tomb where someone died hilariously."
+				"§7  §eGrave marker§7 (Supplementaries Sign Post) with cause of death."
+				"§7• §eFirst Base Stone§7 — mark where the very first dirt house stood."
+				"§7• §eBoss Trophy Plaque§7 — the exact spot where the first Wither was summoned."
+				"§7• §eFamily Portrait§7 — four §ePlayer Head§7 blocks on pedestals in the hall."
+				""
+				"§eBuilding materials that fit:§r"
+				"§7• §eSupplementaries Sign Post§7 with the story written on the signs."
+				"§7• §eSupplementaries Pedestal§7 (your reward) holding a relevant item."
+				"§7• §eSmooth Stone§7 or §ePolished Blackstone§7 for a dignified base."
+				"§7• §eDecorative Blocks Chandelier§7 above — even a grave deserves good lighting."
+				""
+				"§7There are no rules here. Make something that will make someone smile later."
+				""
+				"§a► Build something worth remembering. Mark done."
+			]
+			dependencies: []
+		}
+
+		{
+			x: 0.0d
+			y: 24.0d
+			shape: "hexagon"
+			id: "00100007"
+			tasks: [{
+				id: "00101007"
+				type: "checkmark"
+				title: "Sit together somewhere you all built and appreciate it for 60 seconds"
+			}]
+			rewards: [
+				{id: "0010200C" type: "item" item: "minecraft:firework_rocket" count: 64}
+				{id: "0010200D" type: "xp" xp: 250}
+			]
+			title: "Together ✦"
+			subtitle: "This is what the pack was for"
+			description: [
+				"§6This is the Bonus Chapter completion quest.§r"
+				"§fNo crafting required. No boss to kill."
+				""
+				"§eInstructions:§r"
+				"§7• §eFind a place§7 in the world that you all built or contributed to."
+				"§7• §eSit down§7 (Supplementaries Seat, Decorative Blocks chair)."
+				"§7• §eStay for 60 seconds§7 and actually look at what you made."
+				""
+				"§eSuggested locations:§r"
+				"§7• §eThe Central Kitchen§7 — watch the Create line run."
+				"§7• §eTrophy Room§7 — all six Twilight trophies glowing."
+				"§7• §eColony Overview§7 — watch citizens walk to work."
+				"§7• §eYour first base§7 — wherever it was, whatever it was."
+				""
+				"§eThis world took§r"
+				"§7hours of exploration, hundreds of crafts, a few arguments about"
+				"§7where to put the Warehouse, and one near-death experience"
+				"§7that is still funny when you bring it up."
+				""
+				"§7It is yours. You made it together."
+				""
+				"§eReward: 64 Firework Rockets§r"
+				"§7• Launch them. All of them. Right now."
+				""
+				"§a► Sit together somewhere you built. Mark done."
+			]
+			dependencies: ["00100001" "00100005"]
+		}
+
+	]
+	quest_links: []
+}

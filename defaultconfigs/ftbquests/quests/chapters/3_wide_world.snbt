@@ -1,0 +1,1270 @@
+{
+	id: "000D0000"
+	group: ""
+	order_index: 3
+	filename: "3_wide_world"
+	title: "Chapter 3: The Wide World"
+	icon: "naturesscompass:natures_compass"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	// ================================================================
+	// CROSS-CHAPTER DEPENDENCY REFERENCE
+	// The following IDs from other chapters are used as dependencies
+	// in this file. Confirm these IDs match exactly in those files:
+	//
+	//   000B0015 = Ch 1 "Arcane Automation ✦" gate quest
+	//              → prereq for 000D000E (End Portal Key)
+	//
+	//   000C0024 = Ch 2 "Power Grid ✦" gate quest
+	//              → prereq for 000D000E (End Portal Key)
+	//
+	// IDs this chapter EXPORTS (used by other chapters):
+	//   000D000E = "End Portal Key ⊕"  → Ch1 000B0016 "Archmage Spellbook 🔒"
+	//   000D001C = "Dragon Slayer ✦"   → Ch5 (future — do not change this ID)
+	// ================================================================
+	quests: [
+
+		// ============================================================
+		// 3.1  BIOME DISCOVERY
+		// ============================================================
+
+		{
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			id: "000D0001"
+			tasks: [{
+				id: "000D1001"
+				type: "item"
+				item: "naturesscompass:natures_compass"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000D2001" type: "item" item: "waystones:warp_stone" count: 2}
+				{id: "000D2002" type: "xp" xp: 25}
+			]
+			title: "Compass of Biomes"
+			icon: "naturesscompass:natures_compass"
+			subtitle: "The world is much larger than it looks"
+			description: [
+				"§6Nature's Compass§f lets you search for any biome — including all"
+				"§fthe new §6Terralith§f biomes — by name."
+				""
+				"§eCrafting:§r"
+				"§7• §eCompass§7 + §eEmerald§7 in a crafting table (shapeless)."
+				"§7• Your starter Compass from Chapter 0 becomes this once upgraded."
+				""
+				"§eHow to use it:§r"
+				"§7• §eRight-click§7 to open the biome search UI."
+				"§7• Type a biome name (e.g. §6volcanic_peaks§7, §6moonlight_grove§7)."
+				"§7• Click §eSearch§7 — the compass needle will point toward the nearest"
+				"§7  instance of that biome."
+				"§7• Distance estimate appears below the needle."
+				""
+				"§eTerralith biomes to know:§r"
+				"§7• §eVolcanic Peaks§7 — lava flows, basalt, extreme heat."
+				"§7• §eMoonlight Grove§7 — rare glowing forest, beautiful builds."
+				"§7• §eIce Spikes§7 variants — useful for Snowflake Obsidian (Ch 2)."
+				"§7• §eAlpine Meadow§7 — flat, high elevation — great for windmills."
+				""
+				"§a► Craft a Nature's Compass to unlock all 3.1 biome discovery quests."
+			]
+			dependencies: []
+		}
+
+		{
+			x: -8.0d
+			y: 8.0d
+			id: "000D0002"
+			tasks: [{
+				id: "000D1002"
+				type: "checkmark"
+				title: "Visit 5 distinct Terralith biomes and mark each with F3 screenshots or Waystones"
+			}]
+			rewards: [
+				{id: "000D2003" type: "xp" xp: 50}
+			]
+			title: "Terralith Traveler"
+			description: [
+				"§6Terralith§f completely overhauls the Overworld biome distribution."
+				"§fInstead of vanilla's flat plains and forests you will encounter:"
+				""
+				"§7• §eCascading Moonlight Grove§7 — rare glowing mushroom-blue forest."
+				"§7• §eCaldera§7 — sunken volcanic crater with obsidian and lava lakes."
+				"§7• §eAlpine Highlands§7 — snow-capped meadows perfect for windmills."
+				"§7• §eScarlet Mountains§7 — red stone cliffs, excellent mineral exposure."
+				"§7• §eMirage Isles§7 — floating islands with unusual vegetation."
+				"§7• §eFrozen Cliffs§7 and §eFrosted Taiga§7 — snow variants with packed ice."
+				""
+				"§eTips for finding biomes:§r"
+				"§7• Use §eNature's Compass§7 (previous quest) to search by name."
+				"§7• Press §eF3§7 to see your current biome in the top-left debug info."
+				"§7• §eJade§7 shows the biome name when you press F3+H and look at air."
+				""
+				"§ePlacing Waystones:§r"
+				"§7• Each biome is worth naming and marking with a Waystone."
+				"§7• The family can then warp back to farm rare biome resources."
+				""
+				"§a► Visit 5 different Terralith biomes. Mark done when complete."
+			]
+			dependencies: ["000D0001"]
+		}
+
+		{
+			x: 0.0d
+			y: 8.0d
+			id: "000D0003"
+			tasks: [{
+				id: "000D1003"
+				type: "checkmark"
+				title: "Discover a rare Terralith biome: Volcanic Peaks, Moonlight Grove, Mirage Isles, Caldera, or equivalent"
+			}]
+			rewards: [
+				{id: "000D2004" type: "item" item: "waystones:waystone" count: 1}
+				{id: "000D2005" type: "xp" xp: 50}
+			]
+			title: "Strange New Lands"
+			description: [
+				"§6Terralith's rarest biomes§f don't appear on most journeys."
+				"§fYou have to search for them specifically — which is why you have a compass."
+				""
+				"§eRare biomes worth hunting:§r"
+				"§7• §eVolcanic Peaks§7 — active lava geysers, unique basalt formations."
+				"§7  Tip: §eBlackstone§7 generates here in huge quantities."
+				"§7• §eMoonlight Grove§7 — glowing blue forest, very rare, beautiful builds."
+				"§7  Tip: §eMoonlight Stones§7 make extraordinary floors and paths."
+				"§7• §eMirage Isles§7 — floating islands above warm ocean, disorienting terrain."
+				"§7• §eCaldera§7 — sunken volcanic bowl with lava rivers."
+				"§7• §eAbyssal Chasm§7 — deep ocean variant with unusual deep-sea caves."
+				""
+				"§eStrategy:§r"
+				"§7• Use Nature's Compass → type the biome name → fly/boat toward it."
+				"§7• When you arrive, §eplace a Waystone immediately§7 — rare biomes are"
+				"§7  hard to relocate once you leave."
+				""
+				"§eReward: 1 Waystone§r"
+				"§7• Extra Waystone for your rare biome base camp."
+				""
+				"§a► Find any one of the listed rare biomes. Mark done on arrival."
+			]
+			dependencies: ["000D0002"]
+		}
+
+		{
+			x: -8.0d
+			y: 16.0d
+			id: "000D0004"
+			tasks: [{
+				id: "000D1004"
+				type: "item"
+				item: "waystones:waystone"
+				count: 3L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000D2006" type: "xp" xp: 40}
+			]
+			title: "Wayfinder"
+			icon: "waystones:waystone"
+			description: [
+				"§6Waystones§f are the family's fast-travel network."
+				"§fPlace them at key locations and everyone on the server can warp between them."
+				""
+				"§ePlacing a Waystone:§r"
+				"§7• Craft: §e2 Stone Bricks + 2 Flint + 1 Iron Ingot§7 (shaped, 3-high pillar)."
+				"§7• Place the Waystone block. Right-click to §ename it§7."
+				"§7• The name appears on everyone's teleport list immediately."
+				""
+				"§eSuggested placements for 3 Waystones:§r"
+				"§71. §eHome Base§7 — right outside your main base entrance."
+				"§72. §eColony§7 — at the Town Hall when the colony is founded (Ch 6)."
+				"§73. §eBiome Outpost§7 — at your rare biome discovery camp."
+				""
+				"§eWarp Stone vs Waystone:§r"
+				"§7• §eWarp Stone§7 (your reward from quest 1) — portable, use anywhere,"
+				"§7  5-minute cooldown."
+				"§7• §eWaystone§7 — stationary, free to teleport to from any other Waystone"
+				"§7  or Warp Stone, no cooldown penalty for destination."
+				""
+				"§a► Have 3 Waystones in your inventory at once (don't need to place them)."
+			]
+			dependencies: ["000D0002"]
+		}
+
+		{
+			x: 0.0d
+			y: 16.0d
+			id: "000D0005"
+			tasks: [{
+				id: "000D1005"
+				type: "checkmark"
+				title: "Find a village and upgrade it using Create: Dynamic Village"
+			}]
+			rewards: [
+				{id: "000D2007" type: "xp" xp: 50}
+			]
+			title: "Dynamic Village"
+			icon: "minecraft:bell"
+			description: [
+				"§6Create: Dynamic Village§f lets you build Create-powered infrastructure"
+				"§finside existing villages, upgrading villagers' workstations with"
+				"§fmachinery and improving their trades."
+				""
+				"§eHow it works:§r"
+				"§7• Find a village with a Terralith or vanilla biome."
+				"§7• Create: Dynamic Village adds new workstation block types near"
+				"§7  villager houses. Some villagers will retrain to new Create-based jobs."
+				"§7• Placing §eCreate§7 machines (Mechanical Press, Mixer, Fan) near"
+				"§7  the village center may trigger §edynamic upgrades§7 to nearby workstations."
+				""
+				"§eWhat upgrades become available:§r"
+				"§7• §eBrass Merchant§7 — trades Brass Ingots and Precision Mechanisms."
+				"§7• §eSteam Supplier§7 — trades Steam Whistles and Boiler parts."
+				"§7• §eKinetic Engineer§7 — trades Cogs, Shafts, and Encased Fans."
+				""
+				"§eTips:§r"
+				"§7• Use Nature's Compass to search for §ePlains§7 or §eSavanna§7 — villages"
+				"§7  are most common there in Terralith."
+				"§7• Set up a Waystone in the village to return easily."
+				""
+				"§a► Find a village and place at least one Create machine near the center."
+				"§a► Mark done when a Dynamic Village UI or upgraded workstation appears."
+			]
+			dependencies: ["000D0004"]
+		}
+
+		{
+			x: 8.0d
+			y: 12.0d
+			id: "000D0006"
+			tasks: [{
+				id: "000D1006"
+				type: "item"
+				item: "minecraft:filled_map"
+				count: 3L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000D2008" type: "xp" xp: 60}
+			]
+			title: "Cartographer's Dream ★"
+			icon: "minecraft:filled_map"
+			description: [
+				"§6Filled Maps§f become your atlas of the world."
+				"§fWith §6Terralith§f rewriting the landscape, the maps you create"
+				"§fare unlike anything in vanilla."
+				""
+				"§eCrafting a Filled Map:§r"
+				"§7• Craft §eEmpty Map§7 (8 Paper + 1 Compass) then §eright-click to fill it."
+				"§7• Or buy maps from §eCartographer Villagers§7 (Dynamic Village upgrade)."
+				""
+				"§eTips for three good maps:§r"
+				"§71. §eHome region§7 — center on your base so you always know what's near."
+				"§72. §eRare biome§7 — document where you found Moonlight Grove or Volcanic Peaks."
+				"§73. §eColony area§7 — scout the colony build site before placing the Supply Ship."
+				""
+				"§eItem Frames + Maps:§r"
+				"§7• Place §eItem Frame§7 on a wall, then place a filled map inside."
+				"§7• Multiple frames next to each other create a large wall map."
+				"§7• §eGlow Item Frame§7 (from glowing squid) shows the map in the dark."
+				""
+				"§e★ Integration note:§r"
+				"§7• This quest satisfies both the exploration track (3.1) and the"
+				"§7  building/home track (4.1). It bridges both chapters."
+				""
+				"§a► Have 3 Filled Maps in your inventory simultaneously."
+			]
+			dependencies: ["000D0003" "000D0005"]
+		}
+
+		// ============================================================
+		// 3.2  ALEX'S MOBS & CAVES
+		// ============================================================
+
+		{
+			x: -4.0d
+			y: 24.0d
+			id: "000D0007"
+			tasks: [{
+				id: "000D1007"
+				type: "checkmark"
+				title: "Obtain and read the Alex's Mobs Field Guide (craft or find in world)"
+			}]
+			rewards: [
+				{id: "000D2009" type: "xp" xp: 40}
+			]
+			title: "Field Guide"
+			icon: "alexsmobs:field_guide"
+			description: [
+				"§6Alex's Mobs§f adds over 80 new creatures to the world —"
+				"§feach with unique behaviors, drops, and interactions."
+				"§fThe §eField Guide§f is your bestiary."
+				""
+				"§eGetting the Field Guide:§r"
+				"§7• §eCraft:§7 §eBook§7 + §eFeather§7 + §eAny Alex's Mob drop§7 (shapeless)."
+				"§7• Or find one in a chest in any structure where Alex's Mobs appear."
+				""
+				"§eHow to use it:§r"
+				"§7• Right-click to open. Browse entries by biome tab."
+				"§7• Each entry shows: where the mob spawns, what it drops, whether it's"
+				"§7  hostile/neutral/passive, and special interactions."
+				"§7• §eEntries unlock progressively§7 as you encounter each mob."
+				""
+				"§eHighlight mobs by biome:§r"
+				"§7• §ePlains§7 — Bison, Capuchin Monkeys, Roadrunners."
+				"§7• §eForest§7 — Raccoons, Hammerhead Sharks, Laviathans in rivers."
+				"§7• §eDesert§7 — Cachalot Whales, Potoo, Catfish."
+				"§7• §eCaves§7 — Cave Centipedes, Mimicubes (treasure chest mimics!)."
+				"§7• §eOcean§7 — Whale Sharks, Sunfish, Leafy Sea Dragons."
+				""
+				"§a► Obtain the Field Guide. Mark done once you have it in hand."
+			]
+			dependencies: ["000D0001"]
+		}
+
+		{
+			x: 0.0d
+			y: 28.0d
+			id: "000D0008"
+			tasks: [{
+				id: "000D1008"
+				type: "checkmark"
+				title: "Kill 3 different species of Alex's Mobs creatures"
+			}]
+			rewards: [
+				{id: "000D200A" type: "xp" xp: 60}
+			]
+			title: "Big Game Hunter"
+			icon: "alexsmobs:bison_fur"
+			description: [
+				"§6Alex's Mobs§f creatures drop unique materials used in recipes"
+				"§fthroughout the pack. Getting comfortable fighting them early"
+				"§fpays off in Ch 4 (cooking) and Ch 7 (gear)."
+				""
+				"§eGood starter targets:§r"
+				"§7• §eBison§7 (Plains) — drops §eBison Fur§7, used for warm armor."
+				"§7  Neutral; attacks only when provoked."
+				"§7• §eCascade§7 (River) — small, easy, drops §eCascade Scale§7."
+				"§7• §eRaccoon§7 (Forest edge) — passive but drops §eRaccoon Tail§7."
+				"§7• §eMoose§7 (Taiga) — neutral, large, drops §eMoose Antler§7 for tools."
+				"§7• §eManta Ray§7 (Ocean) — passive, drops §eManta Ray Fin§7."
+				""
+				"§eWarning mobs to avoid early:§r"
+				"§7• §eMimicube§7 — looks like a chest, very aggressive when approached."
+				"§7• §eBig Squid§7 — ocean, can pull you under water."
+				"§7• §eElectric Eel§7 — stuns and deals heavy damage in water."
+				""
+				"§eCooking integration:§r"
+				"§7• Many Alex's Mobs drops are §eFarmer's Delight§7 ingredients."
+				"§7  See Ch 4 for Central Kitchen recipes using exotic meats."
+				""
+				"§a► Kill any 3 distinct Alex's Mobs species. Mark done when complete."
+			]
+			dependencies: ["000D0007"]
+		}
+
+		{
+			x: 8.0d
+			y: 24.0d
+			id: "000D0009"
+			tasks: [{
+				id: "000D1009"
+				type: "checkmark"
+				title: "Discover an Alex's Caves biome or structure underground"
+			}]
+			rewards: [
+				{id: "000D200B" type: "xp" xp: 60}
+			]
+			title: "Underground Wonders"
+			icon: "alexscaves:xenomite_crystal"
+			description: [
+				"§6Alex's Caves§f adds entirely new underground biomes, each with"
+				"§funique blocks, creatures, and resources."
+				""
+				"§eCave biomes to find:§r"
+				"§7• §eFossil Grove§7 — ancient bones and petrified wood, warm amber light."
+				"§7  Contains §eFossil§7 blocks and unique §eExhumed§7 mob type."
+				"§7• §eAbyssal Chasm§7 — deep flooded cave, bioluminescent creatures."
+				"§7  §eAbyssal Kelp§7 grows here — ingredient for advanced potions."
+				"§7• §eXenomite Caves§7 — glowing green crystals, radioactive biome."
+				"§7  §eXenomite Crystal§7 is a crafting material for tech upgrades."
+				"§7• §eMagnetic Caves§7 — iron debris and lodestones everywhere."
+				"§7  Magnetic blocks affect player movement — disorienting and fun."
+				"§7• §ePrimordial Caves§7 — prehistoric, giant prehistoric mushrooms."
+				""
+				"§eHow to find them:§r"
+				"§7• Dig deep (y = -30 to -60) and explore widely."
+				"§7• Alex's Caves biomes replace portions of the deep layer."
+				"§7• Use §eNight Vision§7 potions — many biomes are very dark."
+				""
+				"§aTip: Bring a Waystone to mark cave entrances you want to revisit."
+				"§a► Mark done when you enter any Alex's Caves biome or find its structure."
+			]
+			dependencies: ["000D0006"]
+		}
+
+		{
+			x: 4.0d
+			y: 32.0d
+			id: "000D000A"
+			tasks: [{
+				id: "000D100A"
+				type: "checkmark"
+				title: "Interact with, tame, or trade with a Friends & Foes mob"
+			}]
+			rewards: [
+				{id: "000D200C" type: "xp" xp: 50}
+			]
+			title: "Friends & Foes"
+			icon: "friendsandfoes:moobloom_flower"
+			description: [
+				"§6Friends & Foes§f adds mobs from Minecraft community mob votes"
+				"§fthat didn't make it into vanilla — they now exist in Arcane Frontiers."
+				""
+				"§eMobs added by Friends & Foes:§r"
+				"§7• §eMoobloom§7 (Flower Forests) — flower-covered cow variant, drops"
+				"§7  §eMoobloom Petals§7 used in dyes and Farmer's Delight recipes."
+				"§7  §eInteract: right-click with shears§7 to harvest petals."
+				"§7• §eCopper Golem§7 (rare, constructed) — buildable mob from copper."
+				"§7  §eInteract: build with copper blocks and lightning rod§7."
+				"§7• §eGlare§7 (dark forests, caves) — passive, points toward dark spots."
+				"§7  §eInteract: follow one§7 to discover unlit areas worth torching."
+				"§7• §eIceologer§7 (Snowy biomes) — hostile mage, throws ice chunks."
+				"§7  Kill for §eIce Shard§7 drops (Ch 7 Twilight Forest gear material)."
+				"§7• §eWildfire§7 (Nether) — boss-tier mob with fire shields."
+				"§7  Kill for §eFireborn Scales§7 (fire resistance gear component)."
+				""
+				"§eEasiest way to complete this quest:§r"
+				"§7• Find a §eMoobloom§7 in a Flower Forest and shear it for petals."
+				""
+				"§a► Interact with, tame, trade with, or shear any F&F mob. Mark done."
+			]
+			dependencies: ["000D0008" "000D0009"]
+		}
+
+		// ============================================================
+		// 3.3  DUNGEONS & LOOT
+		// ============================================================
+
+		{
+			x: -4.0d
+			y: 36.0d
+			id: "000D000B"
+			tasks: [{
+				id: "000D100B"
+				type: "checkmark"
+				title: "Clear a YUNG's dungeon or Dungeons & Taverns structure"
+			}]
+			rewards: [
+				{id: "000D200D" type: "item" item: "minecraft:golden_apple" count: 3}
+				{id: "000D200E" type: "xp" xp: 75}
+			]
+			title: "Dungeon Delver"
+			icon: "minecraft:chest"
+			description: [
+				"§6YUNG's Better Dungeons§f replaces vanilla dungeon rooms with"
+				"§ffull multi-room dungeon complexes. §6Dungeons & Taverns§f adds"
+				"§fentirely new structures across the overworld."
+				""
+				"§eStructures to find and clear:§r"
+				"§7• §eYUNG's Catacombs§7 — underground labyrinth, multiple floors."
+				"§7  Spawners on every level. Loot chests contain enchanted books."
+				"§7• §eYUNG's Forbidden Castle§7 — surface structure, 5+ floors."
+				"§7  Contains boss room with boosted loot table."
+				"§7• §eYUNG's Ruins§7 — scattered surface ruins with buried chests."
+				"§7• §eDungeons & Taverns Tavern§7 — above-ground, safe to enter."
+				"§7  Buy custom trades from the Innkeeper villager inside."
+				"§7• §eDungeons & Taverns Dungeon§7 — underground, multi-room."
+				"§7  Best loot in the pack outside of boss drops."
+				""
+				"§eCombat tips:§r"
+				"§7• Bring at least §eIron armor§7 and §e16 cooked food§7."
+				"§7• §eArs Nouveau§7 shield spell (Orbit + Shield) blocks spawner mobs."
+				"§7• §eTetra§7 upgraded pickaxe destroys spawners in 2 hits."
+				"§7• §eTorches§7 — light every room as you clear it to prevent respawns."
+				""
+				"§a► Clear at least one room of a YUNG's or D&T dungeon. Mark done."
+			]
+			dependencies: ["000D0008"]
+		}
+
+		{
+			x: 0.0d
+			y: 40.0d
+			id: "000D000C"
+			tasks: [{
+				id: "000D100C"
+				type: "item"
+				item: "enigmaticlegacy:lucky_charm"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000D200F" type: "xp" xp: 60}
+			]
+			title: "Lucky Find"
+			icon: "enigmaticlegacy:lucky_charm"
+			description: [
+				"§6Enigmatic Legacy§f adds passive trinkets that slot into §6Curios§f"
+				"§fcharm slots and provide always-on bonuses without any action."
+				""
+				"§eThe Lucky Charm:§r"
+				"§7• Equip in a §eCurios charm slot§7 (§eG§7 key → Curios screen)."
+				"§7• Passive bonus: increased §eluck§7 stat — better loot rolls from"
+				"§7  chests, mobs, and fishing."
+				"§7• Stacks with §eRing of Fortune§7 (another Enigmatic Legacy trinket)"
+				"§7  if you find both."
+				""
+				"§eWhere to find one:§r"
+				"§7• §eDungeon chests§7 — YUNG's and D&T structures have the best"
+				"§7  chance to drop rare trinkets."
+				"§7• §eBuried Treasure§7 — use a treasure map from fishing or a"
+				"§7  Cartographer villager."
+				"§7• §eMineshaft§7 chests — less common, but possible."
+				""
+				"§eCurios slots available:§r"
+				"§7• §eBack§7 — cloak slot (backpacks go here)."
+				"§7• §eCharm×2§7 — trinket charm slots (Lucky Charm goes here)."
+				"§7• §eRing×2§7 — ring slots."
+				"§7• §eHead§7 — cosmetic hat slot."
+				""
+				"§a► Obtain a Lucky Charm (don't need to equip it, just have it)."
+			]
+			dependencies: ["000D000B"]
+		}
+
+		{
+			x: 6.0d
+			y: 44.0d
+			id: "000D000D"
+			tasks: [{
+				id: "000D100D"
+				type: "checkmark"
+				title: "Locate a Stronghold and enter the room that contains the End Portal frame"
+			}]
+			rewards: [
+				{id: "000D2010" type: "item" item: "minecraft:eye_of_ender" count: 12}
+				{id: "000D2011" type: "xp" xp: 75}
+			]
+			title: "Ancient Stronghold"
+			icon: "minecraft:ender_eye"
+			description: [
+				"§6The Stronghold§f is the gateway between the Overworld and The End."
+				"§fLocating and entering it is the final step before the End Portal Key gate."
+				""
+				"§eFinding the Stronghold:§r"
+				"§7• Craft §eEye of Ender§7 (Ender Pearl + Blaze Powder)."
+				"§7• §eThrow it§7 (right-click) — it rises into the air pointing toward"
+				"§7  the nearest Stronghold. Follow the direction it indicates."
+				"§7• Throw again periodically to recalibrate. Eyes have a §e20 Enderpearl§7"
+				"§7  crafting cost, so your 12-Eye reward from this quest covers filling"
+				"§7  the portal."
+				"§7• When the Eye drops §estraight down§7 instead of flying forward,"
+				"§7  the Stronghold is directly beneath you. Dig down."
+				""
+				"§eNavigating the Stronghold:§r"
+				"§7• Strongholds in YUNG's Better Strongholds are much larger and"
+				"§7  more maze-like than vanilla. Bring a §efull stack of torches§7."
+				"§7• Mark intersections as you go — the Portal Room is usually"
+				"§7  deeper and in a central chamber."
+				"§7• The Portal Room has a §eSilverfish spawner§7 — destroy it first."
+				""
+				"§eNext quest:§r"
+				"§7• Once you find the Portal Room, you need §emagic (Ch 1) AND§7"
+				"§7  §etechnology (Ch 2) both at gate-level§7 before you can activate it."
+				"§7• The §eEnd Portal Key§7 gate below requires both Chapter gates."
+				""
+				"§a► Enter the Stronghold Portal Room. Mark done when you see the frame."
+			]
+			dependencies: ["000D000C"]
+		}
+
+		// ============================================================
+		// GATE — END PORTAL KEY
+		// ID: 000D000E — DO NOT CHANGE — referenced by Ch1 000B0016
+		// ============================================================
+
+		{
+			x: 14.0d
+			y: 40.0d
+			shape: "hexagon"
+			id: "000D000E"
+			tasks: [{
+				id: "000D100E"
+				type: "checkmark"
+				title: "Activate the End Portal — insert all 12 Eyes of Ender into the frame"
+			}]
+			rewards: [
+				{id: "000D2012" type: "item" item: "minecraft:chorus_fruit" count: 16}
+				{id: "000D2013" type: "xp" xp: 200}
+			]
+			title: "End Portal Key ⊕"
+			subtitle: "Magic and machine, combined"
+			description: [
+				"§6This is the central gate of Arcane Frontiers.§r"
+				"§fTo open The End, you must have mastered both pillars:"
+				"§fmagic (Ch 1 Arcane Automation) and technology (Ch 2 Power Grid)."
+				"§fNeither alone is enough."
+				""
+				"§ePrerequisites:§r"
+				"§7• §6Ch 1 — Arcane Automation ✦§7 completed."
+				"§7  This means you have a Starbuncle automation network, familiars,"
+				"§7  and advanced spells — including the Bookwyrm."
+				"§7• §6Ch 2 — Power Grid ✦§7 completed."
+				"§7  This means you have Create: New Age power sources (solar, wind,"
+				"§7  electric motor) running alongside your kinetic network."
+				""
+				"§eActivating the End Portal:§r"
+				"§7• You need §e12 Eyes of Ender§7 total. We gave you 12 from the last quest."
+				"§7• Right-click §eeach of the 12 portal frame blocks§7 to insert an eye."
+				"§7• When all 12 are filled the portal activates. §eStand clear§7 of the"
+				"§7  center — the portal opens violently."
+				""
+				"§eUnlocks:§r"
+				"§7• §6Ch 3.5 — The End§7 quests (this chapter, below)."
+				"§7• §6Ch 1 — Archmage Spellbook 🔒§7 — the final magic upgrade."
+				""
+				"§eReward: 16 Chorus Fruit§r"
+				"§7• Chorus Fruit teleports you randomly up to 8 blocks."
+				"§7• Combine with Popped Chorus Fruit in a Blast Furnace → §ePurpur Block§7."
+				"§7• Needed for End-tier builds and Ars Nouveau Archmage rituals."
+				""
+				"§a► Insert all 12 Eyes of Ender into the End Portal frame. Mark done."
+			]
+			dependencies: ["000D000D" "000B0015" "000C0024"]
+		}
+
+		// ============================================================
+		// 3.4  THE NETHER
+		// ============================================================
+
+		{
+			x: 20.0d
+			y: 4.0d
+			id: "000D000F"
+			tasks: [{
+				id: "000D100F"
+				type: "checkmark"
+				title: "Step through a Nether Portal and enter the Nether dimension"
+			}]
+			rewards: [
+				{id: "000D2014" type: "xp" xp: 30}
+			]
+			title: "Nether Bound"
+			icon: "minecraft:obsidian"
+			description: [
+				"§6The Nether§f in Arcane Frontiers is overhauled by §6Incendium§f,"
+				"§fadding new biomes, structures, and hostile environments."
+				""
+				"§eBuilding a Nether Portal:§r"
+				"§7• §eMinimum frame:§7 2 wide × 3 tall Obsidian (10 blocks total)."
+				"§7• §eStandard frame:§7 4 wide × 5 tall for comfortable passage."
+				"§7• Light with §eFlint & Steel§7 or fire charge."
+				"§7• §ePortal alignment matters§7 — Nether coordinates are Overworld ÷ 8."
+				"§7  Build a second portal at the Nether side (Nether x/z × 8 = Overworld)"
+				"§7  to ensure reliable linking."
+				""
+				"§eNether survival basics:§r"
+				"§7• §eFire Protection§7 enchant on armor — mandatory."
+				"§7• Bring §eEnder Pearls§7 for emergency escape from cliffs."
+				"§7• §eGolden Helmet§7 prevents Piglins attacking (or full Gold armor)."
+				"§7• §eMilk Bucket§7 cures Wither effect from Wither Skeletons."
+				""
+				"§eIncendium changes:§r"
+				"§7• New Nether biomes with unique terrain (see next quest)."
+				"§7• New hostile mobs — read descriptions carefully in the next quests."
+				"§7• §eIncendium structures§7 contain high-tier loot unavailable elsewhere."
+				""
+				"§a► Enter the Nether. Mark done when the loading screen completes."
+			]
+			dependencies: ["000D0006"]
+		}
+
+		{
+			x: 24.0d
+			y: 8.0d
+			id: "000D0010"
+			tasks: [{
+				id: "000D1010"
+				type: "checkmark"
+				title: "Discover and enter an Incendium biome in the Nether"
+			}]
+			rewards: [
+				{id: "000D2015" type: "xp" xp: 75}
+			]
+			title: "Incendium Explorer"
+			icon: "incendium:glow_torch"
+			description: [
+				"§6Incendium§f transforms the Nether from a flat crimson landscape"
+				"§finto a layered, varied hellscape with six distinct biomes."
+				""
+				"§eIncendium biomes:§r"
+				"§7• §eToxic Heap§7 — acid green biome, poisonous slimes, corroded stone."
+				"§7  §eDrop: Sludge§7 — ingredient for corrosion-resistant gear coatings."
+				"§7• §eEmber Barrens§7 — flat, glowing cinders, ember particles."
+				"§7  §eDrop: Cinder§7 — fire-starting material, better than Flint & Steel."
+				"§7• §eQuartz Flats§7 — expanded Quartz Fields, crystalline formations."
+				"§7  §eDrop: Quartz Geode§7 — large Quartz deposits, useful for Ch 2."
+				"§7• §eNether Jungle§7 — dense nether foliage, Blaze variants lurk here."
+				"§7• §eDungeon of Souls§7 — Incendium structure, brutal loot table."
+				"§7• §eInfernal Dunes§7 — sandy Nether floor, buried ruins below."
+				""
+				"§eNavigation tip:§r"
+				"§7• Use §eNature's Compass§7 — it works in the Nether and can search"
+				"§7  for Incendium biome names (§etoxic_heap§7, §eember_barrens§7, etc.)."
+				""
+				"§a► Enter any Incendium biome in the Nether. Mark done on arrival."
+			]
+			dependencies: ["000D000F"]
+		}
+
+		{
+			x: 20.0d
+			y: 16.0d
+			id: "000D0011"
+			tasks: [{
+				id: "000D1011"
+				type: "checkmark"
+				title: "Locate a YUNG's Better Nether Fortress"
+			}]
+			rewards: [
+				{id: "000D2016" type: "xp" xp: 60}
+			]
+			title: "Fortress Found"
+			icon: "minecraft:nether_brick"
+			description: [
+				"§6YUNG's Better Nether Fortresses§f replaces the vanilla Nether Fortress"
+				"§fwith a large, multi-wing complex. If you've seen vanilla fortresses,"
+				"§fforgot them — these are far larger and more dangerous."
+				""
+				"§eWhat's in a YUNG's Fortress:§r"
+				"§7• §eBlaze Spawner rooms§7 — multiple, spread throughout the complex."
+				"§7• §eWither Skeleton halls§7 — dense, narrow corridors. High Wither risk."
+				"§7• §eLoot chest rooms§7 — locked rooms often behind hidden doors."
+				"§7• §eCentral courtyard§7 — open-air arena with multiple spawners at once."
+				""
+				"§eFinding the Fortress:§r"
+				"§7• They generate in §eNether Wastes§7 and §eCrimson Forest§7 biomes."
+				"§7• Nature's Compass can search for the §eminecraft:nether_wastes§7 biome"
+				"§7  if you need to relocate the original fortress direction."
+				"§7• Fortresses often have §ebridge extensions§7 visible from a distance."
+				""
+				"§ePreparation:§r"
+				"§7• §ePotion of Fire Resistance§7 — mandatory. Blaze fireballs are frequent."
+				"§7• §eMilk Buckets§7 ×4 — for Wither Skeleton wither effect."
+				"§7• §eFull Iron armor§7 minimum; §eDiamond§7 recommended."
+				""
+				"§a► Reach the main entrance of a YUNG's Nether Fortress. Mark done."
+			]
+			dependencies: ["000D000F"]
+		}
+
+		{
+			x: 24.0d
+			y: 20.0d
+			id: "000D0012"
+			tasks: [{
+				id: "000D1012"
+				type: "item"
+				item: "minecraft:wither_skeleton_skull"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000D2017" type: "xp" xp: 75}
+			]
+			title: "Wither Skull"
+			icon: "minecraft:wither_skeleton_skull"
+			description: [
+				"§6Wither Skeleton Skulls§f are rare drops from Wither Skeletons"
+				"§finside Nether Fortresses. You need three of them to summon the Wither."
+				""
+				"§eDropping skulls:§r"
+				"§7• Default drop rate is §e2.5%§7 per kill."
+				"§7• §eLooting III§7 on your sword raises it to §e5.5%§7."
+				"§7• On average: 20–40 kills per skull without Looting."
+				"§7• §eTip:§7 the Wither Skeleton hallways in YUNG's Fortresses contain"
+				"§7  the highest density of skeletons in the pack."
+				""
+				"§eLooting III sources:§r"
+				"§7• §eEnchanting Table§7 (30-level bookshelves) — requires XP farm."
+				"§7• §eArs Nouveau§7 Enchanting Apparatus — more controlled outcomes."
+				"§7• §eAnvil§7 + Looting III book from dungeon chests."
+				""
+				"§eThe goal: 3 skulls total§r"
+				"§7• You need three for the Wither fight (quest 000D0014)."
+				"§7• The §eSoul Sand§7 can be found in the Fortress basement or in"
+				"§7  Soul Sand Valley — §e4 blocks§7 form the T-shape for Wither summon."
+				""
+				"§a► Collect 1 Wither Skeleton Skull. Mark done."
+			]
+			dependencies: ["000D0011"]
+		}
+
+		{
+			x: 20.0d
+			y: 24.0d
+			id: "000D0013"
+			tasks: [{
+				id: "000D1013"
+				type: "item"
+				item: "minecraft:blaze_rod"
+				count: 16L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000D2018" type: "xp" xp: 60}
+			]
+			title: "Blaze Farmer"
+			icon: "minecraft:blaze_rod"
+			description: [
+				"§6Blaze Rods§f are one of the most important mid-game resources."
+				"§fYou need them for Brewing Stands, Eyes of Ender, and more."
+				""
+				"§eBlaze Rods are used in:§r"
+				"§7• §eBlaze Powder§7 — crafted 1:1, used in Eyes of Ender and potions."
+				"§7• §eBrewng Stand§7 — requires 1 Blaze Rod + 3 Cobblestone."
+				"§7• §eArs Nouveau§7 — fire glyphs scaled by Blaze Powder."
+				"§7• §eFarmer's Delight§7 — Blaze Stew and other nether cuisine."
+				""
+				"§eEfficient Blaze farming:§r"
+				"§7• Find a §eBlaze Spawner§7 in the YUNG's Fortress."
+				"§7• Build a §eplatform§7 above the spawner, leave a 2-block gap."
+				"§7  Blazes float up — funnel them onto your platform with a wall."
+				"§7• §eCreate automation§7: a Mechanical Arm above the kill zone feeds"
+				"§7  Rods into a Brass Funnel → chest automatically. See Ch 2."
+				""
+				"§eSafety:§r"
+				"§7• §eFire Resistance potion§7 — Blaze fireballs set you on fire for 4 seconds."
+				"§7• §eEnder Pearl§7 — emergency escape when surrounded."
+				"§7• §eLotus Root (Farmer's Delight)§7 — fire resist food alternative."
+				""
+				"§a► Collect 16 Blaze Rods. They don't need to come from one trip."
+			]
+			dependencies: ["000D0011"]
+		}
+
+		{
+			x: 24.0d
+			y: 28.0d
+			id: "000D0014"
+			tasks: [{
+				id: "000D1014"
+				type: "checkmark"
+				title: "Summon and defeat the Wither boss"
+			}]
+			rewards: [
+				{id: "000D2019" type: "item" item: "minecraft:nether_star" count: 1}
+				{id: "000D201A" type: "xp" xp: 200}
+			]
+			title: "Nether Star"
+			icon: "minecraft:nether_star"
+			description: [
+				"§6The Wither§f is the first major boss fight in Arcane Frontiers."
+				"§fIts §eNether Star§f drop is used to craft a §eBeacon§f — the most"
+				"§fpowerful passive buff structure in the game."
+				""
+				"§eSummoning the Wither:§r"
+				"§7• You need §e3 Wither Skeleton Skulls§7 (from quest 000D0012)."
+				"§7• Arrange §e4 Soul Sand blocks§7 in a T-shape (flat on ground or vertically)."
+				"§7• Place §e3 Wither Skulls§7 on top of the three Soul Sand blocks."
+				"§7• The Wither spawns immediately. §eBack away fast.§7"
+				""
+				"§eFight strategy:§r"
+				"§7• §ePhase 1§7 — Wither fires Wither Skulls (blue = armor-piercing)."
+				"§7  Stay mobile. §eShield§7 (or Ars Nouveau Orbit + Shield spell) blocks skulls."
+				"§7• §ePhase 2§7 (below half health) — Wither gains a shield."
+				"§7  §eYou must hit it in melee§7 — ranged and spells are blocked."
+				"§7  This is when Tetra gear pays off — see Ch 2.7."
+				"§7• §eArs Nouveau§7 — Projectile + Harm + Amplify spell hits hard in Phase 1."
+				""
+				"§eBattle location:§r"
+				"§7• §eFight underground§7 in a hollow mine chamber."
+				"§7  Wither explosion breaks most blocks — don't fight above your base!"
+				"§7• §eBedrock§7 ceiling (like the Nether roof) contains Wither explosions well."
+				""
+				"§eNether Star uses:§r"
+				"§7• §eBeacon§7 (Glass + Star + Obsidian) — gives everyone in range"
+				"§7  Haste, Speed, Strength, or Regeneration. Essential for the colony."
+				""
+				"§a► Summon and defeat the Wither. Collect the Nether Star. Mark done."
+			]
+			dependencies: ["000D0012" "000D0013"]
+		}
+
+		// ============================================================
+		// 3.5  THE END
+		// ============================================================
+
+		{
+			x: 16.0d
+			y: 48.0d
+			id: "000D0015"
+			tasks: [{
+				id: "000D1015"
+				type: "checkmark"
+				title: "Enter The End dimension through the activated portal"
+			}]
+			rewards: [
+				{id: "000D201B" type: "xp" xp: 75}
+			]
+			title: "Into The End"
+			icon: "minecraft:end_stone"
+			description: [
+				"§6The End§f is Arcane Frontiers' final Overworld-adjacent dimension."
+				"§f§6Nullscape§f has overhauled the outer End islands with new biomes"
+				"§fand terrain — the center island and Dragon fight are unchanged."
+				""
+				"§ePreparing for The End:§r"
+				"§7• §eFull Diamond armor§7 minimum. Enchant with §eProtection IV§7."
+				"§7• §eEnder Pearls ×16§7 — for crossing gaps and emergency escapes."
+				"§7• §eArrows ×128§7 or a §eMana bow§7 (Ars Nouveau) for the Crystals."
+				"§7• §eBed§7 — §eDO NOT USE§7 in The End (explosive, kills Dragon faster"
+				"§7  but also kills you)."
+				"§7• §eGolden Apples ×4§7 — emergency healing."
+				""
+				"§eEnd Portal → Spawn platform:§r"
+				"§7• You spawn on a §eObsidian pillar platform§7 above the void."
+				"§7• §eDrop carefully§7 onto the main End island using Ender Pearls."
+				"§7• The Dragon will be circling — don't panic. It won't dive immediately."
+				""
+				"§eNullscape (outer islands — Ch 3 quests 17–19):§r"
+				"§7• Reach the outer islands by §ebuilding a bridge§7 from the central"
+				"§7  island to the outer void. Ender Pearls can cross 20-block gaps."
+				"§7• §eElytra§7 makes outer island exploration trivially easy."
+				"§7  Kill the Dragon first — Elytra is only in End City ship chests."
+				""
+				"§a► Enter The End. Mark done when you see the central island."
+			]
+			dependencies: ["000D000E"]
+		}
+
+		{
+			x: 20.0d
+			y: 52.0d
+			id: "000D0016"
+			tasks: [{
+				id: "000D1016"
+				type: "checkmark"
+				title: "Slay the Ender Dragon"
+			}]
+			rewards: [
+				{id: "000D201C" type: "item" item: "minecraft:dragon_breath" count: 8}
+				{id: "000D201D" type: "xp" xp: 300}
+			]
+			title: "Dragon Defeated"
+			icon: "minecraft:dragon_head"
+			subtitle: "The gate is yours"
+			description: [
+				"§6The Ender Dragon§f is the climactic combat encounter that unlocks"
+				"§fthe outer End islands — and the Elytra — for the whole family."
+				""
+				"§eFight overview:§r"
+				"§71. §eDestroy the End Crystals§7 on top of the obsidian pillars first."
+				"§7   They heal the Dragon. Shoot them with bow or throw Ender Pearl."
+				"§7   §eCaged crystals§7 (iron bars) — shoot the crystal through the cage."
+				"§72. §eCharge attacks§7 — Dragon swoops toward you, cannot be hit mid-flight."
+				"§7   Dodge sideways or use §eArs Nouveau§7 flight glyph to ascend fast."
+				"§73. §ePerch phase§7 — Dragon lands on the central pillar portal."
+				"§7   §eNow attack!§7 Melee the head (weak point) or charge spells."
+				"§7   Tetra upgraded sword deals 8–14 damage per hit on head contact."
+				"§74. §eDeath§7 — explosion, beam, massive XP drops, portal activates."
+				""
+				"§eArs Nouveau synergy:§r"
+				"§7• §eProjectile + Harm + Amplify + Extend Time§7 deals ~60 source"
+				"§7  but hits for 12 damage — excellent during the perch phase."
+				"§7• §eAoeWard§7 (your Mage Spellbook) blocks Dragon Breath clouds."
+				""
+				"§eReward: Dragon Breath ×8§r"
+				"§7• Used to craft §eLingeringPotion§7 (Tipped Arrows, area-effect traps)."
+				"§7• Also an ingredient in §eArs Nouveau§7 advanced rituals."
+				""
+				"§a► Kill the Ender Dragon. The portal will activate automatically."
+				"§a► Step through it back to the Overworld, or continue to outer islands."
+			]
+			dependencies: ["000D0015"]
+		}
+
+		{
+			x: 24.0d
+			y: 52.0d
+			id: "000D0017"
+			tasks: [{
+				id: "000D1017"
+				type: "checkmark"
+				title: "Reach the Outer End Islands (1000+ blocks from center) and survive"
+			}]
+			rewards: [
+				{id: "000D201E" type: "xp" xp: 100}
+			]
+			title: "Outer Reaches"
+			icon: "minecraft:chorus_plant"
+			description: [
+				"§6The Outer End Islands§f are only reachable after the Dragon is dead."
+				"§f§6Nullscape§f overhauls the outer End with new island types, new terrain,"
+				"§fand unique structures not found in the central island."
+				""
+				"§eGetting to the outer islands:§r"
+				"§7• After killing the Dragon, a §egateway portal§7 appears at the edge"
+				"§7  of the central island. Throw an §eEnder Pearl§7 into it."
+				"§7• You teleport to a platform 1000 blocks from center."
+				"§7• §eBridge carefully§7 — the void is everywhere. Ender Pearls help."
+				""
+				"§eNullscape biomes to find:§r"
+				"§7• §eBlank§7 — default outer island terrain, now more varied."
+				"§7• §eVoid Blossom§7 — glowing End flowers, peaceful biome."
+				"§7• §eCrystalline§7 — towering amethyst-End crystal formations."
+				"§7• §eVoid Abyss§7 — dark, sparse, haunted End variant."
+				""
+				"§eSurvival tips:§r"
+				"§7• §eChorus Fruit§7 is your emergency teleport — always carry some."
+				"§7• §eFeather Falling IV§7 boots save you from short falls onto islands."
+				"§7• §eSlow Falling§7 potion — makes island-to-island jumping forgiving."
+				""
+				"§a► Reach the Outer End Islands (use the gateway pearl-throw)."
+				"§a► Stand on an island 1000+ blocks from center. Mark done."
+			]
+			dependencies: ["000D0016"]
+		}
+
+		{
+			x: 28.0d
+			y: 52.0d
+			id: "000D0018"
+			tasks: [{
+				id: "000D1018"
+				type: "checkmark"
+				title: "Find an End City structure in the outer End islands"
+			}]
+			rewards: [
+				{id: "000D201F" type: "xp" xp: 100}
+			]
+			title: "End City"
+			icon: "minecraft:purpur_block"
+			description: [
+				"§6End Cities§f are towering Purpur Block structures on the outer"
+				"§fEnd islands. They contain the best loot in the base game —"
+				"§fand the §eElytra§f is only found here."
+				""
+				"§eFinding an End City:§r"
+				"§7• End Cities cluster in certain island chains. Travel 2000–3000"
+				"§7  blocks from center if the first group of islands has none."
+				"§7• §eLook for tall lavender towers§7 rising above the islands."
+				"§7• §eNature's Compass§7 — search §eend_highlands§7 (the biome End Cities"
+				"§7  prefer most). This is the fastest method."
+				""
+				"§eEnd City structure:§r"
+				"§7• §eMain tower§7 — multiple floors, Shulker boxes everywhere."
+				"§7• §eBridge§7 — connects to the End Ship (floating nearby)."
+				"§7• §eEnd Ship§7 — contains the §eElytra§7 in the item frame, guarded by"
+				"§7  two Shulkers. §eDo not break the item frame§7 — walk up and take the"
+				"§7  Elytra directly."
+				""
+				"§eShulker tips:§r"
+				"§7• Shulkers fire §eLevitation§7 projectiles — hit sends you floating."
+				"§7• §eEnd up over the void while levitating§7 = death. Stay near walls."
+				"§7• §eShield§7 blocks projectiles. §eArs Nouveau Shield + Orbit§7 covers all sides."
+				""
+				"§a► Find an End City. Mark done on arrival."
+			]
+			dependencies: ["000D0017"]
+		}
+
+		{
+			x: 32.0d
+			y: 52.0d
+			id: "000D0019"
+			tasks: [{
+				id: "000D1019"
+				type: "item"
+				item: "minecraft:elytra"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000D2020" type: "item" item: "minecraft:firework_rocket" count: 32}
+				{id: "000D2021" type: "xp" xp: 200}
+			]
+			title: "Elytra!"
+			icon: "minecraft:elytra"
+			subtitle: "The sky is no longer a ceiling"
+			description: [
+				"§6The Elytra§f transforms movement in Arcane Frontiers."
+				"§fCombined with §6Firework Rockets§f for thrust, it effectively replaces"
+				"§fmounts for fast overland travel."
+				""
+				"§eGetting the Elytra:§r"
+				"§7• In the §eEnd Ship§7 (floating next to the End City)."
+				"§7• Climb the bridge from the City to the Ship."
+				"§7• The Elytra is mounted in an §eItem Frame§7 in the ship's bow room."
+				"§7• §eTake it directly from the frame§7 — don't break the frame."
+				"§7• Two §eShulker§7 guards. Kill them before grabbing the Elytra."
+				""
+				"§eEquipping and using:§r"
+				"§7• §eEquip in the Chest armor slot§7 (replaces your chest armor)."
+				"§7• §eFall off a block§7 then §epress Jump§7 mid-air to open the wings."
+				"§7• §eFirework Rockets§7 give thrust mid-flight — right-click to boost."
+				"§7  Your 32 reward rockets get you started."
+				"§7• §eArs Nouveau§7 — the §eFly§7 glyph provides powered flight without"
+				"§7  rockets, but uses Source. Elytra gliding is free."
+				""
+				"§eRepairs and upgrades:§r"
+				"§7• Repair with §ePhantom Membrane§7 at an anvil."
+				"§7• §eUnbreaking III + Mending§7 — Elytra with Mending never wears out."
+				"§7• §eCurse of Binding§7 — §eDO NOT put this on your Elytra§7."
+				""
+				"§a► Obtain the Elytra from the End Ship item frame."
+			]
+			dependencies: ["000D0018"]
+		}
+
+		{
+			x: 28.0d
+			y: 56.0d
+			id: "000D001A"
+			tasks: [{
+				id: "000D101A"
+				type: "item"
+				item: "minecraft:shulker_shell"
+				count: 4L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000D2022" type: "item" item: "minecraft:shulker_box" count: 2}
+				{id: "000D2023" type: "xp" xp: 100}
+			]
+			title: "Shulker Shell"
+			icon: "minecraft:shulker_shell"
+			description: [
+				"§6Shulker Boxes§f are the pack's most important storage item."
+				"§fUnlike chests, they §eretain their contents§f when broken —"
+				"§fmaking them the go-to for mobile storage and bulk transport."
+				""
+				"§eGetting Shulker Shells:§r"
+				"§7• Kill §eShulkers§7 in End Cities (1–2 shells per kill)."
+				"§7• §eLooting III§7 improves drop chance."
+				"§7• §e4 shells§7 = 2 Shulker Boxes (each box takes 2 shells + 1 chest)."
+				""
+				"§eCrafting a Shulker Box:§r"
+				"§7• §e2 Shulker Shells§7 + §e1 Chest§7 (shapeless)."
+				"§7• Right-click to §ecolor§7 with any dye — great for color-coded systems."
+				""
+				"§eShulker Boxes in storage systems:§r"
+				"§7• §eSophisticated Storage§7 (Ch 2.3) can §eautomatically sort§7 into"
+				"§7  color-coded Shulker Boxes using the Sorting Upgrade."
+				"§7• §eCreate§7 Mechanical Arms can move Shulker Boxes between depots."
+				"§7• §eLittle Logistics§7 (Ch 2.8) — Barges can carry Shulker Boxes"
+				"§7  river-to-river for bulk material transport."
+				""
+				"§eColony integration:§r"
+				"§7• Color-code boxes by colony resource type:"
+				"§7  §eGreen§7 = food, §eYellow§7 = building materials, §eRed§7 = colony tools."
+				"§7• Couriers pull from labeled boxes in the Warehouse."
+				""
+				"§a► Collect 4 Shulker Shells. Reward: 2 Shulker Boxes to get you started."
+			]
+			dependencies: ["000D0018"]
+		}
+
+		{
+			x: 24.0d
+			y: 56.0d
+			id: "000D001B"
+			tasks: [{
+				id: "000D101B"
+				type: "checkmark"
+				title: "Discover a Nullscape biome in the outer End islands"
+			}]
+			rewards: [
+				{id: "000D2024" type: "xp" xp: 100}
+			]
+			title: "Nullscape Depths"
+			icon: "nullscape:chorus_stone"
+			description: [
+				"§6Nullscape§f overhauls the outer End islands with new biomes that"
+				"§fmake the End feel like a distinct dimension rather than a"
+				"§fmonotone floating-islands level."
+				""
+				"§eNullscape biomes:§r"
+				"§7• §eVoid Blossom§7 — softly glowing, pale End flowers on tall islands."
+				"§7  Serene and beautiful. §eChorus Flower§7 variants grow here."
+				"§7• §eCrystalline§7 — massive End Crystal formations on the ground."
+				"§7  §eEnd Crystal Cluster§7 blocks generate, harvestable with Silk Touch."
+				"§7• §eVoid Abyss§7 — almost empty, few islands, dark and eerie."
+				"§7  §eNullstone§7 (new block) generates as the primary island material."
+				"§7• §eEndergetic Expansion§7 — dense Chorus Plant growth, purpur formations."
+				""
+				"§eNullscape blocks:§r"
+				"§7• §eNullstone§7 — dark, textured End stone variant. Excellent decorative block."
+				"§7• §eChorus Stone§7 — compressed chorus material, purple-grey."
+				"§7• §eEnd Crystal Cluster§7 — decorative, emits light, needs Silk Touch."
+				""
+				"§eFinding Nullscape biomes:§r"
+				"§7• Use §eNature's Compass§7 — search §enullscape:void_blossom§7 or"
+				"§7  §enullscape:crystalline§7 to pinpoint a biome direction."
+				"§7• They replace portions of the outer island layer."
+				""
+				"§a► Discover and enter any Nullscape biome. Mark done on arrival."
+			]
+			dependencies: ["000D0017"]
+		}
+
+		// ============================================================
+		// GATE — DRAGON SLAYER ✦
+		// ID: 000D001C — DO NOT CHANGE — referenced by Ch5 (future)
+		// ============================================================
+
+		{
+			x: 32.0d
+			y: 58.0d
+			shape: "hexagon"
+			id: "000D001C"
+			tasks: [{
+				id: "000D101C"
+				type: "checkmark"
+				title: "Collect the Dragon Egg, Dragon Head, and Elytra — the three End trophies"
+			}]
+			rewards: [
+				{id: "000D2025" type: "item" item: "minecraft:beacon" count: 1}
+				{id: "000D2026" type: "xp" xp: 500}
+			]
+			title: "Dragon Slayer ✦"
+			subtitle: "The End is no longer an ending"
+			description: [
+				"§6Three trophies mark the true completion of The End:§r"
+				"§7• §eDragon Egg§7 — drops when the Dragon dies, perched atop the central"
+				"§7  portal pillar. §eYou cannot break it directly§7 — throw a Piston or"
+				"§7  Torch underneath to pop it, then catch it in a collection chamber."
+				"§7  §eTip:§7 place a Torch 2 blocks below the Egg → it pops onto the torch"
+				"§7  and drops as an item."
+				"§7• §eDragon Head§7 — found at the bow of the §eEnd Ship§7 (same ship as"
+				"§7  Elytra). Walk to the front of the ship — it's mounted on the hull wall."
+				"§7• §eElytra§7 — already collected in quest 000D0019."
+				""
+				"§eDragon Head display:§r"
+				"§7• Place in the §ehelmet slot§7 — the Dragon Head becomes a cosmetic"
+				"§7  wearable that animates when you talk."
+				"§7• §eDisplay§7 on an Armor Stand (Vanilla or Supplementaries) in your"
+				"§7  trophy room alongside the Wither trophies."
+				""
+				"§eReward: Beacon§r"
+				"§7• Craft: §e5 Glass + 1 Nether Star + 3 Obsidian§7 — pyramid shape."
+				"§7• Needs a §epyramid base§7 of iron/gold/diamond/emerald blocks."
+				"§7• §e1-tier pyramid§7 (9 iron blocks) = Haste 1 / Speed 1 / others."
+				"§7• §e4-tier pyramid§7 (164 iron blocks) = Secondary effect + Hero of the"
+				"§7  Village bonus. Ideal placement: center of the colony."
+				""
+				"§eThis gate unlocks:§r"
+				"§7• §6Ch 5 — Arcane Synthesis§7 — the Create+Ars Nouveau crossover chapter."
+				"§7  Ch 5 quests require both the arcane and industrial mastery you have"
+				"§7  now demonstrated."
+				""
+				"§a► Have all three End trophies (Egg + Head + Elytra). Mark done."
+			]
+			dependencies: ["000D0016" "000D0019" "000D001A"]
+		}
+
+	]
+	quest_links: []
+}

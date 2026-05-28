@@ -1,0 +1,166 @@
+#================================================================
+# minecolonies-server.toml — Arcane Frontiers
+# Gameplay and colony management settings.
+# These run server-side only.
+#
+# Arcane Frontiers uses ONE shared family colony.
+# All players co-own and contribute to the same settlement.
+# The quest system in Ch 6 is designed around this single
+# shared colony — one Town Hall, one kingdom, built together.
+#
+# Deploy location:
+#   Server: [Server Root]/config/minecolonies-server.toml
+#   (Client does not need this file)
+#================================================================
+
+[gameplay]
+
+    #---------------------------------------------------------
+    # COLONY COUNT — SINGLE SHARED FAMILY COLONY
+    #---------------------------------------------------------
+
+    maxColonies = 1
+    # One colony per server. This enforces the Arcane Frontiers
+    # design: one shared kingdom that the whole family builds
+    # together. Players cannot found a second colony.
+    #
+    # If a family member accidentally places a Supply Ship in
+    # the wrong location before the Town Hall is built:
+    #   /mc colony delete [colonyId] confirm
+    # Then place a new Supply Ship in the correct spot.
+
+    #---------------------------------------------------------
+    # COLONY PROTECTION
+    #---------------------------------------------------------
+
+    enableColonyProtection = true
+    # Protects the colony claim area from block destruction
+    # by non-colony-member players and mobs.
+    # Safe to enable since it's one shared colony — all family
+    # members are colony members with full build rights.
+    # Prevents accidental terrain damage near buildings under
+    # construction when the Builder has active scaffolding up.
+
+    turnOffExplosionsInColonies = true
+    # Prevents Creeper and TNT explosions from damaging
+    # colony buildings. Does NOT prevent combat explosions
+    # against players — just building block damage.
+    # Strongly recommended for family play: one Creeper
+    # near the Town Hall without this enabled can destroy
+    # hours of Builder work.
+
+    colonyProtectionLevel = 2
+    # Protection strength level.
+    # 1 = colony members only can break blocks
+    # 2 = colony members + ops can break blocks (recommended)
+    # 3 = full lock — only the colony owner can break blocks
+    # Level 2 lets an op parent fix griefing or accidents
+    # without needing to be the founding colony member.
+
+    #---------------------------------------------------------
+    # CITIZEN LIFECYCLE
+    #---------------------------------------------------------
+
+    citizenRespawnInterval = 600
+    # Ticks between citizen respawns after death (600 = 30 sec).
+    # Default is much lower, which causes Guard corpses to
+    # immediately respawn and pile up during raid waves.
+    # 600 ticks gives a natural pause: Guards die, the family
+    # notices, a new recruit eventually takes the post.
+    # Does NOT affect citizen names — respawned citizens get
+    # new names, maintaining the "real kingdom people" feeling.
+
+    canColonistsDie = true
+    # Citizens can be killed by mobs and raids.
+    # Keep TRUE — death gives the garrison quests (Ch 6.8)
+    # real stakes and makes Guard Training meaningful.
+    # The family CARES when "Steve the Fletcher" gets killed
+    # in a raid far more than when an invincible citizen shrugs
+    # off 10 Barbarians.
+    #
+    # If younger family members find citizen death upsetting:
+    # Set to false — zero gameplay impact, citizens just become
+    # invincible. Their profession, inventory, and assignments
+    # are completely unaffected.
+
+    minFoodLevel = 0
+    # Minimum hunger level for citizens to work.
+    # 0 = citizens work even when hungry (recommended).
+    # Raising this requires a functioning Restaurant before
+    # early buildings can operate — too punishing for setup.
+    # The Restaurant quest (Ch 6.4) naturally teaches food
+    # supply without gating early construction behind it.
+
+    #---------------------------------------------------------
+    # BUILDER BEHAVIOR
+    #---------------------------------------------------------
+
+    builderPlaceConstructionTape = true
+    # Builder places orange construction tape around active
+    # build sites. Highly recommended: the whole family can
+    # see exactly where the Builder is working and won't
+    # accidentally build on top of an in-progress schematic.
+    # Construction tape is removed automatically when the
+    # build completes.
+
+    builderBuildBlockDelay = 1
+    # Ticks between each block the Builder places (default 1).
+    # Increasing to 2–3 slows visible construction but
+    # reduces server tick pressure during large builds.
+    # Leave at 1 for fast builds — increase only if the server
+    # stutters during Town Hall Tier 5 upgrades.
+
+    #---------------------------------------------------------
+    # DISPLAY & UI
+    #---------------------------------------------------------
+
+    alwaysRenderNameTag = true
+    # Citizen name tags always visible, not just on hover.
+    # Essential for a large kingdom — the family can see
+    # "Elena the Blacksmith" running to her forge from across
+    # the town without needing to mouse over each citizen.
+
+    colonyBorderDisplayMode = 1
+    # How colony borders display.
+    # 0 = never shown
+    # 1 = shown when near the border (recommended)
+    # 2 = always shown
+    # Mode 1 helps family members understand claim boundaries
+    # during town expansion planning.
+
+    #---------------------------------------------------------
+    # RESEARCH & UNIVERSITY
+    #---------------------------------------------------------
+
+    researchCreativeCompletion = false
+    # Prevents completing University research instantly
+    # in creative mode. Keep false — research progression
+    # is part of the kingdom-building arc in Ch 6.6.
+
+    researchDebugLog = false
+    # Verbose research logging — leave false unless
+    # debugging a stuck University quest.
+
+    #---------------------------------------------------------
+    # WAR 'N TAXES COMPATIBILITY
+    #---------------------------------------------------------
+
+    # MineColonies: War 'N Taxes reads raid settings from here.
+    # enableColonyRaids is set in minecolonies-common.toml.
+    # The settings below control raid scaling for a family server.
+
+    raidDifficulty = 3
+    # Barbarian raid difficulty multiplier (1–10).
+    # Default is 5. Setting 3 gives genuine challenge without
+    # the raid waves that wipe all guards on Hard servers.
+    # The Ch 6.8 "First Raid Survived" quest is achievable at
+    # difficulty 3 with a Tier 2 Barracks and 4 Guards.
+    # Increase to 5 once your garrison has a Combat Academy
+    # and Druid's Hut supporting the Guard force.
+
+    averageNumberOfNightsBetweenRaids = 14
+    # Roughly 2 in-game weeks between raid waves.
+    # Gives the colony time to build defenses before the next
+    # attack. Default is lower. Family sessions that skip
+    # nights via Comforts Sleeping Bags will reach raids
+    # faster — this value is in real game-nights, not real time.

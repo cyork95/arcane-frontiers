@@ -1,0 +1,530 @@
+{
+	id: "00120000"
+	group: ""
+	order_index: 7
+	filename: "7_twilight"
+	title: "Chapter 7: The Twilight Adventure"
+	icon: "twilightforest:magic_map"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	// ================================================================
+	// CROSS-CHAPTER DEPENDENCY REFERENCE
+	//
+	// IDs this chapter USES from other chapters:
+	//   000D001C = Ch 3 "Dragon Slayer ✦" — gear-check gate
+	//              → prereq for 00120001 (Twilight Portal ◆)
+	//
+	// IDs this chapter EXPORTS:
+	//   0012000B = "Arcane Frontiers ✦" — FINAL modpack completion gate
+	//              (no downstream deps — this is the end)
+	//
+	// TROPHY DISPLAY NOTE:
+	//   The "Ch 7.3 Twilight Explorer" quest referenced in tooltips is:
+	//   quest 0012000A — display all 6 Twilight boss trophies.
+	// ================================================================
+	quests: [
+
+		// ============================================================
+		// 7.1  ENTRY
+		// ============================================================
+
+		{
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			id: "00120001"
+			tasks: [{
+				id: "00121001"
+				type: "checkmark"
+				title: "Build a Twilight Forest portal and enter the Twilight Forest dimension"
+			}]
+			rewards: [
+				{id: "00122001" type: "item" item: "twilightforest:magic_map" count: 1}
+				{id: "00122002" type: "xp" xp: 100}
+			]
+			title: "Twilight Portal"
+			icon: "twilightforest:magic_map"
+			subtitle: "A forest that never sees full daylight"
+			description: [
+				"§6The Twilight Forest§f is a dimension of eternal twilight —"
+				"§fperpetual dusk, ancient trees, and six bosses arranged in a"
+				"§flinear progression. Each boss unlocks the next."
+				""
+				"§ePrerequisite:§r"
+				"§7• §6Dragon Slayer ✦§7 (Ch 3) confirmed — you have End-tier gear."
+				"§7• §6Archmage Spellbook§7 recommended — Ars spells shine in TF."
+				"§7• §6Tetra§7 upgraded weapons (Ch 2.7) — Brass and Andesite gear holds well."
+				""
+				"§eBuilding the portal:§r"
+				"§71. §eDig a 2×2 hole§7 in the ground, 1 block deep."
+				"§72. §eFill§7 the hole with §ewater§7."
+				"§73. §eSurround§7the water with any §eflowers§7 (12 flowers for 2×2 pool)."
+				"§74. §eThrow a§7 §eDiamond§7 into the water pool."
+				"§75. The portal §eactivates§7 — lightning strikes the pool."
+				"§76. §eEnter§7 the glowing vortex."
+				""
+				"§eMagic Map (reward):§r"
+				"§7• §eRight-click§7 in the Twilight Forest → generates a map of the biomes."
+				"§7• §eBoss locations§7 show as icons on the Magic Map."
+				"§7• §eTreasure Map§7 (in TF chests) marks specific boss lairs."
+				""
+				"§a► Build the portal and enter. Mark done on arrival in the Twilight Forest."
+			]
+			dependencies: ["000D001C"]
+		}
+
+		// ============================================================
+		// 7.2  BOSS PROGRESSION
+		// ============================================================
+
+		{
+			x: 0.0d
+			y: 8.0d
+			id: "00120002"
+			tasks: [{
+				id: "00121002"
+				type: "item"
+				item: "twilightforest:naga_trophy"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00122003" type: "item" item: "twilightforest:naga_scale" count: 8}
+				{id: "00122004" type: "xp" xp: 150}
+			]
+			title: "The Naga — Boss 1/6"
+			icon: "twilightforest:naga_trophy"
+			description: [
+				"§6The Naga§f is the first Twilight Forest boss and the gate to all others."
+				"§fDefeat it to unlock the §eLich Towers§f."
+				""
+				"§eFinding the Naga:§r"
+				"§7• The Naga spawns in §eNaga Courtyards§7 — circular stone structures"
+				"§7  in the §eForest§7 biome. Check your Magic Map for courtyard icons."
+				""
+				"§eFight strategy:§r"
+				"§7• The Naga is a §elong serpent§7 — attack the §ehead§7 for damage."
+				"§7• §eCircle the arena§7 — the Naga coils and charges in straight lines."
+				"§7• §eArs Nouveau§7 Projectile + Harm + Amplify — hits the head for 10+ damage."
+				"§7• §eBow§7 ranged fire from the courtyard wall is the safest approach."
+				""
+				"§eDrops:§r"
+				"§7• §eNaga Trophy§7 — display in Trophy Room for Ch 7.3."
+				"§7• §eNaga Scale§7 — crafting material for Naga Scale armor (high defense)."
+				""
+				"§a► Defeat the Naga and collect the Trophy."
+			]
+			dependencies: ["00120001"]
+		}
+
+		{
+			x: 0.0d
+			y: 16.0d
+			id: "00120003"
+			tasks: [{
+				id: "00121003"
+				type: "item"
+				item: "twilightforest:lich_trophy"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00122005" type: "item" item: "twilightforest:magic_map_focus" count: 3}
+				{id: "00122006" type: "xp" xp: 200}
+			]
+			title: "Twilight Lich — Boss 2/6"
+			icon: "twilightforest:lich_trophy"
+			description: [
+				"§6The Twilight Lich§f is a powerful undead mage atop a §eLich Tower§f."
+				"§fDefeating it unlocks the §eLabyrinth§f (Minoshroom)."
+				""
+				"§eFinding the Lich Tower:§r"
+				"§7• Large gothic tower visible from across the forest."
+				"§7• Check §eMagic Map§7 — Lich Towers appear after Naga is defeated."
+				""
+				"§eFight — three phases:§r"
+				"§71. §ePhase 1§7 — three §eGolden Shields§7 orbit the Lich."
+				"§7   Destroy all three shields before the Lich takes damage."
+				"§7   §eShields are one-shot each§7 — any hit destroys them."
+				"§72. §ePhase 2§7 — Lich teleports and summons zombie minions."
+				"§7   Focus the Lich directly, ignore minions."
+				"§73. §ePhase 3§7 — Lich fires ender pearls and shadow bolts rapidly."
+				"§7   §eShield + dodge§7. Ars Nouveau Orbit + Shield covers all angles."
+				""
+				"§eDrops:§r"
+				"§7• §eLich Trophy§7 — Ch 7.3 display."
+				"§7• §eMagic Map Focus§7 — crafts Orb Maps that show boss locations."
+				"§7• §eScepters§7 (random) — powerful wands, especially §eLifedrain Scepter§7."
+				""
+				"§a► Defeat the Twilight Lich and collect the Trophy."
+			]
+			dependencies: ["00120002"]
+		}
+
+		{
+			x: 0.0d
+			y: 24.0d
+			id: "00120004"
+			tasks: [{
+				id: "00121004"
+				type: "checkmark"
+				title: "Defeat the Minoshroom boss in the Twilight Forest Labyrinth and collect its Meef Stroganoff"
+			}]
+			rewards: [
+				{id: "00122007" type: "item" item: "twilightforest:meef_stroganoff" count: 4}
+				{id: "00122008" type: "xp" xp: 175}
+			]
+			title: "The Labyrinth — Boss 3/6"
+			icon: "twilightforest:minoshroom"
+			description: [
+				"§6The Minoshroom§f guards the center of the §eTwilight Labyrinth§f —"
+				"§fa massive underground maze. Defeating it opens the §eHydra Lair§f."
+				""
+				"§eFinding the Labyrinth:§r"
+				"§7• Large hedge-maze structure. Use §eMagic Map§7 after Lich defeat."
+				"§7• §eMaze Map§7 (craftable) reveals the Labyrinth interior layout."
+				""
+				"§eNavigating the Labyrinth:§r"
+				"§7• §eLight torches§7 as you go — the maze is enormous and dark."
+				"§7• §eMaze Wafer§7 item (found in maze chests) gives Labyrinth map info."
+				"§7• §eMinotaurs§7 patrol the halls — hostile, deal moderate damage."
+				"§7• §eCentral chamber§7 has the Minoshroom — large mushroom-headed bull."
+				""
+				"§eFight:§r"
+				"§7• §eMinoshroom§7 charges and stomps. High health, moderate damage."
+				"§7• §eKeep moving§7 — charge attacks are telegraphed, easy to sidestep."
+				"§7• §eArs Nouveau§7 Projectile + Harm + Pierce + Amplify hits from safe range."
+				""
+				"§eDrops:§r"
+				"§7• §eMeef Stroganoff§7 — the most nutritious Farmer's Delight-adjacent meal"
+				"§7  in the pack. Grants Strength I for 30 seconds when eaten."
+				"§7• §eTrophy§7 (Minoshroom Head) — for the trophy room."
+				""
+				"§a► Defeat the Minoshroom and collect Meef Stroganoff. Mark done."
+			]
+			dependencies: ["00120003"]
+		}
+
+		{
+			x: 0.0d
+			y: 32.0d
+			id: "00120005"
+			tasks: [{
+				id: "00121005"
+				type: "item"
+				item: "twilightforest:hydra_trophy"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00122009" type: "item" item: "twilightforest:fiery_blood" count: 4}
+				{id: "0012200A" type: "xp" xp: 250}
+			]
+			title: "The Hydra — Boss 4/6"
+			icon: "twilightforest:hydra_trophy"
+			description: [
+				"§6The Hydra§f is the most visually impressive Twilight boss — a"
+				"§fmulti-headed fire-breathing serpent in a §eFire Swamp§f lair."
+				"§fDefeating it unlocks the §eDark Tower§f (Ur-Ghast)."
+				""
+				"§eFinding the Hydra Lair:§r"
+				"§7• Large circular burned clearing in the §eFire Swamp§7 biome."
+				"§7• §eFireflies§7 from Alex's Mobs mark the swamp edge at night."
+				""
+				"§eFight strategy:§r"
+				"§7• §eMultiple heads§7 — each fires fire breath or lunges to bite."
+				"§7• §eShoot open mouths§7 with arrows/spells when heads rear back to fire."
+				"§7  Open mouth = vulnerable for ~1 second. That's your window."
+				"§7• §eDo not use fire§7 — the Hydra is immune. Projectile + Harm + Amplify."
+				"§7• §eSever a head§7 — it regrows as two. Only destroy heads when you can"
+				"§7  kill two replacements — or §enever sever§7 heads and just whittle health."
+				"§7• §ePotion of Fire Resistance§7 — mandatory. The swamp floor is on fire."
+				""
+				"§eDrops:§r"
+				"§7• §eHydra Trophy§7 — Ch 7.3 display."
+				"§7• §eFiery Blood§7 (reward) — required for Fiery Ingot crafting (next quest)."
+				""
+				"§a► Defeat the Hydra and collect the Trophy."
+			]
+			dependencies: ["00120004"]
+		}
+
+		{
+			x: 0.0d
+			y: 40.0d
+			id: "00120006"
+			tasks: [{
+				id: "00121006"
+				type: "item"
+				item: "twilightforest:ur_ghast_trophy"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "0012200B" type: "item" item: "twilightforest:carminite" count: 8}
+				{id: "0012200C" type: "xp" xp: 275}
+			]
+			title: "Ur-Ghast — Boss 5/6"
+			icon: "twilightforest:ur_ghast_trophy"
+			description: [
+				"§6The Ur-Ghast§f is a colossal Ghast-like creature atop the §eDark Tower§f."
+				"§fDefeating it unlocks the §eGlacier§f and §eSnow Queen§f."
+				""
+				"§eFinding the Dark Tower:§r"
+				"§7• An enormous black tower visible from far away in §eDarkwood§7 biome."
+				"§7• Multiple floors of Carminite-powered traps and Ghast spawners."
+				"§7• §eClimb carefully§7 — each floor has new trap mechanics."
+				""
+				"§eDark Tower interior:§r"
+				"§7• §eCarminite Golem§7 rooms — large constructs, high HP."
+				"§7• §eGhastling§7 spawners — mini-ghasts that deal significant damage."
+				"§7• §eCarminite Traps§7 — explode when stepped on. §eDeactivate with redstone§7."
+				"§7• §eRooftop§7 — where the Ur-Ghast spawns."
+				""
+				"§eFight strategy:§r"
+				"§7• §eReflect§7 Ur-Ghast fireballs back with a §esword swing§7 (like vanilla Ghast)."
+				"§7• §eOr use a Bow§7 — Power V bow deals massive damage to its large hitbox."
+				"§7• §eArs Nouveau§7 Projectile + Harm + Amplify → 15+ damage per cast."
+				""
+				"§eDrops:§r"
+				"§7• §eUr-Ghast Trophy§7 — Ch 7.3 display."
+				"§7• §eCarminite§7 — crafting material for Dark Tower building blocks."
+				""
+				"§a► Defeat the Ur-Ghast and collect the Trophy."
+			]
+			dependencies: ["00120005"]
+		}
+
+		{
+			x: 0.0d
+			y: 48.0d
+			id: "00120007"
+			tasks: [{
+				id: "00121007"
+				type: "item"
+				item: "twilightforest:snow_queen_trophy"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "0012200D" type: "item" item: "twilightforest:ice_bomb" count: 8}
+				{id: "0012200E" type: "xp" xp: 350}
+			]
+			title: "Snow Queen — Boss 6/6"
+			icon: "twilightforest:snow_queen_trophy"
+			subtitle: "The final boss of the Twilight Forest"
+			description: [
+				"§6The Snow Queen§f rules the §eAurora Palace§f — a towering ice cathedral"
+				"§fat the heart of the §eGlacier§f biome. She is the final Twilight Forest boss."
+				""
+				"§eFinding the Aurora Palace:§r"
+				"§7• §eGlacier biome§7 — white ice fields and towering aurora spires."
+				"§7• The Palace is the largest structure in the Glacier. Hard to miss."
+				"§7• §eNavigate§7 through ice rooms and Penguin mob chambers to reach her throne."
+				""
+				"§eFight strategy:§r"
+				"§7• §eSnow Queen§7 hovers and fires ice bolts, ice bombs, and frost rays."
+				"§7• §eIce bombs§7 freeze you in place — §ebreak free§7 by swinging rapidly."
+				"§7• §eFrost ray§7 deals sustained cold damage — §edodge sideways§7."
+				"§7• §eHigh mobility§7 wins this fight. §eElytra§7 (Ch 3.5) is excellent here."
+				"§7• §eArs Nouveau§7 Projectile + Harm + Amplify + Burst works well."
+				"§7• §eFire damage§7 does bonus damage — §eFire Aspect§7 sword or §eIgnite glyph§7."
+				""
+				"§eDrops:§r"
+				"§7• §eSnow Queen Trophy§7 — Ch 7.3 display. §eThis completes all 6.§7"
+				"§7• §eIce Bombs§7 — throw to freeze mobs on contact. Excellent utility."
+				"§7• §eIce Crystal§7 — crafting material for Ice Crystal tools."
+				""
+				"§a► Defeat the Snow Queen and collect the final Trophy."
+			]
+			dependencies: ["00120006"]
+		}
+
+		// ============================================================
+		// 7.3  TWILIGHT EXPLORER
+		// ============================================================
+
+		{
+			x: -6.0d
+			y: 56.0d
+			id: "00120008"
+			tasks: [{
+				id: "00121008"
+				type: "item"
+				item: "twilightforest:fiery_ingot"
+				count: 4L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "0012200F" type: "item" item: "twilightforest:fiery_ingot" count: 4}
+				{id: "00122010" type: "xp" xp: 200}
+			]
+			title: "Fiery Forge"
+			icon: "twilightforest:fiery_ingot"
+			description: [
+				"§6Fiery Ingots§f are the premier crafting material from the Twilight Forest."
+				"§fThey enable §eFiery Armor§f and §eFiery Sword§f — fire-immune gear."
+				""
+				"§eCrafting Fiery Ingots:§r"
+				"§7• §eFiery Blood§7 (from Hydra, quest reward above) + §eIron Ingot§7"
+				"§7  = §eFiery Ingot§7 (check JEI for exact ratio)."
+				"§7• §e4 Fiery Blood§7 from the Hydra fight = §e4+ Fiery Ingots§7."
+				""
+				"§eFiery gear:§r"
+				"§7• §eFiery Sword§7 — §eFire Aspect§7 built-in, sets mobs ablaze on hit."
+				"§7  Excellent against Snow Queen (fire bonus damage)."
+				"§7• §eFiery Armor§7 — grants §eFire Immunity§7 while wearing full set."
+				"§7  Essential for the Fire Swamp and Dark Tower revisits."
+				""
+				"§eTetra upgrade note:§r"
+				"§7• §eFiery Ingot§7 can be used as a Tetra component on the"
+				"§7  §eModular Workbench§7 (Ch 2.7) — adds fire resistance modifier"
+				"§7  to any Tetra tool blade or head slot."
+				""
+				"§a► Craft 4 Fiery Ingots using Fiery Blood from the Hydra."
+			]
+			dependencies: ["00120005"]
+		}
+
+		{
+			x: 6.0d
+			y: 56.0d
+			id: "00120009"
+			tasks: [{
+				id: "00121009"
+				type: "checkmark"
+				title: "Find and read the Twilight Forest magic map journal to unlock dimension lore entries"
+			}]
+			rewards: [
+				{id: "00122011" type: "item" item: "twilightforest:magic_map" count: 2}
+				{id: "00122012" type: "xp" xp: 100}
+			]
+			title: "Twilight Lore"
+			icon: "twilightforest:magic_map_focus"
+			description: [
+				"§6The Twilight Forest§f has deep lore woven into its biomes,"
+				"§fboss encounters, and hidden structures."
+				""
+				"§eHow to access TF lore:§r"
+				"§7• §eCraft a Magic Map§7 (Magic Map Focus + Paper, check JEI)."
+				"§7• §eRight-click§7 in TF to fill it — boss icons, biome colors, structures."
+				"§7• §eBook entries§7 appear as you defeat bosses — Twilight Forest adds"
+				"§7  contextual guidebook pages after each boss victory."
+				"§7• §eJEI§7 — search §etwilight§7 for all 200+ Twilight Forest items and recipes."
+				""
+				"§eHidden structures:§r"
+				"§7• §eHollow Hills§7 — mound structures hiding gem deposits inside."
+				"§7• §eGoblin Stronghold§7 — underground hostile camp with loot chests."
+				"§7• §eCloud Cottage§7 — high-altitude peaceful cottage with good loot."
+				"§7• §eVigilant Minotaur§7 camps — guarded loot scattered in the forest."
+				""
+				"§a► Use a Magic Map and explore enough TF to reveal several biome sections."
+				"§a► Mark done when you have a good overview of the dimension."
+			]
+			dependencies: ["00120002"]
+		}
+
+		{
+			x: 0.0d
+			y: 64.0d
+			id: "0012000A"
+			tasks: [{
+				id: "0012100A"
+				type: "checkmark"
+				title: "Display all 6 Twilight Forest boss trophies in your Trophy Room (Ch 7.3 Twilight Explorer)"
+			}]
+			rewards: [
+				{id: "00122013" type: "item" item: "minecraft:glow_item_frame" count: 6}
+				{id: "00122014" type: "xp" xp: 300}
+			]
+			title: "Twilight Explorer"
+			subtitle: "All six. Done."
+			description: [
+				"§6This is the Ch 7.3 'Twilight Explorer' quest§f referenced on all"
+				"§fTwilight Forest boss trophy tooltips."
+				"§fDisplay all §e6 trophies§f in your Trophy Room (built in Ch 4.4)."
+				""
+				"§eThe six trophies:§r"
+				"§7  1. §eNaga Trophy§7 — §6Boss 1§7 — Naga Courtyard"
+				"§7  2. §eLich Trophy§7 — §6Boss 2§7 — Lich Tower"
+				"§7  3. §eMinoshroom Head§7 — §6Boss 3§7 — Labyrinth center"
+				"§7  4. §eHydra Trophy§7 — §6Boss 4§7 — Fire Swamp lair"
+				"§7  5. §eUr-Ghast Trophy§7 — §6Boss 5§7 — Dark Tower rooftop"
+				"§7  6. §eSnow Queen Trophy§7 — §6Boss 6§7 — Aurora Palace throne"
+				""
+				"§eDisplay tips:§r"
+				"§7• §eGlow Item Frames§7 (reward) — trophies glow without light source."
+				"§7• Mount all six in a §erow or arc§7 in your Trophy Room (Ch 4.4)."
+				"§7• §eSupplementaries Pedestals§7 spin the trophies as rotating displays."
+				"§7• §eLighting:§7 use §eDecorativeBlocks Chandeliers§7 above the display row."
+				""
+				"§eThis is it.§r"
+				"§7Every boss in the Twilight Forest has fallen."
+				"§7One quest remains."
+				""
+				"§a► Mount all 6 trophies in the Trophy Room. Mark done."
+			]
+			dependencies: ["00120007" "00120008" "00120009"]
+		}
+
+		// ============================================================
+		// FINAL GATE — ARCANE FRONTIERS ✦
+		// ID: 0012000B — the ultimate modpack completion gate
+		// ============================================================
+
+		{
+			x: 0.0d
+			y: 72.0d
+			shape: "hexagon"
+			id: "0012000B"
+			tasks: [{
+				id: "0012100B"
+				type: "checkmark"
+				title: "Arcane Frontiers complete — all six pillars mastered, all gates cleared"
+			}]
+			rewards: [
+				{id: "00122015" type: "item" item: "create:creative_motor" count: 1}
+				{id: "00122016" type: "item" item: "ars_nouveau:archmage_spellbook" count: 1}
+				{id: "00122017" type: "xp" xp: 1000}
+			]
+			title: "Arcane Frontiers ✦"
+			subtitle: "Magic. Machines. A family. A world."
+			description: [
+				"§6This is the end of the Arcane Frontiers quest journey.§r"
+				""
+				"§eAll six pillars:§r"
+				"§7• §6✔ Magic§7 — Archmage Spellbook, Source Dynamo, ritual automation."
+				"§7• §6✔ Technology§7 — Create power grid, nuclear energy, Tetra gear."
+				"§7• §6✔ Exploration§7 — Twilight conquered, End cleared, Wither defeated."
+				"§7• §6✔ Home§7 — Central Kitchen running, Trophy Room built."
+				"§7• §6✔ Colony§7 — Kingdom ✦ standing, 50+ citizens, T5 Town Hall."
+				"§7• §6✔ Synthesis§7 — magic and technology unified. One machine."
+				""
+				"§eAll chapter gates:§r"
+				"§7• §eCh 0§7 Tutorial complete. §eCh 1§7 Archmage path climbed."
+				"§7• §eCh 2§7 Power Grid online. §eCh 3§7 Dragon Slayer earned."
+				"§7• §eCh 4§7 Hearth & Home. §eCh 5§7 Arcane Synthesis."
+				"§7• §eCh 6§7 Kingdom built. §eCh 7§7 Twilight conquered."
+				""
+				"§eThe rewards:§r"
+				"§7• §eSecond Creative Motor§7 (capped 256 RPM) — because you earned it twice."
+				"§7• §eSecond Archmage Spellbook§7 — for your most creative new spell."
+				"§7• §e1000 XP§7 — the largest single reward in the pack."
+				""
+				"§eAnd yet — §r"
+				"§7The world is still here. The colony keeps running."
+				"§7The Central Kitchen never stops."
+				"§7The Starbuncle Wheels keep spinning."
+				"§7The family can build anything now."
+				""
+				"§6There is no 'done' in Arcane Frontiers.§r"
+				"§fThere is only §ewhat you build next.§f"
+				""
+				"§a► Mark this done. You made it."
+			]
+			dependencies: ["0012000A"]
+		}
+
+	]
+	quest_links: []
+}

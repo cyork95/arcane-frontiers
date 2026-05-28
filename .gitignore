@@ -1,0 +1,93 @@
+# ================================================================
+# .gitignore — Arcane Frontiers Modpack
+#
+# What IS tracked (the whole point of this repo):
+#   config/          mod configuration files
+#   defaultconfigs/  FTB Quests chapters + default server configs
+#   kubejs/          KubeJS scripts (recipes, caps, tooltips)
+#   server/          server.properties, start scripts
+#   ARCANE_FRONTIERS.md  master design document
+#   SERVER_LINKS.md  mod wiki reference
+#   README.md        installation instructions
+#
+# What is NOT tracked (large binaries or machine-local files):
+# ================================================================
+
+# ── Mod JARs ─────────────────────────────────────────────────────
+# Mods are distributed via Modrinth/CurseForge — don't commit JARs
+mods/
+libraries/
+
+# ── Minecraft runtime data ───────────────────────────────────────
+# World saves, player data, logs — all machine-specific
+world/
+world_nether/
+world_the_end/
+saves/
+logs/
+crash-reports/
+debug/
+generated/
+dynmap/
+
+# ── Server runtime files ─────────────────────────────────────────
+# Auto-generated on first run — not config
+server/ops.json
+server/whitelist.json
+server/banned-ips.json
+server/banned-players.json
+server/usercache.json
+server/session.lock
+server/server-icon.png
+*.pid
+
+# ── NeoForge / Forge installer artifacts ────────────────────────
+forge-*-installer.jar
+neoforge-*-installer.jar
+run/
+.gradle/
+build/
+
+# ── KubeJS generated / cached files ─────────────────────────────
+# Runtime cache — regenerated on launch, not config
+kubejs/exported/
+kubejs/.cache/
+
+# ── FTB Quests player data ───────────────────────────────────────
+# Per-player quest progress — server-side, not pack config
+defaultconfigs/ftbquests/quests/data/
+
+# ── Resource and shader packs ────────────────────────────────────
+resourcepacks/
+shaderpacks/
+texturepacks/
+
+# ── Screenshots and recordings ───────────────────────────────────
+screenshots/
+replay_recordings/
+
+# ── Claude Code project files ────────────────────────────────────
+.claude/
+
+# ── OS files ─────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ── Editor files ─────────────────────────────────────────────────
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+*~
+
+# ── Backup files ─────────────────────────────────────────────────
+*.bak
+*.backup
+*.orig

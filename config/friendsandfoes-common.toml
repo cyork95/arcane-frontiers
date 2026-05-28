@@ -1,0 +1,113 @@
+#================================================================
+# friendsandfoes-common.toml — Arcane Frontiers
+# Mod: Friends & Foes (NeoForge 1.21.1)
+# Purpose: Enable only the mob-vote mobs that fit the pack's
+#          family-friendly tone. Disable difficulty spikes.
+#
+# Design principle: Friends & Foes adds vanilla-quality mobs
+# from lost Minecraft mob votes. We keep the charming ones
+# and disable the combat-heavy ones that create unexpected
+# difficulty spikes on a family server.
+#
+# ENABLED: Moobloom, Copper Golem, Crab, Glowsquid (if present)
+# DISABLED: Wildfire, Iceologer, Illusioner, Rascal
+#
+# Questline note: Ch 3.2 has quests for Moobloom, Copper Golem,
+# and Crab specifically. If you disable those three, those quests
+# will need to be removed or replaced in 3_wide_world.snbt.
+#================================================================
+
+[mobs]
+
+    #---------------------------------------------------------
+    # ENABLED — Charming, low-threat, family-loved
+    #---------------------------------------------------------
+
+    enableMoobloom = true
+    # The crowd favourite. A flower cow that spreads blossoms
+    # as it walks through Terralith's floral biomes.
+    # Completely passive. Kids adore them.
+    # Ch 3.2 quest: "Flower Cow!" — find a Moobloom in the wild.
+    # Optional companion: install Friends & Foes: Flowery
+    # Mooblooms for a different Moobloom variant per flower type.
+
+    enableCopperGolem = true
+    # Constructs a small golem that wanders and presses nearby
+    # buttons randomly. Entertaining in builds with redstone.
+    # Passive. Oxidises over time like copper blocks — players
+    # can wax them to preserve their current oxidation stage.
+    # Ch 3.2 quest: "Copper Golem" — place one and watch it work.
+
+    enableCrab = true
+    # Beach/coastal creature. Neutral unless attacked.
+    # Drops Crab Claws (Farmer's Delight integrates this).
+    # Charming, visually distinct, and fits Terralith coastlines.
+    # Ch 3.2 quest: "Pinchy" — find a Crab on a beach biome.
+
+    enableGlowsquid = true
+    # The vanilla mob vote winner — already in vanilla Minecraft,
+    # but Friends & Foes may enhance its behaviour/drops.
+    # Completely harmless. Glows in deep ocean water.
+
+    #---------------------------------------------------------
+    # DISABLED — Combat-heavy or difficulty spikes
+    #---------------------------------------------------------
+
+    enableWildfire = false
+    # A powerful floating fire boss with rotating shield panels.
+    # Extremely dangerous for unprepared players.
+    # Rationale: A boss-tier mob that spawns in the same biomes
+    # as ambient creatures creates unfair encounters for younger
+    # or lower-geared players. The pack already has Twilight
+    # Forest (Ch 7) for structured boss content.
+    # Re-enable once the family has full Tetra + Ars Nouveau gear.
+
+    enableIceologer = false
+    # An Illager variant that throws ice chunks and creates
+    # ice sheets. Stronger than a standard Pillager.
+    # Rationale: Appears in cold/snowy Terralith biomes during
+    # normal exploration. Catching a newer player between an
+    # Iceologer and a Bone Serpent in the Nether is not fun.
+    # Re-enable when the family is comfortable with hard combat.
+
+    enableIllusioner = false
+    # A vanilla mob that was scrapped — the Illusioner.
+    # Creates mirror images of itself and blinds players.
+    # Rationale: The Illusioner's blindness effect is confusing
+    # and frustrating without warning. In a family session where
+    # one player can't see, the dynamic turns sour quickly.
+
+    enableRascal = false
+    # A cave-dwelling mob that plays hide-and-seek with players.
+    # Gives rewards if found three times.
+    # Rationale: YUNG's Better Dungeons already makes caves rich
+    # with content. Adding the Rascal's hide-and-seek mechanic
+    # in the same space clutters underground exploration.
+    # Consider re-enabling after the family is done with the
+    # main dungeon quest arc (Ch 3.3).
+
+    enableTuffGolem = false
+    # A decorative golem that carries and displays items.
+    # Genuinely charming, but Supplementaries already provides
+    # display and storage decoration blocks. Disabled to keep
+    # the "display item" niche clean.
+    # Safe to re-enable if the family wants it — zero gameplay
+    # impact, no conflicts with other mods.
+
+    #---------------------------------------------------------
+    # SPAWN CONFIGURATION
+    #---------------------------------------------------------
+
+    moobloumFlowerSpread = true
+    # Mooblooms spread flower blocks as they walk.
+    # Keep enabled — this is their defining charm.
+    # On a large colony with many Mooblooms, flower spread
+    # could theoretically cover large areas. If the family's
+    # base gets carpeted in flowers, shift Mooblooms to a
+    # fenced pasture area away from build zones.
+
+    copperGolemButtonPressCooldown = 60
+    # Ticks between random button presses by a Copper Golem.
+    # 60 ticks = 3 seconds. Fine for most redstone builds.
+    # Increase to 200 if a Copper Golem accidentally triggers
+    # a Create contraption or Ars Nouveau ritual too frequently.

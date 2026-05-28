@@ -1,0 +1,84 @@
+# ================================================================
+# user_jvm_args.txt — Arcane Frontiers
+# Java 21 JVM arguments for NeoForge 1.21.1 server
+#
+# NeoForge reads this file automatically when run.bat launches.
+# Do NOT put -jar or classpath flags here — NeoForge handles those.
+# Only JVM tuning flags go here.
+#
+# These are Aikar's G1GC flags, the gold standard for Minecraft
+# servers since 2018, updated for Java 21 and modded packs.
+# Source: https://mcflags.emc.gs
+# ================================================================
+
+# --- Memory ---
+# 4G minimum heap (Xms) ensures JVM doesn't start too small
+# and waste time growing. 8G max (Xmx) is the ceiling.
+# For a server machine with 16GB RAM: -Xmx8G is correct.
+# For a machine with 12GB RAM: use -Xmx6G instead.
+# For a machine with 8GB RAM: use -Xmx5G (leave 3G for OS).
+# NEVER set Xmx equal to total system RAM — the OS needs memory too.
+-Xms4G
+-Xmx8G
+
+# --- Garbage Collector: G1GC ---
+# G1GC is the correct collector for Minecraft modded servers on Java 21.
+# It divides the heap into regions and collects incrementally,
+# keeping GC pauses short (<200ms) instead of doing one massive
+# stop-the-world collection that freezes the server mid-session.
+-XX:+UseG1GC
+
+# Process reference objects in parallel during GC — reduces pause time
+-XX:+ParallelRefProcEnabled
+
+# Target maximum GC pause of 200ms. G1GC will try not to exceed this.
+# Minecraft ticks every 50ms. A 200ms pause = 4 missed ticks (0.2s freeze).
+# Acceptable for a family server. Reduce to 100 for a more responsive
+# but slightly less efficient collector.
+-XX:MaxGCPauseMillis=200
+
+# Unlock experimental JVM options (required for some flags below)
+-XX:+UnlockExperimentalVMOptions
+
+# Prevent code from calling System.gc() directly (some mods do this,
+# which triggers a full GC at the worst possible moment)
+-XX:+DisableExplicitGC
+
+# Pre-touch all allocated memory pages at JVM startup.
+# Slightly slower startup; eliminates mid-session page faults
+# that cause random micro-stutters during heavy chunk loading.
+-XX:+AlwaysPreTouch
+
+# G1GC region sizing — tuned for Minecraft's allocation patterns
+# (lots of short-lived objects from entity updates + long-lived
+# chunk/block state objects that stick around much longer)
+-XX:G1NewSizePercent=30
+-XX:G1MaxNewSizePercent=40
+-XX:G1HeapRegionSize=8M
+-XX:G1ReservePercent=20
+-XX:G1HeapWastePercent=5
+-XX:G1MixedGCCountTarget=4
+-XX:InitiatingHeapOccupancyPercent=15
+-XX:G1MixedGCLiveThresholdPercent=90
+-XX:G1RSetUpdatingPauseTimePercent=5
+-XX:SurvivorRatio=32
+
+# Disable shared memory performance counters (prevents rare
+# file permission issues on Windows family servers)
+-XX:+PerfDisableSharedMem
+
+# Keep objects in young generation for only 1 GC cycle before
+# promoting — Minecraft objects are either very short-lived
+# (entity update packets) or very long-lived (chunk data).
+# Almost nothing is genuinely "medium-lived", so promoting
+# faster reduces young-gen pressure.
+-XX:MaxTenuringThreshold=1
+
+# Aikars flags identification markers (for diagnostics)
+-Dusing.aikars.flags=https://mcflags.emc.gs
+-Daikars.new.flags=true
+
+# --- NeoForge-specific ---
+# Suppress the ModLauncher warning about illegal reflective access
+# that some older mod code still triggers on Java 21
+-Djava.net.preferIPv4Stack=true

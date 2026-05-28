@@ -1,0 +1,1095 @@
+{
+	id: "000E0000"
+	group: ""
+	order_index: 4
+	filename: "4_hearth_home"
+	title: "Chapter 4: Hearth & Home"
+	icon: "farmersdelight:cooking_pot"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	// ================================================================
+	// CROSS-CHAPTER DEPENDENCY REFERENCE
+	// This chapter has NO hard cross-chapter prerequisites.
+	// It runs in parallel with Chapters 1–3 from the start.
+	//
+	// IDs this chapter EXPORTS (used by other chapters):
+	//   000E0016 = "Hearth & Home ✦" gate quest → Ch 6 (future)
+	//
+	// ★ Integration quests require Create (Ch 2) machines in practice,
+	//   but have no hard dependency wired here — players will naturally
+	//   have Ch 2 progress before reaching 4.3.
+	//
+	//   000E000E, 000E000F, 000E0010, 000E0011 — Create kitchen line
+	//   000E0012 — requires Ch 6 colony Tavern (mark when ready)
+	//   000E0015 — requires Tetra Modular Workbench (Ch 2.7)
+	// ================================================================
+	quests: [
+
+		// ============================================================
+		// 4.1  BUILDING & DECORATION
+		// ============================================================
+
+		{
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			id: "000E0001"
+			tasks: [{
+				id: "000E1001"
+				type: "checkmark"
+				title: "Place a bed, sleep through the night, and set your respawn point"
+			}]
+			rewards: [
+				{id: "000E2001" type: "item" item: "minecraft:white_bed" count: 1}
+				{id: "000E2002" type: "xp" xp: 25}
+			]
+			title: "Home Base"
+			icon: "minecraft:white_bed"
+			subtitle: "Build something worth coming back to"
+			description: [
+				"§6Chapter 4§f is about the other side of Arcane Frontiers —"
+				"§fnot progression and gates, but the home you build around that progression."
+				""
+				"§eThis chapter covers:§r"
+				"§7• §e4.1 Building & Decoration§7 — CopyCats+, Supplementaries,"
+				"§7  Decorative Blocks, Framed Blocks — tools to make any structure beautiful."
+				"§7• §e4.2 Farming & Food§7 — Farmer's Delight, Straw Golem,"
+				"§7  Cooking for Blockheads — sustainable food that buffs the whole family."
+				"§7• §e4.3 Central Kitchen§7 — Create + Farmer's Delight automation."
+				"§7  §e★ quests§7 require Ch 2 progress (Mechanical Arm, Deployer)."
+				"§7• §e4.4 Home & Finishing§7 — trophy room, wall maps, The Chef's Edge."
+				""
+				"§eNo locked gates:§r"
+				"§7• This chapter runs in parallel from the start."
+				"§7• You can finish 4.1 and 4.2 without any magic or tech progress."
+				"§7• The §e★ integration quests§7 in 4.3 need Ch 2 machines."
+				"§7• The §e4.4 Chef's Edge§7 quest needs Ch 2.7 (Tetra Workbench)."
+				""
+				"§eStarting this quest:§r"
+				"§7• Pick a build site for your main base."
+				"§7• Place a §eBed§7, sleep through the night to set spawn."
+				"§7• You're now anchored. Everything you build here is home."
+				""
+				"§a► Sleep in a bed. Mark done when you wake up with spawn set."
+			]
+			dependencies: []
+		}
+
+		{
+			x: -8.0d
+			y: 8.0d
+			id: "000E0002"
+			tasks: [{
+				id: "000E1002"
+				type: "item"
+				item: "copycats:copycat_panel"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000E2003" type: "item" item: "copycats:copycat_panel" count: 4}
+				{id: "000E2004" type: "xp" xp: 40}
+			]
+			title: "CopyCats+"
+			icon: "copycats:copycat_panel"
+			description: [
+				"§6CopyCats+§f is one of the most powerful building mods in the pack."
+				"§fIt lets you take the §etexture of any block§f and apply it to"
+				"§fpure-geometry shapes — panels, slabs, stairs, frames, and more."
+				""
+				"§eCopyCat Panel:§r"
+				"§7• §eCrafting:§7 §e4 Iron Bars§7 in a square (shapeless-ish, in crafting table)."
+				"§7• §ePlace it§7 anywhere, then §eright-click with any block§7 to copy texture."
+				"§7• The panel is now an ultra-thin decorative surface with that texture."
+				""
+				"§eWhy this is powerful:§r"
+				"§7• §eCreate machinery§7 looks industrial — CopyCat Panels let you clad"
+				"§7  the outside in §eCobblestone§7, §eGranite§7, or §eSpruce Planks§7 so"
+				"§7  the factory blends into your build style."
+				"§7• §eCopyCat Stairs§7 — stairs with any texture, including non-stair blocks."
+				"§7• §eCopyCat Slab§7 — half-thickness, any texture."
+				"§7• §eCopyCat Frame§7 — hollow border frame, great for windows."
+				""
+				"§eShapes available:§r"
+				"§7• Panel (1/16 thick), Slab (8/16), Stairs, Step, Wall,"
+				"§7  Board (quarter slab), Fence, Pane, and Frame."
+				""
+				"§eTip:§r"
+				"§7• §eCopyCat Panel§7 on a §eMechanical Bearing§7 wall creates seamless"
+				"§7  animated doors that look like solid stone. See Ch 2 bearings."
+				""
+				"§a► Craft and hold a CopyCat Panel."
+			]
+			dependencies: ["000E0001"]
+		}
+
+		{
+			x: 0.0d
+			y: 8.0d
+			id: "000E0003"
+			tasks: [{
+				id: "000E1003"
+				type: "item"
+				item: "supplementaries:sign_post"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000E2005" type: "item" item: "supplementaries:sign_post" count: 2}
+				{id: "000E2006" type: "xp" xp: 40}
+			]
+			title: "Supplementaries"
+			icon: "supplementaries:sign_post"
+			description: [
+				"§6Supplementaries§f is the pack's primary decorative utility mod."
+				"§fIt adds dozens of functional-decorative blocks that fill the gaps"
+				"§fvanilla never addresses."
+				""
+				"§eHighlight items:§r"
+				"§7• §eSign Post§7 — directional post with up to 4 wooden signs,"
+				"§7  each pointing in a different direction. Perfect for colony roads,"
+				"§7  cave systems, and path junctions."
+				"§7  §eCrafting:§7 §e2 Sticks§7 + §e1 Oak Log§7 (vertical)."
+				"§7• §eJar§7 — decorative glass jar that displays any item inside."
+				"§7  Perfect for a pantry display above your kitchen."
+				"§7• §eBookshelf§7 — displays books on the shelf visually."
+				"§7• §eNotice Board§7 — wall-mounted sign with a larger text area."
+				"§7  Great for colony announcements."
+				"§7• §ePedestal§7 — spinning item display stand."
+				"§7  Ideal for trophy room items — boss heads, rare drops."
+				"§7• §eFlagpole§7 — animated banner on a pole, stackable height."
+				"§7• §eRope§7 — hangable rope that you can climb. Finally."
+				"§7• §eLantern§7 variants — wall, hanging, and floor variants."
+				"§7• §eFirefly§7 jars — decorative ambient lighting, catch fireflies at night."
+				""
+				"§a► Craft a Sign Post and hold it."
+			]
+			dependencies: ["000E0001"]
+		}
+
+		{
+			x: 8.0d
+			y: 8.0d
+			id: "000E0004"
+			tasks: [{
+				id: "000E1004"
+				type: "item"
+				item: "decorativeblocks:chandelier"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000E2007" type: "item" item: "decorativeblocks:chandelier" count: 2}
+				{id: "000E2008" type: "xp" xp: 40}
+			]
+			title: "Decorative Blocks"
+			icon: "decorativeblocks:chandelier"
+			description: [
+				"§6Decorative Blocks§f fills a specific gap: medieval and rustic"
+				"§farchitecture that fits a Terralith world without looking out of place."
+				""
+				"§eKey blocks:§r"
+				"§7• §eChandelier§7 — hanging multi-candle light fixture."
+				"§7  §eCrafting:§7 §e4 Iron Nuggets§7 + §e4 Torches§7 around center."
+				"§7  Hang from ceilings with a §ePlaceholder Block§7 or §eChain§7."
+				"§7• §eBeam§7 — exposed wooden roof/floor beam. Oak, Spruce, Dark Oak variants."
+				"§7  Essential for any medieval great hall ceiling."
+				"§7• §eSupported Block§7 — places a block with visible support brackets underneath."
+				"§7• §ePillar§7 — tall decorative stone pillar, multiple styles."
+				"§7• §eBarbedWire§7 — wall-top wire, deals damage on contact."
+				"§7  Useful for colony outer walls (Ch 6)."
+				"§7• §eStack§7 blocks — stacked log/plank variants for lumber-yard aesthetics."
+				"§7• §eSeat§7 — sit-able chair block. Right-click to sit."
+				"§7  Works with §eSupplementaries§7 Pedestal + Jar nearby for a tavern vibe."
+				""
+				"§eTip — chandelier placement:§r"
+				"§7• Place a §eChain§7 (vanilla, smelted from iron) vertically downward."
+				"§7• Right-click the bottom Chain with the Chandelier to hang it."
+				"§7• Multiple heights look great in a vaulted great hall."
+				""
+				"§a► Craft and hold a Chandelier."
+			]
+			dependencies: ["000E0001"]
+		}
+
+		{
+			x: 4.0d
+			y: 14.0d
+			id: "000E0005"
+			tasks: [{
+				id: "000E1005"
+				type: "item"
+				item: "framedblocks:framed_cube"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000E2009" type: "item" item: "framedblocks:framed_cube" count: 4}
+				{id: "000E200A" type: "xp" xp: 50}
+			]
+			title: "Framed Blocks"
+			icon: "framedblocks:framed_cube"
+			description: [
+				"§6Framed Blocks§f takes a different approach to decoration than CopyCats."
+				"§fInstead of shape-first, it is §efunction-first:§f a full-size block"
+				"§fthat looks like any other block — but is hollow and has a full hitbox."
+				""
+				"§eFramed Cube:§r"
+				"§7• §eCrafting:§7 §e6 Sticks§7 in an outline (like chest but sticks only)."
+				"§7• §eRight-click with any block§7 to apply that block's texture."
+				"§7• The Framed Cube keeps the applied texture permanently."
+				""
+				"§eWhy use Framed Blocks over CopyCats:§r"
+				"§7• §eFramed Cube§7 is a §efull block§7 — full light blocking, full hitbox."
+				"§7  CopyCat Panel is 1/16 thick — no collision mass."
+				"§7• §eFramed Slope§7 — a sloped full-block wedge, great for rooflines."
+				"§7• §eFramed Slope Panel§7 — thinner slope for eaves and overhangs."
+				"§7• §eFramed Stairs§7 — stair shape with any block texture."
+				""
+				"§eCombining CopyCats and Framed Blocks:§r"
+				"§7• §eFramed Cube§7 for exterior walls and corners (full blocks)."
+				"§7• §eCopyCat Panel§7 for accent strips, machinery cladding, and windows."
+				"§7• §eDecorativeBlocks Beams§7 overhead with CopyCat Panels between them"
+				"§7  = a perfect ceiling that matches any wall material."
+				""
+				"§a► Craft and hold a Framed Cube."
+			]
+			dependencies: ["000E0002" "000E0003" "000E0004"]
+		}
+
+		// ============================================================
+		// 4.2  FARMING & FOOD
+		// ============================================================
+
+		{
+			x: -8.0d
+			y: 16.0d
+			id: "000E0006"
+			tasks: [{
+				id: "000E1006"
+				type: "checkmark"
+				title: "Till and plant at least 16 crop blocks near your base"
+			}]
+			rewards: [
+				{id: "000E200B" type: "item" item: "farmersdelight:cabbage_seeds" count: 8}
+				{id: "000E200C" type: "xp" xp: 30}
+			]
+			title: "First Farm"
+			icon: "minecraft:farmland"
+			description: [
+				"§6Farming§f in Arcane Frontiers is dramatically expanded over vanilla"
+				"§fby §6Farmer's Delight§f and its companion mods."
+				"§fYour first farm is the foundation of the family food supply."
+				""
+				"§eSetting up a farm:§r"
+				"§71. §eTill Dirt§7 or §eGrass§7 with a §eHoe§7 → Farmland."
+				"§72. §eWater§7 must be within 4 blocks — farmland dries otherwise."
+				"§73. §ePlant seeds§7 — right-click farmland with seed items."
+				"§7   A 4×4 = 16-block farm is the minimum for this quest."
+				""
+				"§eFarmer's Delight crops (not in vanilla):§r"
+				"§7• §eCabbage§7 — grows in cold biomes. Source: wander or dungeon chests."
+				"§7• §eTomato§7 — warm biome, vines up a trellis. Very productive."
+				"§7• §eOnion§7 — temperate biome, fast-growing."
+				"§7• §eRice§7 — grows on flooded farmland (water on top)."
+				"§7• §eBeet§7 — cold, generates in village farms."
+				""
+				"§eGet Farmer's Delight seeds:§r"
+				"§7• §eVillage farms§7 contain FD crops — harvest and replant."
+				"§7• §eWandering Traders§7 sometimes sell FD seed packets."
+				"§7• §eDungeon chests§7 (D&T tavern especially) often contain FD seeds."
+				"§7• §eYour Cabbage Seeds reward§7 — plant all 8 to start your Cabbage row."
+				""
+				"§aStraw Golem tip (next quest):§r"
+				"§7• Build the farm first, then place the Straw Golem inside."
+				"§7• It only harvests what it can reach from its placement block."
+				""
+				"§a► Till and plant 16+ crop blocks. Mark done when your first farm is planted."
+			]
+			dependencies: ["000E0001"]
+		}
+
+		{
+			x: -4.0d
+			y: 22.0d
+			id: "000E0007"
+			tasks: [{
+				id: "000E1007"
+				type: "item"
+				item: "farmersdelight:skillet"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000E200D" type: "item" item: "farmersdelight:skillet" count: 1}
+				{id: "000E200E" type: "xp" xp: 35}
+			]
+			title: "Farmer's Delight"
+			icon: "farmersdelight:skillet"
+			description: [
+				"§6Farmer's Delight§f is the pack's primary food expansion mod."
+				"§fIt adds §e30+ new crops§f, §e50+ recipes§f, and an entirely new"
+				"§fcooking workflow using cutting boards, skillets, and cooking pots."
+				""
+				"§eThe Skillet:§r"
+				"§7• §eCrafting:§7 §e5 Iron Ingots§7 in a frying pan shape"
+				"§7  (left arm + handle + flat base)."
+				"§7• Place over a heat source (§eCampfire§7, §eLit Furnace§7, or §eMagma Block§7)."
+				"§7• Right-click to place items in the skillet, wait for cooking."
+				"§7• Used for: §eSunnyside Egg§7, §eSmoked Ham§7, §eRoasted Mutton§7, and more."
+				""
+				"§eSaturation vs. hunger:§r"
+				"§7• Vanilla food fills §ehunger bars§7 (the bar you can see)."
+				"§7• FD meals add §esaturation§7 — hidden buffer that slows hunger drain."
+				"§7• A §eRoast Chicken dinner§7 (Cooking Pot) gives 8 hunger + §e14 saturation§7"
+				"§7  vs. Steak's 8 hunger + §e12 saturation§7."
+				"§7• With FD meals, you §eeat far less often§7. Huge combat advantage."
+				""
+				"§eWhy two Skillets?§r"
+				"§7• The reward skillet is a §esecond one§7 — keep one at the base,"
+				"§7  carry one in your backpack. Skillet cooking works anywhere"
+				"§7  there's a campfire."
+				""
+				"§a► Craft a Skillet and hold it in your hand."
+			]
+			dependencies: ["000E0006"]
+		}
+
+		{
+			x: 0.0d
+			y: 22.0d
+			id: "000E0008"
+			tasks: [{
+				id: "000E1008"
+				type: "item"
+				item: "farmersdelight:cooking_pot"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000E200F" type: "item" item: "farmersdelight:tomato_seeds" count: 16}
+				{id: "000E2010" type: "xp" xp: 40}
+			]
+			title: "Cooking Pot"
+			icon: "farmersdelight:cooking_pot"
+			description: [
+				"§6The Cooking Pot§f unlocks Farmer's Delight's full recipe set."
+				"§fWhile the Skillet handles single-item frying, the Cooking Pot"
+				"§fmakes §emulti-ingredient meals§f with stacked saturation bonuses."
+				""
+				"§eCrafting:§r"
+				"§7• §e7 Iron Ingots§7 in a pot shape (U-shape with handles)."
+				"§7• Requires a heat source beneath (Campfire, Magma, Lit Furnace)."
+				""
+				"§eUsing it:§r"
+				"§7• Right-click to open the cooking interface."
+				"§7• Place §eup to 6 ingredients§7 in the input slots."
+				"§7• Insert a §eBowl or Bottle§7 to receive the meal."
+				"§7• Progress bar fills as ingredients are processed over the heat source."
+				""
+				"§eTop Cooking Pot recipes:§r"
+				"§7• §eVegetable Soup§7 — Carrot + Potato + Cabbage + Bowl. Huge saturation."
+				"§7• §eRoast Chicken§7 — Raw Chicken + Potato + Onion + Bottle."
+				"§7  Serves 4 bowls at once."
+				"§7• §eMutton Stew§7 — Raw Mutton + Carrot + Onion + Potato + Bowl."
+				"§7• §eBone Broth§7 — Bone + Water Bottle. Base ingredient for advanced soups."
+				"§7• §eSeasoned Salmon§7 — Raw Salmon + Carrot + Onion + Bottle."
+				""
+				"§eAutomation (Ch 4.3):§r"
+				"§7• The §eCentral Kitchen§7 quests automate the Cooking Pot with Create."
+				"§7• A §eMechanical Arm§7 feeds ingredients → Pot → collects meals."
+				""
+				"§a► Craft and hold a Cooking Pot. (16 Tomato Seeds reward: plant them!)"
+			]
+			dependencies: ["000E0007"]
+		}
+
+		{
+			x: 4.0d
+			y: 22.0d
+			id: "000E0009"
+			tasks: [{
+				id: "000E1009"
+				type: "item"
+				item: "farmersdelight:cutting_board"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000E2011" type: "item" item: "farmersdelight:iron_knife" count: 1}
+				{id: "000E2012" type: "xp" xp: 40}
+			]
+			title: "Cutting Board"
+			icon: "farmersdelight:cutting_board"
+			description: [
+				"§6The Cutting Board§f is Farmer's Delight's primary ingredient prep block."
+				"§fMany FD recipes §erequire§f the Cutting Board — they can't be done"
+				"§fin a crafting table."
+				""
+				"§eCrafting:§r"
+				"§7• §e3 Oak Planks§7 in a row (or any wood planks)."
+				""
+				"§eUsing it:§r"
+				"§7• §ePlace§7 the Cutting Board on any surface."
+				"§7• §eRight-click§7 it with an ingredient to place the item on the board."
+				"§7• §eRight-click§7 the board §ewith a knife§7 to cut — the item splits"
+				"§7  into its cut products."
+				""
+				"§eCutting Board recipes:§r"
+				"§7• §eRaw Porkchop§7 + knife → §eRaw Ham§7 + §ePork Rind§7."
+				"§7• §eRaw Chicken§7 + knife → §eChicken Cuts§7."
+				"§7• §eCooked Salmon§7 + knife → §eSalmon Slices§7 ×3."
+				"§7• §eMelon§7 + knife → §eMelon Slice§7 ×8 (vs 3 from crafting!)."
+				"§7• §ePumpkin§7 + knife → §eCarved Pumpkin§7 + §ePumpkin Seeds§7 ×2."
+				""
+				"§eKnife types:§r"
+				"§7• §eFlint§7, §eIron§7, §eGolden§7, §eDiamond§7 knives — all work identically"
+				"§7  as cutting tools but have different durabilities."
+				"§7• §eTetra upgrade§7 (Ch 2.7 / Ch 4 Chef's Edge quest) — upgrades any"
+				"§7  FD knife with Create metals. §eCutting Board function is unchanged§7"
+				"§7  after upgrading."
+				""
+				"§a► Craft a Cutting Board and hold it. (Iron Knife reward — start cutting!)"
+			]
+			dependencies: ["000E0007"]
+		}
+
+		{
+			x: 4.0d
+			y: 30.0d
+			id: "000E000A"
+			tasks: [{
+				id: "000E100A"
+				type: "item"
+				item: "cookingforblockheads:cooking_table"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000E2013" type: "item" item: "cookingforblockheads:sink" count: 1}
+				{id: "000E2014" type: "xp" xp: 50}
+			]
+			title: "Kitchen Setup"
+			icon: "cookingforblockheads:cooking_table"
+			description: [
+				"§6Cooking for Blockheads§f adds smart kitchen blocks that auto-filter"
+				"§frecipes to show only what you can currently make."
+				""
+				"§eCooking Table:§r"
+				"§7• §eCrafting:§7 §e4 Oak Planks§7 + §e4 any Wood Slabs§7 around center."
+				"§7• Opens a combined crafting + food interface."
+				"§7• §eShows only food recipes§7 you have the ingredients for §eright now§7"
+				"§7  — no scrolling through 50 FD recipes looking for what you can make."
+				"§7• §ePull ingredients§7 directly from adjacent inventories (chests, barrels)."
+				""
+				"§eKitchen multiblock:§r"
+				"§7• The Cooking Table checks adjacent blocks and unlocks more recipes."
+				"§7• §eSink§7 (reward from this quest) — adds Water Bucket and Bottle fills."
+				"§7  Placed adjacent: enables §eall water-using recipes§7 in the table."
+				"§7• §eTool Rack§7 — hang knives and spatulas. Counts as having those tools."
+				"§7  Placed adjacent: enables §eall cutting recipes§7 in the table."
+				"§7• §eOven§7 — high-heat cooking. Adjacent: unlocks §eOven-only§7 recipes."
+				"§7• §eFridge§7 — extended food freshness. Adjacent: enables §efridge-requiring§7"
+				"§7  recipes in the table."
+				""
+				"§eTip — kitchen layout:§r"
+				"§7• Place §eCooking Table§7 center."
+				"§7• §eSink§7 on the left, §eTool Rack§7 on the right, §eOven§7 behind."
+				"§7• A 3×3 footprint unlocks the full kitchen recipe set."
+				""
+				"§a► Craft and place the Cooking Table. (Sink reward: place adjacent!)"
+			]
+			dependencies: ["000E0008" "000E0009"]
+		}
+
+		{
+			x: -8.0d
+			y: 28.0d
+			id: "000E000B"
+			tasks: [{
+				id: "000E100B"
+				type: "item"
+				item: "strawgolem:straw_golem"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000E2015" type: "xp" xp: 50}
+			]
+			title: "Garden Golem"
+			icon: "strawgolem:straw_golem"
+			description: [
+				"§6The Straw Golem§f auto-harvests mature crops and replants them."
+				"§fPlace one in your farm and it becomes self-sustaining —"
+				"§fno more manual harvesting."
+				""
+				"§eCrafting:§r"
+				"§7• §e1 Carved Pumpkin§7 + §e1 Hay Bale§7 (vertical, shapeless)."
+				"§7• The Carved Pumpkin becomes the golem's head."
+				""
+				"§ePlacing and behavior:§r"
+				"§7• §ePlace§7 the Straw Golem inside your crop field."
+				"§7• It §epatrol§7 nearby crops (8-block radius by default)."
+				"§7• When it finds a §emature crop§7, it harvests and §ereplants§7 automatically."
+				"§7• Harvested items are dropped on the ground — collect with §eCreate Chute§7"
+				"§7  or §eHopper§7 beneath the golem's patrol path."
+				""
+				"§eMultiple golems:§r"
+				"§7• For large farms, place one Straw Golem per §e16×16 section§7."
+				"§7• Each golem covers only its own patrol radius."
+				"§7• §eNaming§7 them with a Name Tag gives a personality — cosmetic only."
+				""
+				"§eCreate integration:§r"
+				"§7• Straw Golem drops items on ground → §eCreate Chute§7 pulls them in."
+				"§7• §eChute → Chest → Funnel → Cooking Pot§7 = fully automated meal line."
+				"§7• See Ch 4.3 Central Kitchen quests."
+				""
+				"§eSeasonal crops tip:§r"
+				"§7• Straw Golem harvests §eall§7 FD crops — including Rice (flooded fields)."
+				"§7• If using flooded fields, place the golem on a raised block above water."
+				""
+				"§a► Craft a Straw Golem and hold it."
+			]
+			dependencies: ["000E0006"]
+		}
+
+		{
+			x: 0.0d
+			y: 30.0d
+			id: "000E000C"
+			tasks: [{
+				id: "000E100C"
+				type: "checkmark"
+				title: "Cook and eat a multi-ingredient Farmer's Delight meal with high saturation"
+			}]
+			rewards: [
+				{id: "000E2016" type: "xp" xp: 60}
+			]
+			title: "Hearty Meal"
+			icon: "farmersdelight:vegetable_soup"
+			description: [
+				"§6A real Farmer's Delight meal§f — not a piece of bread, not a raw"
+				"§fsteak. Something made with multiple ingredients and a recipe."
+				""
+				"§eEasy starter meals to cook:§r"
+				""
+				"§eVegetable Soup (Cooking Pot):§r"
+				"§7• §eCarrot§7 + §ePotato§7 + §eCabbage§7 + §eBowl§7."
+				"§7• 6 hunger + §e12 saturation§7 per serving."
+				"§7• §eProduce§7 of 1 pot: 4 bowls of soup."
+				""
+				"§eSunnyside Egg (Skillet):§r"
+				"§7• §eEgg§7 over lit campfire. 3 hunger + §e5 saturation§7."
+				"§7• Fast, no extra ingredients."
+				""
+				"§eRoast Chicken (Cooking Pot):§r"
+				"§7• §eRaw Chicken§7 + §ePotato§7 + §eOnion§7 + §eBottle§7."
+				"§7• 8 hunger + §e14 saturation§7 per bowl."
+				"§7• Best early-game meal for reducing how often you need to eat."
+				""
+				"§eSmoked Ham (Skillet):§r"
+				"§7• §eRaw Ham§7 (cut Porkchop on Cutting Board) over heat."
+				"§7• 7 hunger + §e11 saturation§7. Better than vanilla Porkchop in every way."
+				""
+				"§eWhy saturation matters:§r"
+				"§7• §eSaturation§7 is the invisible buffer between full hunger and hunger drain."
+				"§7• FD meals with §e12+ saturation§7 mean you go §e5–10 minutes§7 between"
+				"§7  meals in active combat — vanilla food lasts 1–2 minutes."
+				""
+				"§a► Cook any multi-ingredient FD recipe and eat it. Mark done."
+			]
+			dependencies: ["000E000A"]
+		}
+
+		{
+			x: 0.0d
+			y: 38.0d
+			id: "000E000D"
+			tasks: [{
+				id: "000E100D"
+				type: "checkmark"
+				title: "Have 8 different Farmer's Delight food items in your inventory simultaneously"
+			}]
+			rewards: [
+				{id: "000E2017" type: "item" item: "farmersdelight:roast_chicken_block" count: 1}
+				{id: "000E2018" type: "xp" xp: 75}
+			]
+			title: "Full Pantry"
+			icon: "farmersdelight:pantry"
+			description: [
+				"§6The Full Pantry§f is the breadth test of your kitchen."
+				"§fHaving 8 different FD foods means your farm and recipes"
+				"§fare diversified — no single crop failure can ruin the food supply."
+				""
+				"§eRecommended 8 to collect:§r"
+				"§7  1. §eVegetable Soup§7 (Cooking Pot)"
+				"§7  2. §eRoast Chicken§7 (Cooking Pot)"
+				"§7  3. §eSunnyside Egg§7 (Skillet)"
+				"§7  4. §eSmoked Ham§7 (Skillet)"
+				"§7  5. §eMutton Stew§7 (Cooking Pot)"
+				"§7  6. §eSeasoned Salmon§7 (Cooking Pot)"
+				"§7  7. §eCabbage Rolls§7 (Cooking Pot)"
+				"§7  8. §eRice§7 or §eRice Bowl§7 (grown on flooded farmland)"
+				""
+				"§eColony note:§r"
+				"§7• When your colony (Ch 6) has a §eRestaurant§7 building, Citizens"
+				"§7  will eat from the Warehouse food supply."
+				"§7• FD meals give Citizens §efood saturation§7 that vanilla food"
+				"§7  doesn't — this directly improves worker efficiency."
+				"§7• §ePrepare your Central Kitchen§7 (Ch 4.3) before founding the colony."
+				""
+				"§eReward: Roast Chicken Block§r"
+				"§7• A §edecoration block§7 shaped like a full roasted chicken."
+				"§7• Place on your kitchen counter for aesthetic."
+				"§7• §eRight-click§7 to harvest individual Roast Chicken servings (3 servings)."
+				""
+				"§a► Have 8 different FD food items in your inventory. Mark done."
+			]
+			dependencies: ["000E000C"]
+		}
+
+		// ============================================================
+		// 4.3  CENTRAL KITCHEN (★ INTEGRATION — requires Ch 2 Create)
+		// ============================================================
+
+		{
+			x: 12.0d
+			y: 22.0d
+			id: "000E000E"
+			tasks: [{
+				id: "000E100E"
+				type: "checkmark"
+				title: "Build a Create funnel or chute feeding ingredients into a Cooking Pot automatically"
+			}]
+			rewards: [
+				{id: "000E2019" type: "item" item: "create:chute" count: 4}
+				{id: "000E201A" type: "xp" xp: 75}
+			]
+			title: "Crop Pipeline ★"
+			icon: "create:chute"
+			description: [
+				"§6★ Integration Quest — requires Create (Ch 2) progress.§r"
+				"§7You need at least §eBrass Funnels§7 and §eMechanical Arms§7 (Ch 2.2)"
+				"§7to fully automate the Cooking Pot."
+				""
+				"§eThe simplest automation (just Funnels):§r"
+				"§71. §ePlaced Cooking Pot§7 over a §eCampfire§7 or §eLit Furnace§7."
+				"§72. §ePlace a Chest§7 above the Cooking Pot."
+				"§73. §eConnect a Chute§7 (downward pipe) from the chest to the pot."
+				"§74. §ePlace ingredients§7 in the chest — they drop into the pot."
+				"§75. §ePlace Bowls/Bottles§7 in a second chest → §eBrass Funnel§7 → pot side."
+				"§7   The pot auto-ejects finished meals into an adjacent output chest."
+				""
+				"§eMore advanced (Mechanical Arm):§r"
+				"§7• §eMechanical Arm§7 (Ch 2.2) can pull ingredients from §emultiple chests§7"
+				"§7  and deliver them to the pot in the right proportions."
+				"§7• Combine with §eCreate Timer§7 or §eRedstone Link§7 to batch-cook"
+				"§7  different recipes in sequence."
+				""
+				"§eTip — heat sources:§r"
+				"§7• §eCampfire§7 — always on, no fuel."
+				"§7• §eLit Furnace§7 — needs fuel, but controllable with Create Clutch."
+				"§7• §eMagma Block§7 — always on, decorative lava aesthetic."
+				"§7• §eBlaze Burner§7 (Create Heated) — for recipes requiring §ehigh heat§7."
+				""
+				"§a► Connect any input mechanism to a Cooking Pot and let it cook automatically."
+				"§a► Mark done when the pot produces a meal without you manually adding items."
+			]
+			dependencies: ["000E0008"]
+		}
+
+		{
+			x: 16.0d
+			y: 28.0d
+			id: "000E000F"
+			tasks: [{
+				id: "000E100F"
+				type: "checkmark"
+				title: "Set up a Create Deployer with an iron knife to automatically cut ingredients on a Cutting Board"
+			}]
+			rewards: [
+				{id: "000E201B" type: "xp" xp: 75}
+			]
+			title: "Auto Slicer ★"
+			icon: "create:deployer"
+			description: [
+				"§6★ Integration Quest — requires Create Deployer (Ch 2.2).§r"
+				"§7The §6Deployer§f can hold a §6Farmer's Delight knife§f and"
+				"§fauto-cut ingredients on a Cutting Board when powered."
+				""
+				"§eSetup:§r"
+				"§71. §ePlace a Cutting Board§7 on a surface."
+				"§72. §ePlace a Mechanical Deployer§7 facing down, one block above the board."
+				"§73. §eInsert an §eIron Knife§7 (or upgraded Tetra knife) into the Deployer."
+				"§74. §ePower the Deployer shaft§7 with any rotation source."
+				"§75. §eFeed ingredients§7 to the Cutting Board via §eBrass Funnel§7 or §eConveyor§7."
+				"§7   The Deployer will §ecut automatically§7 when an item is present."
+				""
+				"§eAutomation workflow:§r"
+				"§7• §eChest of Raw Porkchops§7 → §eFunnel§7 → §eCutting Board§7."
+				"§7• §eDeployer§7 cuts each into §eRaw Ham§7 + §ePork Rind§7."
+				"§7• §eFunnel§7 below the board feeds cut items into §eSkillets§7 or §eCooking Pots§7."
+				""
+				"§eBatch control:§r"
+				"§7• Use a §eRedstone Link§7 (Ch 2.4) to stop the Deployer when"
+				"§7  the output chest is full — no overflow."
+				"§7• §eCreate Sequence§7 gearshift can alternate cutting sessions and"
+				"§7  cooking sessions on the same shaft."
+				""
+				"§a► Build an auto-slicer. Mark done when the Deployer cuts a food item."
+			]
+			dependencies: ["000E000E"]
+		}
+
+		{
+			x: 20.0d
+			y: 34.0d
+			id: "000E0010"
+			tasks: [{
+				id: "000E1010"
+				type: "checkmark"
+				title: "Set up a Mechanical Arm that collects cooked meals from the Cooking Pot and deposits into a chest"
+			}]
+			rewards: [
+				{id: "000E201C" type: "item" item: "minecraft:cooked_chicken" count: 16}
+				{id: "000E201D" type: "xp" xp: 100}
+			]
+			title: "Meal Delivery ★"
+			icon: "create:mechanical_arm"
+			description: [
+				"§6★ Integration Quest — requires Mechanical Arm (Ch 2.2).§r"
+				"§7The §6Mechanical Arm§f closes the loop — ingredients in,"
+				"§fmeals out, all automated."
+				""
+				"§eMechanical Arm meal collection:§r"
+				"§71. §eCooking Pot§7 ejects finished meals to its side slot automatically."
+				"§72. §eMechanical Arm§7 — configure it to pull from the Pot output slot"
+				"§7   and deposit into an §eOutput Chest§7."
+				"§73. §eArm filter§7 — set to accept only Bowl or Bottle items so it"
+				"§7   doesn't pull raw ingredients accidentally."
+				""
+				"§eFull kitchen wiring summary:§r"
+				"§7• §eInput Chest§7 (ingredients) → §eFunnel§7 → §eCooking Pot§7."
+				"§7• §eBowl Chest§7 → §eFunnel§7 → §ePot side§7 (vessel slot)."
+				"§7• §eCooking Pot§7 output → §eMechanical Arm§7 → §eMeal Chest§7."
+				"§7• §eMeal Chest§7 → §eSophisticated Storage§7 Filter Upgrade → sorted."
+				""
+				"§ePower requirement:§r"
+				"§7• §eMechanical Arm§7 needs §e8 SU§7 per operation."
+				"§7• A §eSmall Windmill§7 (128 SU) runs 16 arms simultaneously."
+				"§7• The kitchen line is very low stress — no need for Steam Engine power."
+				""
+				"§a► Build the Arm collection loop. Mark done when meals land in the output chest automatically."
+			]
+			dependencies: ["000E000F"]
+		}
+
+		{
+			x: 16.0d
+			y: 42.0d
+			id: "000E0011"
+			tasks: [{
+				id: "000E1011"
+				type: "checkmark"
+				title: "Full Central Kitchen running: crop input → auto-cut → cook → meal output, all automated"
+			}]
+			rewards: [
+				{id: "000E201E" type: "item" item: "farmersdelight:cooking_pot" count: 2}
+				{id: "000E201F" type: "xp" xp: 150}
+			]
+			title: "Chef's Engine ★"
+			icon: "farmersdelight:cooking_pot"
+			subtitle: "The kitchen never stops"
+			description: [
+				"§6The Central Kitchen§f is the full Create + Farmer's Delight pipeline:"
+				"§fcrops go in one end, cooked meals come out the other,"
+				"§fwithout any player interaction."
+				""
+				"§eRequired stages (all three must be running):§r"
+				"§71. §eCrop Input§7 — §eStraw Golem§7 harvests → §eChute§7 feeds input chest."
+				"§7   (or: §eCreate Mechanical Harvester§7 on a Contraption if you prefer.)"
+				"§72. §eAuto Cutting§7 — §eDeployer§7 with knife cuts raw ingredients."
+				"§7   (from Auto Slicer quest above)"
+				"§73. §eCook & Collect§7 — §eCooking Pot§7 + §eMechanical Arm§7 output."
+				"§7   (from Meal Delivery quest above)"
+				""
+				"§eOptional 4th stage:§r"
+				"§7• §eSophisticated Storage§7 sorted output chest — see Ch 2.3."
+				"§7  Different meals sorted into labeled barrels automatically."
+				""
+				"§eCapacity planning for the colony:§r"
+				"§7• §e1 Cooking Pot§7 produces ~1 meal per 6 seconds at medium heat."
+				"§7• A §e3-Pot line§7 outputs ~30 meals per minute."
+				"§7• A §e50-Citizen colony§7 (Ch 6) needs roughly §e300 meals per day§7."
+				"§7  2 Pots running overnight fills the Warehouse."
+				""
+				"§eTip: §eBlaze Burner§7 (Create heated process) in the Cooking Pot"
+				"§7speeds cooking to §e1 meal per 2 seconds§7 — triple output."
+				""
+				"§a► Run all three stages simultaneously. Mark done when the full chain completes."
+			]
+			dependencies: ["000E0010"]
+		}
+
+		{
+			x: 22.0d
+			y: 48.0d
+			id: "000E0012"
+			tasks: [{
+				id: "000E1012"
+				type: "checkmark"
+				title: "Connect your Central Kitchen to a MineColonies Restaurant or Warehouse supply line"
+			}]
+			rewards: [
+				{id: "000E2020" type: "xp" xp: 150}
+			]
+			title: "Colony Canteen ★"
+			icon: "minecolonies:blockhutrestaurant"
+			description: [
+				"§6★ Integration Quest — requires Ch 6 MineColonies colony.§r"
+				"§7Skip this quest until your colony (Ch 6) has a §eRestaurant§7 building."
+				"§7Come back and mark it done once the supply line is running."
+				""
+				"§eThe goal:§r"
+				"§7Your §6Central Kitchen§f (from Chef's Engine) supplies the colony."
+				"§fCitizens eat from the §eWarehouse§f — so meals produced here"
+				"§fbecome colony happiness and productivity."
+				""
+				"§eSetup options:§r"
+				""
+				"§eOption A — Create Mechanical Arm direct supply:§r"
+				"§7• §eMechanical Arm§7 set to pull from Meal Chest and deposit"
+				"§7  into the §eMineColonies Warehouse§7 block directly."
+				"§7• Simple, low-tech, effective."
+				""
+				"§eOption B — Little Logistics Barge (Ch 2.8):§r"
+				"§7• If kitchen and colony are far apart (different biomes),"
+				"§7  §eTugboat + Barge§7 ships meal crates along a river route."
+				"§7• More scenic and very satisfying to watch."
+				""
+				"§eOption C — Colony Importer + Manifest:§r"
+				"§7• The §eColony Supply Manifest§7 item (crafted with KubeJS recipe)"
+				"§7  tells the MineColonies Importer which item to pull."
+				"§7• See the §eColony Importer§7 KubeJS script in your pack folder."
+				""
+				"§eFood priority in colony:§r"
+				"§7• Citizens prioritize higher-saturation food when available."
+				"§7• §eFarmer's Delight meals§7 outperform vanilla bread/steak."
+				"§7• A §eFull Colony Pantry§7 (FD meals + vanilla backup) maximizes"
+				"§7  Citizen happiness and reduces Colony Alert events."
+				""
+				"§a► Complete this after founding the colony in Ch 6."
+				"§a► Mark done when meals from your Central Kitchen reach the Warehouse."
+			]
+			dependencies: ["000E0011"]
+		}
+
+		// ============================================================
+		// 4.4  HOME & FINISHING
+		// ============================================================
+
+		{
+			x: 8.0d
+			y: 38.0d
+			id: "000E0013"
+			tasks: [{
+				id: "000E1013"
+				type: "checkmark"
+				title: "Build a Trophy Room: display a boss trophy (head or block) and 3+ item frames with maps or rare finds"
+			}]
+			rewards: [
+				{id: "000E2021" type: "item" item: "minecraft:item_frame" count: 4}
+				{id: "000E2022" type: "xp" xp: 75}
+			]
+			title: "Trophy Room"
+			icon: "minecraft:item_frame"
+			description: [
+				"§6The Trophy Room§f is where Arcane Frontiers' adventure history"
+				"§flives on your walls. Every major kill, every rare find, displayed."
+				""
+				"§eWhat to display:§r"
+				"§7• §eWither Skeleton Skull§7 — from Ch 3 Nether quest."
+				"§7• §eDragon Head§7 — from End Ship bow (Ch 3.5)."
+				"§7• §eTwilight Forest boss trophies§7 (Ch 7) — Naga, Lich, Hydra, Snow Queen."
+				"§7• §eNether Star§7 in a §eSupplementaries Pedestal§7 — spins slowly."
+				"§7• §eFilled Maps§7 of key biomes in §eItem Frames§7."
+				"§7• §eRare Alex's Mobs drops§7 — Bison Fur, Moose Antler."
+				"§7• §eEnigmatic Legacy Lucky Charm§7 if you have multiples."
+				""
+				"§eDisplay tips:§r"
+				"§7• §eItem Frame§7 (vanilla) — flat wall display, standard."
+				"§7• §eGlow Item Frame§7 (from Glow Ink Sacs) — glows without light source."
+				"§7• §eSupplementaries Pedestal§7 — rotating floor display, great for large items."
+				"§7• §eDecorative Blocks Pillar§7 columns flanking the room entrance"
+				"§7  with §eDragon Head§7 mounted above the doorway."
+				""
+				"§eBuilding materials:§r"
+				"§7• §eFramed Blocks§7 — custom texture walls from your rare biome stone."
+				"§7• §eDecorativeBlocks Chandelier§7 — lighting from above."
+				"§7• §eCopyCat Frames§7 as decorative wall borders between displays."
+				""
+				"§a► Build a dedicated trophy display area with at least 1 boss trophy"
+				"§a► and 3+ item frames. Mark done when the room is presentable."
+			]
+			dependencies: ["000E000D"]
+		}
+
+		{
+			x: 12.0d
+			y: 46.0d
+			id: "000E0014"
+			tasks: [{
+				id: "000E1014"
+				type: "checkmark"
+				title: "Mount 4 filled maps in adjacent item frames to create a wall map display"
+			}]
+			rewards: [
+				{id: "000E2023" type: "item" item: "minecraft:glow_item_frame" count: 4}
+				{id: "000E2024" type: "xp" xp: 75}
+			]
+			title: "Family Map Wall"
+			icon: "minecraft:filled_map"
+			description: [
+				"§6Mounted maps§f transform your base into a command center."
+				"§fFour filled maps in adjacent frames create a single large map display"
+				"§fthat everyone in the family can reference at a glance."
+				""
+				"§eCreating the map wall:§r"
+				"§71. §eCraft 4 Empty Maps§7 (8 Paper + 1 Compass each)."
+				"§72. §eRight-click§7 each to fill them — choose your center point first."
+				"§73. §eFor a contiguous 2×2 map:§7 fill the first map, then move"
+				"§7   to the edge and fill the next. Vanilla maps align automatically"
+				"§7   when filled at the right scale."
+				"§74. §ePlace 4 Item Frames§7 in a 2×2 grid on the wall."
+				"§75. §eRight-click each frame§7 with the corresponding map."
+				"§7   The 4 maps should form one seamless image."
+				""
+				"§eMap scale:§r"
+				"§7• Press §eScale 3 (1:8)§7 for a good regional view — use 1 level larger"
+				"§7  to see more biomes at once."
+				"§7• Default (Scale 0 = 1:1) is too zoomed in for a wall map."
+				"§7• §eZoom out:§7 Surround an existing map with §e8 Paper§7 in crafting table"
+				"§7  to increase scale by one level."
+				""
+				"§eGlow Item Frames (reward):§r"
+				"§7• §eGlow Item Frame§7 = §eItem Frame§7 + §eGlow Ink Sac§7 (from Glow Squid)."
+				"§7• The map or item inside §eglows§7 without needing a light source."
+				"§7• Perfect for a map wall in a darker room, or for nighttime trophy rooms."
+				""
+				"§a► Place 4 maps in adjacent frames forming a wall display. Mark done."
+			]
+			dependencies: ["000E0013"]
+		}
+
+		{
+			x: 8.0d
+			y: 46.0d
+			id: "000E0015"
+			tasks: [{
+				id: "000E1015"
+				type: "checkmark"
+				title: "Upgrade any Farmer's Delight knife on the Tetra Modular Workbench with Create metals"
+			}]
+			rewards: [
+				{id: "000E2025" type: "item" item: "farmersdelight:diamond_knife" count: 1}
+				{id: "000E2026" type: "xp" xp: 100}
+			]
+			title: "The Chef's Edge ★"
+			icon: "tetra:modular_workbench"
+			description: [
+				"§6★ Integration Quest — requires Tetra Modular Workbench (Ch 2.7).§r"
+				"§fTetra's Delight lets you upgrade Farmer's Delight knives"
+				"§fon the Modular Workbench, adding Create metal handles and edges."
+				""
+				"§eThe upgrade:§r"
+				"§71. §eTake any FD knife§7 (Iron Knife recommended)."
+				"§72. §eOpen the Modular Workbench§7 (right-click)."
+				"§73. §eDisassemble§7 the knife (left panel, wrench icon) → splits into"
+				"§7   blade, handle, and possibly guard components."
+				"§74. §eUpgrade the handle§7 — replace with §eBrass Hilt§7 (requires"
+				"§7   §eBrass Ingot§7 from Ch 2.2). Grants §eAttack Speed§7 bonus."
+				"§75. §eUpgrade the blade§7 — replace with §eAndesite Edge§7 (requires"
+				"§7   §eAndesite Alloy§7 from Ch 2.1). Grants §eEfficiency§7 near machines."
+				"§76. §eReassemble§7 the knife — it is now a Tetra-modified knife."
+				""
+				"§eCutting Board behavior after upgrade:§r"
+				"§7• The upgraded knife §eworks normally on Cutting Boards§7."
+				"§7• Tetra modification does not break FD crafting integration."
+				"§7• §eDeployer§7 in the Auto Slicer (Ch 4.3) also works with upgraded knives."
+				""
+				"§eDurability improvement:§r"
+				"§7• §eBrass Hilt§7 adds §e+20% durability§7 vs plain wood handle."
+				"§7• §eAndesite Alloy Blade§7 — same cutting function, §e+15% durability§7."
+				"§7• Combined: your knife lasts ~40% longer before needing repair."
+				""
+				"§eReward: Diamond Knife§r"
+				"§7• A fresh Diamond Knife for a second workstation or backup Auto Slicer."
+				"§7• Also upgradeable — Diamond blade + Brass hilt = top-tier kitchen knife."
+				""
+				"§a► Upgrade any FD knife on the Tetra Modular Workbench. Mark done."
+			]
+			dependencies: ["000E000D"]
+		}
+
+		// ============================================================
+		// CHAPTER GATE — HEARTH & HOME ✦
+		// ID: 000E0016 — exported for future use by Ch 6
+		// ============================================================
+
+		{
+			x: 16.0d
+			y: 52.0d
+			shape: "hexagon"
+			id: "000E0016"
+			tasks: [{
+				id: "000E1016"
+				type: "checkmark"
+				title: "Complete your home: pantry full, kitchen automated, map wall built, and the Chef's Edge forged"
+			}]
+			rewards: [
+				{id: "000E2027" type: "item" item: "farmersdelight:safety_net" count: 1}
+				{id: "000E2028" type: "xp" xp: 300}
+			]
+			title: "Hearth & Home ✦"
+			subtitle: "Home is a place you built, not found"
+			description: [
+				"§6Hearth & Home ✦§f is the Chapter 4 completion gate."
+				"§fIt means three things are true:"
+				""
+				"§7• §e4.2 Full Pantry§7 — your food is diversified and sustainable."
+				"§7• §e4.3 Chef's Engine§7 — your kitchen runs without you."
+				"§7• §e4.4 Family Map Wall§7 — your base has become a home with history."
+				""
+				"§eWhat this unlocks:§r"
+				"§7• §6Chapter 6 — The Colony§7 entry quests reference this gate."
+				"§7  Before founding the colony, your food supply should be stable."
+				"§7  This gate proves it is."
+				"§7• §eCh 4.3 Colony Canteen§7 (quest above) — connect your kitchen"
+				"§7  to the colony when you get there."
+				""
+				"§eReflection:§r"
+				"§7At this point in Arcane Frontiers you have:"
+				"§7• §eMagic§7 — Ars Nouveau spells and Source automation."
+				"§7• §eTechnology§7 — Create kinetic and electric power."
+				"§7• §eExploration§7 — the End defeated, the Wither fallen."
+				"§7• §eHome§7 — a base worth defending, a kitchen feeding everyone."
+				""
+				"§7The final two pillars:"
+				"§7• §eColony§7 (Ch 6) — build the family settlement."
+				"§7• §eTwilight§7 (Ch 7) — the last great adventure."
+				""
+				"§eReward: Safety Net§r"
+				"§7• Farmer's Delight decorative block — a food display net for"
+				"§7  hanging crops and food items from ceilings."
+				"§7• Place on a ceiling, right-click with food to display it."
+				"§7• Perfect for a market stall or kitchen pantry decoration."
+				""
+				"§a► Complete Full Pantry (000E000D), Chef's Engine (000E0011), and"
+				"§a► Family Map Wall (000E0014). Mark this gate done."
+			]
+			dependencies: ["000E000D" "000E0011" "000E0014"]
+		}
+
+	]
+	quest_links: []
+}

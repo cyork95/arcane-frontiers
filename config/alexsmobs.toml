@@ -1,0 +1,176 @@
+#================================================================
+# alexsmobs.toml — Arcane Frontiers
+# Mod: Alex's Mobs (Unofficial 1.21.1 NeoForge Port)
+# Purpose: Tune spawn weights so the pack's creature diversity
+#          feels rich without overwhelming younger players
+#          or collapsing server TPS near ocean/cave biomes.
+#
+# IMPORTANT — KEY VERIFICATION:
+# Alex's Mobs 1.21.1 is an unofficial port. Config key names
+# may differ slightly from the values below depending on which
+# port version you installed. If a key is unrecognised, the
+# mod will ignore it (no crash) and use its default instead.
+#
+# To find exact key names for your installed version:
+#   1. Launch the game once — the mod generates alexsmobs.toml
+#      with all available keys and their defaults.
+#   2. Replace this file's mob weights with those keys.
+#   3. Keep our recommended values.
+#
+# All spawn weights are RELATIVE values. Higher = more common.
+# The actual spawn rate also depends on biome spawn lists —
+# a mob configured to spawn only in deserts won't appear in
+# forests regardless of its weight value.
+#================================================================
+
+[mob_spawning]
+
+    #---------------------------------------------------------
+    # AMBIENT / PEACEFUL CREATURES — keep at defaults
+    # These are the family-favourite animals. Kids love them.
+    # Never reduce charming ambient mobs.
+    #---------------------------------------------------------
+
+    # Capybara — the internet's favourite. Spawns near water.
+    capybara_spawn_weight = 8
+
+    # Raccoon — forests and villages. Adorable scavengers.
+    raccoon_spawn_weight = 8
+
+    # Catfish — rivers and swamps. Peaceful underwater.
+    catfish_spawn_weight = 6
+
+    # Hammerhead/Great White Sharks — oceans.
+    # Slightly reduced from default to prevent ocean biomes
+    # from feeling like a shark gauntlet for new swimmers.
+    hammerhead_shark_spawn_weight = 4    # default ~6
+    great_white_shark_spawn_weight = 3   # default ~5
+
+    # Stradpole / Frilled Shark — deep oceans. Fine at default.
+    frilled_shark_spawn_weight = 3
+
+    # Toucan — jungle biomes. Bright and delightful.
+    toucan_spawn_weight = 8
+
+    # Roadrunner — desert/savanna. Fast and fun to watch.
+    roadrunner_spawn_weight = 6
+
+    # Hummingbird — flower biomes. Essential Terralith pairing.
+    hummingbird_spawn_weight = 8
+
+    # Bald Eagle — mountain/coastal biomes.
+    bald_eagle_spawn_weight = 6
+
+    # Elephant — savanna. Impressive; fine at default.
+    elephant_spawn_weight = 4
+
+    # Fly — ambient insect. Low weight, fine as-is.
+    fly_spawn_weight = 3
+
+    # Gorilla — jungle. Non-aggressive unless provoked.
+    gorilla_spawn_weight = 5
+
+    # Moose — taiga/boreal. Docile unless you attack.
+    moose_spawn_weight = 5
+
+    # Komodo Dragon — jungle/savanna. Mildly aggressive.
+    komodo_dragon_spawn_weight = 4
+
+    #---------------------------------------------------------
+    # NEUTRAL / TAMEABLE CREATURES
+    # Keep at reasonable defaults — these reward exploration.
+    #---------------------------------------------------------
+
+    # Crocodile — swamp biomes. Aggressive if approached.
+    # Slightly reduced to make swamp exploration less punishing
+    # for players without armour yet.
+    crocodile_spawn_weight = 4           # default ~6
+
+    # Grizzly Bear — forest/taiga. Aggressive when defending cubs.
+    grizzly_bear_spawn_weight = 4
+
+    # Rattlesnake — desert. Warns before striking.
+    rattlesnake_spawn_weight = 4
+
+    #---------------------------------------------------------
+    # HOSTILE CREATURES — REDUCED FROM DEFAULTS
+    # These are the mobs that can blindside early-game players.
+    # Reduced spawn weights create a more forgiving early game
+    # while keeping the creatures present for later encounters.
+    #
+    # The Ch 3.2 "Dangerous Waters" quest specifically asks
+    # players to SURVIVE a shark encounter — not to never see
+    # one. Reducing weights to 3-5 (from 8-12) means they
+    # appear but don't dominate every ocean strip.
+    #---------------------------------------------------------
+
+    # Endergrade — End biomes. Powerful; keep rare pre-End.
+    endergrade_spawn_weight = 5          # default ~12
+    # Rationale: Players won't reach the End until Ch 3.5.
+    # Finding an Endergrade in an End City is frightening and
+    # exciting. Spawning them at full rate near the End Portal
+    # makes approaching the portal feel like a gauntlet.
+
+    # Bone Serpent — Nether. Ambush predator; fast and deadly.
+    bone_serpent_spawn_weight = 4        # default ~8
+    # Rationale: The Nether is already threatening with
+    # YUNG's Fortresses, Blaze Rod farming, and Incendium
+    # biomes. A bone_serpent at default weight in tight
+    # Nether tunnel systems can one-shot newer players.
+
+    # Void Worm — The End. Ultra-rare boss-tier.
+    void_worm_spawn_weight = 1           # default ~2
+    # Keep very low — this is an encounter, not background fauna.
+
+    # Warped Mosco — Warped Forest Nether biome.
+    warped_mosco_spawn_weight = 5        # default ~8
+
+    # Cachalot Whale — deep ocean. Enormous; fine as rare.
+    cachalot_whale_spawn_weight = 2      # default ~3
+
+    # Emu — savanna. Surprisingly aggressive. Slightly reduced.
+    emu_spawn_weight = 4                 # default ~6
+
+    # Crimson Mosquito — Nether/Crimson Forest.
+    crimson_mosquito_spawn_weight = 5    # default ~8
+
+    #---------------------------------------------------------
+    # RARE / SPECIAL ENCOUNTERS — keep rare or increase
+    # These are "story moment" mobs. Players should feel lucky
+    # to encounter them, not overwhelmed by them.
+    #---------------------------------------------------------
+
+    # Mimicube — mimics chests. Keep rare for the surprise.
+    mimicube_spawn_weight = 1
+
+    # Lobster — ocean floor. Ambient; fine at default.
+    lobster_spawn_weight = 5
+
+    # Farseer — roofed forest/dark areas. Unsettling.
+    farseer_spawn_weight = 2             # default ~3
+
+[general]
+
+    #---------------------------------------------------------
+    # PERFORMANCE & SAFETY SETTINGS
+    #---------------------------------------------------------
+
+    enableSpawnEggs = true
+    # Allow Alex's Mobs spawn eggs in creative mode.
+    # Useful for family creative sessions and testing.
+
+    enableHeadDrops = true
+    # Mobs can drop decorative head items. Keep enabled —
+    # kids love collecting creature heads for displays.
+
+    fireflies_emit_light = true
+    # Fireflies glow in dark. Small visual charm that pairs
+    # beautifully with Terralith's night biomes.
+
+    # NOTE on ocean performance:
+    # Alex's Mobs populates ocean biomes heavily. If ocean
+    # exploration (Ch 3.2 quests) causes TPS drops, add this
+    # to server.properties:
+    #   entity-broadcast-range-percentage=60
+    # That reduces entity sync range near water without
+    # touching spawn weights here.

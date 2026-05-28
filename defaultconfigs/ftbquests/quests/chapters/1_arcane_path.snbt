@@ -1,0 +1,1338 @@
+{
+	id: "000B0000"
+	group: ""
+	order_index: 1
+	filename: "1_arcane_path"
+	title: "Chapter 1: The Arcane Path"
+	icon: "ars_nouveau:worn_notebook"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	// ================================================================
+	// CROSS-CHAPTER DEPENDENCY REFERENCE
+	// The following IDs from other chapters are used as dependencies
+	// in this file. Confirm these IDs match exactly when writing
+	// those chapter files:
+	//
+	//   000C000A = Ch 2 "Brass Handshake" gate quest
+	//              → required by quest 000B0010 (Mage Spellbook)
+	//
+	//   000D000E = Ch 3 "End Portal Key" gate quest
+	//              → required by quest 000B0016 (Archmage Spellbook)
+	//
+	// Both IDs are TENTATIVE. When writing 2_gears_steam.snbt and
+	// 3_wide_world.snbt, use these exact IDs for those gate quests.
+	// ================================================================
+	quests: [
+
+		// ============================================================
+		// 1.1  FIRST SPARKS
+		// ============================================================
+
+		{
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			id: "000B0001"
+			tasks: [{
+				id: "000B1001"
+				type: "item"
+				item: "ars_nouveau:worn_notebook"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000B2001" type: "item" item: "ars_nouveau:source_gem" count: 8}
+				{id: "000B2002" type: "xp" xp: 25}
+			]
+			title: "The Worn Notebook"
+			icon: "ars_nouveau:worn_notebook"
+			subtitle: "Your arcane education begins"
+			description: [
+				"§6Ars Nouveau§f is the magic system at the heart of this pack."
+				"§fThe Worn Notebook is your in-game guidebook — every recipe,"
+				"§fglyph, ritual, and familiar has an entry inside."
+				""
+				"§eHow to get your Worn Notebook:§r"
+				"§7• Craft §e1 Book + 1 Leather§7 in any crafting grid (shapeless)."
+				"§7• Or find one in dungeon chest loot."
+				"§7• This quest's §6starter reward§7 gives you Source Gems — use them"
+				"§7  early to craft your first Source Jar."
+				""
+				"§eHow to read the Worn Notebook:§r"
+				"§7• Right-click to open."
+				"§7• Click a chapter header to expand it."
+				"§7• Click any entry for full recipe details."
+				"§7• Press §eEsc§7 or the close button to go back."
+				""
+				"§ePriority reading order:§r"
+				"§7  1. §6Source§7 — understand this before anything else."
+				"§7  2. §6Glyphs§7 — how spell components combine."
+				"§7  3. §6Familiars§7 — especially Starbuncle (powers Create in Ch 5!)."
+				"§7  4. §6Rituals§7 — essential for mid-game automation."
+				""
+				"§ePack adjustments you will not find in default guides:§r"
+				"§7• Apprentice Spellbook: §e4 glyph slots§7 (default is 3)."
+				"§7• Mage Spellbook: §e6 glyph slots§7."
+				"§7• Archmage Spellbook: §e10 glyph slots§7."
+				"§7• Source cost multiplier: §e×0.9§7 — spells cost 10% less Source."
+				""
+				"§a► Gate quest: completing this unlocks all Chapter 1 quests."
+			]
+			dependencies: []
+		}
+
+		{
+			x: -8.0d
+			y: 4.0d
+			id: "000B0002"
+			tasks: [{
+				id: "000B1002"
+				type: "item"
+				item: "ars_nouveau:source_gem"
+				count: 16L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000B2003" type: "item" item: "ars_nouveau:source_jar" count: 2}
+			]
+			title: "First Source"
+			icon: "ars_nouveau:source_gem"
+			description: [
+				"§fSource is the magical energy that powers everything in Ars Nouveau."
+				"§fThink of it like electricity — you generate it, store it, and spend it."
+				""
+				"§eWhat Source Gems are:§r"
+				"§7Source Gems are compressed Source energy — physical tokens you"
+				"§7can carry, trade, and use as crafting ingredients."
+				""
+				"§eHow to store Source:§r"
+				"§7Craft a §6Source Jar§7 (Glass + Source Gem + Glass, bottom row)."
+				"§7Place it on the ground. Nearby magical plants and Starbuncles"
+				"§7will fill it automatically. Holds §e10,000 Source§7 per jar."
+				""
+				"§eHow to SPEND Source:§r"
+				"§7• Casting spells draws from the nearest Source Jar in range."
+				"§7• §cIf no jar is nearby, spells cost your health!§7"
+				"§7• Always keep a Source Jar at base. Carry Source Gems when travelling."
+				""
+				"§eEarly Source generation methods:§r"
+				"§7  1. §6Archwood Trees§7 (blue/purple/red bark) emit passive Source nearby."
+				"§7     Find them in magical biomes — use Nature's Compass to search."
+				"§7  2. §6Source Berry Bushes§7 near a Source Jar trickle Source in when ripe."
+				"§7     Harvest and throw Mana Berries near a jar to convert them."
+				"§7  3. §6Starbuncle familiar§7 (Ch 1.2) auto-collects gems and fills jars."
+				""
+				"§7This quest rewards 2 Source Jars — place them at your base immediately."
+				""
+				"§a► Task: Have 16 Source Gems in your inventory. They are not consumed."
+			]
+			dependencies: ["000B0001"]
+		}
+
+		{
+			x: -3.0d
+			y: 4.0d
+			id: "000B0003"
+			tasks: [{
+				id: "000B1003"
+				type: "item"
+				item: "ars_nouveau:archwood_log"
+				count: 16L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000B2004" type: "item" item: "ars_nouveau:source_jar" count: 1}
+				{id: "000B2005" type: "xp" xp: 20}
+			]
+			title: "Awakened Wood"
+			icon: "ars_nouveau:archwood_log"
+			description: [
+				"§fAwakened Wood is your first magical crafting material —"
+				"§fthe foundation of every Ars Nouveau device you will build."
+				""
+				"§eWhere to find Archwood Trees:§r"
+				"§7Archwood Trees generate in magical biomes with distinctly"
+				"§7coloured bark: §bCascading§7 (blue), §eBlazin§7g (yellow),"
+				"§aFlourishing§7 (green), §5Vexing§7 (purple)."
+				"§7Use your §6Nature's Compass§7 and search for 'ars_nouveau' to locate them."
+				""
+				"§eHow to make Awakened Wood:§r"
+				"§7  1. Collect §6Archwood Logs§7 from any Archwood tree."
+				"§7  2. In a crafting grid: 1 Archwood Log → §dAwakened Wood Log§7"
+				"§7     (shapeless conversion — one log in any slot)."
+				"§7  3. Craft §dAwakened Wood Planks§7 from Awakened Logs (4 planks each)."
+				""
+				"§eEssential items you will craft from Awakened Wood Planks:§r"
+				"§7• §6Source Jar§7 — magical energy storage."
+				"§7• §6Scribe's Table§7 — where you learn glyphs from Glyph items."
+				"§7• §6Artefy Table§7 — where you inscribe spells into your spellbook."
+				"§7• §6Arcane Core§7 — ingredient for mid-game devices."
+				"§7• §6Ritual Brazier§7 — the heart of every ritual setup."
+				""
+				"§eTip:§r §7Bring Bone Meal on your first Archwood expedition."
+				"§7Speed-grow saplings into a full grove so you have a renewable supply."
+				""
+				"§a► Task: Have 16 Archwood Logs of any type. They are not consumed."
+				"§7(Cascading, Blazing, Flourishing, and Vexing logs all count.)"
+			]
+			dependencies: ["000B0001"]
+		}
+
+		{
+			x: 3.0d
+			y: 4.0d
+			id: "000B0004"
+			tasks: [{
+				id: "000B1004"
+				type: "item"
+				item: "ars_nouveau:glyph_projectile"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000B2006" type: "item" item: "ars_nouveau:glyph_harm" count: 1}
+				{id: "000B2007" type: "xp" xp: 30}
+			]
+			title: "Your First Glyph"
+			icon: "ars_nouveau:glyph_projectile"
+			description: [
+				"§fGlyphs are the building blocks of every spell."
+				"§fA spell is a sequence of glyphs — like a sentence where each"
+				"§fword is a magical instruction."
+				""
+				"§eThe three glyph types:§r"
+				"§7• §bForm glyphs§7 — HOW the spell travels."
+				"§7  Examples: Projectile, Touch, AOE, Burst, Wave."
+				"§7• §aEffect glyphs§7 — WHAT the spell does."
+				"§7  Examples: Harm, Fire, Freeze, Heal, Light, Break."
+				"§7• §eAugment glyphs§7 — modifies the spell's behaviour."
+				"§7  Examples: Amplify, Extend Time, Pierce, Haste, Fortune."
+				""
+				"§eHow to craft Glyphs:§r"
+				"§7  1. Build an §6Apparatus§7 (Awakened Wood Planks + Arcane Core pattern"
+				"§7     shown in the Worn Notebook → Glyphs section)."
+				"§7  2. Place the Apparatus with a Source Jar nearby."
+				"§7  3. Put ingredients on the Apparatus pedestals as shown in JEI."
+				"§7  4. The Apparatus converts ingredients → Glyph item using Source."
+				""
+				"§eHow to LEARN a Glyph:§r"
+				"§7  1. Craft a §6Scribe's Table§7 (Awakened Wood Planks)."
+				"§7  2. Right-click the Scribe's Table holding your empty spellbook."
+				"§7  3. Drag the Glyph item from your inventory into the learning slot."
+				"§7  4. The glyph is permanently learned — the item is consumed."
+				""
+				"§eStarter glyphs to prioritise:§r"
+				"§7• §bProjectile§7 + §aHarm§7 = basic ranged attack."
+				"§7• §bTouch§7 + §aHeal§7 = self or ally heal."
+				"§7• §bTouch§7 + §aLight§7 = place a light source (no torches needed!)."
+				""
+				"§7This quest rewards §6Glyph: Harm§7 — combine it with Projectile."
+				""
+				"§a► Task: Have a Glyph: Projectile in your inventory. Not consumed."
+			]
+			dependencies: ["000B0001"]
+		}
+
+		{
+			x: -6.0d
+			y: 8.0d
+			id: "000B0005"
+			tasks: [{
+				id: "000B1005"
+				type: "item"
+				item: "ars_nouveau:apprentice_spellbook"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000B2008" type: "item" item: "ars_nouveau:glyph_light" count: 1}
+				{id: "000B2009" type: "item" item: "ars_nouveau:source_gem" count: 12}
+			]
+			title: "A Touch of Magic"
+			icon: "ars_nouveau:apprentice_spellbook"
+			description: [
+				"§fYou have Source. You have Awakened Wood. You have a glyph."
+				"§fTime to cast your first real spell."
+				""
+				"§eCraft an Apprentice Spellbook:§r"
+				"§7  Recipe: Awakened Wood Planks surrounding a Book + Source Gem"
+				"§7  (check JEI — search 'Apprentice Spellbook')."
+				""
+				"§eBuild your first spell:§r"
+				"§7  1. Craft a §6Scribe's Table§7 from Awakened Wood Planks and place it."
+				"§7  2. Right-click the table while holding your Apprentice Spellbook."
+				"§7  3. In the §6Glyph panel§7 on the left, click a Form glyph you have learned."
+				"§7  4. Click an Effect glyph to add it after the Form."
+				"§7  5. Give the spell a §ename§7 and choose a §ecolour§7."
+				"§7  6. Click §6Save§7 — the spell is inscribed into your book."
+				""
+				"§eCasting:§r"
+				"§7• Equip the spellbook in your hand."
+				"§7• §eScroll§7 through your spell slots (up to 4 spells in this tier)."
+				"§7• §eRight-click§7 to cast."
+				"§7• Source is drawn from the nearest Source Jar in range."
+				"§7• §cNo jar nearby = costs your health. Build a Source Jar first!§7"
+				""
+				"§ePack note — spellbook slot counts:§r"
+				"§7• §6Apprentice:§7 4 spells, 4 glyph slots each."
+				"§7• §6Mage:§7 6 spells, 6 glyph slots — requires Create Brass (Ch 2.2)."
+				"§7• §6Archmage:§7 10 spells, 10 glyph slots — requires End Portal Key (Ch 3)."
+				""
+				"§7This quest rewards §6Glyph: Light§7. Build §bTouch + Light§7 as your first"
+				"§7utility spell — it lights your base for free, no torches needed."
+				""
+				"§a► Task: Have an Apprentice Spellbook in your inventory. Not consumed."
+			]
+			dependencies: ["000B0002" "000B0003" "000B0004"]
+		}
+
+		{
+			x: 0.0d
+			y: 8.0d
+			id: "000B0006"
+			tasks: [{
+				id: "000B1006"
+				type: "item"
+				item: "ars_nouveau:glyph_amplify"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000B200A" type: "item" item: "ars_nouveau:glyph_pierce" count: 1}
+				{id: "000B200B" type: "xp" xp: 40}
+			]
+			title: "Three Glyphs Deep"
+			icon: "ars_nouveau:glyph_amplify"
+			description: [
+				"§fOne glyph makes a spell. Three glyphs make a §osystem§f."
+				""
+				"§eAugment glyphs — the multiplier tier:§r"
+				"§7An Augment glyph placed §oafter§7 your Form + Effect changes the"
+				"§7spell's power, range, or behaviour without changing what it is."
+				""
+				"§7• §eAmplify§7 — increases damage or effect strength."
+				"§7• §eExtend Time§7 — makes lasting effects last longer."
+				"§7• §ePierce§7 — projectile passes through first target and hits the next."
+				"§7• §eAOE§7 (as augment after Touch) — expands the effect area."
+				"§7• §eDelay§7 — spell effect triggers after a short pause."
+				""
+				"§eExample three-glyph spells:§r"
+				"§7• §bProjectile§7 + §aHarm§7 + §eAmplify§7 = heavy bolt (great for bosses)."
+				"§7• §bTouch§7 + §aHeal§7 + §eExtend Time§7 = long regeneration pulse."
+				"§7• §bProjectile§7 + §aFire§7 + §eAOE§7 = fire spreads across a group of mobs."
+				""
+				"§eWith 4 glyph slots (your Apprentice book):§r"
+				"§7Form + Effect + Augment + Augment = double-modified spell."
+				"§7Try: §bProjectile§7 + §aHarm§7 + §eAmplify§7 + §eAmplify§7"
+				"§7→ Expensive but devastating. Two Amplifies stack multiplicatively."
+				""
+				"§eSource cost scaling:§r"
+				"§7A 4-glyph spell costs roughly 3× a 2-glyph spell."
+				"§7With this pack's ×0.9 Source multiplier, 4-glyph spells are"
+				"§7still manageable if your Source Jar network is healthy."
+				""
+				"§7This quest rewards §6Glyph: Pierce§7. Combine:"
+				"§7§bProjectile§7 + §aHarm§7 + §eAmplify§7 + §ePierce§7 = long-range armour-piercing bolt."
+				""
+				"§a► Task: Have a Glyph: Amplify in your inventory. Not consumed."
+			]
+			dependencies: ["000B0004"]
+		}
+
+		{
+			x: 7.0d
+			y: 4.0d
+			id: "000B0007"
+			tasks: [{
+				id: "000B1007"
+				type: "item"
+				item: "ars_nouveau:ritual_brazier"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000B200C" type: "item" item: "ars_nouveau:ritual_tablet_summon_starbuncle" count: 1}
+				{id: "000B200D" type: "xp" xp: 35}
+			]
+			title: "The Ritual Circle"
+			icon: "ars_nouveau:ritual_brazier"
+			description: [
+				"§fRituals are large-scale magic that affect the world around you"
+				"§finstead of a single target. They require a circle of candles,"
+				"§fa Ritual Brazier, and a Ritual Tablet describing what to cast."
+				""
+				"§eHow to build a Ritual Circle:§r"
+				"§7  1. Craft a §6Ritual Brazier§7 (Awakened Wood Planks + Source Gems"
+				"§7     in a pattern — see Worn Notebook → Rituals for the exact recipe)."
+				"§7  2. Place the Brazier on flat ground at the centre of your chosen area."
+				"§7  3. Surround it with §6Candles§7 in the pattern shown on the Ritual Tablet."
+				"§7     (Each Tablet shows its own pattern. Candle colour does not matter.)"
+				"§7  4. Place the Ritual Tablet on the Brazier by right-clicking with it."
+				"§7  5. Right-click the Brazier with a §6Source Gem§7 to start the ritual."
+				""
+				"§eSource cost:§r"
+				"§7Rituals drain a significant amount of Source. Before any ritual:"
+				"§7  • Have §e3–4 full Source Jars§7 within range of the Brazier."
+				"§7  • The Brazier draws from all jars in range simultaneously."
+				"§7  • If Source runs out mid-ritual, the ritual fails — place more jars!"
+				""
+				"§eRitual Tablets you will use most often:§r"
+				"§7• §6Ritual of Summon Starbuncle§7 — summons your first familiar."
+				"§7• §6Ritual of Awakening§7 — converts Archwood into Awakened Archwood."
+				"§7• §6Ritual of Fertility§7 — instant-grows all crops in a wide radius."
+				"§7• §6Ritual of Disintegration§7 — clears large areas of stone for mining."
+				""
+				"§7This quest rewards a §6Ritual Tablet: Summon Starbuncle§7."
+				"§7The Starbuncle is the most important familiar in the pack — it"
+				"§7auto-collects Source Gems AND powers Create machines in Ch 5."
+				""
+				"§a► Task: Have a Ritual Brazier in your inventory. Not consumed."
+			]
+			dependencies: ["000B0001"]
+		}
+
+		// ============================================================
+		// 1.2  SOURCE & FAMILIARS
+		// ============================================================
+
+		{
+			x: -10.0d
+			y: 12.0d
+			id: "000B0008"
+			tasks: [{
+				id: "000B1008"
+				type: "item"
+				item: "ars_nouveau:imbuement_chamber"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000B200E" type: "item" item: "ars_nouveau:relay" count: 4}
+				{id: "000B200F" type: "xp" xp: 50}
+			]
+			title: "Source Network"
+			icon: "ars_nouveau:imbuement_chamber"
+			description: [
+				"§fA Source Network is an automated system that generates, transports,"
+				"§fand stores magical energy — so your spells never run dry mid-dungeon."
+				""
+				"§eThe three layers of a Source Network:§r"
+				""
+				"§e1. Generation Layer:§r"
+				"§7• §6Source Berry Bushes§7 near a Source Jar trickle passive Source in."
+				"§7• §6Archwood Trees§7 emit Source into nearby jars when close enough."
+				"§7• §6Starbuncle familiar§7 collects loose Source Gems and deposits them in jars."
+				""
+				"§e2. Transport Layer:§r"
+				"§7• §6Relay§7 block — connects two Source Jars and transfers between them."
+				"§7• §6Mana Relay§7 — longer-range transfer, used to span your base."
+				"§7• Chain multiple Relays to move Source from a farm area to a work area."
+				""
+				"§e3. Consumption Layer:§r"
+				"§7• §6Scribe's Table§7 — draws Source when you learn glyphs."
+				"§7• §6Apparatus§7 — draws Source when crafting glyphs."
+				"§7• §6Imbuement Chamber§7 — draws Source when infusing items."
+				"§7• §6Enchanting Apparatus§7 — draws Source for enchanting rituals."
+				""
+				"§eThe Imbuement Chamber:§r"
+				"§7The Imbuement Chamber is the crafting block where you create"
+				"§7high-tier Ars Nouveau items and imbue armour with magical properties."
+				"§7Recipe: Awakened Wood Planks + Source Gems pattern (see Worn Notebook)."
+				""
+				"§eTip:§r §7Set up one high-density Archwood grove as your 'Source Farm'."
+				"§7Pipe its output via Relays to every workstation in your base."
+				"§7One Starbuncle patrolling a grove of 6+ Archwood Trees fills"
+				"§7a Source Jar in about 2 in-game hours passively."
+				""
+				"§a► Task: Have an Imbuement Chamber in your inventory. Not consumed."
+			]
+			dependencies: ["000B0005"]
+		}
+
+		{
+			x: -5.0d
+			y: 12.0d
+			id: "000B0009"
+			tasks: [{
+				id: "000B1009"
+				type: "item"
+				item: "ars_nouveau:relay"
+				count: 2L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000B2010" type: "item" item: "ars_nouveau:source_jar" count: 2}
+			]
+			title: "Mana Relay"
+			icon: "ars_nouveau:relay"
+			description: [
+				"§fThe Relay is the 'wire' of your Source network — it carries magical"
+				"§fenergy from where it is generated to where it is consumed."
+				""
+				"§eHow to link a Relay:§r"
+				"§7  1. Hold your §6Worn Notebook§7 and right-click the §6SOURCE jar§7"
+				"§7     (the one that fills up — your generation point)."
+				"§7  2. Right-click the §6Relay block§7 you have placed between them."
+				"§7  3. Right-click the Relay block again, then right-click the §6TARGET jar§7"
+				"§7     (the one your devices draw from — your consumption point)."
+				"§7  4. §aBlue particles§7 = linked and actively transferring Source."
+				""
+				"§eRelay types:§r"
+				"§7• §6Relay§7 — standard short-range transfer, small buffer (~500 Source)."
+				"§7• §6Relay Depositor§7 — pulls Source from nearby blocks into a jar."
+				"§7• §6Relay Collector§7 — pulls from a linked jar into nearby blocks."
+				""
+				"§eRange and chaining:§r"
+				"§7• Transfer range per Relay: approximately 16 blocks."
+				"§7• Chain multiple Relays for longer distances."
+				"§7• You can branch the chain: one generation jar can feed"
+				"§7  multiple Relays going to different consumption zones."
+				""
+				"§eSmart base layout:§r"
+				"§7  §6Generation Zone§7 (Archwood grove) → Relay → Relay"
+				"§7  → splits to: §6Glyph Workshop Jar§7 + §6Ritual Altar Jar§7 + §6Combat Reserve Jar§7"
+				""
+				"§7Name your Source Jars with an Anvil so you know which is"
+				"§7which when setting up Relay links ('Generator 1', 'Ritual Altar', etc.)."
+				""
+				"§a► Task: Have 2 Relay blocks in your inventory. They are not consumed."
+			]
+			dependencies: ["000B0005"]
+		}
+
+		{
+			x: 0.0d
+			y: 12.0d
+			id: "000B000A"
+			tasks: [{
+				id: "000B100A"
+				type: "checkmark"
+				title: "A Starbuncle is patrolling your Source area"
+			}]
+			rewards: [
+				{id: "000B2011" type: "item" item: "ars_nouveau:ritual_tablet_summon_starbuncle" count: 1}
+				{id: "000B2012" type: "xp" xp: 45}
+			]
+			title: "A Familiar Friend"
+			icon: "ars_nouveau:starbuncle_shard"
+			description: [
+				"§fFamiliars are magical companions that work for you automatically."
+				"§fEach type does a different job — the right team fully automates"
+				"§fyour Source generation and item logistics."
+				""
+				"§e★ Starbuncle§r §7— the most important familiar in this pack:"
+				"§7• Collects loose Source Gems from the ground and deposits them"
+				"§7  in nearby Source Jars automatically."
+				"§7• Assign a patrol path: right-click with a §6Gold Stripe§7 to set"
+				"§7  waypoints. The Starbuncle walks the route, picking up items."
+				"§7• Optionally: right-click with a §6Gold Nugget§7 to link two inventories."
+				"§7  The Starbuncle walks between them, transferring items continuously."
+				"§7• §6Ch 5 bonus:§7 The §eStarbuncle Wheel§7 converts the Starbuncle's"
+				"§7  patrol into Create Stress Units — free SU from magic rotation!"
+				""
+				"§eHow to summon your first Starbuncle:§r"
+				"§7  1. Build a Ritual Circle (see The Ritual Circle quest)."
+				"§7  2. Place the §6Ritual Tablet: Summon Starbuncle§7 on the Brazier."
+				"§7  3. Place the ingredients listed in the Worn Notebook on candle pedestals."
+				"§7  4. Have 3+ full Source Jars near the Brazier — the ritual is Source-heavy."
+				"§7  5. Right-click the Brazier with a Source Gem to start the ritual."
+				"§7  6. A Starbuncle spawns near the Brazier when the ritual completes."
+				""
+				"§7To assign a patrol path:"
+				"§7  • Hold a §6Gold Stripe§7 (crafted: Gold Ingot + String)."
+				"§7  • Right-click the Starbuncle, then right-click your Source Jar."
+				"§7  • The Starbuncle will patrol between the registered points, auto-filling."
+				""
+				"§a► Task: Checkmark when your Starbuncle is on an active Source patrol."
+			]
+			dependencies: ["000B0005" "000B0007"]
+		}
+
+		{
+			x: 4.0d
+			y: 12.0d
+			id: "000B000B"
+			tasks: [{
+				id: "000B100B"
+				type: "checkmark"
+				title: "A Drygmy or Whirlisprig is working your farm or mob area"
+			}]
+			rewards: [
+				{id: "000B2013" type: "item" item: "ars_nouveau:ritual_tablet_summon_drygmy" count: 1}
+				{id: "000B2014" type: "xp" xp: 40}
+			]
+			title: "Second Familiar"
+			icon: "ars_nouveau:drygmy_shard"
+			description: [
+				"§fThe §eWhirlisprig§f and §eDrygmy§f are the automation backbone of your farm."
+				"§fEach family member should eventually have one of each running."
+				""
+				"§eWhirlisprig — the crop farmer:§r"
+				"§7• Automatically plants and harvests crops in a wide radius."
+				"§7• Needs tilled soil (§eFarmland§7) — does not work on plain dirt."
+				"§7• Harvested items drop on the ground. Use a §6Starbuncle§7 on the"
+				"§7  same patrol route to collect them!"
+				"§7• Works with §6Farmer's Delight§7 crops (tomatoes, cabbages, rice, etc.)."
+				"§7  Plant a Farmer's Delight garden near a Whirlisprig for fully automated food."
+				"§7• Pack integration — Ch 6.7 'Arcane Forestry': place a Whirlisprig near"
+				"§7  the MineColonies Lumberjack Hut for passive wood generation."
+				""
+				"§eDrygmy — the passive mob farmer:§r"
+				"§7• Lives near mobs in a §6Drygmy Henge§7 (multi-block structure)."
+				"§7• Generates drops from nearby passive mobs over time — §ano killing§7."
+				"§7• Best setups:"
+				"§7  → Cows nearby = passive Leather + Beef."
+				"§7  → Chickens nearby = passive Eggs + Feathers."
+				"§7  → Mooblooms nearby = passive Flowers (great for decoration)."
+				"§7• Items appear in a linked chest. One Drygmy is slow — place 3–4"
+				"§7  in the same Henge for meaningful output. They stack."
+				""
+				"§eHow to summon:§r"
+				"§7Same as Starbuncle — use a Ritual Circle with the matching Ritual Tablet."
+				"§7Both Tablets are shown in JEI. Check Worn Notebook for ingredients."
+				""
+				"§a► Task: Checkmark when a Drygmy or Whirlisprig is actively working."
+			]
+			dependencies: ["000B000A"]
+		}
+
+		{
+			x: -7.0d
+			y: 16.0d
+			id: "000B000C"
+			tasks: [{
+				id: "000B100C"
+				type: "checkmark"
+				title: "Your Wixie is assigned to a Cauldron and brewing potions"
+			}]
+			rewards: [
+				{id: "000B2015" type: "item" item: "ars_nouveau:ritual_tablet_summon_wixie" count: 1}
+				{id: "000B2016" type: "xp" xp: 50}
+			]
+			title: "Wixie's Kitchen"
+			icon: "ars_nouveau:wixie_shard"
+			description: [
+				"§fThe Wixie is the alchemical familiar — it automatically brews potions"
+				"§fusing a §6Wixie Cauldron§f and whatever ingredients you stock."
+				""
+				"§eWhat a Wixie does:§r"
+				"§7• Stands near its assigned §6Wixie Cauldron§7 and an ingredient chest."
+				"§7• Automatically brews potions from the recipes it knows."
+				"§7• Deposits finished potions into a linked output chest."
+				"§7• Runs continuously — no player input needed after setup."
+				""
+				"§eSetting up the Wixie Station:§r"
+				"§7  1. Craft a §6Wixie Cauldron§7 (Awakened Wood + Source Gem + Cauldron"
+				"§7     pattern — see Worn Notebook → Familiars → Wixie)."
+				"§7  2. Place the Cauldron with a Source Jar nearby."
+				"§7  3. Summon a Wixie using a Ritual Circle + Ritual Tablet: Summon Wixie."
+				"§7  4. Right-click the Wixie with the Cauldron to assign it to that Cauldron."
+				"§7  5. Place a chest of potion ingredients adjacent to the Cauldron."
+				"§7  6. Right-click the Cauldron with your Worn Notebook → set the potion type."
+				""
+				"§eWhat to brew early:§r"
+				"§7• §aPotion of Healing§7 — Glistering Melon + Water Bottle (instant restore)."
+				"§7• §aPotion of Night Vision§7 — Golden Carrot + Water Bottle (caves & mining)."
+				"§7• §aPotion of Regeneration§7 — Ghast Tear + Water Bottle (boss fights)."
+				""
+				"§eWixie + Create automation (Ch 2):§r"
+				"§7Pipe Wixie ingredient chests via §6Mechanical Arms and Funnels§7."
+				"§7An automated potion brewery that never runs out of ingredients is"
+				"§7one of the best quality-of-life builds in the entire pack."
+				""
+				"§a► Task: Checkmark when your Wixie is assigned and actively brewing."
+			]
+			dependencies: ["000B0009"]
+		}
+
+		{
+			x: -2.0d
+			y: 16.0d
+			id: "000B000D"
+			tasks: [{
+				id: "000B100D"
+				type: "item"
+				item: "ars_elemental:fire_focus"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000B2017" type: "item" item: "ars_nouveau:source_gem" count: 24}
+				{id: "000B2018" type: "xp" xp: 45}
+			]
+			title: "Elemental Focus"
+			icon: "ars_elemental:fire_focus"
+			description: [
+				"§fArs Elemental adds §6Elemental Focuses§f — powerful accessories you"
+				"§fslot into your Spellbook to add elemental secondary effects to"
+				"§fmatching spells automatically."
+				""
+				"§eThe four focuses:§r"
+				"§7• §cFire Focus§7 — adds §oIgnite§7 to fire spells (damage-over-time burn)."
+				"§7• §bWater Focus§7 — adds §oWet§7 to water spells (slows hit targets)."
+				"§7• §aEarth Focus§7 — adds §oRooted§7 to earth spells (roots targets briefly)."
+				"§7• §eAir Focus§7 — adds §oLaunched§7 to air spells (sends targets airborne)."
+				""
+				"§eHow to equip a Focus:§r"
+				"§7  1. Hold your Spellbook and press the §6Focus Slot key§7 (default: F)."
+				"§7  2. Drag the Focus into the Focus Slot in the spellbook UI."
+				"§7  3. All matching elemental spells now gain the secondary effect."
+				"§7  4. The Focus stays permanently — it is not consumed per cast."
+				""
+				"§eHow to craft a Focus:§r"
+				"§7Each Focus is crafted in the §6Apparatus§7 using elemental ingredients:"
+				"§7  • §cFire Focus:§7 Blaze Rod + Fire Charge + Source Gems on the Apparatus."
+				"§7  • §bWater Focus:§7 Prismarine Crystals + Water Bucket + Source Gems."
+				"§7  • §aEarth Focus:§7 Mossy Stone Brick + Sapling + Source Gems."
+				"§7  • §eAir Focus:§7 Feather × 4 + Source Gems."
+				"§7(Exact ingredient layouts in JEI — search the Focus name.)"
+				""
+				"§eBest Focus for each playstyle:§r"
+				"§7• §cFire Focus§7 — best early combat (Ignite DoT stacks on bosses)."
+				"§7• §bWater Focus§7 — best for group control (Wet slows mob swarms)."
+				"§7• §aEarth Focus§7 — best solo bosses (Root gives breathing room)."
+				""
+				"§7You can only slot ONE Focus at a time. Carry other focuses"
+				"§7in a Curios Pouch for quick swapping between encounters."
+				""
+				"§a► Task: Have any Elemental Focus in your inventory. Not consumed."
+				"§7(Any of the four element types satisfies this quest.)"
+			]
+			dependencies: ["000B0006"]
+		}
+
+		{
+			x: 3.0d
+			y: 16.0d
+			id: "000B000E"
+			tasks: [{
+				id: "000B100E"
+				type: "item"
+				item: "ars_nouveau:mage_fiber"
+				count: 8L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000B2019" type: "item" item: "ars_nouveau:mage_fiber" count: 16}
+				{id: "000B201A" type: "xp" xp: 50}
+			]
+			title: "Arcane Wardrobe"
+			icon: "ars_nouveau:mage_fiber"
+			description: [
+				"§fArs Nouveau has its own gear set — the §6Arcanist's Armour§f —"
+				"§fcrafted from §eMage Fiber§f, a material harvested from the magical world."
+				""
+				"§eWhat is Mage Fiber?§r"
+				"§7Mage Fiber drops from magical plants in Archwood biomes."
+				"§7Look for glowing plants on the ground in biomes with Archwood trees."
+				"§7Also obtainable by putting Archwood Leaves in a Composter (chance-based)."
+				""
+				"§eArcanist's Armour set bonuses:§r"
+				"§7• §6Full set:§7 +15% Source efficiency — spells cost less to cast."
+				"§7• §6Helmet:§7 Survive a fatal blow once (1-minute cooldown)."
+				"§7• §6Chestplate:§7 Familiars bound to you gain a movement speed boost."
+				"§7• §6Leggings:§7 Projectile spells travel 20% faster."
+				"§7• §6Boots:§7 Passive feather fall — you take no fall damage."
+				""
+				"§eHow to craft the Armour:§r"
+				"§7Standard crafting table recipes — search 'Arcanist' in JEI."
+				"§7You will need Mage Fiber and Awakened Wood in most pieces."
+				""
+				"§eAlternative: Imbuement Chamber enchanting§r"
+				"§7If you prefer your existing Tetra or vanilla armour, the §6Imbuement Chamber§7"
+				"§7can imbue it with §eMana Regen§7 (passive Source regen while wearing)"
+				"§7or standard §eProtection§7 variants using Source instead of levels."
+				""
+				"§eMage Armour vs Vanilla Armour:§r"
+				"§7• §6Mage Armour:§7 Lower base protection, but set bonuses are very strong"
+				"§7  for a spellcasting-focused playstyle."
+				"§7• §6Tetra Armour (Ch 2.7):§7 Higher raw protection, no magic bonuses."
+				"§7• Recommendation: Mage Armour for magical work and exploration,"
+				"§7  swap to Tetra gear for dungeon runs and boss fights."
+				""
+				"§7This quest rewards §e16 Mage Fiber§7 — enough for a full armour set."
+				""
+				"§a► Task: Have 8 Mage Fiber in your inventory. They are not consumed."
+			]
+			dependencies: ["000B000A"]
+		}
+
+		{
+			x: -2.0d
+			y: 20.0d
+			shape: "hexagon"
+			id: "000B000F"
+			tasks: [{
+				id: "000B100F"
+				type: "checkmark"
+				title: "Source Network fully established — all pillars active"
+			}]
+			rewards: [
+				{id: "000B201B" type: "item" item: "ars_nouveau:source_gem" count: 32}
+				{id: "000B201C" type: "xp" xp: 100}
+			]
+			title: "Source Network ✦"
+			icon: "ars_nouveau:relay"
+			subtitle: "Magic infrastructure complete"
+			description: [
+				"§fYour Source network is fully operational. Check that you have:"
+				""
+				"§7  §a✦§7 A §6Starbuncle§7 patrolling and filling Source Jars."
+				"§7  §a✦§7 §6Relays§7 distributing Source to all workstations."
+				"§7  §a✦§7 A §6Wixie§7 brewing potions automatically."
+				"§7  §a✦§7 An §6Elemental Focus§7 slotted in your Spellbook."
+				"§7  §a✦§7 §6Mage Fibre§7 collected for Arcanist gear."
+				""
+				"§eThis gate marks an important cross-chapter handshake:§r"
+				"§7Your magic infrastructure is now robust enough that Chapter 2"
+				"§7(Create) will hand off its §6Brass§7 to unlock the Mage Spellbook."
+				"§7The §e'Brass Handshake'§7 quest in Chapter 2 depends on this gate."
+				""
+				"§eWhat this gate unlocks:§r"
+				"§7• §6Chapter 1.3§7 (Spell Mastery) becomes available once Ch 2's"
+				"§7  Brass Handshake is also complete."
+				"§7• §6Chapter 2§7 (Gears & Steam) is now fully open."
+				""
+				"§eCross-chapter synergies to build next:§r"
+				"§7  1. §eCreate × Ars:§7 Starbuncle Wheel (Ch 5) converts familiar patrol"
+				"§7     → Create Stress Units. Free SU from magic!"
+				"§7  2. §eCreate × Wixie:§7 Pipe Wixie ingredient chests via Mechanical Arms."
+				"§7  3. §eMineColonies × Ars:§7 Whirlisprig near colony farm buildings"
+				"§7     = passive crop automation for citizens."
+				""
+				"§eTip:§r §7Talk to the family about roles! One player focuses on magic,"
+				"§7one on Create — each system feeds the other by design."
+				""
+				"§a► Gate quest: checkmark when your Source Network is fully running."
+				"§a► Completing this is required for Ch 2's 'Brass Handshake' quest."
+			]
+			dependencies: ["000B0008" "000B000C" "000B000D" "000B000E"]
+		}
+
+		// ============================================================
+		// 1.3  SPELL MASTERY
+		// ============================================================
+
+		{
+			x: 10.0d
+			y: 8.0d
+			shape: "hexagon"
+			id: "000B0010"
+			tasks: [{
+				id: "000B1010"
+				type: "item"
+				item: "ars_nouveau:mage_spellbook"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000B201D" type: "item" item: "ars_nouveau:glyph_extend_time" count: 1}
+				{id: "000B201E" type: "xp" xp: 75}
+			]
+			title: "Mage Spellbook 🔒"
+			icon: "ars_nouveau:mage_spellbook"
+			subtitle: "Requires: Ch 2 Brass Handshake"
+			description: [
+				"§fThe Mage Spellbook is the next tier — §e6 glyph slots per spell§f"
+				"§finstead of 4, with 6 total spell slots. Complex multi-effect"
+				"§fspells impossible on the Apprentice book become easy here."
+				""
+				"§e⚠ This quest requires Chapter 2's 'Brass Handshake' gate quest.§r"
+				"§7The Mage Spellbook recipe uses §6Brass Ingots§7 — a Create alloy."
+				"§7This is an intentional pack cross-mod dependency."
+				"§7Complete §eCh 2.2 'Mixing It Up'§7 first, then return here."
+				""
+				"§eRecipe:§r"
+				"§7Crafted at the §6Scribe's Table§7 (not a regular crafting table):"
+				"§7  • 1 Apprentice Spellbook (centre)"
+				"§7  • 2 Brass Ingots (Create — from Mixer)"
+				"§7  • 4 Awakened Wood Planks"
+				"§7  • 2 Source Gems"
+				"§7(Check JEI: search 'Mage Spellbook' for exact layout.)"
+				""
+				"§eWhat 6 glyph slots enables:§r"
+				"§7Form + Effect + §e4 Augments§7 = heavily modified spells."
+				""
+				"§7Example 6-glyph combat spell:"
+				"§7§bProjectile§7 + §aHarm§7 + §eAmplify§7 + §eAmplify§7 + §ePierce§7 + §eExtend Time§7"
+				"§7→ Heavy piercing bolt with extended debuff. Shreds armoured enemies."
+				""
+				"§7Example 6-glyph utility spell:"
+				"§7§bTouch§7 + §aHeal§7 + §eAmplify§7 + §eExtend Time§7 + §eAOE§7 + §eHaste§7"
+				"§7→ Group heal that restores several hearts AND grants Haste to all targets."
+				""
+				"§eImportant:§r §7§oYour learned glyphs carry over to the new book.§7"
+				"§7You do NOT re-learn everything — just swap the spellbook."
+				""
+				"§7This quest rewards §6Glyph: Extend Time§7 — combine with your best"
+				"§7support spell to dramatically increase buff and healing duration."
+				""
+				"§a► Gate quest: requires Ch 2 'Brass Handshake' to be completable."
+				"§a► Completing Ch 2.2 unlocks this gate retroactively."
+			]
+			dependencies: ["000B0007" "000C000A"]
+		}
+
+		{
+			x: 10.0d
+			y: 12.0d
+			id: "000B0011"
+			tasks: [{
+				id: "000B1011"
+				type: "item"
+				item: "ars_nouveau:glyph_burst"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000B201F" type: "item" item: "ars_nouveau:glyph_fortune" count: 1}
+				{id: "000B2020" type: "xp" xp: 60}
+			]
+			title: "Five-Glyph Spell"
+			icon: "ars_nouveau:glyph_burst"
+			description: [
+				"§fFive glyphs in a single spell. This is where Ars Nouveau stops"
+				"§ffeeling like a mod and starts feeling like a §ocomplete spell system§f."
+				""
+				"§eThe Burst glyph:§r"
+				"§7§6Burst§7 is a Form glyph (like Projectile and Touch) that sends effects"
+				"§7outward in a §ocone§7 from your casting point. Devastating against groups."
+				""
+				"§ePowerful 5-glyph combinations:§r"
+				""
+				"§eCrowdBuster§7 (combat):"
+				"§7§bBurst§7 + §aHarm§7 + §cFire§7 + §eAmplify§7 + §eAOE§7"
+				"§7→ Wide-arc damage + burning in a cone. Kills groups of undead instantly."
+				""
+				"§eThe Digger§7 (mining):"
+				"§7§bAOE§7 + §aBreak§7 + §eAmplify§7 + §eAmplify§7 + §eFortune§7"
+				"§7→ Breaks a 5×5 area with Fortune. Cast on ore veins for massive yield."
+				""
+				"§eThe Group Healer§7 (support):"
+				"§7§bTouch§7 + §aHeal§7 + §eAmplify§7 + §eExtend Time§7 + §eHaste§7"
+				"§7→ Heals ally for several hearts AND gives them Haste for 30 seconds."
+				""
+				"§eThe Lumberjack§7 (utility):"
+				"§7§bAOE§7 + §aBreak§7 + §eFortune§7 + §eHaste§7 + §eSilk Touch§7"
+				"§7→ Strips an entire tree trunk in one cast. Collected with Silk Touch."
+				""
+				"§eSource cost warning:§r"
+				"§75-glyph spells are expensive. The Crowd Buster costs ~200 Source per cast."
+				"§7Options to manage this:"
+				"§7  • Wear full §6Arcanist Armour§7 for the 15% Source discount."
+				"§7  • Add a §6Tank Upgrade§7 to your Sophisticated Backpack to carry"
+				"§7    a Source Jar with you. Spells will draw from it on the go."
+				"§7  • Keep multiple Source Jars in your base — one cast of Disintegration"
+				"§7    clears a massive area but drains jars fast."
+				""
+				"§a► Task: Have a Glyph: Burst in your inventory. Not consumed."
+			]
+			dependencies: ["000B0010"]
+		}
+
+		{
+			x: 14.0d
+			y: 12.0d
+			id: "000B0012"
+			tasks: [{
+				id: "000B1012"
+				type: "item"
+				item: "ars_nouveau:ritual_tablet_awakening"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000B2021" type: "item" item: "ars_nouveau:ritual_tablet_fertility" count: 1}
+				{id: "000B2022" type: "xp" xp: 65}
+			]
+			title: "Ritual Mastery"
+			icon: "ars_nouveau:ritual_tablet_awakening"
+			description: [
+				"§fAdvanced rituals move beyond summoning — they reshape the world,"
+				"§faccelerate growth, and unlock the Enchanting Apparatus."
+				""
+				"§eRitual of Awakening — required for the Enchanting Apparatus:§r"
+				"§7Converts placed §6Archwood Logs§7 into §6Awakened Archwood Logs§7."
+				"§7This is the §obligation step§7 before crafting the Enchanting Apparatus."
+				"§7  • Ingredients: 4× Source Gems on pedestals + Archwood Log as the centrepiece."
+				"§7  • After the ritual, the log becomes an Awakened variant usable in"
+				"§7    the Enchanting Apparatus recipe."
+				""
+				"§eRitual of Falling Stars:§r"
+				"§7Causes Source Stars to rain from the sky at night — high-density"
+				"§7Source items that fill your jars very quickly. Use this when"
+				"§7your Source network has run low and you need a rapid refill."
+				""
+				"§eRitual of Fertility — awarded by this quest:§r"
+				"§7Instantly matures all crops in a wide radius. Stack this with"
+				"§7a §6Whirlisprig§7 for instant-harvest + instant-replant. The"
+				"§7combination is one of the most efficient food production setups"
+				"§7available before full Create automation."
+				""
+				"§eRitual of Dusk:§r"
+				"§7Immediately transitions to night. Use before running Falling Stars"
+				"§7or before starting a night-time dungeon run."
+				""
+				"§eSource requirements scale up:§r"
+				"§7Advanced rituals need substantially more Source than basic ones."
+				"§7Before any advanced ritual, pre-fill §e6+ Source Jars§7 (60,000+ Source)."
+				"§7The Ritual of Awakening needs approximately 8,000 Source to complete."
+				""
+				"§eTip:§r §7Designate a permanent §6'Ritual Altar' area§7 in your base"
+				"§7with 8 Source Jars surrounding a central Brazier. The Brazier"
+				"§7draws from all jars in range simultaneously for any ritual."
+				""
+				"§a► Task: Have a Ritual Tablet: Awakening in your inventory. Not consumed."
+			]
+			dependencies: ["000B0007"]
+		}
+
+		{
+			x: 10.0d
+			y: 16.0d
+			id: "000B0013"
+			tasks: [{
+				id: "000B1013"
+				type: "item"
+				item: "ars_nouveau:bookwyrm_charm"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000B2023" type: "item" item: "ars_nouveau:source_gem" count: 48}
+				{id: "000B2024" type: "xp" xp: 70}
+			]
+			title: "The Bookwyrm"
+			icon: "ars_nouveau:bookwyrm_charm"
+			description: [
+				"§fThe Bookwyrm is a unique familiar — a tiny dragon that follows you"
+				"§fand automates spell interactions on your behalf."
+				""
+				"§eWhat the Bookwyrm does:§r"
+				"§7• §6Automatically casts spells§7 you designate at set intervals"
+				"§7  while bound to you — hands-free spell automation."
+				"§7• Draws Source from Source Gems in your inventory to fuel its casts."
+				"§7• Can be assigned triggers: 'cast when in combat', 'cast while moving',"
+				"§7  'cast on timer', etc."
+				""
+				"§eThe Bookwyrm Charm:§r"
+				"§7  1. Craft a §6Bookwyrm Charm§7 (see JEI — uses Source Gems + Awakened Wood)."
+				"§7  2. Equip it in a §6Curios§7 charm slot."
+				"§7  3. Right-click to bind a nearby Bookwyrm to you."
+				"§7  4. The Bookwyrm follows you everywhere once bound."
+				""
+				"§eGreat Bookwyrm automations:§r"
+				"§7• §aAuto-Heal:§7 Cast §bTouch§7 + §aHeal§7 + §eAmplify§7 when health drops"
+				"§7  below 8 hearts. Set in the Bookwyrm Lectern trigger panel."
+				"§7• §aAuto-Light:§7 Cast §bProjectile§7 + §aLight§7 every 30 seconds"
+				"§7  while moving. Permanently lights your path — no torch spam."
+				"§7• §aAuto-Buff:§7 Cast §bTouch§7 + §eHaste§7 on entering combat range"
+				"§7  of any mob. Always have Haste in a fight automatically."
+				""
+				"§eBookwyrm Lectern (advanced):§r"
+				"§7Place a §6Bookwyrm Lectern§7 (craft from Awakened Wood + Bookwyrm Charm)"
+				"§7and right-click to program a §ospell sequence§7 with custom triggers"
+				"§7and conditions. The Bookwyrm follows the programme autonomously."
+				""
+				"§7Name your Bookwyrm with a Name Tag — it displays the name as it casts."
+				""
+				"§a► Task: Have a Bookwyrm Charm in your inventory. Not consumed."
+			]
+			dependencies: ["000B0011"]
+		}
+
+		{
+			x: 14.0d
+			y: 16.0d
+			id: "000B0014"
+			tasks: [{
+				id: "000B1014"
+				type: "item"
+				item: "ars_nouveau:enchanting_apparatus"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000B2025" type: "item" item: "ars_nouveau:source_gem" count: 32}
+				{id: "000B2026" type: "xp" xp: 80}
+			]
+			title: "Enchanting Ritual"
+			icon: "ars_nouveau:enchanting_apparatus"
+			description: [
+				"§fThe Enchanting Apparatus is Ars Nouveau's alternative to the vanilla"
+				"§fenchanting table — and dramatically more powerful and predictable."
+				""
+				"§eApparatus vs Vanilla Table:§r"
+				"§7• §aApparatus:§7 §oDeterministic§7 — choose exactly which enchantment"
+				"§7  to apply and at what level. Uses Source and specific ingredients."
+				"§7• §eVanilla Table:§7 §oRandom§7 — gamble XP on a random enchantment pool."
+				"§7• §cVerdict:§7 Always use the Apparatus for important gear pieces."
+				"§7  Use the vanilla table only for throwaway low-stakes enchants."
+				""
+				"§eBuilding the Apparatus:§r"
+				"§7  1. Run the §6Ritual of Awakening§7 first to get Awakened Archwood Logs."
+				"§7  2. Craft the §6Enchanting Apparatus§7 from Awakened Archwood + Source Gems"
+				"§7     (see JEI — search 'Enchanting Apparatus')."
+				"§7  3. Place §6Item Pedestals§7 around the Apparatus in the pattern shown."
+				"§7  4. Put ingredient items on the Pedestals."
+				"§7  5. Put the item to enchant on the central Apparatus block."
+				"§7  6. Right-click the Apparatus with your §6Worn Notebook§7 to select the enchant."
+				""
+				"§eIngredients for key enchantments:§r"
+				"§7• §bSharpness V:§7 Diamond + Source Gems × 4 on Pedestals."
+				"§7• §bEfficiency V:§7 Redstone Block + Source Gems × 2."
+				"§7• §bMending:§7 Nether Star Fragment + Bottle o' Enchanting × 4."
+				"§7• §bFeather Falling IV:§7 Phantom Membrane × 4."
+				"§7(Full list: Worn Notebook → Enchanting Apparatus section.)"
+				""
+				"§ePack note:§r §70.9× Source multiplier — all Apparatus enchants are"
+				"§7slightly cheaper than default Ars Nouveau configurations."
+				""
+				"§7The Apparatus also §ocrafts special magical items§7 — check JEI for"
+				"§7the full recipe list. It is not just an enchanting table."
+				""
+				"§a► Task: Have an Enchanting Apparatus in your inventory. Not consumed."
+			]
+			dependencies: ["000B0012"]
+		}
+
+		{
+			x: 12.0d
+			y: 20.0d
+			shape: "hexagon"
+			id: "000B0015"
+			tasks: [{
+				id: "000B1015"
+				type: "checkmark"
+				title: "Arcane automation fully running — all five systems active"
+			}]
+			rewards: [
+				{id: "000B2027" type: "item" item: "ars_nouveau:source_gem" count: 64}
+				{id: "000B2028" type: "xp" xp: 150}
+			]
+			title: "Arcane Automation ✦"
+			icon: "ars_nouveau:starbuncle_shard"
+			subtitle: "Magic infrastructure complete — Ch 5 unlocked"
+			description: [
+				"§fYour magic system is now a fully autonomous machine."
+				"§fFamiliars farm, brew, enchant, and generate Source without"
+				"§fplayer involvement between sessions."
+				""
+				"§eYour arcane automation stack:§r"
+				"§7  §a✦§7 §6Starbuncle§7 — patrolling, collecting Source Gems, filling jars."
+				"§7  §a✦§7 §6Whirlisprig§7 — farming crops, feeding the colony, stocking kitchen."
+				"§7  §a✦§7 §6Drygmy§7 — passive mob drops for Farmer's Delight and Wixie."
+				"§7  §a✦§7 §6Wixie§7 — brewing potions for dungeon runs automatically."
+				"§7  §a✦§7 §6Bookwyrm§7 — automatic buffs and healing during combat."
+				"§7  §a✦§7 §6Enchanting Apparatus§7 — precise enchanting on all key gear."
+				""
+				"§eThis gate unlocks Chapter 5: Arcane Synthesis§r"
+				"§7Chapter 5 is where magic and technology fully merge."
+				"§7The §eStarbuncle Wheel§7 (Ch 5's first quest) converts your Starbuncle's"
+				"§7patrol rotation directly into Create Stress Units — no fuel, no steam."
+				""
+				"§eBefore opening Ch 5, confirm your stack is healthy:§r"
+				"§7  □ Source Jars full and auto-refilling continuously."
+				"§7  □ At least one Starbuncle bound and actively patrolling."
+				"§7  □ Wixie brewing at least one potion type without interruption."
+				"§7  □ Enchanting Apparatus built and actively enchanting gear."
+				""
+				"§eLong-term Ch 5 goals (preview):§r"
+				"§7  • §6Starbuncle Wheel§7 → free Create SU from magical rotation."
+				"§7  • §6Reactive Source Jar§7 → Create reads Source level as redstone signal."
+				"§7  • §6Ars × Create conveyor§7 → Source-powered automated sorting."
+				""
+				"§eTip:§r §oCh 5 is the capstone chapter.§7 Complete Ch 2.6 (nuclear reactor)"
+				"§7first — having plenty of Create SU will complement the Starbuncle Wheel,"
+				"§7not be replaced by it. Both power sources are better together."
+				""
+				"§a► Gate quest: checkmark when all five automations are running."
+				"§a► Completing this unlocks Chapter 5: Arcane Synthesis."
+			]
+			dependencies: ["000B0013" "000B0014"]
+		}
+
+		// ============================================================
+		// 1.4  ARCHMAGE
+		// ============================================================
+
+		{
+			x: 18.0d
+			y: 12.0d
+			shape: "hexagon"
+			id: "000B0016"
+			tasks: [{
+				id: "000B1016"
+				type: "item"
+				item: "ars_nouveau:archmage_spellbook"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000B2029" type: "item" item: "ars_nouveau:glyph_freeze" count: 1}
+				{id: "000B202A" type: "item" item: "ars_nouveau:glyph_launch" count: 1}
+				{id: "000B202B" type: "xp" xp: 150}
+			]
+			title: "Archmage Spellbook 🔒"
+			icon: "ars_nouveau:archmage_spellbook"
+			subtitle: "Requires: Ch 3 End Portal Key"
+			description: [
+				"§fThe Archmage Spellbook is the pinnacle of magical casting power."
+				"§f§e10 glyph slots per spell§f, §e10 total spell slots§f."
+				"§fThere is no more powerful spellbook you can carry."
+				""
+				"§e⚠ This quest requires Chapter 3's 'End Portal Key' gate quest.§r"
+				"§7The Archmage Spellbook requires materials from §6End progression§7."
+				"§7Complete §eCh 3 through the End Portal Key§7 first, then return."
+				""
+				"§eRecipe:§r"
+				"§7Crafted at the §6Scribe's Table§7 using your existing Mage Spellbook"
+				"§7plus rare endgame materials including §5Eye of Ender§7 components."
+				"§7(Exact recipe: JEI search 'Archmage Spellbook'.)"
+				""
+				"§eWhat 10 glyph slots enables:§r"
+				"§7Complete §outil suites§7 in a single spell slot:"
+				""
+				"§eThe Swiss Army Spell:§r"
+				"§7§bTouch§7 + §aBreak§7 + §eFortune§7 + §eSilk Touch§7 + §eHaste§7"
+				"§7+ §eAmplify§7 + §eAmplify§7 + §eAOE§7 + §ePierce§7 + §eExtend Time§7"
+				"§7→ Breaks any block Fortune+Silk Touch simultaneously, in an area,"
+				"§7   with Haste, double-amplified, extended. One spell. Ten glyphs."
+				""
+				"§eThe Battle Mage Ultimate:§r"
+				"§7§bBurst§7 + §aHarm§7 + §cFire§7 + §aFreeze§7 + §eLaunch§7"
+				"§7+ §eAmplify§7 + §eAmplify§7 + §ePierce§7 + §eAOE§7 + §eExtend Time§7"
+				"§7→ Cone blast that damages, burns, freezes, and launches everything."
+				"§7   Effective against any mob type simultaneously."
+				""
+				"§eImportant:§r §7§oAll glyph knowledge from your Mage Spellbook carries over.§7"
+				"§7You do not re-learn anything. Just swap the book."
+				""
+				"§7This quest rewards §6Glyph: Freeze§7 and §6Glyph: Launch§7 —"
+				"§7two powerful crowd-control glyphs for your Archmage spells."
+				""
+				"§a► Gate quest: requires Ch 3 'End Portal Key' to be completable."
+			]
+			dependencies: ["000B0010" "000D000E"]
+		}
+
+		{
+			x: 18.0d
+			y: 16.0d
+			id: "000B0017"
+			tasks: [{
+				id: "000B1017"
+				type: "item"
+				item: "ars_nouveau:source_gem_block"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000B202C" type: "item" item: "ars_nouveau:source_gem" count: 64}
+				{id: "000B202D" type: "xp" xp: 100}
+			]
+			title: "Source Crystal Cluster"
+			icon: "ars_nouveau:source_gem_block"
+			description: [
+				"§fThe §6Source Gem Block§f — crafted from 9 Source Gems — is far more"
+				"§fthan compressed storage. Placed in the world near magic, it"
+				"§fgradually grows into a §eSource Crystal Cluster§f that generates"
+				"§fSource passively without any active management."
+				""
+				"§eHow Source Crystal Clusters work:§r"
+				"§7  1. Craft 9 Source Gems → 1 Source Gem Block in a crafting grid."
+				"§7  2. Place the block in an Archwood biome or near Archwood trees."
+				"§7  3. Over time, crystal formations grow on its surface."
+				"§7  4. A fully grown Cluster generates Source passively."
+				"§7  5. Link it to your Source network via Relay for automatic distribution."
+				"§7  6. Multiple Clusters in the same area §ostacks§7 their generation rate."
+				""
+				"§eAccelerate growth:§r"
+				"§7• Place Archwood trees within 10 blocks — each tree in range boosts"
+				"§7  the Cluster's growth rate."
+				"§7• Apply §6Bone Meal§7 to a placed Source Gem Block to instant-grow"
+				"§7  the crystal phase (skips the growth timer entirely)."
+				"§7• A §6Starbuncle§7 patrolling near Clusters further accelerates"
+				"§7  generation. Starbuncles and Clusters are designed to work together."
+				""
+				"§eEnd-game Source capacity:§r"
+				"§710 Source Jars + 8 Clusters + 1 Starbuncle patrol"
+				"§7= effectively §oinfinite Source§7 for a family server."
+				"§7No player will ever run dry in combat or crafting."
+				""
+				"§eBuilding the 'Arcane Crystal Grove':§r"
+				"§7A grove of §e9 Archwood trees§7 with one Source Cluster at each"
+				"§7base and 2 Starbuncles patrolling the perimeter. This is the"
+				"§7final, self-sustaining tier of magical energy generation."
+				""
+				"§7Note: Item ID may vary by version — if this task does not"
+				"§7accept the block, check F3+H tooltip for the exact registry ID."
+				""
+				"§a► Task: Have 1 Source Gem Block in your inventory. Not consumed."
+			]
+			dependencies: ["000B0016"]
+		}
+
+		{
+			x: 18.0d
+			y: 20.0d
+			id: "000B0018"
+			tasks: [{
+				id: "000B1018"
+				type: "checkmark"
+				title: "The Grand Ritual performed — arcane mastery achieved"
+			}]
+			rewards: [
+				{id: "000B202E" type: "item" item: "ars_nouveau:source_gem" count: 64}
+				{id: "000B202F" type: "xp" xp: 200}
+			]
+			title: "The Grand Ritual"
+			icon: "ars_nouveau:ritual_brazier"
+			subtitle: "Chapter 1 complete"
+			description: [
+				"§fThe Grand Ritual is the final milestone of your arcane education —"
+				"§fthe moment your magical power becomes §otransformative§f rather than"
+				"§fjust useful. You do not cast spells anymore. You §oshape the world§f."
+				""
+				"§eThe Ritual of Sunken Sea — world shaping:§r"
+				"§7Creates a massive water source in a selected area. Most useful for:"
+				"§7  • Building water features for your MineColonies colony."
+				"§7  • Creating §6Little Logistics§7 waterways (Ch 2.8 Tugboats need"
+				"§7    water channels — this ritual makes them on demand)."
+				"§7  • Connecting the colony to its Create supply depot via river."
+				""
+				"§eThe Ritual of Gravity:§r"
+				"§7Briefly reverses gravity in a large radius — mobs, items, and"
+				"§7loose blocks float upward. Use for:"
+				"§7  • Moving mob groups to a new location."
+				"§7  • Collecting items during the gravity burst as they float past you."
+				"§7  • Supremely dramatic combat finishers."
+				""
+				"§eThe Ritual of Moonfall:§r"
+				"§7Resets the night cycle to §ofull moon§7. On every full moon, Drygmy"
+				"§7familiars generate double drops. Chain: Ritual of Dusk → Moonfall"
+				"§7on the same night for a massive passive item windfall."
+				""
+				"§eYour complete magical milestone:§r"
+				"§7  §a✦§7 Archmage Spellbook — 10-glyph spells unlocked."
+				"§7  §a✦§7 Source Crystal Grove — self-sustaining Source generation."
+				"§7  §a✦§7 Full familiar automation — Starbuncle + Whirlisprig + Drygmy"
+				"§7        + Wixie + Bookwyrm all running without intervention."
+				"§7  §a✦§7 Enchanting Apparatus — precise endgame enchanting."
+				"§7  §a✦§7 Advanced Rituals — world-reshaping on demand."
+				""
+				"§6§lChapter 1: The Arcane Path — Complete.§r"
+				""
+				"§fThe path ahead — through technology, exploration, colony-building,"
+				"§fand into the Twilight — is yours to define."
+				""
+				"§eTip:§r §oTake a screenshot of your base right now.§7 This is the"
+				"§7last moment before the industrial revolution of Chapter 2 begins."
+				""
+				"§a► Task: Checkmark when you have performed a Grand-tier ritual."
+			]
+			dependencies: ["000B0017" "000B0015"]
+		}
+
+	]
+}

@@ -1,0 +1,114 @@
+#================================================================
+# terralith-common.toml — Arcane Frontiers
+# Mod: Terralith (NeoForge 1.21.1, v2.6.x)
+# Purpose: Tune world generation for family base-building
+#          while keeping Terralith's visual spectacle intact.
+#
+# IMPORTANT — About Terralith's config system:
+# Terralith primarily uses a datapack approach for biome
+# generation. Many biome frequency settings are controlled
+# by the datapack itself rather than this TOML file.
+# The keys below are the runtime config options exposed
+# via the NeoForge mod version's config interface.
+# For deeper biome frequency changes, edit the biome
+# weight values in Terralith's data folder.
+#
+# For most family servers: the defaults are excellent.
+# The two changes here (cave frequency + amplified terrain)
+# are the only ones worth making before play.
+#================================================================
+
+[world_generation]
+
+    #---------------------------------------------------------
+    # TERRAIN STYLE
+    #---------------------------------------------------------
+
+    amplified_terrain = false
+    # Amplified terrain creates extremely tall mountains and
+    # deep valleys — more extreme than vanilla Amplified mode.
+    # DISABLED for Arcane Frontiers.
+    # Rationale: The MineColonies colony (Ch 6) needs relatively
+    # flat or gently sloped terrain for building placement.
+    # A Tier 5 Town Hall needs a flat footprint. Amplified
+    # terrain fights the colony builder constantly.
+    # Also: Create's railroad lines (Ch 2.5) need buildable
+    # terrain between stations. Extreme amplified terrain means
+    # every rail route requires massive tunnelling.
+    # Standard Terralith terrain is already stunning — rolling
+    # volcanic plateaus, canyon biomes, and floating sky islands
+    # are all present without amplification.
+
+    cave_biome_frequency = 0.4
+    # Controls how frequently underground cave biomes generate.
+    # Default: 0.5
+    # Set to: 0.4 (20% reduction)
+    # Rationale: Terralith + Alex's Caves together produce very
+    # rich underground content. At 0.5, every underground
+    # journey encounters multiple distinct cave biomes, which
+    # can feel overwhelming for early-game players who just
+    # wanted to mine iron.
+    # At 0.4, cave biome transitions feel like genuine
+    # discoveries rather than constant interruptions.
+    # The Ch 3.3 "Into the Deep" quest asks players to find
+    # an Alex's Caves biome — at 0.4 they'll still find one
+    # within 10 minutes of underground exploration.
+
+    #---------------------------------------------------------
+    # BIOME GENERATION — KEEP ENABLED
+    #---------------------------------------------------------
+
+    volcanic_biomes = true
+    # Volcanic Plateaus and Infernal Caldera biomes.
+    # ENABLED. These are visually spectacular and host unique
+    # Ars Nouveau Source Crystal Clusters underground.
+    # Also provides the dramatic backdrop for Incendium's
+    # Nether Volcanic Peaks biome comparison quests (Ch 3.4).
+
+    canyon_biomes = true
+    # Painted Biome canyon structures — enormous coloured
+    # rock formations inspired by the American Southwest.
+    # ENABLED. Canyon systems are one of Terralith's most
+    # iconic features. Steam 'n' Rails railroad bridges across
+    # canyons (Ch 2.5 "Railroad Overpass" quest) create
+    # some of the most memorable builds in the pack.
+
+    skylands_biomes = true
+    # Floating island chains high in the atmosphere.
+    # ENABLED. Skylands are rare and magical — finding one
+    # with Nature's Compass (Ch 0 "Compass of Biomes") is
+    # a genuine adventure. Ars Nouveau Source Jars placed
+    # on Skylands get boosted ambient generation from the
+    # exposed sky coverage. Also: Skylands are a favourite
+    # for family base building among players who want an
+    # elevated, defensible home.
+
+    frozen_biomes = true
+    # Glacial and Arctic biome types.
+    # ENABLED. The Twilight Forest's Snow Queen boss (Ch 7.2)
+    # lives in a Glacier biome — having Terralith frozen biomes
+    # in the Overworld creates a visual thematic echo.
+    # Also required for Friends & Foes Iceologer spawns
+    # (currently disabled, but keeping frozen biomes generated
+    # means no config change is needed if Iceologer is re-enabled).
+
+    #---------------------------------------------------------
+    # COMPATIBILITY
+    #---------------------------------------------------------
+
+    compatibility_mode = false
+    # When true, disables some biome placements to avoid
+    # conflicts with other worldgen mods.
+    # DISABLED — Terralith 2.6.x has built-in compatibility
+    # with Alex's Caves, Dungeons and Taverns, and YUNG's mods.
+    # Manual compatibility mode would reduce biome diversity
+    # unnecessarily.
+
+    biome_blend_distance = 2
+    # How sharply biomes transition between each other.
+    # Default: 2 (gentle blending). Keep at 2.
+    # Sharp biome borders (0) produce jarring terrain cuts.
+    # Heavy blending (4+) can mask rare biome boundaries and
+    # make Nature's Compass harder to use precisely.
+    # 2 produces the "soft gradient" look that makes Terralith
+    # landscapes feel photorealistic.

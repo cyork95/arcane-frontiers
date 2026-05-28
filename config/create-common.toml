@@ -1,0 +1,138 @@
+#================================================================
+# create-common.toml — Arcane Frontiers
+# Mod: Create (NeoForge 1.21.1)
+# Purpose: Apply speed and torque limits that prevent
+#          early-game TPS-killing contraptions while keeping
+#          mid-to-late-game engineering unconstrained.
+#
+# Design note: Create's default limits are generous — generous
+# enough that a single large contraption on an early-game
+# windmill can cause server strain. The tweaks here apply a
+# ceiling on bogey (train) speed and set a reasonable torque
+# cap on contraptions. Neither change affects normal play.
+# Only builds specifically engineered to exceed these limits
+# would notice the difference.
+#
+# KEY VERIFICATION: Create 1.21.1 uses a structured TOML
+# with sections. The keys below match Create's standard
+# config layout. If Create generates its own create-common.toml
+# with different section names on first launch, merge these
+# values into that file rather than replacing it entirely.
+#================================================================
+
+[infrastructure]
+
+    #---------------------------------------------------------
+    # TRAIN SPEED LIMITS (Steam 'n' Rails integration)
+    #---------------------------------------------------------
+
+    maxBogeySpeed = 40
+    # Maximum speed (RPM) for train bogey contraptions.
+    # Default in Create: variable, can be very high.
+    # 40 RPM caps trains to a fast but not ludicrous speed.
+    # Rationale: Extremely fast trains on long routes chunk-load
+    # large areas very quickly, causing server stutter as the
+    # world generates ahead of the locomotive at high speed.
+    # 40 RPM produces trains that feel fast and exciting while
+    # generating chunks at a manageable rate.
+    # The Ch 2.5 "Rails Across Terralith" quest spans two biomes
+    # — at 40 RPM that journey takes a satisfying 30–90 seconds
+    # depending on distance, not 5 seconds.
+
+    #---------------------------------------------------------
+    # CONTRAPTION LIMITS
+    #---------------------------------------------------------
+
+    maxContraptionTorque = 65536
+    # Maximum torque (Stress Units) a single contraption can
+    # consume before becoming "overloaded."
+    # Default: varies by Create version (often very high).
+    # 65536 SU = a large, complex factory contraption.
+    # One mid-game windmill produces ~800–2400 SU. The
+    # Ch 5 "Turret Contraption" build needs roughly 2,000–4,000 SU.
+    # 65536 allows enormous builds without being unlimited.
+    # If a player builds something this large, they should be in
+    # the late game with a Create: New Age nuclear reactor anyway.
+
+    maxContraptionBlockSize = 2048
+    # Maximum number of blocks a single moving contraption can have.
+    # 2048 allows very large contraptions (full factory lines,
+    # drill rigs, mega-Schematiccannon setups) while preventing
+    # accidental assembly of server-lagging mega-structures.
+
+    [infrastructure.creative_motor]
+
+        #-----------------------------------------------------
+        # CREATIVE MOTOR — Ch 5 Reward Configuration
+        # The Creative Motor is given as a limited reward at
+        # Ch 5 "Frontier Complete". We cap its output so it
+        # powers one decorative or slow-farm contraption without
+        # bypassing the Ch 2.6 nuclear reactor quest chain.
+        # See also: kubejs/server_scripts/creative_motor_cap.js
+        # (adds an in-game tooltip explaining this limit)
+        #-----------------------------------------------------
+
+        creativeMotorSpeed = 256
+        # RPM output of the Creative Motor item.
+        # Default in Create: 256 RPM (or configurable, varies).
+        # At 256 RPM with standard shaft/cog sizing, this outputs
+        # roughly 512 SU — enough for a decorative contraption or
+        # a single slow automated farm, but not enough to replace
+        # a properly built power infrastructure.
+        # Document this cap clearly in the reward chest lore text
+        # (handled by kubejs/server_scripts/creative_motor_cap.js).
+
+[kinetics]
+
+    #---------------------------------------------------------
+    # FLUID TANK CAPACITY
+    #---------------------------------------------------------
+
+    fluidTankCapacity = 16
+    # Capacity of a single Fluid Tank block in buckets.
+    # Default: 16. Fine for the pack.
+
+    #---------------------------------------------------------
+    # SCHEMATICANNON
+    #---------------------------------------------------------
+
+    schematicannonDelay = 1
+    # Ticks between block placements when a Schematiccannon
+    # is printing a schematic. Default: 1 (fastest).
+    # The Ch 2.1 "Schematic Copy" quest introduces this tool.
+    # Keeping at 1 makes schematic builds feel fast and rewarding.
+    # Increase to 3–5 if large schematics cause TPS spikes
+    # during printing (the rapid block updates can be intensive).
+
+[trains]
+
+    #---------------------------------------------------------
+    # STEAM 'N' RAILS INTEGRATION
+    #---------------------------------------------------------
+
+    trainRelocationTimeout = 60
+    # Seconds before an unmanned train stops trying to pathfind
+    # and gives up. 60 seconds is generous enough for complex
+    # multi-station schedules in the Ch 2.5 quest arc without
+    # hanging forever on an impossible route.
+
+    displayLinkRange = 64
+    # Range (blocks) for Create: Connected display links.
+    # 64 blocks covers most family base monitoring setups.
+
+[ui]
+
+    #---------------------------------------------------------
+    # INTERFACE
+    #---------------------------------------------------------
+
+    tooltipsEnabled = true
+    # Create's in-built stress and speed tooltips on blocks.
+    # KEEP ENABLED. JEI and Jade already provide information,
+    # but Create's own SU tooltips are essential for players
+    # debugging their contraptions during the Ch 2 quests.
+
+    enableContraptionOutline = true
+    # Shows orange outline on assembled contraptions when
+    # hovering with a Wrench. Essential for family players
+    # learning what is and isn't part of a contraption.

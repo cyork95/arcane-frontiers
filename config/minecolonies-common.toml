@@ -1,0 +1,110 @@
+#================================================================
+# minecolonies-common.toml — Arcane Frontiers
+# ⚠️  CRITICAL PERFORMANCE FILE — READ BEFORE CHANGING
+#
+# This file controls settings that run on BOTH client and server.
+# The single most important setting in this entire pack is here:
+#   maxcitizenspercolony
+#
+# The MineColonies DEFAULT is 500 citizens.
+# 500 citizens on a family server WILL cause TPS collapse.
+# Citizen pathfinding is the most CPU-intensive operation in
+# the pack. Each citizen calculates pathing every few ticks.
+# At 500 citizens, a family server with 6–8 GB RAM will drop
+# to 4–8 TPS — unplayable.
+#
+# SAFE VALUES for Arcane Frontiers:
+#   100 = conservative, good for older hardware or 6+ players
+#   150 = recommended, full kingdom feel without TPS cost
+#   200 = only if server has 12+ GB RAM dedicated to MC
+#
+# Deploy location:
+#   Client: [Instance Root]/config/minecolonies-common.toml
+#   Server: [Server Root]/config/minecolonies-common.toml
+#================================================================
+
+[gameplay]
+
+    #---------------------------------------------------------
+    # CITIZEN CAP — THE MOST IMPORTANT SETTING
+    #---------------------------------------------------------
+
+    maxcitizenspercolony = 150
+    # Hard cap on citizens per colony.
+    # With the Kingdom quest tree (Ch 6), you will have
+    # ~30+ buildings, each with 1–2 citizens. At Tier 5
+    # buildings you reach ~60 active citizens naturally.
+    # 150 gives room to grow without TPS collapse.
+    #
+    # ⚠️ LIVE TUNING TIP:
+    # If lag spikes appear mid-session (TPS dropping below 18),
+    # reduce to 100 and restart the server. You will NOT lose
+    # existing citizens — the cap only prevents NEW spawns
+    # above the threshold. Existing citizens above the new cap
+    # remain until they die or are reassigned.
+
+    #---------------------------------------------------------
+    # PATHFINDING PERFORMANCE
+    #---------------------------------------------------------
+
+    pathfindingMaxNodes = 5000
+    # Maximum pathfinding nodes per citizen calculation.
+    # Higher = smarter pathing but more CPU per tick.
+    # Default is 5000. Reduce to 3000 if Miners and
+    # Lumberjacks (the longest-roaming citizens) cause
+    # noticeable TPS spikes in your server's console.
+    #
+    # Signs you need to reduce this:
+    #   - /tps shows consistent dips when Lumberjack is working
+    #   - Server console shows "Can't keep up" warnings
+    #   - Citizens get stuck and stand still for 5+ seconds
+
+    workerPathFindingRange = 150
+    # Maximum blocks a citizen will attempt to path to their
+    # work target. Reducing to 100 is safe for compact colonies.
+    # Only increase if citizens routinely fail to reach their
+    # worksite because the colony is spread out.
+
+    #---------------------------------------------------------
+    # CITIZEN AI BEHAVIOR
+    #---------------------------------------------------------
+
+    citizenCallForHelpCooldown = 30
+    # Cooldown (ticks) between a citizen's distress call to
+    # Guards when attacked. Default 30. Increasing reduces
+    # Guard AI interruptions during raids.
+
+    maximumHoundsAttempts = 5
+    # How many times a Ranger Guard tries to find a patrol
+    # route before giving up and returning to barracks.
+    # Reduce to 3 to cut failed pathfinding attempts near
+    # complex Create contraptions.
+
+    #---------------------------------------------------------
+    # WORLD INTERACTION LIMITS
+    #---------------------------------------------------------
+
+    minThresholdForDynamicTreeRemoval = 5
+    # Minimum number of leaves a Lumberjack must detect on
+    # a tree before attempting to fell it. Prevents citizens
+    # from attacking decorative leaf blocks.
+    # Recommended: keep at 5 to protect Ars Nouveau Archwood
+    # trees planted near the colony for the "Arcane Forestry"
+    # quest (Ch 6.7). The Whirlisprig will replant — but only
+    # if the Lumberjack respects minimum tree size.
+
+    enableColonyRaids = true
+    # Enables MineColonies: War 'N Taxes raid events and
+    # standard Barbarian raids. Keep true — the Ch 6.8
+    # garrison quests require defending against actual raids.
+    # Flip to false only during initial colony setup if
+    # younger players find early raids stressful.
+
+    #---------------------------------------------------------
+    # MULTI-PLAYER / COLONY OWNERSHIP
+    #---------------------------------------------------------
+
+    # NOTE: maxColonies and single-colony enforcement are in
+    # minecolonies-server.toml — see that file for the
+    # maxColonies = 1 setting that locks Arcane Frontiers
+    # to one shared family colony.

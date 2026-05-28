@@ -1,0 +1,655 @@
+{
+	id: "000F0000"
+	group: ""
+	order_index: 5
+	filename: "5_arcane_synthesis"
+	title: "Chapter 5: Arcane Synthesis"
+	icon: "ars_creo:starbuncle_wheel"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	// ================================================================
+	// CROSS-CHAPTER DEPENDENCY REFERENCE
+	//
+	// IDs this chapter USES from other chapters:
+	//   000D001C = Ch 3 "Dragon Slayer ✦" gate quest
+	//              → unlock condition for this chapter's entrance gate
+	//
+	// Soft prerequisite (not wired, but expected in practice):
+	//   000B0016 = Ch 1 "Archmage Spellbook 🔒"
+	//              → Archmage Spellbook is needed for 7-glyph spells (000F000B)
+	//              → players will have it before reaching this chapter
+	//
+	// IDs this chapter EXPORTS (used by other chapters):
+	//   000F000C = "Arcane Synthesis ✦" — chapter completion gate
+	//              (no downstream deps committed yet)
+	// ================================================================
+	quests: [
+
+		// ============================================================
+		// 5.1  ARS CREO INTRODUCTION
+		// ============================================================
+
+		{
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			id: "000F0001"
+			tasks: [{
+				id: "000F1001"
+				type: "item"
+				item: "ars_creo:starbuncle_wheel"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000F2001" type: "item" item: "ars_nouveau:source_gem" count: 32}
+				{id: "000F2002" type: "xp" xp: 100}
+			]
+			title: "The Synthesis"
+			icon: "ars_creo:starbuncle_wheel"
+			subtitle: "Magic and machine share the same shaft"
+			description: [
+				"§6Chapter 5§f is the convergence chapter."
+				"§fYou have mastered magic (Ch 1) and technology (Ch 2) separately."
+				"§f§6Ars Creo§f is the mod that makes them work §etogether§f —"
+				"§fArs Nouveau and Create, sharing power bidirectionally."
+				""
+				"§ePrerequisite:§r"
+				"§7• §6Dragon Slayer ✦§7 (Ch 3) — you need End-tier progression."
+				"§7• §6Archmage Spellbook§7 (Ch 1.4) — recommended before Ch 5."
+				"§7• §6Power Grid ✦§7 (Ch 2) — kinetic + electric network running."
+				""
+				"§eWhat Ars Creo adds:§r"
+				"§7• §eStarbuncle Wheel§7 — a Starbuncle-powered rotation source."
+				"§7  Magic creates mechanical energy. Finally."
+				"§7• §eSource from Rotation§7 — Create shafts fill nearby Source Jars."
+				"§7  Mechanical energy creates magic. The loop closes."
+				"§7• §eGlyph Press§7 — automates glyph crafting using Create's Sequenced"
+				"§7  Assembly system."
+				"§7• §eArcane Machinery§7 — Ars Nouveau spell effects on Create components."
+				""
+				"§eThe Starbuncle Wheel:§r"
+				"§7• §eCrafting:§7 check JEI with §eU key§7 on §eStarbuncle§7 or search"
+				"§7  §ears_creo§7 in the JEI item browser."
+				"§7• Requires §eBrass§7 (Ch 2.2) and §eSource Gems§7 (Ch 1)."
+				"§7• A Starbuncle must be assigned to it (like a Source Jar patrol)."
+				""
+				"§a► Craft a Starbuncle Wheel and hold it to claim this gate."
+			]
+			dependencies: ["000D001C"]
+		}
+
+		{
+			x: 0.0d
+			y: 8.0d
+			id: "000F0002"
+			tasks: [{
+				id: "000F1002"
+				type: "checkmark"
+				title: "Place a Starbuncle Wheel, assign a Starbuncle to it, and confirm rotation output on a shaft"
+			}]
+			rewards: [
+				{id: "000F2003" type: "item" item: "ars_nouveau:starbuncle" count: 2}
+				{id: "000F2004" type: "xp" xp: 75}
+			]
+			title: "Starbuncle Power"
+			icon: "ars_nouveau:starbuncle"
+			description: [
+				"§6The Starbuncle Wheel§f converts magical creature energy into"
+				"§fpure mechanical rotation. A Starbuncle patrolling the wheel"
+				"§fgenerates continuous §eSU§f without any fuel."
+				""
+				"§eSetting it up:§r"
+				"§71. §ePlace the Starbuncle Wheel§7 anywhere with shaft clearance."
+				"§72. §eConnect a shaft§7 to the wheel's output side."
+				"§7   The wheel has a center axle — connect Cogwheels or Shafts directly."
+				"§73. §eRight-click with a Starbuncle§7 to assign it to the wheel."
+				"§7   Or use a §eRitual Tablet: Summon Starbuncle§7 near the wheel."
+				"§74. §eJade§7 (block tooltip) will show RPM output when a Starbuncle is active."
+				""
+				"§eOutput stats:§r"
+				"§7• §e1 Starbuncle§7 → §e16 RPM§7 at §e256 SU§7 continuous output."
+				"§7• §eMultiple wheels§7 combine SU on the same network."
+				"§7  4 wheels (4 Starbuncles) = 1024 SU — comparable to a medium windmill."
+				"§7• §eAdvantage over windmills§7 — underground, weather-independent,"
+				"§7  and scales with your Starbuncle farm."
+				""
+				"§eStarbuncle behavior:§r"
+				"§7• The Starbuncle patrols between the wheel and any nearby Source Jars."
+				"§7• §eDo not§7 place the wheel too far from Source Jars — Starbuncles"
+				"§7  idle when out of Source range and produce no rotation."
+				"§7• Keep §eSource Jars within 16 blocks§7 of each wheel."
+				""
+				"§eReward: 2 extra Starbuncles§r"
+				"§7• Assign one to each additional wheel you build."
+				"§7• Or use them in their §eSource Jar patrol§7 role (Ch 1)."
+				""
+				"§a► Place wheel, assign Starbuncle, connect shaft. Mark done when rotating."
+			]
+			dependencies: ["000F0001"]
+		}
+
+		{
+			x: -6.0d
+			y: 14.0d
+			id: "000F0003"
+			tasks: [{
+				id: "000F1003"
+				type: "checkmark"
+				title: "Power a Create Mechanical Mixer using only Starbuncle Wheel rotation — no windmill or water wheel on the line"
+			}]
+			rewards: [
+				{id: "000F2005" type: "xp" xp: 100}
+			]
+			title: "Magic Mixer ★"
+			icon: "create:mechanical_mixer"
+			description: [
+				"§6★ Integration Quest — Create (Ch 2) + Ars Creo (Ch 5).§r"
+				"§fThe Starbuncle Wheel can power any Create machine."
+				"§fThe §6Mechanical Mixer§f is the first true test of magic-powered"
+				"§ftechnology — brass-making by starbuncle power alone."
+				""
+				"§eSetup:§r"
+				"§71. §eStarbuncle Wheel§7 (from previous quest) on a shaft."
+				"§72. §eGearbox§7 (optional) to change direction or RPM."
+				"§73. §eMechanical Mixer§7 at the end of the shaft."
+				"§74. §eBasin§7 below the Mixer with ingredients."
+				"§75. §eStarbuncle§7 assigned — the Mixer starts running."
+				""
+				"§ePower requirement:§r"
+				"§7• The Mechanical Mixer needs §e4 RPM minimum§7 to start processing."
+				"§7• §e1 Starbuncle§7 outputs 16 RPM — more than enough."
+				"§7• §eBlaze Burner§7 in the Basin for heated recipes (Brass alloy)."
+				""
+				"§eWhat to mix:§r"
+				"§7• §eBrass Ingots§7 (Copper + Zinc, heated) — this was Ch 2 progress,"
+				"§7  now powered by magic instead of a windmill."
+				"§7• §eSource Gems§7 — some Ars Creo recipes use the Mixer."
+				"§7• §eArcane Alloy§7 (Ars Creo) — mixed from Brass + Source Gems."
+				"§7  Needed for Glyph Press and other Ars Creo machinery."
+				""
+				"§eThe point:§r"
+				"§7• Your §eBrass production line§7 no longer needs a windmill."
+				"§7• Source Jars (Ch 1) → Starbuncles → Wheel → Mixer → Brass."
+				"§7• Magic and technology have merged into one production chain."
+				""
+				"§a► Run a Mechanical Mixer powered only by Starbuncle Wheel rotation."
+				"§a► Mix anything. Mark done when the Mixer produces output via magic power."
+			]
+			dependencies: ["000F0002"]
+		}
+
+		{
+			x: 6.0d
+			y: 14.0d
+			id: "000F0004"
+			tasks: [{
+				id: "000F1004"
+				type: "checkmark"
+				title: "Connect Ars Creo rotation components to your existing Create shaft network"
+			}]
+			rewards: [
+				{id: "000F2006" type: "xp" xp: 75}
+			]
+			title: "Arcane Network"
+			icon: "create:shaft"
+			description: [
+				"§6Ars Creo§f lets you integrate magic-powered rotation into your"
+				"§fexisting §6Create§f shaft network — not as a separate system,"
+				"§fbut as a §enew power source on the same line§f."
+				""
+				"§eIntegration approach:§r"
+				"§7• §eStarbuncle Wheel§7 outputs rotation via a standard axle."
+				"§7• §eConnect§7 that axle to your existing §eCreate shaft network§7"
+				"§7  using §eCogwheels§7, §eGearboxes§7, or direct §eShaft§7 connections."
+				"§7• The wheel adds its §e256 SU§7 to the network's total stress budget."
+				""
+				"§eArs Creo connectors:§r"
+				"§7• §eArcane Shaft§7 (if available) — magical conductor that transmits"
+				"§7  rotation through Source-charged blocks."
+				"§7• §eStarbuncle Wheel direct§7 — simplest: axle from wheel to main network."
+				"§7• §eThroughput§7 — each wheel can feed into a §eLarge Cogwheel§7"
+				"§7  to double torque at half RPM, useful for high-SU machines."
+				""
+				"§eMixed power grid:§r"
+				"§7• §eWater Wheel§7 (base) + §eSteam Engine§7 (Ch 2.5) + §eStarbuncle Wheel§7"
+				"§7  all feeding the same shaft network is perfectly valid."
+				"§7• §eTotal SU§7 = sum of all sources. §eRPM§7 = determined by the"
+				"§7  dominant source if connected directly."
+				"§7• §eUse Clutches§7 (Ch 2.4) to isolate sections of the network"
+				"§7  so magic power only reaches magic-appropriate machines."
+				""
+				"§eTip:§r"
+				"§7• §eJade§7 shows the SU contribution of each shaft segment."
+				"§7  Hover the Starbuncle Wheel to see its real-time contribution."
+				""
+				"§a► Connect a Starbuncle Wheel shaft to any existing Create machine network."
+				"§a► Mark done when the wheel contributes SU to the grid."
+			]
+			dependencies: ["000F0002"]
+		}
+
+		{
+			x: 0.0d
+			y: 20.0d
+			id: "000F0005"
+			tasks: [{
+				id: "000F1005"
+				type: "item"
+				item: "ars_creo:glyph_press"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000F2007" type: "item" item: "ars_nouveau:glyph_conjure_water" count: 1}
+				{id: "000F2008" type: "xp" xp: 100}
+			]
+			title: "Glyph Press"
+			icon: "ars_creo:glyph_press"
+			description: [
+				"§6The Glyph Press§f is Ars Creo's answer to manual glyph crafting."
+				"§fVanilla Ars Nouveau glyphs are crafted one by one in the"
+				"§fImbuement Chamber. The Glyph Press automates that process"
+				"§fusing a §6Create Mechanical Press§f."
+				""
+				"§eCrafting the Glyph Press:§r"
+				"§7• Search §ears_creo§7 in JEI to find the exact recipe."
+				"§7• Requires §eBrass§7 (Ch 2.2), §eSource Gems§7, and §eArcane components§7."
+				""
+				"§eUsing the Glyph Press:§r"
+				"§71. §ePlace the Glyph Press§7 on a surface."
+				"§72. §ePlace a §eMechanical Press§7 directly above it."
+				"§73. §eFeed ingredients§7 into the Press via §eFunnel§7 or §eConveyor§7."
+				"§74. §ePower the shaft§7 connected to the Press."
+				"§75. §eThe Press descends§7 and imprints the glyph onto the item."
+				""
+				"§eAutomation potential:§r"
+				"§7• §eMechanical Arm§7 feeds ingredient stacks to the Press input."
+				"§7• §eFunnel§7 below collects finished glyphs into output chest."
+				"§7• §eBatch production§7 — craft 64 Glyph Projectile in minutes vs."
+				"§7  the manual one-at-a-time Imbuement Chamber grind."
+				""
+				"§eWhy this matters:§r"
+				"§7• §eGlyphs are consumable§7 — your Spellbook uses them."
+				"§7  Mass production means you never run out of spell components."
+				"§7• §eColony enchanting§7 (Ch 6) benefits from a steady glyph supply."
+				"§7• §eSell glyphs§7 to Wandering Traders for emeralds (if configured)."
+				""
+				"§a► Craft and hold a Glyph Press."
+			]
+			dependencies: ["000F0003" "000F0004"]
+		}
+
+		{
+			x: 0.0d
+			y: 28.0d
+			id: "000F0006"
+			tasks: [{
+				id: "000F1006"
+				type: "checkmark"
+				title: "Set up Ars Creo Source generation from Create rotation — shaft spinning fills a nearby Source Jar"
+			}]
+			rewards: [
+				{id: "000F2009" type: "item" item: "ars_nouveau:source_jar" count: 2}
+				{id: "000F200A" type: "xp" xp: 125}
+			]
+			title: "Source from Speed"
+			icon: "ars_nouveau:source_jar"
+			description: [
+				"§6Ars Creo's bidirectional power§f means that not only can magic"
+				"§fproduce rotation — §6rotation can produce magic.§f"
+				"§fA spinning Create shaft can fill nearby Source Jars."
+				""
+				"§eSetup (Source generation from rotation):§r"
+				"§71. §ePlace an Ars Creo Source Converter§7 (or appropriate block —"
+				"§7   check JEI for the §ears_creo§7 tab) on a powered shaft."
+				"§72. §ePlace Source Jars§7 within 8 blocks of the converter."
+				"§73. §ePower the shaft§7 — the converter draws §eSU§7 and converts it"
+				"§7   to §eSource§7 at a rate proportional to RPM."
+				"§74. §eJade§7 on the Source Jar shows Source filling over time."
+				""
+				"§eProduction rate:§r"
+				"§7• §e32 RPM§7 shaft → approximately §e200 Source/minute§7."
+				"§7• §e256 RPM§7 (capped Creative Motor speed) → §e1600 Source/minute§7."
+				"§7• Compare: §ePlanting Source Berry§7 + §eStarbuncle§7 = ~500 Source/hour."
+				"§7  §eCreate rotation§7 is §efar faster§7 — but requires sustained mechanical power."
+				""
+				"§eThe magic-tech feedback loop:§r"
+				"§7• §6Starbuncle Wheel§7 (magic) → §eCreate rotation§7 → §eSource Jars§7"
+				"§7  → §eSpell casting§7 → §eSource depletion§7 → §eStarbuncle recharges§7"
+				"§7  → §eWheel spins§7 → loop continues."
+				"§7• §6Create Steam Engine§7 (tech) → §erotation§7 → §eSource Jars§7"
+				"§7  → §eArs Nouveau automation§7 (Drygmy, Whirlisprig, etc.) → loop."
+				""
+				"§eThis is the synthesis:§r"
+				"§7Magic and technology are now §eone system.§7"
+				""
+				"§a► Build the rotation → Source conversion. Mark done when a Source Jar fills via shaft power."
+			]
+			dependencies: ["000F0005"]
+		}
+
+		// ============================================================
+		// 5.2  ADVANCED SYNTHESIS
+		// ============================================================
+
+		{
+			x: -8.0d
+			y: 34.0d
+			id: "000F0007"
+			tasks: [{
+				id: "000F1007"
+				type: "checkmark"
+				title: "Automate the Ars Nouveau Enchanting Apparatus using a Create Mechanical Arm as the ingredient feeder"
+			}]
+			rewards: [
+				{id: "000F200B" type: "item" item: "ars_nouveau:glyph_fortune" count: 1}
+				{id: "000F200C" type: "xp" xp: 150}
+			]
+			title: "Auto-Enchanting ★"
+			icon: "ars_nouveau:enchanting_apparatus"
+			description: [
+				"§6★ Integration Quest — Create Mechanical Arm (Ch 2.2) + Ars Nouveau.§r"
+				"§fThe §6Enchanting Apparatus§f normally requires you to manually"
+				"§fplace reagents on the pedestals around it. §6Create§f fixes that."
+				""
+				"§eThe Enchanting Apparatus setup (manual):§r"
+				"§7• §e1 Enchanting Apparatus§7 center block."
+				"§7• §e8 Arcane Pedestals§7 around it (within 3 blocks)."
+				"§7• §e1 Arcane Core§7 (or Apprentice/Archmage Core) for the center."
+				"§7• §ePlace reagents§7 on the pedestals, §eplace item§7 on the Apparatus,"
+				"§7  §eRight-click§7 with a Worn Notebook to start enchanting."
+				""
+				"§eAutomating with Mechanical Arm:§r"
+				"§71. §eMechanical Arm§7 reaches the pedestals from above."
+				"§72. §eFilter§7 the Arm to place specific reagent types on specific pedestals."
+				"§73. §eA second Arm§7 places the item-to-enchant on the Apparatus center."
+				"§74. §eSource Jars§7 adjacent — the Apparatus auto-draws Source when"
+				"§7   all reagents are placed (if configured to auto-trigger)."
+				"§75. §eArm collects§7 the enchanted item from the output slot."
+				""
+				"§eHigh-value enchantments to automate:§r"
+				"§7• §eFlight (Ars Nouveau)§7 — requires End-tier reagents (Chorus Fruit)."
+				"§7• §eSharpness V§7 — requires Dragon Breath (from Ch 3)."
+				"§7• §eMending§7 — reagent: Prismarine Shard + Gold."
+				"§7• §eUnbreaking III§7 — reagent: Diamond + Obsidian."
+				""
+				"§a► Set up a Mechanical Arm that feeds reagents to Enchanting Apparatus pedestals."
+				"§a► Produce any enchanted item automatically. Mark done."
+			]
+			dependencies: ["000F0006"]
+		}
+
+		{
+			x: 0.0d
+			y: 36.0d
+			id: "000F0008"
+			tasks: [{
+				id: "000F1008"
+				type: "checkmark"
+				title: "Produce 16 glyphs automatically using the Glyph Press with a Mechanical Arm feeding ingredients"
+			}]
+			rewards: [
+				{id: "000F200D" type: "item" item: "ars_nouveau:source_gem" count: 64}
+				{id: "000F200E" type: "xp" xp: 150}
+			]
+			title: "Spell Factory"
+			icon: "ars_creo:glyph_press"
+			description: [
+				"§6The Spell Factory§f is the full automated glyph production line."
+				"§fIngredients go in, §6glyphs§f come out — no player interaction."
+				""
+				"§eSpell Factory layout:§r"
+				"§71. §eGlyph Press§7 (from previous quest) on a surface."
+				"§72. §eMechanical Press§7 directly above it, connected to a powered shaft."
+				"§73. §eMechanical Arm§7 feeding ingredient items onto the Press input."
+				"§7   The Arm pulls from a §eIngredient Chest§7 holding glyph materials."
+				"§74. §eBrass Funnel§7 below the Press collects finished glyphs → §eOutput Chest§7."
+				""
+				"§eIngredient planning:§r"
+				"§7• §eGlyph Projectile§7 — 1 Archwood Log + 1 Source Gem."
+				"§7• §eGlyph Harm§7 — 2 Archwood + 1 Nether Wart + 1 Source Gem."
+				"§7• §eGlyph Amplify§7 — 2 Archwood + 1 Glowstone + 1 Source Gem."
+				"§7• §eGlyph Extend Time§7 — 2 Archwood + 1 Chorus Fruit + 1 Source Gem."
+				"§7• §eSource Gem§7 supply from your §eSource-from-rotation§7 system (prev quest)."
+				""
+				"§eSequenced production:§r"
+				"§7• §eCreate Sequenced Assembly§7 can produce different glyphs in batches."
+				"§7• §eDeploy§7 Archwood → §ePress§7 with Source Gem → §eRepeat§7 N times"
+				"§7  using §eSequenced Gearshift§7 for precise batch control."
+				""
+				"§eSaturation with Source:§r"
+				"§7• Source Jar feeding via §eStarbuncle§7 or §eCreate-to-Source§7 covers"
+				"§7  the Glyph Press Source consumption automatically."
+				"§7• 1 Starbuncle Wheel cycle = ~32 Glyph crafts before Source runs low."
+				""
+				"§a► Automatically produce 16 glyphs via the Glyph Press + Arm line."
+				"§a► Mark done when 16 glyphs arrive in the output chest without manual work."
+			]
+			dependencies: ["000F0006"]
+		}
+
+		{
+			x: 8.0d
+			y: 34.0d
+			id: "000F0009"
+			tasks: [{
+				id: "000F1009"
+				type: "checkmark"
+				title: "Demonstrate the closed loop: Starbuncle Wheel → Create rotation → Source generation → Starbuncle recharge"
+			}]
+			rewards: [
+				{id: "000F200F" type: "xp" xp: 200}
+			]
+			title: "Source Dynamo"
+			icon: "ars_creo:starbuncle_wheel"
+			description: [
+				"§6The Source Dynamo§f is a demonstration of the complete Ars Creo loop:"
+				"§7magic powers machines, machines power magic, indefinitely."
+				""
+				"§eThe full closed loop:§r"
+				""
+				"§e[Magic → Rotation]§r"
+				"§7• §eStarbuncle§7 charges the §eStarbuncle Wheel§7 → outputs §eCreate rotation§7."
+				""
+				"§e[Rotation → Source]§r"
+				"§7• §eCreate shaft§7 → §eArs Creo Source Converter§7 → fills §eSource Jars§7."
+				""
+				"§e[Source → Magic]§r"
+				"§7• §eSource Jars§7 feed §eSpell casting§7, §eFamiliar familiars§7,"
+				"§7  and §eRitual automation§7 (Drygmy farms, Whirlisprig tree regeneration)."
+				""
+				"§e[Magic → Rotation, continued]§r"
+				"§7• §eSource Jars§7 also top up §eStarbuncle§7 patrol energy,"
+				"§7  keeping the §eWheel spinning§7."
+				""
+				"§eThe loop is self-sustaining§r §ewhen Source net input ≥ output.§r"
+				"§7• §e1 Starbuncle Wheel§7 + §e32 RPM shaft§7 + §e2 Source Jars§7"
+				"§7  = roughly break-even Source budget."
+				"§7• §e2 Wheels§7 + §e64 RPM§7 = net positive Source — spells and automation"
+				"§7  draw from the overflow."
+				"§7• Add §eWater Wheels§7 or §eSteam Engine§7 to the same shaft = §elarger"
+				"§7  Source overflow§7 for heavier spell loads."
+				""
+				"§eFull system check:§r"
+				"§7• §eJade§7 on Starbuncle Wheel — should show §eRPM: 16+§7."
+				"§7• §eJade§7 on Source Converter — should show §econverting: yes§7."
+				"§7• §eJade§7 on Source Jar — should show §efilling§7."
+				"§7  All three active = loop is closed."
+				""
+				"§a► Run all three stages simultaneously. Mark done when the loop sustains itself."
+			]
+			dependencies: ["000F0007" "000F0008"]
+		}
+
+		{
+			x: 0.0d
+			y: 44.0d
+			id: "000F000A"
+			tasks: [{
+				id: "000F100A"
+				type: "item"
+				item: "create:creative_motor"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000F2010" type: "item" item: "create:creative_motor" count: 1}
+				{id: "000F2011" type: "xp" xp: 200}
+			]
+			title: "Creative Motor"
+			icon: "create:creative_motor"
+			description: [
+				"§6The Creative Motor§f is a special reward for completing the"
+				"§fArs Creo synthesis system. This is not a workhorse power source —"
+				"§fit is a §eprecision tool§f for your most demanding single machines."
+				""
+				"§ePack restriction:§r"
+				"§7• §eThis pack caps the Creative Motor at §c256 RPM§7."
+				"§7• The default Creative Motor is uncapped (infinite RPM/SU)."
+				"§7• §eAt 256 RPM§7 it outputs §e~512 SU§7 — equivalent to a medium-tier"
+				"§7  steam boiler setup. Useful, but not game-breaking."
+				"§7• This cap exists to preserve the satisfaction of building real power."
+				""
+				"§eBest uses at 256 RPM:§r"
+				"§7• §eGlyph Press§7 — exact RPM doesn't affect glyph quality; any speed works."
+				"§7• §eHigh-stress single machine§7 — Mixer needing constant 256-SU draw."
+				"§7• §eTest shaft§7 — prototype a Create contraption before building real power."
+				"§7• §eArs Creo Source Converter§7 at max legal speed for fastest Source fill."
+				""
+				"§e⚠ What NOT to use it for:§r"
+				"§7• §eDo NOT§7 use it as your primary Brass production line driver."
+				"§7  Build a real boiler (Ch 2.5) for that — the cap means it's no faster."
+				"§7• §eDo NOT§7 replace your Starbuncle Wheel farm with it."
+				"§7  The Wheels are unlimited stacking; the Motor is one machine."
+				""
+				"§eHow you obtained this:§r"
+				"§7• §eNot crafted§7 — it is a quest reward only."
+				"§7• §eRecipe removed§7 in KubeJS to enforce the lore: you earn the"
+				"§7  Creative Motor by proving you don't need it."
+				""
+				"§a► The Creative Motor is your reward — claim it below."
+			]
+			dependencies: ["000F0009"]
+		}
+
+		// ============================================================
+		// 5.3  CAPSTONE
+		// ============================================================
+
+		{
+			x: 0.0d
+			y: 52.0d
+			id: "000F000B"
+			tasks: [{
+				id: "000F100B"
+				type: "checkmark"
+				title: "Cast a 7-glyph Archmage spell using Source generated by Create rotation"
+			}]
+			rewards: [
+				{id: "000F2012" type: "item" item: "ars_nouveau:glyph_gravity" count: 1}
+				{id: "000F2013" type: "xp" xp: 250}
+			]
+			title: "Grand Unified Spell"
+			icon: "ars_nouveau:archmage_spellbook"
+			description: [
+				"§6The Grand Unified Spell§f is the proof of concept."
+				"§fYou cast a §e7-glyph Archmage spell§f — the most complex spell possible —"
+				"§fand the Source that fuels it was generated by §6Create rotation.§f"
+				"§fMagic powered by technology."
+				""
+				"§ePrerequisite:§r"
+				"§7• §eArchmage Spellbook§7 (Ch 1.4) — required for 7-glyph slot count."
+				"§7• §eSource-from-rotation§7 (Ch 5, quest 000F0006) — Source Jars filled by shaft."
+				"§7• §eAt least 1000 Source§7 available — the spell will consume significant Source."
+				""
+				"§eSuggested 7-glyph builds:§r"
+				""
+				"§eCombat (Projectile-based):§r"
+				"§7  §eProjectile§7 + §eHarm§7 + §eAmplify§7 + §eAmplify§7 + §eBurst§7"
+				"§7  + §eFortune§7 + §eExtend Time§7"
+				"§7  → Area explosive projectile burst with fortune and extended duration."
+				""
+				"§eUtility (Touch-based):§r"
+				"§7  §eTouch§7 + §eExchange§7 + §eConjure Water§7 + §eFreeze§7"
+				"§7  + §eGravity§7 + §eAmplify§7 + §eExtend Time§7"
+				"§7  → Environmental manipulation spell."
+				""
+				"§eBuilding the spell:§r"
+				"§7• Open §eArchmage Spellbook§7 (right-click)."
+				"§7• §eNew Spell§7 tab → drag glyphs into the 7 available slots."
+				"§7• §eName§7 the spell."
+				"§7• §eCast§7 once — observe the Source drain from your Create-powered jars."
+				""
+				"§eThe moment:§r"
+				"§7• Watch your §eSource Jar§7 numbers drop as the spell fires."
+				"§7• Watch the §eStarbuncle Wheel§7 and §eCreate shaft§7 begin refilling them."
+				"§7• That's the synthesis."
+				""
+				"§a► Cast any 7-glyph spell while Source Jars are Create-powered. Mark done."
+			]
+			dependencies: ["000F000A"]
+		}
+
+		// ============================================================
+		// CHAPTER GATE — ARCANE SYNTHESIS ✦
+		// ID: 000F000C — chapter completion gate
+		// ============================================================
+
+		{
+			x: 0.0d
+			y: 60.0d
+			shape: "hexagon"
+			id: "000F000C"
+			tasks: [{
+				id: "000F100C"
+				type: "checkmark"
+				title: "Your magic-tech synthesis system is operational: Starbuncle Wheels, Source Dynamo, Spell Factory, and Auto-Enchanting all running"
+			}]
+			rewards: [
+				{id: "000F2014" type: "item" item: "ars_nouveau:source_gem" count: 128}
+				{id: "000F2015" type: "item" item: "ars_creo:starbuncle_wheel" count: 2}
+				{id: "000F2016" type: "xp" xp: 500}
+			]
+			title: "Arcane Synthesis ✦"
+			subtitle: "The two become one"
+			description: [
+				"§6Arcane Synthesis ✦§f is the Chapter 5 completion gate."
+				"§fIt means your magic and technology are no longer separate systems."
+				"§fThey are §ione integrated machine.§r"
+				""
+				"§eWhat must be true to mark this complete:§r"
+				"§7• §eStarbuncle Wheels§7 online — at least 2 wheels producing rotation."
+				"§7• §eSource Dynamo§7 — Create rotation filling Source Jars continuously."
+				"§7• §eSpell Factory§7 — Glyph Press + Arm producing glyphs on demand."
+				"§7• §eAuto-Enchanting§7 — Mechanical Arm feeding the Enchanting Apparatus."
+				"§7• §eGrand Unified Spell§7 — you have cast it."
+				""
+				"§eWhat you have built:§r"
+				"§7• §eMagic powering machines§7 — Starbuncle Wheels running mixers, presses, arms."
+				"§7• §eMachines powering magic§7 — Create shafts filling Source Jars continuously."
+				"§7• §eAutomated spell components§7 — Glyph Press means unlimited glyphs."
+				"§7• §eAutomated enchanting§7 — Apparatus runs without placing reagents by hand."
+				"§7• §eCreative Motor§7 in your possession — proof that you earned it."
+				""
+				"§eArcane Frontiers pillars — status check:§r"
+				"§7• §e✔ Magic§7 — Archmage Spellbook, full familiar fleet, rituals running."
+				"§7• §e✔ Technology§7 — Power Grid, nuclear/solar/magic power, Tetra gear."
+				"§7• §e✔ Exploration§7 — End portal opened, Dragon defeated, Wither slain."
+				"§7• §e✔ Home§7 — Central Kitchen, Hearth & Home gate complete."
+				"§7• §e✔ Synthesis§7 — magic and tech unified. This gate."
+				"§7• §e→ Colony§7 — Ch 6. Build the family settlement."
+				"§7• §e→ Twilight§7 — Ch 7. The last great adventure."
+				""
+				"§eReward: 128 Source Gems + 2 extra Starbuncle Wheels§r"
+				"§7• Expand your Source Dynamo with the extra wheels."
+				"§7• 128 Source Gems bootstrap the next phase of enchanting and rituals."
+				""
+				"§a► Confirm all 4 systems are running simultaneously. Mark this gate done."
+			]
+			dependencies: ["000F000B"]
+		}
+
+	]
+	quest_links: []
+}

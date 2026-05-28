@@ -1,0 +1,151 @@
+#================================================================
+# twilightforest-common.toml — Arcane Frontiers
+# Mod: The Twilight Forest (NeoForge 1.21.1)
+# See also: §4.11 in ARCANE_FRONTIERS.md (full safety guide)
+#
+# ⚠️  BEFORE TOUCHING THIS FILE — READ THESE THREE RULES:
+#
+# RULE 1: PIN YOUR VERSION.
+#   In Modrinth App, right-click Twilight Forest → Pin version.
+#   Do not auto-update mid-world. Patch versions can reset or
+#   corrupt per-world progression tracking, turning locked boss
+#   zones back into permanently inaccessible areas.
+#
+# RULE 2: KEEP enforceProgressionChecks = true.
+#   This is counterintuitive — you'd think disabling it would
+#   make things easier. In practice, the protection system's
+#   bugs mostly manifest when it is DISABLED. With enforcement
+#   on, the system is deterministic: defeat bosses in order,
+#   zones unlock in order. Turning it off leads to zones that
+#   appear unlocked but whose boss shields randomly regenerate.
+#
+# RULE 3: TAKE WORLD BACKUPS BEFORE EVERY BOSS.
+#   Copy your entire world/ folder to a dated zip.
+#   If a boss fight breaks the progression: restore from backup,
+#   run /tfprogress reset @a, and fight again.
+#================================================================
+
+[general]
+
+    #---------------------------------------------------------
+    # PROGRESSION SYSTEM
+    #---------------------------------------------------------
+
+    enforceProgressionChecks = true
+    # KEEP TRUE. Enables the boss-sequence protection system.
+    # Required order: Naga → Lich → Minoshroom → Hydra → Ur-Ghast → Snow Queen
+    # Each zone is shielded until the prerequisite boss is defeated.
+    # Attempting a boss out of order makes them nearly invulnerable
+    # (the intended design — not a bug).
+    #
+    # What this means in practice:
+    #   - After defeating the Naga, the forest around Lich Towers
+    #     changes from "hostile and glowing" to accessible.
+    #   - After the Lich, Labyrinths (Minoshroom) become navigable.
+    #   - And so on through the chain.
+    # This is the gameplay — the protection system IS the dungeon.
+
+    progressionIgnoresTeams = false
+    # If false (recommended): boss kills count for ALL players on
+    # the server. One family member defeating the Naga unlocks the
+    # Lich Tower region for everyone.
+    # If true: each player tracks progression individually.
+    # KEEP FALSE for a family server. Individual tracking means
+    # a player who joined late has to solo-repeat all previous bosses
+    # before they can join the family at the current boss. Miserable.
+
+    #---------------------------------------------------------
+    # PORTAL CREATION
+    #---------------------------------------------------------
+
+    allowPortalCreation = true
+    # Players can build and activate the Twilight Forest portal.
+    # REQUIRED. The Ch 7.1 "The Ritual Portal" quest is impossible
+    # without this enabled.
+
+    portalCreationPermissionLevel = 0
+    # Required operator permission level to create a portal.
+    # 0 = any player can create one (no special permission needed).
+    # Default: 0. Keep at 0 — the portal creation is gated by
+    # resource requirements (flowers + diamond), not permissions.
+    # If you want only ops to be able to open portals:
+    # set to 2 (standard op level).
+
+    portalAttemptPlantSpawnRadius = 4
+    # How far from the portal activation point that flowers
+    # and plants must be placed. Default: 4 blocks.
+    # The Ch 7.1 ritual instructions describe a 2x2 water pool
+    # surrounded by flowers. This radius accommodates that layout.
+
+    #---------------------------------------------------------
+    # BOSS AND WORLD SAFETY
+    #---------------------------------------------------------
+
+    disableBossSpawning = false
+    # KEEP FALSE. The bosses are the entire point of Ch 7.
+    # Only set to true if you're doing creative exploration
+    # of the dimension without the quest arc.
+
+    bossDropChance = 1.0
+    # Probability (0.0-1.0) that a boss drops its unique trophy.
+    # 1.0 = guaranteed trophy drop on kill.
+    # KEEP AT 1.0. The Ch 7.3 "Twilight Explorer" quest requires
+    # collecting ALL SIX boss trophies for the Trophy Room.
+    # A non-guaranteed drop would require replaying boss fights,
+    # which breaks progression when the protection system prevents
+    # re-entering cleared boss zones.
+
+    allowTFStructureGeneration = true
+    # Twilight Forest generates its own unique biomes and structures
+    # inside the dimension. REQUIRED for the quest experience.
+    # Hollow Hills (Ch 7.1), Labyrinths (Minoshroom), Hydra Lairs,
+    # Lich Towers, Dark Towers, and Aurora Palaces all spawn here.
+
+    #---------------------------------------------------------
+    # DIMENSION SAFETY
+    #---------------------------------------------------------
+
+    allowPortalUse = true
+    # Players can pass through an existing portal.
+    # REQUIRED. Without this, the portal is cosmetic only.
+
+    shouldProtectPortalFromExplosions = true
+    # Prevents TNT, Creepers, and other explosions from destroying
+    # the portal blocks once placed.
+    # STRONGLY RECOMMENDED. A Creeper destroying the portal in the
+    # Overworld while family members are inside the Twilight Forest
+    # dimension strands them until an op manually recreates it.
+    # With protection on: the portal survives mob interactions.
+
+    dimensionAllowedByPlayer = true
+    # Players are permitted to enter the Twilight Forest dimension.
+    # Obviously required. Only set false if running a server mode
+    # where TF is installed but disabled (e.g., a different world
+    # type that conflicts with TF portals).
+
+    #---------------------------------------------------------
+    # KNOWN EDGE CASES (READ BEFORE FIRST SESSION)
+    #---------------------------------------------------------
+
+    # MULTIPLAYER BOSS SHARING:
+    # The progression system tracks kills per-world, not per-player
+    # (when progressionIgnoresTeams = false). This means:
+    #   - The FIRST player to kill the Naga unlocks Lich Towers for all.
+    #   - If Player A kills the Lich while Players B and C are offline,
+    #     Minoshroom Labyrinths are already unlocked when they log in.
+    # Plan boss fights as a group to experience each unlock together.
+    # The quests in Ch 7.2 are structured as family events — read the
+    # cooperative tip in that chapter before your first boss night.
+
+    # PROGRESSION BREAK RECOVERY:
+    # If a boss shield refuses to drop after a legitimate kill,
+    # an op should run: /tfprogress reset @a
+    # This resets ALL progression for ALL players to zero.
+    # You must then defeat bosses in order again from the Naga.
+    # ALWAYS have a world backup from before the last boss fight
+    # so you can restore instead of replaying multiple bosses.
+
+    # VERSION PINNING REMINDER:
+    # The version you install is the version you finish with.
+    # Modrinth App: right-click The Twilight Forest → Pin version.
+    # Record the version number in your server's README.

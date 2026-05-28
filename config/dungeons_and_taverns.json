@@ -1,0 +1,104 @@
+{
+  "_comment_header": [
+    "================================================================",
+    " dungeons_and_taverns.json — Arcane Frontiers",
+    " Mod: Dungeons and Taverns (NeoForge 1.21.1, v4.7+)",
+    " Purpose: Space structures far enough apart that each feels",
+    "          like a genuine discovery rather than background noise.",
+    "================================================================",
+    "",
+    " SPACING GUIDE:",
+    "   spacing   = chunk grid cell size (structures spawn max once per cell)",
+    "   separation = minimum chunk gap between two structures of this type",
+    "   separation MUST be less than spacing or the game ignores the config.",
+    "",
+    " Our target: roughly one structure per 3-4 chunk cells.",
+    " At spacing=48, separation=20:",
+    "   - Structures appear on average every ~28-48 chunks (~450-750 blocks)",
+    "   - Terralith biomes visible between structures",
+    "   - No two structures of the same type are closer than 20 chunks (~320 blocks)",
+    "",
+    " VERIFICATION NOTE:",
+    " Dungeons and Taverns v4.7+ may use its own datapack-based config",
+    " system instead of this JSON. If structure frequency is unchanged",
+    " after placing this file, check if the mod generates a config folder",
+    " or uses /gamerule or in-game sliders instead."
+  ],
+
+  "structure_frequency": {
+
+    "_comment_tavern": "Roadside taverns — the most common overworld structure. Spacing 48 = ~750 block spread on average.",
+    "tavern": {
+      "spacing": 48,
+      "separation": 20
+    },
+
+    "_comment_small_house": "Abandoned houses — scattered rural ruins. Kept fairly common for early loot.",
+    "small_house": {
+      "spacing": 40,
+      "separation": 16
+    },
+
+    "_comment_abandoned_house": "Larger abandoned farmsteads. Slightly rarer than small houses.",
+    "abandoned_house": {
+      "spacing": 44,
+      "separation": 18
+    },
+
+    "_comment_desert_temple": "Desert pyramid structures — medium rarity matches Terralith desert biome density.",
+    "desert_temple": {
+      "spacing": 52,
+      "separation": 24
+    },
+
+    "_comment_jungle_temple": "Jungle shrines — rare, rewarding to find in dense Terralith jungle biomes.",
+    "jungle_temple": {
+      "spacing": 56,
+      "separation": 28
+    },
+
+    "_comment_pillager_outpost": "Pillager Outposts — keep vanilla rarity, slightly spaced for raid balance.",
+    "pillager_outpost": {
+      "spacing": 48,
+      "separation": 24
+    },
+
+    "_comment_stronghold_variant": "Dungeon-tier structures that may overlap with YUNG's Dungeons territory.",
+    "stronghold_variant": {
+      "spacing": 80,
+      "separation": 40
+    },
+
+    "_comment_witch_hut": "Witch Huts — swamp structures. Relatively uncommon.",
+    "witch_hut": {
+      "spacing": 48,
+      "separation": 20
+    },
+
+    "_comment_ocean_ruin": "Ocean ruin structures — spread across ocean biomes without clustering.",
+    "ocean_ruin": {
+      "spacing": 40,
+      "separation": 16
+    },
+
+    "_comment_shipwreck": "Shipwrecks — ocean-going players should find these with Lootr instanced loot.",
+    "shipwreck": {
+      "spacing": 36,
+      "separation": 12
+    }
+  },
+
+  "general": {
+    "_comment_loot_tables": "Use Lootr-compatible loot tables where available (Lootr instances chests per player).",
+    "use_lootr_loot_tables": true,
+
+    "_comment_jigsaw": "Jigsaw generation for modular structures — required for D&T v4.7+ structure variants.",
+    "use_jigsaw_generation": true,
+
+    "_comment_avoid_water": "Prevent structures from generating partially submerged in rivers/lakes.",
+    "avoid_water_placement": true,
+
+    "_comment_biome_filter": "Respect biome tags when placing structures (taverns won't appear in oceans, etc.).",
+    "respect_biome_tags": true
+  }
+}
