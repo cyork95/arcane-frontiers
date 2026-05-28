@@ -169,6 +169,7 @@ $MODS = @(
     @{ slug="enchantment-descriptions";                 client="required"; server="optional" }
 
     # ── Performance ───────────────────────────────────────────────
+    # NOTE: Use stable Sodium only — alpha builds (0.8.x) break Supplementaries' fluid renderer mixin
     @{ slug="sodium";                                   client="required"; server="unsupported" }
     @{ slug="immediatelyfast";                          client="required"; server="unsupported" }
     @{ slug="modernfix";                                client="required"; server="required" }
