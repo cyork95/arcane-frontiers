@@ -1086,6 +1086,266 @@
 			dependencies: ["000E000D" "000E0011" "000E0014"]
 		}
 
+		// ── 4.5 CHEF'S DELIGHT ───────────────────────────────────────
+		{
+			id: "000E0017"
+			group: ""
+			order_index: 0
+			filename: "ch4_chefs_delight_1"
+			title: "Chef's Knife"
+			icon: "chefs_delight:chefs_knife"
+			x: 0.0d
+			y: 40.0d
+			shape: "circle"
+			description: [
+				"§fChef's Delight expands Farmer's Delight with §6professional kitchen tools§f"
+				"§fincluding the Chef's Knife — the backbone of advanced cooking."
+				""
+				"§eCraft the Chef's Knife:§r"
+				"§7Iron Ingot + Stick at a Crafting Table."
+				"§7Hold it and §6right-click vegetables§7 on a Cutting Board to slice them"
+				"§7into ingredients not achievable any other way."
+				""
+				"§eUnlocks recipes like:§r"
+				"§7• Diced Onion → soups and stews"
+				"§7• Sliced Melon → desserts"
+				"§7• Minced Garlic → seasoned dishes"
+			]
+			tasks: [{
+				id: "000E2030"
+				type: "item"
+				item: "chefs_delight:chefs_knife"
+				count: 1L
+			}]
+			rewards: [
+				{id: "000E2031" type: "item" item: "farmersdelight:cutting_board" count: 1}
+				{id: "000E2032" type: "xp" xp: 40}
+			]
+			subtitle: "Every kitchen needs one"
+			dependencies: ["000E0001"]
+		}
+		{
+			id: "000E0018"
+			group: ""
+			order_index: 0
+			filename: "ch4_chefs_delight_2"
+			title: "Sous Chef ★"
+			icon: "chefs_delight:cutting_board"
+			x: 0.0d
+			y: 44.0d
+			shape: "circle"
+			description: [
+				"§fCook §63 Chef's Delight exclusive recipes§f — dishes that require"
+				"§fsliced or diced ingredients from the Chef's Knife."
+				""
+				"§eGood starter trio:§r"
+				"§7• §6French Onion Soup§7 — diced onion + broth + toast"
+				"§7• §6Caesar Salad§7 — sliced vegetables + dressing"
+				"§7• §6Beef Medallions§7 — sliced beef + seasoning in cooking pot"
+				""
+				"§eTip:§r"
+				"§7Chef's Delight dishes give §6stronger saturation and effects§7"
+				"§7than base Farmer's Delight. Feed these to your MineColonies"
+				"§7citizens for a productivity bonus."
+			]
+			tasks: [{
+				id: "000E2033"
+				type: "checkmark"
+				title: "Cook 3 different Chef's Delight exclusive recipes"
+			}]
+			rewards: [
+				{id: "000E2034" type: "item" item: "farmersdelight:canvas_sign" count: 2}
+				{id: "000E2035" type: "xp" xp: 80}
+			]
+			subtitle: "Three dishes, one knowledgeable chef"
+			dependencies: ["000E0017"]
+		}
+
+		// ── 4.6 DIMENSIONAL CUISINE ──────────────────────────────────
+		{
+			id: "000E0019"
+			group: ""
+			order_index: 0
+			filename: "ch4_ends_delight"
+			title: "End Table"
+			icon: "ends_delight:chorus_salad"
+			x: 8.0d
+			y: 40.0d
+			shape: "circle"
+			description: [
+				"§fEnd's Delight brings §6Chorus Fruit cuisine§f to the Cooking Pot."
+				"§fAfter defeating the Ender Dragon (Ch 3), the End's harvests are yours."
+				""
+				"§eKey ingredients:§r"
+				"§7• §6Chorus Fruit§7 — grows on outer End islands"
+				"§7• §6Shulker§7 drops (shulker shells) — rare protein source"
+				"§7• §6Purpur§7 variants — decorative blocks for End-themed dining area"
+				""
+				"§eCook any End's Delight recipe:§r"
+				"§7§6Chorus Salad§7 is the simplest: Chorus Fruit + Green leaves"
+				"§7on a Cutting Board."
+			]
+			tasks: [{
+				id: "000E2036"
+				type: "checkmark"
+				title: "Cook any End's Delight recipe using Chorus Fruit ingredients"
+			}]
+			rewards: [
+				{id: "000E2037" type: "item" item: "minecraft:chorus_fruit" count: 8}
+				{id: "000E2038" type: "xp" xp: 50}
+			]
+			subtitle: "Fruits of the outer islands"
+			dependencies: ["000E0001"]
+		}
+		{
+			id: "000E001A"
+			group: ""
+			order_index: 0
+			filename: "ch4_expanded_delight"
+			title: "Expanded Pantry"
+			icon: "expanded_delight:fruit_salad"
+			x: 16.0d
+			y: 40.0d
+			shape: "circle"
+			description: [
+				"§fExpanded Delight adds §6biome-specific crops and recipes§f,"
+				"§fbringing Terralith's diverse biomes into your kitchen."
+				""
+				"§eNew ingredients include:§r"
+				"§7• §6Coconut§7 — tropical Terralith beaches"
+				"§7• §6Wild Berries§7 — temperate forest floors"
+				"§7• §6Pineapple§7 — warm Terralith biomes"
+				""
+				"§eCook any Expanded Delight recipe:§r"
+				"§7§6Fruit Salad§7 is the easiest — mixed berries in a Bowl."
+				""
+				"§aTip: Terralith biome exploration (Ch 3) feeds directly into"
+				"§aExpanded Delight recipes — bring a basket on every expedition."
+			]
+			tasks: [{
+				id: "000E2039"
+				type: "checkmark"
+				title: "Cook any Expanded Delight recipe using biome-specific ingredients"
+			}]
+			rewards: [
+				{id: "000E203A" type: "item" item: "farmersdelight:salad" count: 3}
+				{id: "000E203B" type: "xp" xp: 50}
+			]
+			subtitle: "From Terralith's fields to your table"
+			dependencies: ["000E0001"]
+		}
+		{
+			id: "000E001B"
+			group: ""
+			order_index: 0
+			filename: "ch4_ars_delight"
+			title: "Arcane Cuisine"
+			icon: "arsdelight:source_berry_pie"
+			x: 24.0d
+			y: 40.0d
+			shape: "circle"
+			description: [
+				"§fArs Delight bridges §6Ars Nouveau§f and §6Farmer's Delight§f —"
+				"§fSource Berry dishes that restore Source while you eat."
+				""
+				"§eKey recipes:§r"
+				"§7• §6Source Berry Pie§7 — Source Berries + Wheat + Sugar"
+				"§7• §6Wilden Stew§7 — Wilden drops + vegetables in Cooking Pot"
+				"§7• §6Archwood Tea§7 — Archwood leaves brewed in Teapot"
+				""
+				"§eEffect:§r"
+				"§7Eating Ars Delight dishes restores §6Source§7 over time,"
+				"§7reducing how often you need to visit a Source Jar."
+				""
+				"§aTip: Great for long spelunking sessions where no Source Jar"
+				"§ais nearby — carry pies instead of stopping to regenerate."
+			]
+			tasks: [{
+				id: "000E203C"
+				type: "checkmark"
+				title: "Cook and eat any Ars Delight recipe that restores Source"
+			}]
+			rewards: [
+				{id: "000E203D" type: "item" item: "ars_nouveau:source_berry" count: 16}
+				{id: "000E203E" type: "xp" xp: 60}
+			]
+			subtitle: "A meal that fills body and mana"
+			dependencies: ["000E0001"]
+		}
+
+		// ── 4.7 SUPPLEMENTARIES SQUARED ─────────────────────────────
+		{
+			id: "000E001C"
+			group: ""
+			order_index: 0
+			filename: "ch4_supplementaries_squared_1"
+			title: "Home Accents"
+			icon: "supplementaries_squared:basket"
+			x: 32.0d
+			y: 40.0d
+			shape: "circle"
+			description: [
+				"§fSupplementaries Squared adds §6cozy home decoration§f — baskets,"
+				"§fcandles, market stalls, and rustic furniture that transforms"
+				"§fa functional base into a living home."
+				""
+				"§eCraft and place 3 Supplementaries Squared decorations:§r"
+				"§7• §6Basket§7 — wicker storage, hangs from ceilings"
+				"§7• §6Rope§7 — decorative hanging with functional uses"
+				"§7• §6Wreath§7 — seasonal door decoration"
+				""
+				"§aTip: Combine with Macaw's Furniture for a fully furnished"
+				"§ahome that rivals any inn in the world."
+			]
+			tasks: [{
+				id: "000E203F"
+				type: "checkmark"
+				title: "Place 3 different Supplementaries Squared decorative blocks in your home"
+			}]
+			rewards: [
+				{id: "000E2040" type: "item" item: "supplementaries:jar" count: 2}
+				{id: "000E2041" type: "xp" xp: 40}
+			]
+			subtitle: "Details that make a house a home"
+			dependencies: ["000E0001"]
+		}
+		{
+			id: "000E001D"
+			group: ""
+			order_index: 0
+			filename: "ch4_supplementaries_squared_2"
+			title: "The Market Stall ★"
+			icon: "supplementaries_squared:market_stall"
+			x: 32.0d
+			y: 44.0d
+			shape: "circle"
+			description: [
+				"§fBuild a §6Market Stall§f using Supplementaries Squared:"
+				"§fa covered trading post where players can exchange goods."
+				""
+				"§eGoal:§r"
+				"§7Place a §6Market Stall block§7 (the canopy frame) and surround it"
+				"§7with at least §64 items on display§7 — use Item Frames, Pedestals,"
+				"§7or Jars from Supplementaries for the display."
+				""
+				"§aTip: Place the Market Stall near your Waystones spawn point"
+				"§afor a community trading hub other players can visit."
+				""
+				"§a► ★ Contributes to Ch 6 Colony economy quests."
+			]
+			tasks: [{
+				id: "000E2042"
+				type: "checkmark"
+				title: "Build a Market Stall with 4+ items on display near a Waystone"
+			}]
+			rewards: [
+				{id: "000E2043" type: "item" item: "waystones:waystone" count: 1}
+				{id: "000E2044" type: "xp" xp: 80}
+			]
+			subtitle: "Open for business"
+			dependencies: ["000E001C"]
+		}
+
 	]
 	quest_links: []
 }

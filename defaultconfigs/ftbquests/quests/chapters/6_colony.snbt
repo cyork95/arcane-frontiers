@@ -1770,6 +1770,123 @@
 			dependencies: ["0011002F"]
 		}
 
+		// ── 6.8 FRIENDS & FOES — BEEKEEPER HUT ───────────────────────
+		{
+			id: "00110031"
+			group: ""
+			order_index: 0
+			filename: "ch6_beekeeper_hut_1"
+			title: "The Beekeeper"
+			icon: "minecraft:honeycomb"
+			x: 40.0d
+			y: 0.0d
+			shape: "circle"
+			description: [
+				"§fFriends & Foes: Beekeeper Hut adds a §6Beekeeper NPC§f to MineColonies —"
+				"§fa dedicated citizen who manages beehives and produces honey for the colony."
+				""
+				"§eSetup:§r"
+				"§71. Build the §6Beekeeper's Hut§7 in your colony."
+				"§72. Assign a citizen as §6Beekeeper§7."
+				"§73. Place §6Beehives§7 near the hut — they'll tend them automatically."
+				""
+				"§eBenefits:§r"
+				"§7• Auto-harvests §6Honeycomb§7 and §6Honey Bottles§7"
+				"§7• Supplies the colony's §6Restaurant§7 with sweetener"
+				"§7• Enables §6Bumblezone§7 material integration with colony production"
+			]
+			tasks: [{
+				id: "00112060"
+				type: "checkmark"
+				title: "Build a Beekeeper's Hut and assign a citizen as Beekeeper"
+			}]
+			rewards: [
+				{id: "00112061" type: "item" item: "minecraft:beehive" count: 3}
+				{id: "00112062" type: "item" item: "minecraft:honeycomb" count: 16}
+				{id: "00112063" type: "xp" xp: 60}
+			]
+			subtitle: "The colony's sweetest citizen"
+			dependencies: ["00110001"]
+		}
+		{
+			id: "00110032"
+			group: ""
+			order_index: 0
+			filename: "ch6_beekeeper_hut_2"
+			title: "Royal Jelly ★"
+			icon: "minecraft:honey_bottle"
+			x: 40.0d
+			y: 4.0d
+			shape: "circle"
+			description: [
+				"§fWith a working Beekeeper, your colony can produce §6Honey-based foods§f"
+				"§fthat integrate with Farmer's Delight recipes."
+				""
+				"§eGoal:§r"
+				"§7Have your Beekeeper produce §610 Honey Bottles§7."
+				""
+				"§eBonus — Bumblezone integration:§r"
+				"§7Honey from §6Bumblezone bees§7 (Ch 7) is a rare high-yield variant."
+				"§7Bring Bumblezone honeycomb back to your Beekeeper Hut to"
+				"§7start producing §6exotic honey§7 not found in the Overworld."
+				""
+				"§aTip: Use Sophisticated Storage barrel networks to feed honey"
+				"§aautomatically into the colony's Restaurant food supply."
+			]
+			tasks: [{
+				id: "00112064"
+				type: "checkmark"
+				title: "Have your colony Beekeeper produce 10 Honey Bottles"
+			}]
+			rewards: [
+				{id: "00112065" type: "item" item: "minecraft:honey_bottle" count: 5}
+				{id: "00112066" type: "xp" xp: 80}
+			]
+			subtitle: "Sweet colony logistics"
+			dependencies: ["00110031"]
+		}
+
+		// ── 6.9 COLONYRANK ────────────────────────────────────────────
+		{
+			id: "00110033"
+			group: ""
+			order_index: 0
+			filename: "ch6_colonyrank"
+			title: "Colony Ranked ★"
+			icon: "minecolonies:blockHutTownHall"
+			x: 48.0d
+			y: 0.0d
+			shape: "circle"
+			description: [
+				"§fColonyRank adds §6prestige rankings§f to MineColonies colonies —"
+				"§fa score that reflects your colony's size, happiness, and productivity."
+				""
+				"§eHow to rank up:§r"
+				"§7• Increase §6citizen count§7 — more residents = higher base score"
+				"§7• Improve §6citizen happiness§7 — feed them well, defend them"
+				"§7• Build §6higher-tier buildings§7 — T4/T5 structures multiply your rank"
+				"§7• Complete §6colony quests§7 (this chapter!) — bonus rank points"
+				""
+				"§eGoal:§r"
+				"§7Reach §6Rank 3§7 (or equivalent mid-tier rank) in ColonyRank."
+				""
+				"§aTip: Check your rank by right-clicking your §6Town Hall§7."
+				"§aA high-ranked colony unlocks special cosmetic titles and"
+				"§acolony name display features."
+			]
+			tasks: [{
+				id: "00112067"
+				type: "checkmark"
+				title: "Reach Colony Rank 3 (or equivalent mid-tier rank) in ColonyRank"
+			}]
+			rewards: [
+				{id: "00112068" type: "item" item: "minecraft:nether_star" count: 1}
+				{id: "00112069" type: "xp" xp: 150}
+			]
+			subtitle: "Your colony, recognized"
+			dependencies: ["00110001"]
+		}
+
 	]
 	quest_links: []
 }

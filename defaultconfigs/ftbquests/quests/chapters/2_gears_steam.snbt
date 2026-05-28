@@ -2023,5 +2023,289 @@
 			dependencies: ["000C002D"]
 		}
 
+		// ── 2.9 CREATE DRAGONS PLUS ─────────────────────────────────
+		{
+			id: "000C002F"
+			group: ""
+			order_index: 0
+			filename: "ch2_create_dragons_plus_1"
+			title: "Dragon Casing"
+			icon: "create_dragons_plus:dragon_scale_casing"
+			x: 40.0d
+			y: 24.0d
+			shape: "circle"
+			description: [
+				"§fCreate: Dragons Plus fuses §6Draconic engineering§f with §6Create's§f"
+				"§frotary power — dragon-scale casings conduct stress better than brass."
+				""
+				"§eFirst step:§r"
+				"§7Craft a §6Dragon Scale Casing§7 at the Mechanical Crafting Grid."
+				"§7You'll need Dragon Scales (hunt or barter with Alex's Mobs dragons)"
+				"§7and Andesite Casing as the base."
+				""
+				"§eTip:§r"
+				"§7Dragon Scale Casings replace Brass Casings in high-tier machines"
+				"§7and add unique draconic aesthetics to your factory."
+			]
+			tasks: [{
+				id: "000C2060"
+				type: "checkmark"
+				title: "Craft a Dragon Scale Casing using the Mechanical Crafting Grid"
+			}]
+			rewards: [
+				{id: "000C2061" type: "item" item: "create:brass_casing" count: 4}
+				{id: "000C2062" type: "xp" xp: 50}
+			]
+			subtitle: "Where engineering meets the draconic"
+			dependencies: ["000C0001"]
+		}
+		{
+			id: "000C0030"
+			group: ""
+			order_index: 0
+			filename: "ch2_create_dragons_plus_2"
+			title: "Draconic Machinery ★"
+			icon: "create:brass_casing"
+			x: 40.0d
+			y: 28.0d
+			shape: "circle"
+			description: [
+				"§fBuild a fully §6draconic-powered mechanical line§f:"
+				"§fa machine that takes in raw material and outputs a product,"
+				"§fall cased in Dragon Scale components."
+				""
+				"§eGoal:§r"
+				"§7At least §63 Dragon Scale machines§7 chained together in sequence."
+				"§7(e.g. Depot → Mechanical Press → Chute → Basin)"
+				""
+				"§aDraconic machines carry higher stress capacity than their"
+				"§abrass equivalents — worth the hunt for scales."
+			]
+			tasks: [{
+				id: "000C2063"
+				type: "checkmark"
+				title: "Build a 3+ machine draconic assembly line using Dragon Scale components"
+			}]
+			rewards: [
+				{id: "000C2064" type: "item" item: "create:shaft" count: 8}
+				{id: "000C2065" type: "xp" xp: 100}
+			]
+			subtitle: "A factory fit for a dragon"
+			dependencies: ["000C002F"]
+		}
+
+		// ── 2.10 ENIGMATIC LEGACY+ ───────────────────────────────────
+		{
+			id: "000C0031"
+			group: ""
+			order_index: 0
+			filename: "ch2_enigmatic_1"
+			title: "Ancient Relic"
+			icon: "enigmaticlegacy:heart_amulet"
+			x: 48.0d
+			y: 20.0d
+			shape: "circle"
+			description: [
+				"§fEnigmatic Legacy+ scatters §6powerful artifacts§f through the world —"
+				"§ffound in dungeons, ancient chests, and defeated elites."
+				""
+				"§eWhat to look for:§r"
+				"§7• §6Heart Amulet§7 — bonus max health, found in buried treasure"
+				"§7• §6Obsidian Skull§7 — fire immunity while wearing"
+				"§7• §6Crystal Heart§7 — regeneration on low health"
+				""
+				"§eTip:§r"
+				"§7Equip relics in §6Curios§7 slots — ring, necklace, and belt slots."
+				"§7Combine multiple relics for stacking passive effects."
+			]
+			tasks: [{
+				id: "000C2066"
+				type: "checkmark"
+				title: "Find and equip any Enigmatic Legacy+ relic in a Curios slot"
+			}]
+			rewards: [
+				{id: "000C2067" type: "item" item: "minecraft:experience_bottle" count: 5}
+				{id: "000C2068" type: "xp" xp: 60}
+			]
+			subtitle: "Relics of a forgotten age"
+			dependencies: ["000C0001"]
+		}
+		{
+			id: "000C0032"
+			group: ""
+			order_index: 0
+			filename: "ch2_enigmatic_2"
+			title: "Powered by Artifacts"
+			icon: "enigmaticlegacy:obsidian_skull"
+			x: 48.0d
+			y: 24.0d
+			shape: "circle"
+			description: [
+				"§fSome relics interact with §6Create§f machinery and §6Ars Nouveau§f magic."
+				""
+				"§eGoal:§r"
+				"§7Equip §63 different Enigmatic Legacy+ relics§7 simultaneously"
+				"§7in your Curios slots."
+				""
+				"§eNoted combos:§r"
+				"§7• §6Heart Amulet§7 + §6Crystal Heart§7 = near-permanent regeneration"
+				"§7• §6Obsidian Skull§7 + any fire focus = Nether survivability"
+				"§7• §6Power Glove§7 + Create machines = strength bonus while operating"
+			]
+			tasks: [{
+				id: "000C2069"
+				type: "checkmark"
+				title: "Equip 3 different Enigmatic Legacy+ relics simultaneously"
+			}]
+			rewards: [
+				{id: "000C206A" type: "item" item: "minecraft:golden_apple" count: 2}
+				{id: "000C206B" type: "xp" xp: 80}
+			]
+			subtitle: "Stacking ancient power"
+			dependencies: ["000C0031"]
+		}
+		{
+			id: "000C0033"
+			group: ""
+			order_index: 0
+			filename: "ch2_enigmatic_3"
+			title: "Relic Hunter ★"
+			icon: "minecraft:compass"
+			x: 48.0d
+			y: 28.0d
+			shape: "circle"
+			description: [
+				"§fCollect §65 unique Enigmatic Legacy+ relics§f across the world."
+				""
+				"§eWhere to look:§r"
+				"§7• §6YUNG's Dungeons§7 — elite mob drops"
+				"§7• §6When Dungeons Arise§7 — hidden treasure rooms"
+				"§7• §6Ancient Cities§7 (Deeper and Darker) — rare chest tier"
+				"§7• §6Bumblezone§7 — Hive Castle unique drops"
+				""
+				"§aTip: Use §6Sophisticated Storage§7 barrel networks to"
+				"§aorganize your relic collection and track what you still need."
+			]
+			tasks: [{
+				id: "000C206C"
+				type: "checkmark"
+				title: "Collect 5 unique Enigmatic Legacy+ relics"
+			}]
+			rewards: [
+				{id: "000C206D" type: "item" item: "minecraft:enchanted_book" count: 1}
+				{id: "000C206E" type: "xp" xp: 120}
+			]
+			subtitle: "Five relics, five dungeons"
+			dependencies: ["000C0032"]
+		}
+
+		// ── 2.11 SOPHISTICATED BACKPACKS ─────────────────────────────
+		{
+			id: "000C0034"
+			group: ""
+			order_index: 0
+			filename: "ch2_backpacks_1"
+			title: "First Pack"
+			icon: "sophisticatedbackpacks:backpack"
+			x: 56.0d
+			y: 24.0d
+			shape: "circle"
+			description: [
+				"§fSophisticated Backpacks gives you §6portable, upgradeable storage§f"
+				"§fthat fits in your Curios back slot — inventory expansion on the go."
+				""
+				"§eCraft your first Backpack:§r"
+				"§74 Leather + Chest + 2 String = §6Basic Backpack§7."
+				""
+				"§eEquip it:§r"
+				"§7Press §6B§7 (default) to open, or equip in the §6back Curios slot§7"
+				"§7to access without removing."
+				""
+				"§aTip: Name your backpack in an Anvil — the name shows in the tooltip"
+				"§aand helps distinguish multiple packs."
+			]
+			tasks: [{
+				id: "000C206F"
+				type: "item"
+				item: "sophisticatedbackpacks:backpack"
+				count: 1L
+			}]
+			rewards: [
+				{id: "000C2070" type: "item" item: "minecraft:leather" count: 8}
+				{id: "000C2071" type: "xp" xp: 40}
+			]
+			subtitle: "Portable storage, always ready"
+			dependencies: ["000C0001"]
+		}
+		{
+			id: "000C0035"
+			group: ""
+			order_index: 0
+			filename: "ch2_backpacks_2"
+			title: "Pack Upgrades"
+			icon: "sophisticatedbackpacks:magnet_upgrade"
+			x: 56.0d
+			y: 28.0d
+			shape: "circle"
+			description: [
+				"§fUpgrade slots let your backpack §6auto-collect, auto-sort, and smelt§f"
+				"§fitems automatically while you adventure."
+				""
+				"§eRecommended first upgrades:§r"
+				"§7• §6Magnet Upgrade§7 — auto-collects dropped items into the pack"
+				"§7• §6Pickup Upgrade§7 — filters what gets auto-collected"
+				"§7• §6Smelting Upgrade§7 — smelts ores as you mine"
+				""
+				"§eCraft upgrades at a §6Crafting Table§7 using iron, gold, and redstone."
+			]
+			tasks: [{
+				id: "000C2072"
+				type: "checkmark"
+				title: "Install 2 different upgrades into a Sophisticated Backpack"
+			}]
+			rewards: [
+				{id: "000C2073" type: "item" item: "sophisticatedbackpacks:pickup_upgrade" count: 1}
+				{id: "000C2074" type: "xp" xp: 60}
+			]
+			subtitle: "Smarter storage, not harder"
+			dependencies: ["000C0034"]
+		}
+		{
+			id: "000C0036"
+			group: ""
+			order_index: 0
+			filename: "ch2_backpacks_3"
+			title: "The Expedition Pack ★"
+			icon: "sophisticatedbackpacks:gold_backpack"
+			x: 56.0d
+			y: 32.0d
+			shape: "circle"
+			description: [
+				"§fUpgrade your Backpack all the way to §6Gold Tier§f for maximum"
+				"§fstorage and the most upgrade slots."
+				""
+				"§eGold Backpack:§r"
+				"§7Surround your Iron Backpack with Gold Ingots in a Crafting Table."
+				"§7Gives §69 extra rows§7 of storage and §64 upgrade slots§7."
+				""
+				"§eTip — integrate with Create:§r"
+				"§7Sophisticated Backpacks × Create lets §6Mechanical Arms§7 interact"
+				"§7with your backpack as if it were a chest. Automate loading"
+				"§7your expedition pack before every dungeon run."
+			]
+			tasks: [{
+				id: "000C2075"
+				type: "item"
+				item: "sophisticatedbackpacks:gold_backpack"
+				count: 1L
+			}]
+			rewards: [
+				{id: "000C2076" type: "item" item: "create:mechanical_arm" count: 1}
+				{id: "000C2077" type: "xp" xp: 100}
+			]
+			subtitle: "Nine rows and room to grow"
+			dependencies: ["000C0035"]
+		}
+
 	]
 }

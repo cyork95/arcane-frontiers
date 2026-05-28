@@ -1334,5 +1334,201 @@
 			dependencies: ["000B0017" "000B0015"]
 		}
 
+		// ============================================================
+		// 1.6  ARS ELEMENTAL — ELEMENTAL MAGIC EXTENSION
+		// ============================================================
+
+		{
+			x: 24.0d
+			y: 12.0d
+			id: "000B0019"
+			tasks: [{
+				id: "000B1019"
+				type: "item"
+				item: "ars_elemental:fire_focus"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "000B2030" type: "item" item: "ars_elemental:fire_focus" count: 1}
+				{id: "000B2031" type: "xp" xp: 100}
+			]
+			title: "Elemental Focus"
+			icon: "ars_elemental:fire_focus"
+			description: [
+				"§6Ars Elemental§f extends Ars Nouveau with four §eelemental disciplines§f —"
+				"§fFire, Water, Air, and Earth — each with unique foci, glyphs, and armor."
+				""
+				"§eThe four foci:§r"
+				"§7• §eFire Focus§7 — adds Ignite and Blaze effects to any projectile."
+				"§7• §eWater Focus§7 — adds Frost and Slowness to spells."
+				"§7• §eAir Focus§7 — adds Haste, launch force, and wind effects."
+				"§7• §eEarth Focus§7 — adds Poison, entangle, and stone effects."
+				""
+				"§eCrafting an Elemental Focus:§r"
+				"§7• Check §eJEI§7 — search §ears_elemental§7 for all recipes."
+				"§7• Foci require §eElemental essences§7 obtained from specific mobs:"
+				"§7  Fire = §eBlaze§7, Water = §eDrowned§7, Air = §ePhantom§7, Earth = §eZombie§7."
+				"§7• Combine with §eAmethyst§7 and §eSource Gems§7 at the §eEnchanting Apparatus§7."
+				""
+				"§eUsing a Focus:§r"
+				"§7• Hold a Focus in your §eoffhand§7 — it passively augments your active spell."
+				"§7• Combine with Ars Nouveau glyphs for §ehybrid elemental spells§7."
+				""
+				"§a► Have any Ars Elemental Focus. Not consumed."
+			]
+			dependencies: ["000B0015"]
+		}
+
+		{
+			x: 24.0d
+			y: 16.0d
+			id: "000B001A"
+			tasks: [{
+				id: "000B101A"
+				type: "checkmark"
+				title: "Cast a spell using an Ars Elemental-specific glyph (Glyph of Drown, Glyph of Blaze, or equivalent)"
+			}]
+			rewards: [
+				{id: "000B2032" type: "item" item: "ars_nouveau:glyph_amplify" count: 2}
+				{id: "000B2033" type: "xp" xp: 75}
+			]
+			title: "Elemental Glyph"
+			icon: "ars_elemental:fire_focus"
+			description: [
+				"§6Ars Elemental adds new §eglyphs§f that only exist in its system —"
+				"§fnot in base Ars Nouveau. These are the most powerful damage"
+				"§fand control options in the pack."
+				""
+				"§eArs Elemental exclusive glyphs:§r"
+				"§7• §eGlyph of Blaze§7 — applies §eFire damage§7 and sets the target ablaze."
+				"§7• §eGlyph of Drown§7 — applies §eWater suffocation§7 damage over time."
+				"§7• §eGlyph of Gust§7 — launches targets into the air (Air element)."
+				"§7• §eGlyph of Wither Touch§7 — applies Wither status effect (Earth)."
+				"§7• §eGlyph of Siphon§7 — drains target health and heals the caster."
+				""
+				"§eUnlocking Ars Elemental glyphs:§r"
+				"§7• Same as base AN glyphs: §eGlyph Press§7 with proper materials."
+				"§7• Recipes shown in §eJEI§7 — search §ears_elemental:glyph§7."
+				"§7• Some require §eElemental Essences§7 in addition to regular materials."
+				""
+				"§a► Unlock and cast any Ars Elemental glyph. Mark done."
+			]
+			dependencies: ["000B0019"]
+		}
+
+		{
+			x: 28.0d
+			y: 12.0d
+			id: "000B001B"
+			tasks: [{
+				id: "000B101B"
+				type: "checkmark"
+				title: "Craft and wear a piece of Ars Elemental elemental armor (Arcanist set or attuned version)"
+			}]
+			rewards: [
+				{id: "000B2034" type: "item" item: "ars_nouveau:source_gem" count: 64}
+				{id: "000B2035" type: "xp" xp: 100}
+			]
+			title: "Elemental Armor"
+			icon: "ars_elemental:fire_focus"
+			description: [
+				"§6Ars Elemental adds §eelemental attunement§f to Ars armor —"
+				"§feach element has a unique passive armor set bonus."
+				""
+				"§eArs Elemental armor bonuses:§r"
+				"§7• §eFire-attuned§7 — Fire resistance, bonus damage on Ignite spells."
+				"§7• §eWater-attuned§7 — Water breathing, Frost spells slow longer."
+				"§7• §eAir-attuned§7 — Permanent Feather Falling, Gust spells go further."
+				"§7• §eEarth-attuned§7 — Bonus armor points, Poison spells stack faster."
+				""
+				"§eAttuning armor:§r"
+				"§7• §eCraft base Ars Nouveau Arcanist armor§7 first (Ch 1.4 reward set)."
+				"§7• §eUse the Alteration Table§7 (Ars Nouveau) with your chosen Focus."
+				"§7• The armor absorbs the Focus element — Focus is consumed."
+				"§7• §eFull set matching your playstyle§7 is the goal — mage/tank/speed."
+				""
+				"§aTip:§r §7Fire-attuned is safest for dungeon/cave combat (Ch 7 content)."
+				"§7Air-attuned is best for Ars Creo (Ch 5) — mobility in contraptions."
+				""
+				"§a► Wear any Ars Elemental attuned armor piece. Mark done."
+			]
+			dependencies: ["000B0019"]
+		}
+
+		{
+			x: 24.0d
+			y: 20.0d
+			id: "000B001C"
+			tasks: [{
+				id: "000B101C"
+				type: "checkmark"
+				title: "Have all four Ars Elemental foci crafted — Fire, Water, Air, and Earth"
+			}]
+			rewards: [
+				{id: "000B2036" type: "item" item: "ars_nouveau:source_gem" count: 128}
+				{id: "000B2037" type: "xp" xp: 200}
+			]
+			title: "Four Elements"
+			icon: "ars_elemental:fire_focus"
+			description: [
+				"§6All four elements. A complete elemental arsenal.§r"
+				""
+				"§eThe full set:§r"
+				"§7  1. §eFire Focus§7 — from Blaze drops + Amethyst + Source Gems."
+				"§7  2. §eWater Focus§7 — from Drowned drops + Prismarine + Source Gems."
+				"§7  3. §eAir Focus§7 — from Phantom drops + Feather + Source Gems."
+				"§7  4. §eEarth Focus§7 — from Zombie drops + Moss Block + Source Gems."
+				""
+				"§eWhy have all four:§r"
+				"§7• §eSwap foci§7 depending on the enemy — Fire for undead, Water for Blazes."
+				"§7• §eMulti-element spells§7 (Ars Elemental allows combining two foci effects"
+				"§7  in one spell via special glyph interactions — check JEI)."
+				"§7• §eAll four§7 stored in a §eSophisticated Backpack§7 filter slot — instant swap."
+				""
+				"§a► Have all 4 foci in your inventory simultaneously. Mark done."
+			]
+			dependencies: ["000B001A" "000B001B"]
+		}
+
+		{
+			x: 24.0d
+			y: 24.0d
+			id: "000B001D"
+			tasks: [{
+				id: "000B101D"
+				type: "checkmark"
+				title: "Build a multi-element spell combining Ars Nouveau and Ars Elemental glyphs"
+			}]
+			rewards: [
+				{id: "000B2038" type: "item" item: "ars_nouveau:glyph_amplify" count: 4}
+				{id: "000B2039" type: "item" item: "ars_elemental:fire_focus" count: 1}
+				{id: "000B203A" type: "xp" xp: 300}
+			]
+			title: "Arcane Elementalist ★"
+			subtitle: "Every school. One spellbook."
+			description: [
+				"§6The full power of Ars Elemental is a spell that crosses§r"
+				"§6element boundaries — Ars Nouveau glyphs + Ars Elemental glyphs§r"
+				"§6combined in one cast."
+				""
+				"§eExample multi-element spells:§r"
+				"§7• §eProjectile + Harm + Blaze + Amplify§7 — fire-charged bolt, 20+ damage."
+				"§7• §eProjectile + Gust + Slowness§7 — launches target up, slows landing."
+				"§7• §eSelf + Water Breathing + Frost Armor§7 — underwater tank build."
+				"§7• §eProjectile + Wither Touch + Amplify + Burst§7 — AoE Wither field."
+				""
+				"§eBuilding the spell:§r"
+				"§7• Open your §eSpellbook§7 → Create New Spell."
+				"§7• Add a §ebase AN glyph§7 (Projectile, AOE, etc.)."
+				"§7• Add an §eArs Elemental glyph§7 (Blaze, Drown, Gust, etc.)."
+				"§7• Add §eAmplify§7 at the end — elemental effects scale with Amplify."
+				"§7• §eTest§7 the spell — the Focus in your offhand augments it further."
+				""
+				"§a► ★ Build and cast a multi-element spell. Mark done."
+			]
+			dependencies: ["000B001C"]
+		}
+
 	]
 }
