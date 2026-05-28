@@ -50,7 +50,6 @@
 |-----|-------------|----------|
 | **Silent Gear** | [GitHub Wiki](https://github.com/SilentChaos512/Silent-Gear/wiki) | [Modrinth](https://modrinth.com/mod/silent-gear) |
 | **Silent Lib** | — | [Modrinth](https://modrinth.com/mod/silent-lib) |
-| **Silent Gear JEI** | — | [Modrinth](https://modrinth.com/mod/silentgearjei) |
 
 ---
 

@@ -56,7 +56,7 @@ $MODS = @(
     # ── Equipment — Silent Gear ───────────────────────────────────
     @{ slug="silent-gear";                              client="required"; server="required" }
     @{ slug="silent-lib";                               client="required"; server="required" }
-    @{ slug="silentgearjei";                            client="required"; server="optional" }
+    # silentgearjei removed — requires "ali" library with no available NeoForge 1.21.1 build
 
     # ── Colony ───────────────────────────────────────────────────
     # NOTE: MineColonies + Structurize + BlockUI + Domum Ornamentum
