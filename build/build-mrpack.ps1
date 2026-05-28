@@ -51,6 +51,8 @@ $MODS = @(
     @{ slug="create-connected";                         client="required"; server="required" }
     @{ slug="create-central-kitchen";                   client="required"; server="required" }
     @{ slug="create-dragons-plus";                      client="required"; server="required" }
+    @{ slug="create-mechanical-botany";                 client="required"; server="required" }
+    @{ slug="create-deco";                              client="required"; server="required" }
     @{ slug="bellsandwhistles";                         client="required"; server="required" }
 
     # ── Equipment — Silent Gear ───────────────────────────────────

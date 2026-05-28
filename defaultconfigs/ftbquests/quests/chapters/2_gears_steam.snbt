@@ -2307,5 +2307,192 @@
 			dependencies: ["000C0035"]
 		}
 
+		// ── 2.12 CREATE: MECHANICAL BOTANY ───────────────────────────
+		{
+			id: "000C0037"
+			group: ""
+			order_index: 0
+			filename: "ch2_mech_botany_1"
+			title: "Mechanical Planter"
+			icon: "create_mechanical_botany:mechanical_planter"
+			x: 64.0d
+			y: 24.0d
+			shape: "circle"
+			description: [
+				"§fCreate: Mechanical Botany adds §6rotary-powered farming§f —"
+				"§fno more hand-planting. Mechanical Planters sow seeds automatically"
+				"§fwhen driven by a shaft."
+				""
+				"§eCraft and place a Mechanical Planter:§r"
+				"§7Combine Create's Mechanical components with a Planting Head."
+				"§7Point it downward over tilled soil and connect a §6shaft§7."
+				"§7Supply seeds via §6Funnel§7 or §6Depot§7 from above."
+				""
+				"§eTip:§r"
+				"§7Pair with §6Farmer's Delight crops§7 for automated ingredient"
+				"§7production. The Planter handles wheat, potatoes, tomatoes,"
+				"§7and most FD crops without any extra config."
+			]
+			tasks: [{
+				id: "000C2078"
+				type: "checkmark"
+				title: "Place and power a Mechanical Planter over tilled soil with seeds supplied"
+			}]
+			rewards: [
+				{id: "000C2079" type: "item" item: "minecraft:wheat_seeds" count: 32}
+				{id: "000C207A" type: "xp" xp: 50}
+			]
+			subtitle: "Plant once, harvest forever"
+			dependencies: ["000C0001"]
+		}
+		{
+			id: "000C0038"
+			group: ""
+			order_index: 0
+			filename: "ch2_mech_botany_2"
+			title: "Automated Harvest"
+			icon: "create_mechanical_botany:mechanical_harvester"
+			x: 64.0d
+			y: 28.0d
+			shape: "circle"
+			description: [
+				"§fThe §6Mechanical Harvester§f sweeps crops when driven by a shaft,"
+				"§fdepositing everything into a Chest or Funnel."
+				""
+				"§eSetup:§r"
+				"§71. Place the Harvester facing your crop rows."
+				"§72. Connect a §6shaft§7 — water wheel or windmill works fine."
+				"§73. Add a §6Funnel + Chest§7 beside it to catch the drops."
+				"§74. Use a §6Deployer§7 to replant or combine with your Planter."
+				""
+				"§eTip:§r"
+				"§7Run the Harvester on a §6Sequenced Gearshift§7 to only activate"
+				"§7when crops are fully grown — saves shaft stress and avoids"
+				"§7harvesting immature plants."
+			]
+			tasks: [{
+				id: "000C207B"
+				type: "checkmark"
+				title: "Set up a Mechanical Harvester that automatically collects crops into a chest"
+			}]
+			rewards: [
+				{id: "000C207C" type: "item" item: "create:chute" count: 4}
+				{id: "000C207D" type: "xp" xp: 75}
+			]
+			subtitle: "Harvest at the speed of rotation"
+			dependencies: ["000C0037"]
+		}
+		{
+			id: "000C0039"
+			group: ""
+			order_index: 0
+			filename: "ch2_mech_botany_3"
+			title: "Botanical Factory ★"
+			icon: "create:mechanical_press"
+			x: 64.0d
+			y: 32.0d
+			shape: "circle"
+			description: [
+				"§fBuild a §6fully automated crop pipeline§f: plant → grow → harvest → process."
+				""
+				"§eThe complete loop:§r"
+				"§71. §6Mechanical Planter§7 sows seeds from a hopper."
+				"§72. §6Mechanical Harvester§7 collects mature crops."
+				"§73. §6Mechanical Press§7 or §6Basin§7 processes them into ingredients."
+				"§74. §6Sophisticated Storage§7 barrels receive the output."
+				"§75. §6Create: Central Kitchen§7 or Cooking Pot consumes them."
+				""
+				"§aTip: This pipeline feeds directly into your colony's Restaurant"
+				"§a(Ch 6) — connect the output barrel to a Mechanical Arm"
+				"§athat delivers food to the colony supply chest automatically."
+			]
+			tasks: [{
+				id: "000C207E"
+				type: "checkmark"
+				title: "Build a full plant → harvest → process pipeline using Mechanical Botany"
+			}]
+			rewards: [
+				{id: "000C207F" type: "item" item: "farmersdelight:cooking_pot" count: 1}
+				{id: "000C2080" type: "xp" xp: 120}
+			]
+			subtitle: "The farm that runs itself"
+			dependencies: ["000C0038"]
+		}
+
+		// ── 2.13 CREATE: DECO ────────────────────────────────────────
+		{
+			id: "000C003A"
+			group: ""
+			order_index: 0
+			filename: "ch2_create_deco_1"
+			title: "Industrial Interior"
+			icon: "create_deco:andesite_lamp"
+			x: 72.0d
+			y: 24.0d
+			shape: "circle"
+			description: [
+				"§fCreate: Deco adds §6factory-aesthetic building blocks§f that match"
+				"§fCreate's visual language — industrial lamps, mechanical shelves,"
+				"§fcopper pipes, and andesite furniture."
+				""
+				"§eCraft and place 3 Create: Deco blocks in your factory:§r"
+				"§7• §6Andesite Lamp§7 — warm industrial lighting"
+				"§7• §6Brass Shelf§7 — wall-mounted item display"
+				"§7• §6Copper Pipe§7 — decorative conduit, great for walls and ceilings"
+				""
+				"§aTip: These blocks have no functional purpose — they exist to make"
+				"§ayour factory look like it belongs in the world, not just work in it."
+			]
+			tasks: [{
+				id: "000C2081"
+				type: "checkmark"
+				title: "Place 3 different Create: Deco blocks inside your factory or base"
+			}]
+			rewards: [
+				{id: "000C2082" type: "item" item: "create:brass_ingot" count: 8}
+				{id: "000C2083" type: "xp" xp: 40}
+			]
+			subtitle: "Form follows function — and style"
+			dependencies: ["000C0001"]
+		}
+		{
+			id: "000C003B"
+			group: ""
+			order_index: 0
+			filename: "ch2_create_deco_2"
+			title: "The Engineer's Workshop ★"
+			icon: "create_deco:brass_shelf"
+			x: 72.0d
+			y: 28.0d
+			shape: "circle"
+			description: [
+				"§fDesign a dedicated §6Engineer's Workshop§f using Create: Deco:"
+				"§fa room that looks like an inventor actually works there."
+				""
+				"§eGoal — fit out one room with:§r"
+				"§7• §6Mechanical Shelves§7 displaying gears and components"
+				"§7• §6Industrial Lamps§7 for proper workshop lighting"
+				"§7• §6Andesite/Brass/Copper Deco furniture§7 — desk, shelving, pipes"
+				"§7• At least one §6working Create machine§7 in the same room"
+				"§7  (Mechanical Crafter, Mixer, or Press)"
+				""
+				"§aTip: Combine Create: Deco with §6Macaw's Furniture§7 and"
+				"§a§6Supplementaries§7 for a workshop that rivals any modpack's base builds."
+				""
+				"§a► Share a screenshot in the family Discord — this one's worth it."
+			]
+			tasks: [{
+				id: "000C2084"
+				type: "checkmark"
+				title: "Build an Engineer's Workshop room using 5+ Create: Deco pieces and a working machine"
+			}]
+			rewards: [
+				{id: "000C2085" type: "item" item: "create:goggles" count: 1}
+				{id: "000C2086" type: "xp" xp: 100}
+			]
+			subtitle: "Where the real work happens"
+			dependencies: ["000C003A"]
+		}
+
 	]
 }

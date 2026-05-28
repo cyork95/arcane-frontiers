@@ -40,6 +40,8 @@
 | **Create: Connected** | — | [Modrinth](https://modrinth.com/mod/create-connected) |
 | **Create: Central Kitchen** | — | [Modrinth](https://modrinth.com/mod/create-central-kitchen) |
 | **Create: Dragons Plus** | — | [Modrinth](https://modrinth.com/mod/create-dragons-plus) |
+| **Create: Mechanical Botany** | — | [Modrinth](https://modrinth.com/mod/create-mechanical-botany) |
+| **Create: Deco** | — | [Modrinth](https://modrinth.com/mod/create-deco) |
 | **Bells and Whistles** | — | [Modrinth](https://modrinth.com/mod/bellsandwhistles) |
 
 ---
