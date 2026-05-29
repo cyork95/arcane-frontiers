@@ -15,9 +15,9 @@ This repository tracks the pack's configuration, quest files, and scripts. Mod J
 | Pillar | Mods |
 |--------|------|
 | **Magic** | Ars Nouveau, Ars Creo, Ars Elemental |
-| **Technology** | Create, Create: New Age, Steam 'n' Rails, Create: Connected |
+| **Technology** | Create, Create: New Age, Create: Diesel Generators, Create: Mechanical Botany, Create: Deco, Create: Enchantment Industry, Steam 'n' Rails |
 | **Colony** | MineColonies |
-| **Exploration** | Twilight Forest, Terralith, Alex's Mobs, Alex's Caves, YUNG's mods, Dungeons & Taverns |
+| **Exploration** | Terralith, Alex's Mobs, Alex's Caves, YUNG's mods, When Dungeons Arise, Dungeons & Taverns |
 | **Food & Home** | Farmer's Delight, Cooking for Blockheads, Supplementaries, Decorative Blocks, CopyCats+ |
 | **Quests** | FTB Quests (9 chapters + bonus) |
 
@@ -33,7 +33,7 @@ Design document and progression guide: see [ARCANE_FRONTIERS.md](ARCANE_FRONTIER
 | **Java** | 21 (Temurin / Eclipse recommended) |
 | **Minecraft** | 1.21.1 |
 | **Mod loader** | NeoForge 1.21.1 (latest stable) |
-| **Launcher** | Prism Launcher, MultiMC, or ATLauncher (recommended) |
+| **Launcher** | Modrinth App (recommended), Prism Launcher, or ATLauncher |
 
 > **Java 21 download:** https://adoptium.net/temurin/releases/?version=21
 
@@ -41,34 +41,27 @@ Design document and progression guide: see [ARCANE_FRONTIERS.md](ARCANE_FRONTIER
 
 ## Installation
 
-### 1. Create a new instance
+### Option A — Modrinth App (easiest)
 
-In your launcher, create a new instance:
-- Minecraft version: **1.21.1**
-- Mod loader: **NeoForge** (select the latest 1.21.1 build)
-- Allocate at least **6 GB RAM** (8 GB recommended)
+1. Download `Arcane Frontiers 1.0.0.mrpack` from the [latest release](https://github.com/cyork95/arcane-frontiers/releases/latest)
+2. Open Modrinth App → click **+** → **Import** → select the `.mrpack` file
+3. Modrinth downloads all mods automatically
+4. Allocate at least **6 GB RAM** (8 GB recommended) in the profile settings
+5. Launch — the FTB Quests book appears in your inventory on first world load
 
-### 2. Install mods
+### Option B — Manual install
 
-Download all mods from Modrinth or CurseForge and place them in the instance's `mods/` folder. Refer to `SERVER_LINKS.md` for the exact mod list and download links.
-
-### 3. Apply pack configuration (this repo)
-
-Clone or download this repository, then copy the tracked folders into your instance directory, **merging** with any existing files — do not replace the whole folder:
+1. Create a new instance (Minecraft 1.21.1, NeoForge latest stable, 6–8 GB RAM)
+2. Download all mods from Modrinth/CurseForge — see `SERVER_LINKS.md` for the full list
+3. Clone or download this repository, then copy these folders into your instance directory:
 
 ```
 config/          →  <instance>/config/
 defaultconfigs/  →  <instance>/defaultconfigs/
 kubejs/          →  <instance>/kubejs/
-server/          →  <instance>/  (server only — see below)
 ```
 
-> **Client players:** copy `config/`, `defaultconfigs/`, and `kubejs/` only.  
-> **Server operators:** copy all four folders, then rename/edit `server/server.properties` as needed.
-
-### 4. Launch
-
-Start the instance. On first launch NeoForge will generate additional files. The FTB Quests book will appear in your inventory automatically.
+4. Launch — NeoForge will generate additional files on first start
 
 ---
 
