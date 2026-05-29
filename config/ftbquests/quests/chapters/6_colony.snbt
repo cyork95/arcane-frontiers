@@ -1,0 +1,1892 @@
+{
+	id: "00110000"
+	group: ""
+	order_index: 6
+	filename: "6_colony"
+	title: "Chapter 6: The Colony"
+	icon: "minecolonies:blockHutTownHall"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	// ================================================================
+	// CROSS-CHAPTER DEPENDENCY REFERENCE
+	//
+	// IDs this chapter USES from other chapters:
+	//   000E0016 = Ch 4 "Hearth & Home ✦" — food supply confirmed
+	//              → prereq for 00110001 (Supply Ship ◆)
+	//
+	// Soft prereqs mentioned in descriptions (not wired):
+	//   000B0015 = Ch 1 "Arcane Automation ✦" — magic support
+	//   000C0024 = Ch 2 "Power Grid ✦"        — Create supply line
+	//   000F000C = Ch 5 "Arcane Synthesis ✦"  — for Enchanter Tower
+	//
+	// IDs this chapter EXPORTS:
+	//   00110030 = "Kingdom ✦" — chapter completion gate
+	//
+	// SPECIAL NOTES:
+	//   ★ quests: 0011000C (Supply Line), 0011001A (Colony Canteen),
+	//             00110020 (Colony Defense), 00110025 (Arcane Forestry)
+	//   Ch 6.3 Supply Line ref → tooltip on blockHutWarehouse
+	//   Ch 6.7 Arcane Forestry ref → tooltip on ars_nouveau:whirlisprig
+	// ================================================================
+	quests: [
+
+		// ============================================================
+		// TIER 1 — FOUNDATION
+		// ============================================================
+
+		{
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			id: "00110001"
+			tasks: [{
+				id: "00111001"
+				type: "item"
+				item: "minecolonies:supplychest"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112001" type: "item" item: "waystones:waystone" count: 1}
+				{id: "00112002" type: "xp" xp: 100}
+			]
+			title: "Supply Ship"
+			icon: "minecolonies:supplychest"
+			subtitle: "One colony per server. Choose wisely."
+			description: [
+				"§6MineColonies§f lets the whole family build and run a shared colony."
+				"§fBefore placing: §ediscuss the location§f with everyone."
+				""
+				"§e⚠ IMPORTANT: Only one colony can exist per server.§r"
+				"§7• The colony site cannot be relocated after founding."
+				"§7• Choose a §eflat area§7 with room to grow — at least 200×200 blocks."
+				"§7• Near §ewater§7 (river/ocean) — many buildings need water access."
+				"§7• Place a §eWaystone§7 (your reward) at the colony entrance first."
+				""
+				"§eCrafting the Supply Chest:§r"
+				"§7• Check JEI — search §eminecolonies§7 to find the Supply Camp recipe."
+				"§7• §ePlace it on water§7 — a Supply Ship/Camp structure spawns."
+				"§7• §eEnter§7 the chest to claim the §eTown Hall§7 and §eBuilder's Hut§7 items."
+				""
+				"§eAll family members:§r"
+				"§7• Walk to the §eTown Hall§7 and right-click → §eJoin Colony§7."
+				"§7• Everyone gets colony permissions and can issue citizen orders."
+				""
+				"§ePrerequisite confirmed: Hearth & Home ✦ (Ch 4)§r"
+				"§7Your food supply is ready. The colony can be fed from day one."
+				""
+				"§a► Craft or find a Supply Chest. Hold it to claim this gate."
+			]
+			dependencies: ["000E0016"]
+		}
+
+		{
+			x: -6.0d
+			y: 8.0d
+			id: "00110002"
+			tasks: [{
+				id: "00111002"
+				type: "item"
+				item: "minecolonies:blockHutTownHall"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112003" type: "xp" xp: 75}
+			]
+			title: "Town Hall"
+			icon: "minecolonies:blockHutTownHall"
+			description: [
+				"§6The Town Hall§f is the administrative center of your colony."
+				"§fWithout it, nothing else can be built or managed."
+				""
+				"§ePlacing it:§r"
+				"§7• §eGet it§7 from the Supply Camp chest (placed in the founding quest)."
+				"§7• §ePlace it§7 on flat ground in the center of your planned colony."
+				"§7• §eRight-click§7 → Build → select §eTier 1§7 to begin construction."
+				"§7• The Builder must build it — have the Builder's Hut ready first."
+				""
+				"§eTown Hall interface:§r"
+				"§7• §eManage§7 citizens, permissions, colony name, and borders."
+				"§7• §eUpgrade§7 from T1 to T5 to increase citizen cap."
+				"§7  T1=8 citizens, T2=16, T3=24, T4=32, T5=40."
+				"§7• §eAll family members§7: right-click → Join Colony."
+				""
+				"§a► Claim the Town Hall from the Supply Chest and hold it."
+			]
+			dependencies: ["00110001"]
+		}
+
+		{
+			x: 0.0d
+			y: 8.0d
+			id: "00110003"
+			tasks: [{
+				id: "00111003"
+				type: "item"
+				item: "minecolonies:blockHutBuilder"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112004" type: "xp" xp: 75}
+			]
+			title: "Builder's Hut"
+			icon: "minecolonies:blockHutBuilder"
+			description: [
+				"§6The Builder§f constructs §eevery§f building in your colony."
+				"§fWithout a Builder's Hut, nothing can be built. This is always first."
+				""
+				"§ePlacing and using:§r"
+				"§7• §eGet it§7 from the Supply Camp chest."
+				"§7• §ePlace§7 it in an accessible spot — the Builder walks to each site."
+				"§7• §eRight-click§7 → Build → Tier 1."
+				"§7• Once built, hire a citizen as Builder (right-click → Hire)."
+				"§7• Order other buildings and the Builder will construct them."
+				""
+				"§eBuilder tips:§r"
+				"§7• §eKeep the Warehouse stocked§7 — Builders pull all materials from it."
+				"§7• §eBuild multiple Builder's Huts§7 for parallel construction (recommended)."
+				"§7• §eUpgrade Builder's Hut§7 to T5 for faster construction speed."
+				""
+				"§a► Claim the Builder's Hut from the Supply Chest and hold it."
+			]
+			dependencies: ["00110002"]
+		}
+
+		{
+			x: 6.0d
+			y: 8.0d
+			id: "00110004"
+			tasks: [{
+				id: "00111004"
+				type: "item"
+				item: "minecolonies:blockHutWarehouse"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112005" type: "xp" xp: 75}
+			]
+			title: "Warehouse"
+			icon: "minecolonies:blockHutWarehouse"
+			description: [
+				"§6The Warehouse§f is the colony's central storage."
+				"§fAll citizens pull materials from it, and all production goes into it."
+				"§fIt is the colony's lifeblood."
+				""
+				"§ePlacing and stocking:§r"
+				"§7• §ePlace§7 near the colony center — Couriers deliver to and from it."
+				"§7• §eRight-click§7 → Build → hire a Warehouse manager."
+				"§7• §eDeposit building materials§7 (wood, stone, iron) into the Warehouse."
+				"§7  Builders automatically pull what they need."
+				""
+				"§eCreate supply line (Ch 6.3):§r"
+				"§7• §eMechanical Arm§7 delivering directly to the Warehouse block"
+				"§7  is the most efficient automated supply method."
+				"§7• §eMineColonies Importer§7 (KubeJS recipe) pulls specific items"
+				"§7  on demand — see quest 0011000C below."
+				""
+				"§a► Claim the Warehouse from the Supply Chest and hold it."
+			]
+			dependencies: ["00110002"]
+		}
+
+		{
+			x: 0.0d
+			y: 16.0d
+			id: "00110005"
+			tasks: [{
+				id: "00111005"
+				type: "checkmark"
+				title: "Have 5 or more citizens living in your colony"
+			}]
+			rewards: [
+				{id: "00112006" type: "xp" xp: 100}
+			]
+			title: "First Citizens"
+			icon: "minecraft:poppy"
+			description: [
+				"§6Citizens§f are the heart of MineColonies — they do all the work."
+				"§fCitizens spawn automatically when §eCitizen Huts§f are built."
+				""
+				"§eGetting your first 5 citizens:§r"
+				"§7• §eCitizen Huts§7 spawn one citizen each when fully built."
+				"§7  Build at least §e5 Citizen Huts§7 to get 5 citizens."
+				"§7• §eAlternatively§7: the Supply Camp spawns 2 starter citizens."
+				"§7  Add 3 more via Citizen Huts."
+				"§7• §eTown Hall T2§7 is needed to raise the citizen cap above 8."
+				""
+				"§eManaging citizens:§r"
+				"§7• §eRight-click§7 any citizen to open their status menu."
+				"§7• §eAssign jobs§7 by right-clicking job huts → Hire citizen."
+				"§7• §eFood§7 in the Warehouse keeps citizen health and happiness up."
+				""
+				"§a► Build Citizen Huts until 5+ citizens are in the colony."
+				"§a► Mark done when the Town Hall population counter shows 5+."
+			]
+			dependencies: ["00110003" "00110004"]
+		}
+
+		// ============================================================
+		// TIER 2 — RESOURCE PRODUCTION
+		// ============================================================
+
+		{
+			x: -12.0d
+			y: 24.0d
+			id: "00110006"
+			tasks: [{
+				id: "00111006"
+				type: "item"
+				item: "minecolonies:blockHutMiner"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112007" type: "xp" xp: 60}
+			]
+			title: "Miner"
+			icon: "minecolonies:blockHutMiner"
+			description: [
+				"§6The Miner§f digs a shaft and extracts ores automatically."
+				"§fThis is the colony's primary raw material source."
+				""
+				"§eSetup:§r"
+				"§7• §eCraft§7 the Miner's Hut block (check JEI: §eminecolonies§7 tab)."
+				"§7• §ePlace§7 near an open area — the Miner digs straight down."
+				"§7• §eHire§7 a citizen as Miner. They bring tools from the Warehouse."
+				"§7• §eUpgrade§7 the hut to increase mining level and shaft depth."
+				""
+				"§eTips:§r"
+				"§7• §eSupply Iron Pickaxes§7 to the Warehouse — Miners consume tools fast."
+				"§7• §eMiner level 3§7 reaches y=-30 — optimal for diamonds and deep slate ores."
+				"§7• §eCreate§7: run a conveyor from Miner output chute to your processing line."
+				""
+				"§a► Craft and hold a Miner's Hut block."
+			]
+			dependencies: ["00110005"]
+		}
+
+		{
+			x: -6.0d
+			y: 24.0d
+			id: "00110007"
+			tasks: [{
+				id: "00111007"
+				type: "item"
+				item: "minecolonies:blockHutLumberjack"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112008" type: "xp" xp: 60}
+			]
+			title: "Lumberjack"
+			icon: "minecolonies:blockHutLumberjack"
+			description: [
+				"§6The Lumberjack§f chops trees and replants saplings automatically."
+				"§fWood is the colony's most consumed building material."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 the Lumberjack's Hut near a forest or your tree farm."
+				"§7• §eHire§7 a citizen. They collect logs and deposit into the Warehouse."
+				"§7• §eDesignate§7 which tree types to harvest (right-click hut → Settings)."
+				""
+				"§eArcane Forestry ★ (Ch 6 Tier 6):§r"
+				"§7• Place an §eArs Nouveau Whirlisprig§7 near this hut."
+				"§7  The Whirlisprig regenerates cut trees before the Lumberjack returns."
+				"§7  Effectively doubles wood output per Lumberjack."
+				""
+				"§a► Craft and hold a Lumberjack's Hut block."
+			]
+			dependencies: ["00110005"]
+		}
+
+		{
+			x: 0.0d
+			y: 24.0d
+			id: "00110008"
+			tasks: [{
+				id: "00111008"
+				type: "item"
+				item: "minecolonies:blockHutFarmer"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112009" type: "xp" xp: 60}
+			]
+			title: "Farm"
+			icon: "minecolonies:blockHutFarmer"
+			description: [
+				"§6The Farmer§f cultivates crops and deposits produce into the Warehouse."
+				"§fColony food depends on this building."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 the Farmer's Hut near flat, tillable land."
+				"§7• §eHire§7 a farmer citizen. They manage a designated field area."
+				"§7• §eFields§7 must be designated via the hut interface."
+				"§7• §eSupply hoe and seeds§7 to the Warehouse for the farmer to use."
+				""
+				"§eIntegration with Ch 4:§r"
+				"§7• Colony farmer + §eStraw Golem§7 (Ch 4.2) on the same field:"
+				"§7  Straw Golem handles overflow, farmer handles large fields."
+				"§7• §eCentral Kitchen§7 (Ch 4.3) converts farm output to colony meals."
+				""
+				"§a► Craft and hold a Farmer's Hut block."
+			]
+			dependencies: ["00110005"]
+		}
+
+		{
+			x: 6.0d
+			y: 24.0d
+			id: "00110009"
+			tasks: [{
+				id: "00111009"
+				type: "item"
+				item: "minecolonies:blockHutDeliveryman"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "0011200A" type: "xp" xp: 60}
+			]
+			title: "Courier's Hut"
+			icon: "minecolonies:blockHutDeliveryman"
+			description: [
+				"§6The Courier§f (Deliveryman) runs materials between the Warehouse"
+				"§fand all job huts. Without Couriers, workers stop when supplies run out."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 the Courier's Hut near the Warehouse."
+				"§7• §eHire§7 at least §e2 Couriers§7 early — one is never enough."
+				"§7• Couriers prioritize deliveries by urgency automatically."
+				""
+				"§eTips:§r"
+				"§7• §e1 Courier per 8 workers§7 is a safe ratio."
+				"§7• §eUpgrade Courier's Hut§7 to T3+ for faster movement speed."
+				"§7• §eCreate Arm§7 → Warehouse can supplement Couriers for bulk items."
+				""
+				"§a► Craft and hold a Courier's Hut block."
+			]
+			dependencies: ["00110004"]
+		}
+
+		{
+			x: 0.0d
+			y: 32.0d
+			id: "0011000A"
+			tasks: [{
+				id: "0011100A"
+				type: "item"
+				item: "minecolonies:blockHutBaker"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "0011200B" type: "xp" xp: 60}
+			]
+			title: "Baker"
+			icon: "minecolonies:blockHutBaker"
+			description: [
+				"§6The Baker§f converts raw grain from the Farmer into bread and pastries."
+				"§fBread is the default colony citizen food — keep the Baker supplied."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 the Baker's Hut. Hire a Baker citizen."
+				"§7• §eSupply§7 wheat and coal/wood to the Warehouse."
+				"§7• The Baker automatically crafts bread and deposits into the Warehouse."
+				""
+				"§eUpgrade notes:§r"
+				"§7• §eBaker T3§7 unlocks §eFarmer's Delight pastries§7 — higher-saturation"
+				"§7  foods for colony citizens (if FD recipes are configured)."
+				"§7• §eRestaurant§7 (Tier 4) is needed for full FD meal integration."
+				""
+				"§a► Craft and hold a Baker's Hut block."
+			]
+			dependencies: ["00110008"]
+		}
+
+		{
+			x: -6.0d
+			y: 32.0d
+			id: "0011000B"
+			tasks: [{
+				id: "0011100B"
+				type: "item"
+				item: "minecolonies:blockHutFisherman"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "0011200C" type: "xp" xp: 60}
+			]
+			title: "Fisher"
+			icon: "minecolonies:blockHutFisherman"
+			description: [
+				"§6The Fisher§f fishes from a body of water near the hut."
+				"§fFish supplement the colony food supply and provide raw materials."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 the Fisher's Hut on the bank of a river, lake, or ocean."
+				"§7• §eHire§7 a citizen as Fisher."
+				"§7• §eSupply fishing rods§7 to the Warehouse (Fishers consume them)."
+				""
+				"§eWhat Fishers catch:§r"
+				"§7• §eRaw Fish§7 — deposited in Warehouse for Cook/Restaurant processing."
+				"§7• §eLoot items§7 — Enchanted books, saddles, nametags (rare)."
+				"§7• §eAlex's Mobs fish§7 — rare drops from Alex's Mobs aquatic species."
+				""
+				"§a► Craft and hold a Fisher's Hut block."
+			]
+			dependencies: ["00110005"]
+		}
+
+		{
+			x: 12.0d
+			y: 24.0d
+			id: "0011000C"
+			tasks: [{
+				id: "0011100C"
+				type: "checkmark"
+				title: "Set up a Create Mechanical Arm delivering materials to the colony Warehouse (Ch 6.3 Supply Line)"
+			}]
+			rewards: [
+				{id: "0011200D" type: "xp" xp: 150}
+			]
+			title: "Colony Supply Line ★"
+			icon: "create:mechanical_arm"
+			description: [
+				"§6★ Integration Quest — Create (Ch 2) + MineColonies.§r"
+				"§fThis is the §eCh 6.3§f connection referenced on the Warehouse tooltip."
+				""
+				"§eMethod A — Mechanical Arm direct (simplest):§r"
+				"§7• §eMechanical Arm§7 configured to pull from a §esupply chest§7 and"
+				"§7  deposit into the §eMineColonies Warehouse§7 block directly."
+				"§7• Item types the colony needs most: §eLogs, Stone, Iron, Planks, Glass§7."
+				""
+				"§eMethod B — Colony Importer (KubeJS recipe):§r"
+				"§7• Craft a §eColony Supply Manifest§7 (see colony_importer_check.js)."
+				"§7• Place in the §eMineColonies Importer§7 block — it requests items"
+				"§7  from your Create storage network on demand."
+				""
+				"§eMethod C — Little Logistics Barge:§r"
+				"§7• If your resource extraction is far from the colony,"
+				"§7  a §eTugboat + Barge§7 river route ships bulk crates to the Warehouse."
+				""
+				"§a► Set up any Create delivery pipeline to the Warehouse."
+				"§a► Mark done when at least one item arrives via automation."
+			]
+			dependencies: ["00110009"]
+		}
+
+		// ============================================================
+		// TIER 3 — MANUFACTURING
+		// ============================================================
+
+		{
+			x: -16.0d
+			y: 40.0d
+			id: "0011000D"
+			tasks: [{
+				id: "0011100D"
+				type: "item"
+				item: "minecolonies:blockHutBlacksmith"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "0011200E" type: "xp" xp: 75}
+			]
+			title: "Blacksmith"
+			icon: "minecolonies:blockHutBlacksmith"
+			description: [
+				"§6The Blacksmith§f crafts tools, weapons, and armor for colony citizens."
+				"§fWithout a Blacksmith, workers use their starting tools until they break."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 near the Warehouse. Hire a Blacksmith citizen."
+				"§7• §eSupply§7 iron, coal, and wood to the Warehouse."
+				"§7• The Blacksmith automatically crafts tools as the Warehouse runs low."
+				""
+				"§eTier 3 upgrade unlocks:§r"
+				"§7• §eIron armor§7 for Knight and Archer citizens."
+				"§7• §eDiamond tools§7 (T4+) for Miners and Builders."
+				""
+				"§a► Craft and hold a Blacksmith's Hut block."
+			]
+			dependencies: ["00110006"]
+		}
+
+		{
+			x: -16.0d
+			y: 48.0d
+			id: "0011000E"
+			tasks: [{
+				id: "0011100E"
+				type: "item"
+				item: "minecolonies:blockHutSmeltery"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "0011200F" type: "xp" xp: 75}
+			]
+			title: "Smeltery"
+			icon: "minecolonies:blockHutSmeltery"
+			description: [
+				"§6The Smeltery§f smelts raw ores into ingots for the colony."
+				"§fThe Miner extracts ores — the Smeltery processes them."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 near the Miner and Warehouse."
+				"§7• §eSupply fuel§7 (coal or charcoal) to the Warehouse."
+				"§7• Hire a Smelter. They smelt all raw ores in the Warehouse automatically."
+				""
+				"§eCreate integration:§r"
+				"§7• §eFan + Lava§7 (Create heated fan) can supplement colony smelting"
+				"§7  for overflow — faster than the citizen Smeltery for bulk runs."
+				"§7• Connect the Miner output chute → §eFan§7 → Warehouse for ore-to-ingot."
+				""
+				"§a► Craft and hold a Smeltery Hut block."
+			]
+			dependencies: ["0011000D"]
+		}
+
+		{
+			x: -8.0d
+			y: 40.0d
+			id: "0011000F"
+			tasks: [{
+				id: "0011100F"
+				type: "item"
+				item: "minecolonies:blockHutSawmill"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112010" type: "xp" xp: 75}
+			]
+			title: "Sawmill"
+			icon: "minecolonies:blockHutSawmill"
+			description: [
+				"§6The Sawmill§f converts logs into planks and other wood products."
+				"§fMany colony buildings need §eplaned§f wood — the Sawmill provides it."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 near Warehouse. Hire a Sawyer citizen."
+				"§7• §eSupply logs§7 to the Warehouse (Lumberjack does this automatically)."
+				"§7• The Sawyer processes logs into planks, slabs, and stairs on demand."
+				""
+				"§eTier upgrades:§r"
+				"§7• §eT3§7 unlocks §eBarrel, Chest, Bookshelf§7 crafting."
+				"§7• §eT5§7 unlocks §eFramed Blocks§7 (Ch 4 decoration) production."
+				""
+				"§a► Craft and hold a Sawmill Hut block."
+			]
+			dependencies: ["00110007"]
+		}
+
+		{
+			x: 0.0d
+			y: 40.0d
+			id: "00110010"
+			tasks: [{
+				id: "00111010"
+				type: "item"
+				item: "minecolonies:blockHutComposter"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112011" type: "xp" xp: 75}
+			]
+			title: "Composter"
+			icon: "minecolonies:blockHutComposter"
+			description: [
+				"§6The Composter§f converts organic waste into §ebone meal§f,"
+				"§fwhich accelerates farm crops and fuels Flower Shop production."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 near the Farm and Flower Shop."
+				"§7• §eHire§7 a Composter. Supply organic waste: §eseeds, leaves, saplings§7."
+				"§7• Output: §eBone Meal§7 deposited into Warehouse for farmer use."
+				""
+				"§eColony loop:§r"
+				"§7Farm excess seeds/leaves → Composter → Bone Meal → Farm (faster crops)."
+				""
+				"§a► Craft and hold a Composter Hut block."
+			]
+			dependencies: ["00110008"]
+		}
+
+		{
+			x: -12.0d
+			y: 52.0d
+			id: "00110011"
+			tasks: [{
+				id: "00111011"
+				type: "item"
+				item: "minecolonies:blockHutConcreteMixer"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112012" type: "xp" xp: 75}
+			]
+			title: "Concrete Mixer"
+			icon: "minecolonies:blockHutConcreteMixer"
+			description: [
+				"§6The Concrete Mixer§f produces concrete powder and concrete blocks"
+				"§ffor colony construction. Many colony building styles use concrete."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 near the Smeltery and Warehouse."
+				"§7• §eSupply§7 sand, gravel, and dye to the Warehouse."
+				"§7• The Mixer produces concrete powder; a Courier wets it into concrete."
+				""
+				"§eCreate integration:§r"
+				"§7• §eFan + Water§7 on a conveyor belt mass-converts concrete powder to concrete"
+				"§7  much faster than the citizen Mixer can alone."
+				""
+				"§a► Craft and hold a Concrete Mixer Hut block."
+			]
+			dependencies: ["0011000E"]
+		}
+
+		{
+			x: -4.0d
+			y: 52.0d
+			id: "00110012"
+			tasks: [{
+				id: "00111012"
+				type: "item"
+				item: "minecolonies:blockHutDyer"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112013" type: "xp" xp: 75}
+			]
+			title: "Dyer"
+			icon: "minecolonies:blockHutDyer"
+			description: [
+				"§6The Dyer§f produces colored wool, carpets, concrete powder, and terracotta"
+				"§ffor colony builds and the Concrete Mixer supply chain."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 near the Sawmill and Flower Shop."
+				"§7• §eSupply§7 wool, sand, and dyes. Flower Shop provides dye flowers."
+				"§7• The Dyer auto-crafts whatever colored items the Warehouse is low on."
+				""
+				"§a► Craft and hold a Dyer's Hut block."
+			]
+			dependencies: ["0011000F"]
+		}
+
+		{
+			x: 6.0d
+			y: 52.0d
+			id: "00110013"
+			tasks: [{
+				id: "00111013"
+				type: "item"
+				item: "minecolonies:blockHutMechanic"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112014" type: "xp" xp: 100}
+			]
+			title: "Mechanic"
+			icon: "minecolonies:blockHutMechanic"
+			description: [
+				"§6The Mechanic§f produces advanced crafted items: rails, pistons, ladders,"
+				"§fdoors, and other manufactured components the colony needs."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 near Blacksmith and Smeltery."
+				"§7• §eSupply§7 iron, redstone, and wood to the Warehouse."
+				"§7• The Mechanic crafts complex items that other workers can't produce."
+				""
+				"§eTier unlocks:§r"
+				"§7• §eT3§7: Pistons, Observers, Comparators (redstone components)."
+				"§7• §eT5§7: §eCreate§7 integration — crafts §eAndesite Alloy§7 and §eBrass Casing§7"
+				"§7  using Warehouse stock of Create materials."
+				""
+				"§a► Craft and hold a Mechanic's Hut block."
+			]
+			dependencies: ["00110011" "00110012"]
+		}
+
+		{
+			x: 0.0d
+			y: 46.0d
+			id: "00110014"
+			tasks: [{
+				id: "00111014"
+				type: "item"
+				item: "minecolonies:blockHutFlorist"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112015" type: "xp" xp: 75}
+			]
+			title: "Flower Shop"
+			icon: "minecolonies:blockHutFlorist"
+			description: [
+				"§6The Florist§f grows flowers and produces dyes for the Dyer and colony decor."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 near Composter and Dyer."
+				"§7• §eSupply bone meal§7 from the Composter — Florists use it to grow flowers."
+				"§7• §eHire§7 a Florist. They maintain flower beds and deposit into Warehouse."
+				""
+				"§eWhat they produce:§r"
+				"§7• §eDyes§7 (all 16 colors) for the Dyer's supply chain."
+				"§7• §eFlowers§7 for decoration and Farmer's Delight recipes."
+				"§7• §eHoney§7-adjacent: pairs well with §eBeekeeper§7 (Tier 7)."
+				""
+				"§a► Craft and hold a Flower Shop Hut block."
+			]
+			dependencies: ["00110010"]
+		}
+
+		// ============================================================
+		// TIER 4 — LIVESTOCK & FOOD
+		// ============================================================
+
+		{
+			x: 16.0d
+			y: 38.0d
+			id: "00110015"
+			tasks: [{
+				id: "00111015"
+				type: "item"
+				item: "minecolonies:blockHutShepherd"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112016" type: "xp" xp: 75}
+			]
+			title: "Shepherd"
+			icon: "minecolonies:blockHutShepherd"
+			description: [
+				"§6The Shepherd§f breeds and shears sheep, providing wool and mutton."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 near a grassy area. §eProvide 2+ sheep§7 near the hut."
+				"§7• §eHire§7 a Shepherd. They breed, shear, and slaughter on schedule."
+				"§7• §eOutput§7: wool (all colors if dye available) + raw mutton → Warehouse."
+				""
+				"§eColony supply chain:§r"
+				"§7Sheep → Shepherd → §eRaw Mutton§7 → Cook → §eMutton Stew§7 (FD)."
+				"§7         ↓"
+				"§7         §eWool§7 → Dyer → Carpet, Bed, Banner material."
+				""
+				"§a► Craft and hold a Shepherd's Hut block."
+			]
+			dependencies: ["00110008"]
+		}
+
+		{
+			x: 22.0d
+			y: 38.0d
+			id: "00110016"
+			tasks: [{
+				id: "00111016"
+				type: "item"
+				item: "minecolonies:blockHutCowboy"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112017" type: "xp" xp: 75}
+			]
+			title: "Cowhand"
+			icon: "minecolonies:blockHutCowboy"
+			description: [
+				"§6The Cowhand§f breeds cows and produces beef and leather."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 in a fenced area. §eProvide 2+ cows§7 near the hut."
+				"§7• §eHire§7 a Cowhand. They breed, milk, and slaughter cows."
+				"§7• §eOutput§7: raw beef, leather, milk buckets → Warehouse."
+				""
+				"§eFD integration:§r"
+				"§7• §eRaw Beef§7 → Cook → §eBeef Wellington§7 — highest saturation colony food."
+				"§7• §eLeather§7 → Blacksmith → armor for low-level citizens."
+				"§7• §eMilk§7 → Baker → §eCakes and pastries§7 for colony variety."
+				""
+				"§a► Craft and hold a Cowhand's Hut block."
+			]
+			dependencies: ["00110008"]
+		}
+
+		{
+			x: 28.0d
+			y: 38.0d
+			id: "00110017"
+			tasks: [{
+				id: "00111017"
+				type: "item"
+				item: "minecolonies:blockHutChickenHerder"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112018" type: "xp" xp: 75}
+			]
+			title: "Chicken Farmer"
+			icon: "minecolonies:blockHutChickenHerder"
+			description: [
+				"§6The Chicken Farmer§f breeds chickens for eggs, feathers, and poultry."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 with a fenced coop area nearby. §eProvide 2+ chickens§7."
+				"§7• §eHire§7 a Chicken Farmer. Output: raw chicken, eggs, feathers."
+				""
+				"§eOutput uses:§r"
+				"§7• §eRaw Chicken§7 → Cook → §eRoast Chicken§7 (high-saturation FD meal)."
+				"§7• §eEggs§7 → Baker → cakes and pastries."
+				"§7• §eFeathers§7 → Mechanic → arrows for Archer citizens."
+				""
+				"§a► Craft and hold a Chicken Farmer's Hut block."
+			]
+			dependencies: ["00110008"]
+		}
+
+		{
+			x: 22.0d
+			y: 44.0d
+			id: "00110018"
+			tasks: [{
+				id: "00111018"
+				type: "item"
+				item: "minecolonies:blockHutSwineHerder"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112019" type: "xp" xp: 75}
+			]
+			title: "Pig Farmer"
+			icon: "minecolonies:blockHutSwineHerder"
+			description: [
+				"§6The Pig Farmer§f breeds pigs for pork products."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 with a muddy pen or fenced area. §eProvide 2+ pigs§7."
+				"§7• §eHire§7 a Pig Farmer. Output: raw porkchop → Warehouse."
+				""
+				"§eFD integration:§r"
+				"§7• §eRaw Porkchop§7 → Cutting Board → §eRaw Ham§7 → §eSmoked Ham§7."
+				"§7• §ePork Rind§7 (Cutting Board byproduct) → §ePork Belly§7 recipe."
+				"§7• Colony Canteen can automate this via the Central Kitchen (Ch 4.3)."
+				""
+				"§a► Craft and hold a Pig Farmer's Hut block."
+			]
+			dependencies: ["00110008"]
+		}
+
+		{
+			x: 28.0d
+			y: 44.0d
+			id: "00110019"
+			tasks: [{
+				id: "00111019"
+				type: "item"
+				item: "minecolonies:blockHutRestaurant"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "0011201A" type: "xp" xp: 100}
+			]
+			title: "Restaurant"
+			icon: "minecolonies:blockHutRestaurant"
+			description: [
+				"§6The Restaurant§f (Cook) prepares cooked meals for citizens."
+				"§fCitizens eat from the Warehouse — the Cook fills it with prepared food."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 centrally. Hire a Cook citizen."
+				"§7• §eSupply raw ingredients§7 from Livestock buildings via Warehouse."
+				"§7• §eT3+ Cook§7 processes §eFarmer's Delight§7 recipes — much higher saturation."
+				""
+				"§eColony nutrition chain:§r"
+				"§7Farm/Livestock → Warehouse → Cook → cooked meals → Warehouse → Citizens."
+				""
+				"§eBonus: Colony Canteen ★ (next quest)§r"
+				"§7• Your §eCentral Kitchen§7 (Ch 4.3) supplements the Cook with"
+				"§7  pre-made FD meals — effectively doubling colony food output."
+				""
+				"§a► Craft and hold a Restaurant Hut block."
+			]
+			dependencies: ["0011000A" "00110016"]
+		}
+
+		{
+			x: 28.0d
+			y: 50.0d
+			id: "0011001A"
+			tasks: [{
+				id: "0011101A"
+				type: "checkmark"
+				title: "Connect the Ch 4.3 Central Kitchen output to the colony Restaurant or Warehouse"
+			}]
+			rewards: [
+				{id: "0011201B" type: "xp" xp: 150}
+			]
+			title: "Colony Canteen ★"
+			icon: "farmersdelight:cooking_pot"
+			description: [
+				"§6★ Integration Quest — Ch 4 Central Kitchen + Ch 6 Colony.§r"
+				"§fThis completes the §eCh 4.3 Colony Canteen§f quest you left open earlier."
+				""
+				"§eSetup (if not done in Ch 4):§r"
+				"§7• §eMechanical Arm§7 from your Central Kitchen meal output chest"
+				"§7  → §eMineColonies Warehouse§7 block."
+				"§7• Or: §eLittle Logistics Barge§7 if kitchen and colony are far apart."
+				""
+				"§eImpact on citizens:§r"
+				"§7• §eFarmer's Delight meals§7 give citizens significantly higher saturation."
+				"§7• Well-fed citizens: §e+20% work speed§7, fewer breaks, less sick time."
+				"§7• Colony happiness increases → faster citizen recruitment."
+				""
+				"§a► Confirm FD meals are reaching the colony Warehouse automatically."
+				"§a► Mark done when the Restaurant or Warehouse shows FD meals in stock."
+			]
+			dependencies: ["00110019"]
+		}
+
+		// ============================================================
+		// TIER 5 — MILITARY
+		// ============================================================
+
+		{
+			x: 16.0d
+			y: 44.0d
+			id: "0011001B"
+			tasks: [{
+				id: "0011101B"
+				type: "item"
+				item: "minecolonies:blockHutGuardTower"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "0011201C" type: "xp" xp: 75}
+			]
+			title: "Guard Tower"
+			icon: "minecolonies:blockHutGuardTower"
+			description: [
+				"§6The Guard Tower§f stations a Knight or Ranger to defend a fixed area."
+				"§fHostile mobs approach the colony — Guards keep them out."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 at the colony perimeter, corners preferred."
+				"§7• §eHire§7 a Guard. Configure as §eKnight§7 (melee) or §eRanger§7 (ranged)."
+				"§7• §eSupply§7 swords (Knights) or bows + arrows (Rangers) to Warehouse."
+				""
+				"§eTips:§r"
+				"§7• §e4 corner towers§7 cover most colony borders effectively."
+				"§7• §eDecorativeBlocks Barbed Wire§7 on colony walls slows mob approaches."
+				"§7• §eUpgrade to T4§7 for patrol radius expansion and armor tier increase."
+				""
+				"§a► Craft and hold a Guard Tower block."
+			]
+			dependencies: ["0011000D"]
+		}
+
+		{
+			x: 16.0d
+			y: 52.0d
+			id: "0011001C"
+			tasks: [{
+				id: "0011101C"
+				type: "item"
+				item: "minecolonies:blockHutBarracks"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "0011201D" type: "xp" xp: 100}
+			]
+			title: "Barracks"
+			icon: "minecolonies:blockHutBarracks"
+			description: [
+				"§6The Barracks§f is the colony's military headquarters."
+				"§fIt houses §eBarracks Towers§f which station multiple guards per building."
+				""
+				"§eSetup:§r"
+				"§7• §ePlaced§7 near the colony center. Requires §eMultiblock structure§7:"
+				"§7  Barracks + 1–4 Barracks Towers attached to it."
+				"§7• §eEach Tower§7 houses additional guard slots beyond Guard Towers."
+				"§7• §eHire§7 Knights and Rangers across all towers."
+				""
+				"§eUpgrade path:§r"
+				"§7• §eT1§7: 1 tower, 2 guards. §eT4§7: 4 towers, 8 guards."
+				"§7• §eFullDiamond guards at T4§7 — requires Blacksmith T5."
+				""
+				"§a► Craft and hold a Barracks block."
+			]
+			dependencies: ["0011001B"]
+		}
+
+		{
+			x: 22.0d
+			y: 58.0d
+			id: "0011001D"
+			tasks: [{
+				id: "0011101D"
+				type: "item"
+				item: "minecolonies:blockHutKnight"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "0011201E" type: "xp" xp: 75}
+			]
+			title: "Knight in Training"
+			icon: "minecolonies:blockHutKnight"
+			description: [
+				"§6The Knight in Training§f hut trains raw citizens into colony Knights."
+				"§fKnights are the colony's heavy melee combat unit."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 near the Barracks. Hire a trainer citizen."
+				"§7• §eTrainees§7 improve their sword and shield skills over time."
+				"§7• §eFully trained Knights§7 (T5 training) get diamond swords."
+				""
+				"§eEquipment supply:§r"
+				"§7• §eBlacksmith§7 provides iron/diamond swords and shields."
+				"§7• §eTera upgraded§7 weapons (Ch 2.7) can be issued manually —"
+				"§7  drag Tetra gear into the Knight's equipment slot via hut interface."
+				""
+				"§a► Craft and hold a Knight in Training Hut block."
+			]
+			dependencies: ["0011001C"]
+		}
+
+		{
+			x: 28.0d
+			y: 58.0d
+			id: "0011001E"
+			tasks: [{
+				id: "0011101E"
+				type: "item"
+				item: "minecolonies:blockHutArchery"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "0011201F" type: "xp" xp: 75}
+			]
+			title: "Archery"
+			icon: "minecolonies:blockHutArchery"
+			description: [
+				"§6The Archery§f trains citizens as Ranger guards."
+				"§fRangers patrol with bows and attack threats at range."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 near Barracks. Hire an Archer trainer."
+				"§7• §eSupply§7 bows and arrows to the Warehouse (Mechanic + Chicken Farmer)."
+				"§7• §eFully trained Rangers§7 use Crossbows and Power V bows."
+				""
+				"§eCombat composition:§r"
+				"§7• §e2 Knights + 2 Rangers§7 per colony quadrant is a solid early defense."
+				"§7• §eRangers on towers§7, §eKnights patrolling walls§7."
+				""
+				"§a► Craft and hold an Archery Hut block."
+			]
+			dependencies: ["0011001C"]
+		}
+
+		{
+			x: 22.0d
+			y: 64.0d
+			id: "0011001F"
+			tasks: [{
+				id: "0011101F"
+				type: "item"
+				item: "minecolonies:blockHutHospital"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112020" type: "xp" xp: 75}
+			]
+			title: "Hospital"
+			icon: "minecolonies:blockHutHospital"
+			description: [
+				"§6The Hospital§f heals injured and sick citizens automatically."
+				"§fWithout it, citizens who take combat damage may die permanently."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 near the Barracks and residential area."
+				"§7• §eHire§7 a Healer citizen. Supply §epotions of healing§7 to Warehouse."
+				"§7• §eSick citizens§7 automatically check in when health is low."
+				""
+				"§ePrevention:§r"
+				"§7• §eWell-fed citizens§7 (from Restaurant + Colony Canteen) rarely get sick."
+				"§7• §eArs Nouveau§7 Ritual of Regeneration near the hospital amplifies heal rate."
+				""
+				"§a► Craft and hold a Hospital block."
+			]
+			dependencies: ["0011001D" "0011001E"]
+		}
+
+		{
+			x: 28.0d
+			y: 64.0d
+			id: "00110020"
+			tasks: [{
+				id: "00111020"
+				type: "checkmark"
+				title: "Have 5 or more military citizens (Knights, Rangers) assigned and actively patrolling the colony"
+			}]
+			rewards: [
+				{id: "00112021" type: "xp" xp: 150}
+			]
+			title: "Colony Defense ★"
+			icon: "minecolonies:blockHutBarracks"
+			description: [
+				"§6★ Colony milestone — full military force online.§r"
+				""
+				"§eRequirements:§r"
+				"§7• §e5+ military citizens§7 with Guard, Knight, or Ranger roles."
+				"§7• At least §e1 Barracks§7 and §e2 Guard Towers§7 operational."
+				"§7• §eHospital§7 staffed and stocked with healing potions."
+				""
+				"§eFull defense checklist:§r"
+				"§71. §e4 corner Guard Towers§7 staffed with Rangers."
+				"§72. §e1 Barracks§7 with 2+ Knight-trained guards."
+				"§73. §eColony walls§7 (built by Builders) enclosing all huts."
+				"§74. §eBeacon§7 (Ch 3 Wither reward) — Haste or Regen for all players."
+				"§75. §eHospital§7 stocked with potions."
+				""
+				"§aMark done when 5+ military citizens are assigned and you can confirm"
+				"§apatrol activity via the Barracks management interface."
+			]
+			dependencies: ["0011001F"]
+		}
+
+		// ============================================================
+		// TIER 6 — KNOWLEDGE
+		// ============================================================
+
+		{
+			x: -22.0d
+			y: 40.0d
+			id: "00110021"
+			tasks: [{
+				id: "00111021"
+				type: "item"
+				item: "minecolonies:blockHutSchool"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112022" type: "xp" xp: 75}
+			]
+			title: "School"
+			icon: "minecolonies:blockHutSchool"
+			description: [
+				"§6The School§f educates child citizens, increasing their intelligence stat."
+				"§fHigher intelligence = faster skill growth in any job they later take."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 in a quiet area away from Guard and manufacturing huts."
+				"§7• §eHire§7 a Teacher citizen. Child citizens attend automatically."
+				"§7• §eBooks§7 are consumed by the School — supply via Library or Warehouse."
+				""
+				"§eTip:§r"
+				"§7• §eChildren§7 grow up and become workers — higher-intelligence children"
+				"§7  become higher-skilled workers faster. School pays off long-term."
+				""
+				"§a► Craft and hold a School block."
+			]
+			dependencies: ["00110005"]
+		}
+
+		{
+			x: -22.0d
+			y: 48.0d
+			id: "00110022"
+			tasks: [{
+				id: "00111022"
+				type: "item"
+				item: "minecolonies:blockHutUniversity"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112023" type: "xp" xp: 100}
+			]
+			title: "University"
+			icon: "minecolonies:blockHutUniversity"
+			description: [
+				"§6The University§f is the colony's research hub."
+				"§fResearch unlocks colony-wide passive improvements."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 any central location. Hire a Researcher citizen."
+				"§7• §eRight-click§7 → Research → browse the technology tree."
+				"§7• §eResearch consumes items§7 from the Warehouse (ore, wood, etc)."
+				"§7  Ongoing — keep items stocked."
+				""
+				"§eKey researches to prioritize:§r"
+				"§7• §eDigger§7 branch — Miners dig faster at each tier."
+				"§7• §eWoodcutting§7 — Lumberjacks produce more per trip."
+				"§7• §eCombat§7 branches — Guards get armor and weapon bonuses."
+				"§7• §eRaider§7 mitigation — reduces raid frequency and size."
+				""
+				"§a► Craft and hold a University block."
+			]
+			dependencies: ["00110021"]
+		}
+
+		{
+			x: -22.0d
+			y: 56.0d
+			id: "00110023"
+			tasks: [{
+				id: "00111023"
+				type: "item"
+				item: "minecolonies:blockHutLibrary"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112024" type: "xp" xp: 75}
+			]
+			title: "Library"
+			icon: "minecolonies:blockHutLibrary"
+			description: [
+				"§6The Library§f increases the intelligence of all colony citizens over time."
+				"§fCitizens visit the Library during off-hours to study."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 near School and University."
+				"§7• §eHire§7 a Librarian. §eSupply books and bookshelves§7 to Warehouse."
+				"§7• Citizens gradually gain intelligence — manifests as faster job leveling."
+				""
+				"§eSawmill + Library loop:§r"
+				"§7• §eSawmill§7 produces bookshelves → Warehouse → Library."
+				"§7• §eLibrary consumes§7 paper + leather → makes books for the University."
+				""
+				"§a► Craft and hold a Library block."
+			]
+			dependencies: ["00110022"]
+		}
+
+		{
+			x: -22.0d
+			y: 64.0d
+			id: "00110024"
+			tasks: [{
+				id: "00111024"
+				type: "item"
+				item: "minecolonies:blockHutEnchanter"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112025" type: "xp" xp: 100}
+			]
+			title: "Enchanter's Tower"
+			icon: "minecolonies:blockHutEnchanter"
+			description: [
+				"§6The Enchanter§f enchants tools, weapons, and armor for colony citizens."
+				"§fThis dramatically increases Guard effectiveness and worker longevity."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 near Library (shares books). Hire an Enchanter citizen."
+				"§7• §eSupply§7 lapis lazuli and items to enchant to the Warehouse."
+				"§7• §eEnchanting level§7 depends on bookshelves adjacent to the tower (up to 15)."
+				""
+				"§eArs Nouveau integration:§r"
+				"§7• §eArs Nouveau Enchanting Apparatus§7 (Ch 1) can produce colony enchantments"
+				"§7  faster than the citizen Enchanter."
+				"§7• §eAuto-Enchanting line§7 (Ch 5.2) — output chest feeds into Warehouse"
+				"§7  → Couriers deliver enchanted gear to Guards."
+				""
+				"§a► Craft and hold an Enchanter's Tower block."
+			]
+			dependencies: ["00110023"]
+		}
+
+		{
+			x: -14.0d
+			y: 56.0d
+			id: "00110025"
+			tasks: [{
+				id: "00111025"
+				type: "checkmark"
+				title: "Place an Ars Nouveau Whirlisprig near the Lumberjack's Hut and confirm tree regeneration (Ch 6.7 Arcane Forestry)"
+			}]
+			rewards: [
+				{id: "00112026" type: "xp" xp: 150}
+			]
+			title: "Arcane Forestry ★"
+			icon: "ars_nouveau:whirlisprig"
+			description: [
+				"§6★ Integration Quest — Ars Nouveau (Ch 1) + MineColonies (Ch 6).§r"
+				"§fThis is §eCh 6.7 Arcane Forestry§f referenced on the Whirlisprig tooltip."
+				""
+				"§eThe Whirlisprig:§r"
+				"§7• §eSummon§7 via §eRitual Tablet: Summon Whirlisprig§7 near the Lumberjack Hut."
+				"§7• The Whirlisprig §eautomatically replants§7 and accelerates tree growth."
+				"§7• It keeps trees growing §efaster than the Lumberjack can chop them§7."
+				"§7• Result: the Lumberjack never runs out of trees to chop."
+				""
+				"§eWhere to place:§r"
+				"§7• §eWithin 12 blocks§7 of the Lumberjack's designated forest area."
+				"§7• §eSource Jar§7 nearby (within 16 blocks) to keep the Whirlisprig active."
+				"§7  Connect to your §eSource Dynamo§7 (Ch 5) for infinite uptime."
+				""
+				"§eImpact:§r"
+				"§7• Wood output increases ~§e2×§7 with a Whirlisprig running."
+				"§7• The Lumberjack never idles — §eSawmill stays stocked§7 continuously."
+				""
+				"§a► Place a Whirlisprig near the Lumberjack area."
+				"§a► Confirm trees are growing and being harvested. Mark done."
+			]
+			dependencies: ["00110007" "00110024"]
+		}
+
+		// ============================================================
+		// TIER 7 — SPECIAL BUILDINGS
+		// ============================================================
+
+		{
+			x: -8.0d
+			y: 60.0d
+			id: "00110026"
+			tasks: [{
+				id: "00111026"
+				type: "item"
+				item: "minecolonies:blockHutTavern"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112027" type: "xp" xp: 75}
+			]
+			title: "Tavern"
+			icon: "minecolonies:blockHutTavern"
+			description: [
+				"§6The Tavern§f increases colony happiness and attracts visitors."
+				"§fHappier citizens work faster and recruit more efficiently."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 in a central, accessible location."
+				"§7• §eHire§7 a Barkeeper. Supply food and drink (beer, juice) to Warehouse."
+				"§7• Citizens visit during breaks and regain §ehappiness§7."
+				""
+				"§eVisitor system:§r"
+				"§7• §eVisitors§7 occasionally arrive at the Tavern."
+				"§7• §eRight-click a Visitor§7 to §erecruit§7 them as a permanent citizen."
+				"§7• Visitors can have better stats than normal spawned citizens."
+				""
+				"§a► Craft and hold a Tavern block."
+			]
+			dependencies: ["0011000A" "00110021"]
+		}
+
+		{
+			x: 0.0d
+			y: 60.0d
+			id: "00110027"
+			tasks: [{
+				id: "00111027"
+				type: "item"
+				item: "minecolonies:blockHutMarket"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112028" type: "xp" xp: 75}
+			]
+			title: "Market"
+			icon: "minecolonies:blockHutMarket"
+			description: [
+				"§6The Market§f allows citizens to trade goods for colony happiness bonuses."
+				"§fIt also enables player–colony item trades through the Merchant citizen."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 in a central trade area. Hire a Merchant citizen."
+				"§7• §eStock§7 trade goods in the Market chest."
+				"§7• §eRight-click§7 the Market as a player to see available trades."
+				""
+				"§ePlayer trades:§r"
+				"§7• Sell §eexcess resources§7 (ores, food) for colony currency or goods."
+				"§7• Buy §erare building items§7 the colony can produce but you need fast."
+				""
+				"§a► Craft and hold a Market block."
+			]
+			dependencies: ["00110013"]
+		}
+
+		{
+			x: 8.0d
+			y: 60.0d
+			id: "00110028"
+			tasks: [{
+				id: "00111028"
+				type: "item"
+				item: "minecolonies:blockHutBeekeeper"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "00112029" type: "xp" xp: 75}
+			]
+			title: "Beekeeper"
+			icon: "minecolonies:blockHutBeekeeper"
+			description: [
+				"§6The Beekeeper§f maintains bee hives and collects honey and honeycomb."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 near flowers (Flower Shop area). §eProvide 2+ hives§7."
+				"§7• §eHire§7 a Beekeeper. They maintain hives and harvest safely."
+				"§7• §eOutput§7: Honey Bottles, Honeycomb, Beeswax → Warehouse."
+				""
+				"§eUses:§r"
+				"§7• §eHoney Bottle§7 — removes poison, useful for Hospital."
+				"§7• §eHoneycomb§7 → §eHoneycomb Block§7 for colony decoration."
+				"§7• §eSugar§7 (from honey) → Baker for colony pastries."
+				"§7• §eFarmer's Delight§7 honey-based recipes — sweetened meals."
+				""
+				"§a► Craft and hold a Beekeeper's Hut block."
+			]
+			dependencies: ["00110014"]
+		}
+
+		{
+			x: -16.0d
+			y: 68.0d
+			id: "0011002A"
+			tasks: [{
+				id: "0011102A"
+				type: "item"
+				item: "minecolonies:blockHutMysticalSite"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "0011202B" type: "xp" xp: 75}
+			]
+			title: "Mystical Site"
+			icon: "minecolonies:blockHutMysticalSite"
+			description: [
+				"§6The Mystical Site§f is a passive colony building that increases"
+				"§fthe max health and mana regeneration of nearby citizens."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 near the colony center. No worker needed — purely passive."
+				"§7• §eUpgrade§7 to increase the area of effect and bonus magnitude."
+				"§7• §eMultiple sites§7 stack — 2–3 sites cover most colony layouts."
+				""
+				"§eArs Nouveau synergy:§r"
+				"§7• §eArs Nouveau Ritual of Regeneration§7 near the Mystical Site"
+				"§7  amplifies the health regeneration bonus for citizens in range."
+				"§7• §eSource Dynamo§7 (Ch 5) keeps the Ritual running continuously."
+				""
+				"§a► Craft and hold a Mystical Site block."
+			]
+			dependencies: ["00110022"]
+		}
+
+		{
+			x: -8.0d
+			y: 68.0d
+			id: "0011002B"
+			tasks: [{
+				id: "0011102B"
+				type: "item"
+				item: "minecolonies:blockHutAlchemist"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "0011202C" type: "xp" xp: 100}
+			]
+			title: "Alchemist Tower"
+			icon: "minecolonies:blockHutAlchemist"
+			description: [
+				"§6The Alchemist§f brews potions for colony citizens and guards."
+				"§fWell-supplied guards with regeneration and strength potions"
+				"§fcan defend against any raid."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 near Hospital and University."
+				"§7• §eHire§7 an Alchemist. §eSupply§7 nether wart, blaze powder, and glass."
+				"§7• The Alchemist brews potions and deposits into Warehouse for Guards."
+				""
+				"§eArs Nouveau integration:§r"
+				"§7• §eWixie§7 familiar (Ch 1) auto-brews potions in a Cauldron."
+				"§7  A Wixie near the Alchemist Tower dramatically boosts output."
+				"§7• §eSource Dynamo§7 (Ch 5) fuels Wixie operations continuously."
+				""
+				"§a► Craft and hold an Alchemist Tower block."
+			]
+			dependencies: ["0011002A"]
+		}
+
+		{
+			x: 4.0d
+			y: 68.0d
+			id: "00110029"
+			tasks: [{
+				id: "00111029"
+				type: "item"
+				item: "minecolonies:blockHutNetherWorker"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "0011202A" type: "xp" xp: 100}
+			]
+			title: "Nether Worker"
+			icon: "minecolonies:blockHutNetherWorker"
+			description: [
+				"§6The Nether Worker§f travels to the Nether to gather rare materials."
+				"§fThis citizen brings back Nether resources the colony can't get otherwise."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 near a Nether Portal — the Nether Worker uses it to travel."
+				"§7• §eHire§7 a Nether Worker. §eSupply§7 gold armor (Piglin safety) and food."
+				"§7• The worker returns periodically with: §eQuartz, Nether Brick, Blaze Rod§7,"
+				"§7  §eMagma Block, Wither Skeleton drops, and Incendium materials§7."
+				""
+				"§eRequirements:§r"
+				"§7• §eActive Nether Portal§7 within 20 blocks of the hut entrance."
+				"§7• §eSmeltery§7 to process Nether Ore."
+				""
+				"§a► Craft and hold a Nether Worker Hut block."
+			]
+			dependencies: ["0011000E" "0011002A"]
+		}
+
+		// ============================================================
+		// TIER 8 — KINGDOM CAPSTONE
+		// ============================================================
+
+		{
+			x: -4.0d
+			y: 76.0d
+			id: "0011002C"
+			tasks: [{
+				id: "0011102C"
+				type: "item"
+				item: "minecolonies:blockHutPlantation"
+				count: 1L
+				consume_items: false
+			}]
+			rewards: [
+				{id: "0011202D" type: "xp" xp: 75}
+			]
+			title: "Plantation"
+			icon: "minecolonies:blockHutPlantation"
+			description: [
+				"§6The Plantation§f grows §esugar cane, bamboo, cactus, and cocoa beans§f"
+				"§ffor the colony production chain."
+				""
+				"§eSetup:§r"
+				"§7• §ePlace§7 near water (sugar cane, bamboo need water proximity)."
+				"§7• §eHire§7 a Planter. They manage the plantation blocks automatically."
+				"§7• §eOutput§7: all four crop types deposited into Warehouse."
+				""
+				"§eUses:§r"
+				"§7• §eSugar Cane§7 → Sawmill → Paper → Library books."
+				"§7• §eBamboo§7 → Sawmill → Bamboo products (decoration + scaffolding)."
+				"§7• §eCocoa Beans§7 → Baker → cookies and chocolate-based FD recipes."
+				"§7• §eCactus§7 → Dyer → green dye for Dyer supply."
+				""
+				"§a► Craft and hold a Plantation Hut block."
+			]
+			dependencies: ["00110027"]
+		}
+
+		{
+			x: 0.0d
+			y: 72.0d
+			id: "0011002D"
+			tasks: [{
+				id: "0011102D"
+				type: "checkmark"
+				title: "Upgrade the Town Hall to Tier 5 — the maximum level"
+			}]
+			rewards: [
+				{id: "0011202E" type: "xp" xp: 200}
+			]
+			title: "Town Hall T5"
+			icon: "minecolonies:blockHutTownHall"
+			description: [
+				"§6Town Hall Tier 5§f is the final Town Hall upgrade — the symbol of a"
+				"§ffully mature colony. Citizen cap rises to 40+ (with hut expansions)."
+				""
+				"§eUpgrade requirements:§r"
+				"§7• §eT4 → T5§7 requires: §e64 Smooth Stone§7, §e32 Oak Planks§7,"
+				"§7  §e16 Glass§7, §e8 Iron Ingots§7, §e4 Bookshelves§7 (approximate)."
+				"§7  Exact amounts shown in the Builder's Hut build order."
+				"§7• §eBuilder T4+§7 needed to construct T5 buildings."
+				"§7• §eMultiple Builders§7 recommended — T5 Town Hall is a large structure."
+				""
+				"§ePrerequisites (soft):§r"
+				"§7• §eAll Tier 5-8 military§7 complete — colony must be secure before"
+				"§7  the final Town Hall upgrade or raids can disrupt construction."
+				"§7• §eWarehouse stocked§7 with all building materials."
+				""
+				"§a► Initiate and complete Town Hall T5 construction."
+				"§a► Mark done when the T5 Town Hall build finishes."
+			]
+			dependencies: ["00110020" "0011002B" "00110025"]
+		}
+
+		{
+			x: 4.0d
+			y: 76.0d
+			id: "0011002E"
+			tasks: [{
+				id: "0011102E"
+				type: "checkmark"
+				title: "Have 3 or more Builder's Huts all actively upgrading buildings simultaneously"
+			}]
+			rewards: [
+				{id: "0011202F" type: "xp" xp: 150}
+			]
+			title: "All Builders Busy"
+			icon: "minecolonies:blockHutBuilder"
+			description: [
+				"§6Three Builders building simultaneously§f — the mark of a colony"
+				"§fthat has enough materials to keep up with its own ambition."
+				""
+				"§eSetup:§r"
+				"§7• §eBuild 2 additional Builder's Huts§7 (you need at least 3 total)."
+				"§7• §eHire§7 a Builder in each."
+				"§7• §eQueue construction orders§7 across multiple buildings simultaneously."
+				"§7• The Warehouse must be stocked enough to supply all 3 builders."
+				""
+				"§eWhy 3 Builders:§r"
+				"§7• §eLate colony§7 has dozens of buildings needing upgrades."
+				"§7• §e1 Builder§7 = 1 building at a time. §e3 Builders§7 = 3× the pace."
+				"§7• §eCreate supply lines§7 (Ch 6.3) ensure the Warehouse never runs dry."
+				""
+				"§a► Issue 3 simultaneous build orders. Mark done when all 3 Builders are actively constructing."
+			]
+			dependencies: ["0011002D"]
+		}
+
+		{
+			x: 0.0d
+			y: 80.0d
+			id: "0011002F"
+			tasks: [{
+				id: "0011102F"
+				type: "checkmark"
+				title: "Have 30 or more different building types placed in your colony"
+			}]
+			rewards: [
+				{id: "00112030" type: "xp" xp: 300}
+			]
+			title: "Colony Complete"
+			icon: "minecolonies:blockHutTownHall"
+			description: [
+				"§630 different building types§f means every major colony role is filled."
+				"§fThe colony is self-sustaining, defended, and thriving."
+				""
+				"§eBuilding types that count (each counts once):§r"
+				"§7Town Hall, Builder×3, Warehouse, Courier×2,"
+				"§7Miner, Lumberjack, Farm, Fisher, Baker, Shepherd, Cowhand,"
+				"§7Chicken Farmer, Pig Farmer, Restaurant, Blacksmith, Smeltery,"
+				"§7Sawmill, Composter, Concrete Mixer, Dyer, Mechanic, Flower Shop,"
+				"§7Guard Tower×4, Barracks, Knight in Training, Archery, Hospital,"
+				"§7School, University, Library, Enchanter's Tower, Tavern, Market,"
+				"§7Beekeeper, Plantation, Mystical Site, Alchemist Tower, Nether Worker."
+				""
+				"§eCount them in the Town Hall management interface."
+				""
+				"§a► Verify 30+ building types in the colony management screen."
+				"§a► Mark done when the count reaches 30."
+			]
+			dependencies: ["0011002E"]
+		}
+
+		// ============================================================
+		// CHAPTER GATE — KINGDOM ✦
+		// ID: 00110030 — chapter completion gate
+		// ============================================================
+
+		{
+			x: 0.0d
+			y: 88.0d
+			shape: "hexagon"
+			id: "00110030"
+			tasks: [{
+				id: "00111030"
+				type: "checkmark"
+				title: "Colony stands complete: T5 Town Hall, 50+ citizens, 30+ building types, fully defended"
+			}]
+			rewards: [
+				{id: "00112031" type: "item" item: "minecraft:nether_star" count: 1}
+				{id: "00112032" type: "xp" xp: 500}
+			]
+			title: "Kingdom ✦"
+			subtitle: "You didn't find this place. You built it."
+			description: [
+				"§6Kingdom ✦§f is the Chapter 6 completion gate."
+				"§fFour conditions must all be true:"
+				""
+				"§71. §eTown Hall T5§7 — fully upgraded."
+				"§72. §e50+ citizens§7 — living, working, and defended."
+				"§73. §e30+ building types§7 — every major role filled."
+				"§74. §eColony fully defended§7 — 5+ military, Hospital stocked,"
+				"§7   Barracks at T3+, walls complete."
+				""
+				"§eArcane Frontiers pillars — full status:§r"
+				"§7• §e✔ Magic§7 — Archmage spells, ritual automation."
+				"§7• §e✔ Technology§7 — Create power grid, electric motors."
+				"§7• §e✔ Exploration§7 — Dragon defeated, Wither slain, Nether conquered."
+				"§7• §e✔ Home§7 — Central Kitchen, Hearth & Home complete."
+				"§7• §e✔ Synthesis§7 — magic and tech unified in Ch 5."
+				"§7• §e✔ Colony§7 — Kingdom built. This gate."
+				"§7• §e→ Twilight§7 — Ch 7. One last adventure remains."
+				""
+				"§eReward: Nether Star§r"
+				"§7• A §esecond Nether Star§7 for a §esecond Beacon§7."
+				"§7• Place at the colony center for §eRegen I§7 — all citizens and players"
+				"§7  in colony range heal continuously."
+				""
+				"§a► Confirm all four conditions. Mark this gate done."
+				"§a► One chapter remains: §6Ch 7 — The Twilight Adventure.§a"
+			]
+			dependencies: ["0011002F"]
+		}
+
+		// ── 6.8 FRIENDS & FOES — BEEKEEPER HUT ───────────────────────
+		{
+			id: "00110031"
+			group: ""
+			order_index: 0
+			filename: "ch6_beekeeper_hut_1"
+			title: "The Beekeeper"
+			icon: "minecraft:honeycomb"
+			x: 40.0d
+			y: 0.0d
+			shape: "circle"
+			description: [
+				"§fFriends & Foes: Beekeeper Hut adds a §6Beekeeper NPC§f to MineColonies —"
+				"§fa dedicated citizen who manages beehives and produces honey for the colony."
+				""
+				"§eSetup:§r"
+				"§71. Build the §6Beekeeper's Hut§7 in your colony."
+				"§72. Assign a citizen as §6Beekeeper§7."
+				"§73. Place §6Beehives§7 near the hut — they'll tend them automatically."
+				""
+				"§eBenefits:§r"
+				"§7• Auto-harvests §6Honeycomb§7 and §6Honey Bottles§7"
+				"§7• Supplies the colony's §6Restaurant§7 with sweetener"
+				"§7• Enables §6Bumblezone§7 material integration with colony production"
+			]
+			tasks: [{
+				id: "00112060"
+				type: "checkmark"
+				title: "Build a Beekeeper's Hut and assign a citizen as Beekeeper"
+			}]
+			rewards: [
+				{id: "00112061" type: "item" item: "minecraft:beehive" count: 3}
+				{id: "00112062" type: "item" item: "minecraft:honeycomb" count: 16}
+				{id: "00112063" type: "xp" xp: 60}
+			]
+			subtitle: "The colony's sweetest citizen"
+			dependencies: ["00110001"]
+		}
+		{
+			id: "00110032"
+			group: ""
+			order_index: 0
+			filename: "ch6_beekeeper_hut_2"
+			title: "Royal Jelly ★"
+			icon: "minecraft:honey_bottle"
+			x: 40.0d
+			y: 4.0d
+			shape: "circle"
+			description: [
+				"§fWith a working Beekeeper, your colony can produce §6Honey-based foods§f"
+				"§fthat integrate with Farmer's Delight recipes."
+				""
+				"§eGoal:§r"
+				"§7Have your Beekeeper produce §610 Honey Bottles§7."
+				""
+				"§eBonus — Bumblezone integration:§r"
+				"§7Honey from §6Bumblezone bees§7 (Ch 7) is a rare high-yield variant."
+				"§7Bring Bumblezone honeycomb back to your Beekeeper Hut to"
+				"§7start producing §6exotic honey§7 not found in the Overworld."
+				""
+				"§aTip: Use Sophisticated Storage barrel networks to feed honey"
+				"§aautomatically into the colony's Restaurant food supply."
+			]
+			tasks: [{
+				id: "00112064"
+				type: "checkmark"
+				title: "Have your colony Beekeeper produce 10 Honey Bottles"
+			}]
+			rewards: [
+				{id: "00112065" type: "item" item: "minecraft:honey_bottle" count: 5}
+				{id: "00112066" type: "xp" xp: 80}
+			]
+			subtitle: "Sweet colony logistics"
+			dependencies: ["00110031"]
+		}
+
+		// ── 6.9 COLONYRANK ────────────────────────────────────────────
+		{
+			id: "00110033"
+			group: ""
+			order_index: 0
+			filename: "ch6_colonyrank"
+			title: "Colony Ranked ★"
+			icon: "minecolonies:blockHutTownHall"
+			x: 48.0d
+			y: 0.0d
+			shape: "circle"
+			description: [
+				"§fColonyRank adds §6prestige rankings§f to MineColonies colonies —"
+				"§fa score that reflects your colony's size, happiness, and productivity."
+				""
+				"§eHow to rank up:§r"
+				"§7• Increase §6citizen count§7 — more residents = higher base score"
+				"§7• Improve §6citizen happiness§7 — feed them well, defend them"
+				"§7• Build §6higher-tier buildings§7 — T4/T5 structures multiply your rank"
+				"§7• Complete §6colony quests§7 (this chapter!) — bonus rank points"
+				""
+				"§eGoal:§r"
+				"§7Reach §6Rank 3§7 (or equivalent mid-tier rank) in ColonyRank."
+				""
+				"§aTip: Check your rank by right-clicking your §6Town Hall§7."
+				"§aA high-ranked colony unlocks special cosmetic titles and"
+				"§acolony name display features."
+			]
+			tasks: [{
+				id: "00112067"
+				type: "checkmark"
+				title: "Reach Colony Rank 3 (or equivalent mid-tier rank) in ColonyRank"
+			}]
+			rewards: [
+				{id: "00112068" type: "item" item: "minecraft:nether_star" count: 1}
+				{id: "00112069" type: "xp" xp: 150}
+			]
+			subtitle: "Your colony, recognized"
+			dependencies: ["00110001"]
+		}
+
+	]
+	quest_links: []
+}

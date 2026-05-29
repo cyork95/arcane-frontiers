@@ -1,0 +1,520 @@
+{
+	id: "00120000"
+	group: ""
+	order_index: 7
+	filename: "7_twilight"
+	title: "Chapter 7: Dungeons & Beyond"
+	icon: "minecraft:filled_map"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	// ================================================================
+	// CROSS-CHAPTER DEPENDENCY REFERENCE
+	//
+	// IDs this chapter USES from other chapters:
+	//   000D001C = Ch 3 "Dragon Slayer ✦" — gear-check gate
+	//              → prereq for 00120001 (Beyond the Map ◆)
+	//
+	// IDs this chapter EXPORTS:
+	//   0012000B = "Arcane Frontiers ✦" — FINAL modpack completion gate
+	//              (no downstream deps — this is the end)
+	// ================================================================
+	quests: [
+
+		// ============================================================
+		// 7.1  ENTRY
+		// ============================================================
+
+		{
+			x: 0.0d
+			y: 0.0d
+			shape: "hexagon"
+			id: "00120001"
+			tasks: [{
+				id: "00121001"
+				type: "checkmark"
+				title: "Loot your first When Dungeons Arise dungeon — collect any unique dungeon chest item"
+			}]
+			rewards: [
+				{id: "00122001" type: "item" item: "explorerscompass:explorers_compass" count: 1}
+				{id: "00122002" type: "xp" xp: 100}
+			]
+			title: "Beyond the Map"
+			icon: "explorerscompass:explorers_compass"
+			subtitle: "The world is bigger than it looks"
+			description: [
+				"§6You cleared the End. You've earned the right to go deeper.§r"
+				"§fThe overworld holds structures your early-game self couldn't handle —"
+				"§fmassive procedural dungeons from §eWhen Dungeons Arise§f,"
+				"§fcompletely rebuilt vanilla structures from the §eYUNG's§f suite,"
+				"§fand hidden dimensions waiting for End-tier gear."
+				""
+				"§ePrerequisite:§r"
+				"§7• §6Dragon Slayer ✦§7 (Ch 3) — you have End-tier armor and weapons."
+				"§7• §6Archmage Spellbook§7 (Ch 1) recommended — spells are strong in dungeons."
+				"§7• §6Silent Gear max-grade tools§7 (Ch 2.7) — durability matters."
+				""
+				"§eExplorer's Compass (reward):§r"
+				"§7• §eRight-click§7 → select a structure type to search for."
+				"§7• Shows distance and direction to the nearest matching structure."
+				"§7• §eUse it§7 to find When Dungeons Arise targets and YUNG's structures."
+				""
+				"§a► Loot your first WDA dungeon. Mark done."
+			]
+			dependencies: ["000D001C"]
+		}
+
+		// ============================================================
+		// 7.2  STRUCTURAL EXPLORATION
+		// ============================================================
+
+		{
+			x: 0.0d
+			y: 8.0d
+			id: "00120002"
+			tasks: [{
+				id: "00121002"
+				type: "checkmark"
+				title: "Clear a YUNG's redesigned structure — Stronghold, Dungeon, Mineshaft, or Desert Temple"
+			}]
+			rewards: [
+				{id: "00122003" type: "item" item: "travelerscompass:travelers_compass" count: 1}
+				{id: "00122004" type: "xp" xp: 125}
+			]
+			title: "YUNG's Handiwork"
+			icon: "travelerscompass:travelers_compass"
+			description: [
+				"§6YUNG's mods replace nearly every vanilla structure with a handcrafted§r"
+				"§6redesign — more rooms, better loot, actual architecture.§r"
+				""
+				"§eAll YUNG's structures in the pack:§r"
+				"§7• §eBetter Dungeons§7 — each dungeon type has 4+ layout variants."
+				"§7• §eBetter Strongholds§7 — multi-wing maze with real boss rooms."
+				"§7• §eBetter Mineshafts§7 — branching tunnels with cave-in setpieces."
+				"§7• §eBetter Desert Temples§7 — actual traps that can kill you."
+				"§7• §eBetter Jungle Temples§7 — redesigned with lore rooms."
+				"§7• §eBetter Witch Huts§7 — expanded with crafting rooms and ingredient storage."
+				"§7• §eBetter Nether Fortresses§7 — wider corridors, better spawner placement."
+				"§7• §eBetter Ocean Monuments§7 — cleaner Guardian arenas."
+				"§7• §eBetter End Island§7 — the outer End islands are restructured."
+				"§7• §eCave Biomes§7 — full cave biomes underground (lush, dripstone overhaul)."
+				"§7• §eBridges§7 — procedural bridges across ravines and rivers."
+				"§7• §eExtras§7 — wells, ruins, small camps across all biomes."
+				""
+				"§7Use §eExplorer's Compass§7 (quest reward above) to target a specific type."
+				""
+				"§a► Clear any YUNG's redesigned structure. Mark done."
+			]
+			dependencies: ["00120001"]
+		}
+
+		{
+			x: -8.0d
+			y: 16.0d
+			id: "00120003"
+			tasks: [{
+				id: "00121003"
+				type: "checkmark"
+				title: "Reach the final floor of a large When Dungeons Arise dungeon (Thornborn Towers, Shiraz Palace, or equivalent)"
+			}]
+			rewards: [
+				{id: "00122005" type: "item" item: "minecraft:ender_eye" count: 4}
+				{id: "00122006" type: "xp" xp: 200}
+			]
+			title: "When Dungeons Arise"
+			icon: "minecraft:iron_door"
+			description: [
+				"§6When Dungeons Arise generates massive multi-floor dungeons§r"
+				"§6scattered across the overworld — each one is a full adventure.§r"
+				""
+				"§eDungeon types (largest to smallest):§r"
+				"§7• §eThornborn Towers§7 — tall spired fortresses, 6–8 floors, elite loot."
+				"§7• §eShiraz Palace§7 — wide desert palace with trap corridors."
+				"§7• §eFrozen Lighthouse§7 — coastal structure with ice and undead."
+				"§7• §eForgotten Wastelands§7 — open ruined complex, many mob types."
+				"§7• §eSmaller WDA dungeons§7 — scattered outposts, each with a loot room."
+				""
+				"§eFinding them:§r"
+				"§7• §eExplorer's Compass§7 — search for 'when_dungeons_arise' structure tags."
+				"§7• §eTraveler's Compass§7 — navigate to discovered POI coordinates."
+				"§7• §eXaero's World Map§7 — WDA dungeons appear as icons after discovery."
+				""
+				"§ePreparation:§r"
+				"§7• §eFull armor§7 — these dungeons scale mob difficulty."
+				"§7• §eArs Nouveau§7 Blink glyph — escape trap rooms instantly."
+				"§7• §eComforts sleeping bag§7 — set spawn inside the dungeon."
+				""
+				"§a► Reach the final floor (deepest loot room). Mark done."
+			]
+			dependencies: ["00120002"]
+		}
+
+		{
+			x: 8.0d
+			y: 16.0d
+			id: "00120004"
+			tasks: [{
+				id: "00121004"
+				type: "checkmark"
+				title: "Loot a When Dungeons Arise: Seven Seas ocean dungeon"
+			}]
+			rewards: [
+				{id: "00122007" type: "item" item: "minecraft:heart_of_the_sea" count: 1}
+				{id: "00122008" type: "xp" xp: 150}
+			]
+			title: "Seven Seas"
+			icon: "minecraft:heart_of_the_sea"
+			description: [
+				"§6When Dungeons Arise: Seven Seas adds ocean-based dungeons§r"
+				"§6— shipwrecks, underwater ruins, and sea fortresses far larger§r"
+				"§6than anything vanilla generates.§r"
+				""
+				"§eStructure types:§r"
+				"§7• §eSunken Ships§7 — multi-deck wrecks with cargo holds."
+				"§7• §eOcean Fortresses§7 — partially submerged bases with Drowned elite spawners."
+				"§7• §eCoastal Outposts§7 — above-water pirate camps near shore."
+				"§7• §eUnderwater Temples§7 — fully submerged with guardian variants."
+				""
+				"§ePreparing for ocean dungeons:§r"
+				"§7• §ePotion of Water Breathing§7 — at least 8 minutes."
+				"§7• §ePotion of Night Vision§7 — visibility in deep ocean structures."
+				"§7• §eArs Nouveau§7 Aqua Affinity glyph — fast mining underwater."
+				"§7• §eSophisticated Backpack§7 — the loot is worth carrying."
+				""
+				"§eFinding them:§r"
+				"§7• §eExplorer's Compass§7 → search ocean structure types."
+				"§7• §eSmall Ships§7 (Ch 2.8) — sail the coastline and let the horizon reveal them."
+				""
+				"§a► Loot a Seven Seas ocean dungeon. Mark done."
+			]
+			dependencies: ["00120002"]
+		}
+
+		// ============================================================
+		// 7.3  ANCIENT CITIES & DEEPER DARKNESS
+		// ============================================================
+
+		{
+			x: 0.0d
+			y: 24.0d
+			id: "00120005"
+			tasks: [{
+				id: "00121005"
+				type: "checkmark"
+				title: "Loot the central chest room of a Deeper and Darker Ancient City without triggering the Warden"
+			}]
+			rewards: [
+				{id: "00122009" type: "item" item: "minecraft:swift_sneak" count: 1}
+				{id: "0012200A" type: "xp" xp: 250}
+			]
+			title: "Ancient Terror"
+			icon: "minecraft:sculk_shrieker"
+			description: [
+				"§6Deeper and Darker massively expands Ancient City content —§r"
+				"§6new rooms, new blocks, and the Warden reworked into a true§r"
+				"§6stealth challenge.§r"
+				""
+				"§eWhat Deeper and Darker adds to Ancient Cities:§r"
+				"§7• §eOtherside Portal§7 — a dimension portal found in the deepest Ancient City rooms."
+				"§7• §eNew sculk structures§7 — sculk libraries, echo shard deposits, reinforced walls."
+				"§7• §eNew blocks§7 — Sculk Bone, Gloom, Reinforced Deepslate variants."
+				"§7• §eWarder variants§7 — additional mob types guarding deeper sections."
+				""
+				"§eSurviving the Ancient City:§r"
+				"§7• §eSneaking only§7 — no sprinting, no falling damage, no mob aggro."
+				"§7• §eArs Nouveau Silence glyph§7 — reduces your noise radius significantly."
+				"§7• §eWool blocks§7 in your hotbar — cover Shriekers before approaching."
+				"§7• §eNight Vision§7 — the City is pitch dark. Wool-covered torches work."
+				"§7• §eIf the Warden spawns§7 — use Blink glyph to escape, don't fight it."
+				""
+				"§eSwift Sneak enchant (reward):§r"
+				"§7• Move at full crouch speed — essential for future City runs."
+				""
+				"§a► Loot the central chest room without summoning the Warden. Mark done."
+			]
+			dependencies: ["00120002"]
+		}
+
+		// ============================================================
+		// 7.4  THE BUMBLEZONE
+		// ============================================================
+
+		{
+			x: -8.0d
+			y: 32.0d
+			id: "00120006"
+			tasks: [{
+				id: "00121006"
+				type: "checkmark"
+				title: "Enter The Bumblezone dimension and collect a piece of Bumblezone Honeycomb"
+			}]
+			rewards: [
+				{id: "0012200B" type: "item" item: "minecraft:honey_bottle" count: 8}
+				{id: "0012200C" type: "xp" xp: 150}
+			]
+			title: "Into the Hive"
+			icon: "minecraft:beehive"
+			description: [
+				"§6The Bumblezone is a bee-themed dimension — a vast honeycomb§r"
+				"§6world filled with bee structures, honey lakes, pollen fields,§r"
+				"§6and unique bee-based mobs not found anywhere else.§r"
+				""
+				"§eHow to enter The Bumblezone:§r"
+				"§7• §eBuild§7 a 3×3 §eHoneycomb Block§7 frame (no corners needed)."
+				"§7• §ePlace§7ony Honey Block in the center."
+				"§7• §eRight-click§7 the Honey Block with a §eBee§7 in your hand."
+				"§7• The portal activates — step through."
+				""
+				"§eAlternative entry:§r"
+				"§7• A naturally-occurring portal can sometimes be found inside§7"
+				"§7  §elarge bee nests§7 in Terralith biomes. Rare but real."
+				""
+				"§eWhat you'll find:§r"
+				"§7• §eHoneycomb terrain§7 — navigable tunnels of massive wax honeycomb."
+				"§7• §eBumble Bee mobs§7 — passive giant bees that aggro if attacked."
+				"§7• §ePollen fields§7 — unique blocks with crafting uses."
+				"§7• §eBumblezone Honey§7 — better healing than vanilla honey bottles."
+				"§7• §eHive Castles§7 — structured dungeons guarded by elite bee mobs."
+				""
+				"§a► Enter The Bumblezone and collect any Bumblezone Honeycomb. Mark done."
+			]
+			dependencies: ["00120002"]
+		}
+
+		{
+			x: -8.0d
+			y: 40.0d
+			id: "00120007"
+			tasks: [{
+				id: "00121007"
+				type: "checkmark"
+				title: "Loot a Hive Castle in The Bumblezone and defeat its guardian"
+			}]
+			rewards: [
+				{id: "0012200D" type: "item" item: "minecraft:golden_apple" count: 4}
+				{id: "0012200E" type: "xp" xp: 250}
+			]
+			title: "Queen's Domain"
+			icon: "minecraft:honeycomb"
+			description: [
+				"§6Hive Castles are The Bumblezone's major structures —§r"
+				"§6large wax-and-comb fortresses guarded by elite bee mobs§r"
+				"§6and containing the dimension's best loot.§r"
+				""
+				"§eFinding a Hive Castle:§r"
+				"§7• §eExplorer's Compass§7 → search for Bumblezone structure types."
+				"§7• §eNavigate§7 the honeycomb tunnels — Castles are visible from elevated terrain."
+				"§7• §eLook for§7 the distinctive §ewax spire§7 towers."
+				""
+				"§eFight strategy:§r"
+				"§7• §eBee mobs§7 inflict Poison — bring Antidote potions or §eBee Sting Resistance§7."
+				"§7• §eArs Nouveau§7 Projectile + Harm + Amplify hits flying mobs reliably."
+				"§7• §eClear the exterior§7 before entering — fewer mobs to corner you."
+				"§7• §eCentral chamber§7 has the guardian — take it slow."
+				""
+				"§eLoot highlights:§r"
+				"§7• §eBumblezone Honey Slab§7 — best food item in the dimension."
+				"§7• §eWax-coated armor§7 — unique Bumblezone armor set."
+				"§7• §ePollen Dust§7 — crafting material for bee-themed blocks."
+				""
+				"§a► Loot the Hive Castle and defeat its guardian. Mark done."
+			]
+			dependencies: ["00120006"]
+		}
+
+		// ============================================================
+		// 7.5  EXPLORER'S TOOLS & ALEX'S CAVES
+		// ============================================================
+
+		{
+			x: 8.0d
+			y: 32.0d
+			id: "00120008"
+			tasks: [
+				{
+					id: "00121008"
+					type: "item"
+					item: "explorerscompass:explorers_compass"
+					count: 1L
+					consume_items: false
+				}
+				{
+					id: "00121009"
+					type: "item"
+					item: "travelerscompass:travelers_compass"
+					count: 1L
+					consume_items: false
+				}
+			]
+			rewards: [
+				{id: "0012200F" type: "item" item: "waystones:warp_stone" count: 2}
+				{id: "00122010" type: "xp" xp: 100}
+			]
+			title: "Explorer's Toolkit"
+			icon: "travelerscompass:travelers_compass"
+			description: [
+				"§6Two compasses, two jobs — together they cover everything.§r"
+				""
+				"§eExplorer's Compass:§r"
+				"§7• §eRight-click§7 → choose a §estructure type§7 from a scrollable list."
+				"§7• Shows the §edistance and direction§7 to the nearest instance."
+				"§7• Supports §eWhen Dungeons Arise§7, §eYUNG's§7, §eBumblezone§7, and all vanilla structures."
+				"§7• Reusable — change the target any time."
+				""
+				"§eTraveler's Compass:§r"
+				"§7• Right-click → select a §ebiome§7 instead of a structure."
+				"§7• Replaces §eNature's Compass§7 for cases when you want biome + structure together."
+				"§7• Useful for finding §eTerralith rare biomes§7 with specific WDA or YUNG's spawns."
+				""
+				"§eCombined workflow:§r"
+				"§7  1. §eTraveler's Compass§7 → find the biome you want."
+				"§7  2. §eExplorer's Compass§7 → find the dungeon type in that biome."
+				"§7  3. §eSmall Ships§7 (Ch 2.8) → travel to it in style."
+				""
+				"§a► Have both compasses. Neither consumed."
+			]
+			dependencies: ["00120002"]
+		}
+
+		{
+			x: 8.0d
+			y: 40.0d
+			id: "00120009"
+			tasks: [{
+				id: "0012100A"
+				type: "checkmark"
+				title: "Discover an Alex's Caves rare cave biome (Primordial Caves, Magnetic Caves, Toxic Caves, or equivalent)"
+			}]
+			rewards: [
+				{id: "00122011" type: "item" item: "minecraft:diamond" count: 8}
+				{id: "00122012" type: "xp" xp: 200}
+			]
+			title: "Deep Geology"
+			icon: "minecraft:amethyst_shard"
+			description: [
+				"§6Alex's Caves adds rare cave biomes deep underground —§r"
+				"§6each with unique geology, mobs, blocks, and hazards§r"
+				"§6that vanilla caving never delivers.§r"
+				""
+				"§eCave biomes to discover:§r"
+				"§7• §ePrimordial Caves§7 — prehistoric jungle underground. Giant ferns, amber."
+				"§7  Unique mobs: §ePrimordial Scarabs§7, §eMushroom Walkers§7."
+				"§7• §eMagnetic Caves§7 — floating magnetite formations. Pulls metal items."
+				"§7  Navigate without iron armor — everything gets yanked sideways."
+				"§7• §eToxic Caves§7 — poisonous sludge pools, mutant mobs."
+				"§7  Bring Antidote potions or a full Ars Nouveau §eCure§7 glyph."
+				"§7• §eAbyssal Chasms§7 — bottomless vertical shafts with abyssal mobs."
+				"§7• §eMushroomic Caves§7 — giant mushroom forests underground."
+				""
+				"§eFinding them:§r"
+				"§7• §eDigging down in the right biome§7 increases rare cave biome spawn rates."
+				"§7• §eXaero's World Map§7 shows cave biomes when you enter them."
+				"§7• Alex's Caves biomes tend to cluster near specific Terralith surface biomes."
+				""
+				"§a► Enter any Alex's Caves rare biome. Mark done."
+			]
+			dependencies: ["00120001"]
+		}
+
+		// ============================================================
+		// 7.6  MASTER GATE
+		// ============================================================
+
+		{
+			x: 0.0d
+			y: 48.0d
+			shape: "hexagon"
+			id: "0012000A"
+			tasks: [{
+				id: "0012100B"
+				type: "checkmark"
+				title: "Complete: WDA dungeon final floor, Ancient City looted, Bumblezone Hive Castle cleared"
+			}]
+			rewards: [
+				{id: "00122013" type: "item" item: "minecraft:glow_item_frame" count: 8}
+				{id: "00122014" type: "xp" xp: 400}
+			]
+			title: "Master Explorer ✦"
+			subtitle: "Every dungeon. Every depth."
+			description: [
+				"§6This gate confirms you've seen the full depth of this world.§r"
+				""
+				"§eRequired milestones:§r"
+				"§7• §eWhen Dungeons Arise§7 — deepest floor looted."
+				"§7• §eAncient City§7 (Deeper Darker) — central chest room cleared."
+				"§7• §eBumblezone Hive Castle§7 — guardian defeated."
+				""
+				"§eOptional but worth doing before this:§r"
+				"§7• §eSeven Seas§7 ocean dungeon looted."
+				"§7• §eYUNG's Stronghold§7 — the End Portal room redesigned by YUNG's Better Strongholds."
+				"§7• §eAlex's Caves§7 — at least two rare biome types discovered."
+				"§7• §eAll compasses§7 in your hotbar — Explorer's + Traveler's + Nature's."
+				""
+				"§eOne quest remains.§r"
+				""
+				"§a► Confirm all three major milestones. Mark done."
+			]
+			dependencies: ["00120003" "00120005" "00120007"]
+		}
+
+		// ============================================================
+		// FINAL GATE — ARCANE FRONTIERS ✦
+		// ID: 0012000B — the ultimate modpack completion gate
+		// ============================================================
+
+		{
+			x: 0.0d
+			y: 56.0d
+			shape: "hexagon"
+			id: "0012000B"
+			tasks: [{
+				id: "0012100C"
+				type: "checkmark"
+				title: "Arcane Frontiers complete — all seven pillars mastered, all gates cleared"
+			}]
+			rewards: [
+				{id: "00122015" type: "item" item: "create:creative_motor" count: 1}
+				{id: "00122016" type: "item" item: "ars_nouveau:archmage_spellbook" count: 1}
+				{id: "00122017" type: "xp" xp: 1000}
+			]
+			title: "Arcane Frontiers ✦"
+			subtitle: "Magic. Machines. A family. A world."
+			description: [
+				"§6This is the end of the Arcane Frontiers quest journey.§r"
+				""
+				"§eAll seven pillars:§r"
+				"§7• §6✔ Magic§7 — Archmage Spellbook, Source Dynamo, ritual automation."
+				"§7• §6✔ Technology§7 — Create power grid, nuclear energy, Silent Gear mastered."
+				"§7• §6✔ Exploration§7 — End cleared, Wither defeated, dungeons conquered."
+				"§7• §6✔ Home§7 — Central Kitchen running, Trophy Room built."
+				"§7• §6✔ Colony§7 — Kingdom ✦ standing, 50+ citizens, T5 Town Hall."
+				"§7• §6✔ Synthesis§7 — magic and technology unified. One machine."
+				"§7• §6✔ Dungeons§7 — WDA, Ancient Cities, Bumblezone, all cleared."
+				""
+				"§eAll chapter gates:§r"
+				"§7• §eCh 0§7 Tutorial complete. §eCh 1§7 Archmage path climbed."
+				"§7• §eCh 2§7 Power Grid online. §eCh 3§7 Dragon Slayer earned."
+				"§7• §eCh 4§7 Hearth & Home. §eCh 5§7 Arcane Synthesis."
+				"§7• §eCh 6§7 Kingdom built. §eCh 7§7 Dungeons conquered."
+				""
+				"§eThe rewards:§r"
+				"§7• §eSecond Creative Motor§7 (capped 256 RPM) — because you earned it twice."
+				"§7• §eSecond Archmage Spellbook§7 — for your most creative new spell."
+				"§7• §e1000 XP§7 — the largest single reward in the pack."
+				""
+				"§eAnd yet — §r"
+				"§7The world is still here. The colony keeps running."
+				"§7The Central Kitchen never stops."
+				"§7The Starbuncle Wheels keep spinning."
+				"§7The family can build anything now."
+				""
+				"§6There is no 'done' in Arcane Frontiers.§r"
+				"§fThere is only §ewhat you build next.§f"
+				""
+				"§a► Mark this done. You made it."
+			]
+			dependencies: ["0012000A"]
+		}
+
+	]
+	quest_links: []
+}
